@@ -1,4 +1,4 @@
-angular.module('starter.services', [])
+angular.module('fastpass.services', [])
 
 /**
  * A simple example service that returns some data.
