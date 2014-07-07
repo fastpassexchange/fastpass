@@ -75,10 +75,10 @@
          <!-- three way data binding -->
          <!-- <input type="text" ng-model="text"/>
           <h1>{{text.offers}}</h1> -->
-          <p>
+          <div class="repeat-offers" ng-repeat="offer in text.offers">
             <a class="button icon icon-right ion-chevron-right"
-            href="#/tab/getDetails">*List of Connection information*</a>
-          </p>
+            href="#/tab/getDetails">{{ offer.username }}</a>
+          </div>
         </ion-content>
       </ion-view>
     </script>
@@ -89,7 +89,6 @@
           <p>connection information details</p>
           <p>
             <a class="button icon-left ion-star button" href="#/tab/home"> Make Connection </a>
-            <div><a class="button icon ion-chevron-left" href="#/tab/getPass"> Back </a>
           </p>
         </ion-content>
       </ion-view>
@@ -106,9 +105,9 @@
     </script>
 
     <script id="nav-stack.html" type="text/ng-template">
-      <ion-view title="Tab Nav Stack">
+      <ion-view title="cool picture">
         <ion-content class="padding">
-          <p><img src="http://ionicframework.com/img/diagrams/tabs-nav-stack.png" style="width:100%"></p>
+          <p>coll picture</p>
         </ion-content>
       </ion-view>
     </script>
@@ -116,8 +115,7 @@
     <script id="contact.html" type="text/ng-template">
       <ion-view title="Contact">
         <ion-content>
-          <p>@IonicFramework</p>
-          <p>@DriftyCo</p>
+          <p>jamesjsdev@gmail.com</p>
         </ion-content>
       </ion-view>
     </script>

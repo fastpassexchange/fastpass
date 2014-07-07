@@ -35,7 +35,7 @@ angular.module('fastpass', ['firebase', 'ionic', 'fastpass.controllers', 'fastpa
       url: "/getPass",
       views: {
         'home-tab': {
-          templateUrl: "getPass.html"
+          templateUrl: "templates/passes.html",
         }
       }
     })

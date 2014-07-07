@@ -1,0 +1,11 @@
+<ion-view title="Get Fastpass" ng-controller="listController" class="padding">
+  <ion-content>
+   <!-- three way data binding -->
+   <!-- <input type="text" ng-model="text"/>
+    <h1>{{text.offers}}</h1> -->
+    <div class="repeat-offers" ng-repeat="offer in text.offers">
+      <a class="button icon icon-right ion-chevron-right"
+      ui-sref="tabs.getDetails">{{ offer.username }}</a>
+    </div>
+  </ion-content>
+</ion-view>
