@@ -3,6 +3,11 @@ angular.module('fastpass.services', [])
 /**
  * A simple example service that returns some data.
  */
+.factory('listService', ['$firebase', function($firebase) {
+  var ref = new Firebase('https://fastpass-connection.firebaseio.com/');
+  return $firebase(ref);
+}])
+
 .factory('Friends', function() {
   // Might use a resource here that returns a JSON array
 
@@ -22,5 +27,5 @@ angular.module('fastpass.services', [])
       // Simple index lookup
       return friends[friendId];
     }
-  }
+  };
 });
