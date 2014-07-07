@@ -1,0 +1,9 @@
+{
+  "firebase": "fastpass-connection",
+  "public": "www",
+  "ignore": [
+    "firebase.json",
+    ".*",
+    "**/node_modules/**"
+  ]
+}
