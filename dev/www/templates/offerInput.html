@@ -4,23 +4,23 @@
     <form name="offerList" ng-submit="addOffer()">
       <label class="item item-input">
         <span class="input-label">name</span>
-        <input type="text" ng-model="offer.name" name="name">
+        <input type="text" ng-model="offer.name" required name="name">
       </label>
       <label class="item item-input">
         <span class="input-label">ride</span>
-        <input type="text" ng-model="offer.ride" name="ride">
+        <input type="text" ng-model="offer.ride" required name="ride">
       </label>
       <label class="item item-input">
         <span class="input-label">number of passes</span>
-        <input type="number" ng-model="offer.number_give" name="number_give">
+        <input type="number" ng-model="offer.number_give" required name="number_give">
       </label>
       <label class="item item-input">
         <span class="input-label">current location</span>
-        <input type="text" ng-model="offer.location" name="location">
+        <input type="text" ng-model="offer.location" required name="location">
       </label>
       <label class="item item-input">
         <span class="input-label">comment</span>
-        <input type="text" ng-model="offer.comment" name="comment">
+        <input type="text" ng-model="offer.comment" required name="comment">
       </label>
       <!-- <input type="submit" id="submit" value="Submit" /> -->
       <button class="button button-block button-calm" type="submit">

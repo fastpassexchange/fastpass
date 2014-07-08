@@ -46,7 +46,7 @@
           <ion-nav-view name="about-tab"></ion-nav-view>
         </ion-tab>
 
-        <ion-tab title="Contact" icon="ion-ios7-world" ui-sref="tabs.contact">
+        <ion-tab title="sign in" icon="ion-log-in" ui-sref="tabs.contact">
           <ion-nav-view name="contact-tab"></ion-nav-view>
         </ion-tab>
 
@@ -60,11 +60,12 @@
           navigate to child views of each tab and notice how
           each tab has its own navigation history.</p>-->
           <p>
-            <a class="button icon icon-right ion-chevron-right" href="#/tab/getPass">Get Fastpass</a>
+            <a class="button button-block button-stable" href="#/tab/getPass">Get Fastpass</a>
           </p>
           <p>
-            <a class="button icon icon-right ion-chevron-right" href="#/tab/offerInput">Give Fastpass</a>
+            <a class="button button-block button-stable" href="#/tab/offerInput">Give Fastpass</a>
           </p>
+          <img src="img/logo2.png" alt="disney map load error" class="imagelogo">
         </ion-content>
       </ion-view>
     </script>
@@ -92,7 +93,7 @@
           <p> current location: {{ selected.location }}</p>
           <p> comment: {{ selected.comment }}</p>
           <p>
-            <a class="button icon-left ion-star button" href="#/tab/connection">Make Connection </a>
+            <a class="button button-block button-stable" href="#/tab/connection">Make Connection</a>
           </p>
           <p> * to make a connection you must be within the park, have location services enabled, and allow others to see you current location
           </p>
@@ -108,14 +109,25 @@
             <span class="input-label">Message to {{ selected.name }}</span>
             <input type="text" placeholder="write message" ng-model="comment.text">
           </label>
-          <button class="button button-block button-calm" type="submit" ng-click="sendComment(comment.text)">
-            send comment
+          <button class="button button-block button-stable" type="submit" ng-click="sendComment()">
+            send message
           </button>
         </form>
         <p>{{ selected.name }}s location:</p>
         <img src="img/disneymap.png" alt="disney map load error" class="image">
         </ion-content>
       </ion-view>
+    </script>
+
+    <script id="my-modal.html" type="text/ng-template">
+      <div class="modal">
+        <ion-header-bar>
+          <h1 class="title">My Modal title</h1>
+        </ion-header-bar>
+        <ion-content>
+          Hello!
+        </ion-content>
+      </div>
     </script>
 
 
@@ -130,11 +142,28 @@
     </script>
 
     <script id="contact.html" type="text/ng-template">
-      <ion-view title="Contact">
-        <ion-content>
-          <p>jamesjsdev@gmail.com</p>
-        </ion-content>
-      </ion-view>
+      <ion-header-bar class="bar-calm">
+        <h1 class="title">Sign In</h1>
+      </ion-header-bar>
+      
+        <ion-view ng-controller="loginController">
+          <ion-content class="has-header padding">
+            <form class="list">
+              <label class="item item-input">
+                <span class="input-label">Email</span>
+                <input type="text" ng-model="user.email">
+              </label>
+              <label class="item item-input">
+                <span class="input-label">Password</span>
+                <input type="password" ng-model="user.password">
+              </label>
+              <label class="item item-input">
+                <button class="button button-block button-stable" type= "submit" ng-click="validateUser()">Sign In</button>
+              </label>
+            </form>
+          </ion-content>
+        </ion-view>
+
     </script>
 
     <!-- 
