@@ -3,9 +3,10 @@
    <!-- three way data binding -->
    <!-- <input type="text" ng-model="text"/>
     <h1>{{text.offers}}</h1> -->
-    <div class="repeat-offers" ng-repeat="offer in text.offers">
+    <!-- displays in order on firebase -->
+    <div class="repeat-offers" ng-repeat="offer in text.offers | orderByPriority">
       <a class="button icon icon-right ion-chevron-right"
-      ui-sref="tabs.getDetails">{{ offer.ride }}  {{ offer.number-give }}</a>
+      ui-sref="tabs.getDetails">{{ offer.ride }}  {{ offer.number_give }}</a>
     </div>
   </ion-content>
 </ion-view>

@@ -2,15 +2,10 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
 .controller('listController', function($scope, $state, listService) {
   $scope.text = listService;
-  // the following line does not work, why?
-  // service.$bind($scope, "text");
-  // $scope.addOffer = function() {
-  //   // add details from form to database
-  //   // $scope.text.$add({});
-  //   // $scope.text
-  // };
+ 
 })
 
+// couldn't get three way data binding to work :(
 // .controller('listController', ['$scope', 'listService',
 //   function($scope, service) {
 //     service.$bind($scope, 'text');
@@ -24,7 +19,21 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     console.log($scope.offer);
     var offerRef = new Firebase('https://fastpass-connection.firebaseio.com/offers');
     $firebase(offerRef).$add($scope.offer);
+    // clear input fields of form
+    $scope.offer = {
+      name: '',
+      ride: '',
+      number_give: '',
+      location: '',
+      comment: ''
+    };
   };
+})
+
+.controller('detailController', function($scope, $firebase) {
+  
+  
+
 })
 
 .controller('HomeTabCtrl', function($scope) {
