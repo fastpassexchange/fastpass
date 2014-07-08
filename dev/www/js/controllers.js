@@ -1,8 +1,14 @@
 angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
-.controller('listController', function($scope, $state, listService) {
+.controller('listController', function($scope, $state, $rootScope, listService) {
   $scope.text = listService;
- 
+   $scope.setMaster = function(section) {
+    $rootScope.selected = section;
+    console.log($scope.selected);
+  };
+  // $scope.isSelected = function(section) {
+  //   return $scope.selected === section;
+  // };
 })
 
 // couldn't get three way data binding to work :(
@@ -31,10 +37,18 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 })
 
 .controller('detailController', function($scope, $firebase) {
-  
-  
+
 
 })
+
+// .controller('adminController', function($scope) {
+//   $scope.setMaster = function(section) {
+//     $scope.selected = section;
+//   };
+//   $scope.isSelected = function(section) {
+//     return $scope.selected === section;
+//   };
+// })
 
 .controller('HomeTabCtrl', function($scope) {
   console.log('HomeTabCtrl');

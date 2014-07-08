@@ -84,14 +84,20 @@
     </script> -->
 
     <script id="getDetails.html" type="text/ng-template">
-      <ion-view title="Details">
-        <ion-content class="padding">
-          <p>connection information details</p>
+      <ion-view title="Details" ng-controller="listController" class="padding">
+        <ion-content>
+        <!-- list style type 1 -->
+          <ul>{{ selected.name }}</ul>
+          <ul>{{ selected.ride }}</ul>
+          <ul>{{ selected.number_give }}</ul>
+          <ul>{{ selected.location }}</ul>
+          <ul>{{ selected.comment }}</ul>
           <p>
-            <a class="button icon-left ion-star button" href="#/tab/home"> Make Connection </a>
+            <a class="button icon-left ion-star button" href="#/tab/home">Make Connection </a>
           </p>
         </ion-content>
       </ion-view>
+      </div>
     </script>
 
     <script id="about.html" type="text/ng-template">
