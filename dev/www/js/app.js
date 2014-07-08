@@ -39,6 +39,14 @@ angular.module('fastpass', ['firebase', 'ionic', 'fastpass.controllers', 'fastpa
         }
       }
     })
+    .state('tabs.offerInput', {
+      url: "/offerInput",
+      views: {
+        'home-tab': {
+          templateUrl: "templates/offerInput.html",
+        }
+      }
+    })
     .state('tabs.getDetails', {
       url: "/getDetails",
       views: {

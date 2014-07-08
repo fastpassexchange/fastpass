@@ -3,6 +3,10 @@ angular.module('fastpass.services', ['ionic'])
 .factory('listService', ['$firebase', function($firebase) {
   var ref = new Firebase('https://fastpass-connection.firebaseio.com/');
   return $firebase(ref);
+}])
+
+.factory('formService', [function() {
+  
 }]);
 
 // .factory('Friends', function() {
