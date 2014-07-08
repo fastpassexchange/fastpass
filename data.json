@@ -1,30 +1,30 @@
 {  
   "offers" : [{
-    "username": "James Yothers",
-    "trade-for": "Matterhorn",
-    "number-give": 4,
+    "name": "James Yothers",
+    "ride": "Matterhorn",
+    "number_give": 4,
     "location": "Critter County",
-    "Comment": "selling for $50",
+    "comment": "selling for $50",
     "createdAt": "20140707T185314Z"
   }, {
-    "username": "Steve Tye",
-    "trade-for": "Space Mountain",
-    "number-give": 3,
+    "name": "Steve Tye",
+    "ride": "Space Mountain",
+    "number_give": 3,
     "location": "Adventureland",
-    "Comment": "selling for $40",
+    "comment": "selling for $40",
     "createdAt": "20140707T195314Z"
   },
   {
-    "username": "Ron Type",
+    "name": "Ron Type",
     "ride": "Big ass thunder mountain",
-    "number-give": 2,
+    "number_give": 2,
     "location": "Critter County",
-    "Comment": "I'll sell for $40",
+    "comment": "I'll sell for $40",
     "createdAt": "20140707T204543Z"
   }, {
-    "username": "Kristi Riche",
+    "name": "Kristi Riche",
     "ride": "Winnie the Pooh",
-    "number-give": 5,
+    "number_give": 5,
     "location": "Toon Town",
     "Comment": "These are free",
     "createdAt": "20140707T213416Z"

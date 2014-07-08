@@ -1,26 +1,32 @@
-<ion-view title="Give Fastpass" ng-controller="formController" class="padding">
+<ion-view title="Give Fastpass" ng-controller="offerController" class="padding">
   <ion-content>
     <div class="list">
+    <form name="offerList" ng-submit="addOffer()">
       <label class="item item-input">
         <span class="input-label">name</span>
-        <input type="text">
+        <input type="text" ng-model="offer.name" name="name">
       </label>
       <label class="item item-input">
         <span class="input-label">ride</span>
-        <input type="password">
+        <input type="text" ng-model="offer.ride" name="ride">
       </label>
       <label class="item item-input">
         <span class="input-label">number of passes</span>
-        <input type="text">
+        <input type="number" ng-model="offer.number_give" name="number_give">
       </label>
       <label class="item item-input">
         <span class="input-label">current location</span>
-        <input type="text">
+        <input type="text" ng-model="offer.location" name="location">
       </label>
       <label class="item item-input">
         <span class="input-label">comment</span>
-        <input type="text">
+        <input type="text" ng-model="offer.comment" name="comment">
       </label>
+      <!-- <input type="submit" id="submit" value="Submit" /> -->
+      <button class="button button-block button-calm" type="submit">
+        submit
+      </button>
+    </form>
     </div>
  </ion-content>
 </ion-view>
