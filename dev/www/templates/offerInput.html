@@ -6,9 +6,15 @@
         <span class="input-label">name</span>
         <input type="text" ng-model="offer.name" required name="name">
       </label>
-      <label class="item item-input">
+      <!--<label class="item item-input">
         <span class="input-label">ride</span>
-        <input type="text" ng-model="offer.ride" required name="ride">
+        <input type="text"  name="ride">
+          <select ng-model="offer.ride" required>
+            <option value="splash mountain">splash mountain</option>option>
+          </select>
+      </label>-->
+      <label class="item item-input">
+        <select ng-model="offer.ride" ng-options="ride for ride in rides"></select>
       </label>
       <label class="item item-input">
         <span class="input-label">number of passes</span>

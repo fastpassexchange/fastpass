@@ -33,10 +33,23 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
 .controller('offerController', function($scope, $firebase, formService) {
   $scope.offer = {};
+  $scope.rides = [
+    'splash mountain',
+    'space mountain',
+    'big thunder mountain railroad',
+    'buzz lightyear astro blasters',
+    'haunted mansion',
+    'indiana jones',
+    'matterhorn bobsleds',
+    'star tours'
+  ];
+  $scope.offer.ride = $scope.rides[0];
+
   $scope.addOffer = function() {
     $scope.offer.createdAt = new Date();
     console.log($scope.offer);
     var offerRef = new Firebase('https://fastpass-connection.firebaseio.com/offers');
+    //delete $scope.offer.rides;
     $firebase(offerRef).$add($scope.offer);
     // clear input fields of form
     $scope.offer = {
