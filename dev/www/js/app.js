@@ -36,6 +36,7 @@ angular.module('fastpass', ['firebase', 'ionic', 'fastpass.controllers', 'fastpa
       views: {
         'home-tab': {
           templateUrl: "templates/passes.html",
+          controller: 'listController'
         }
       }
     })
@@ -44,6 +45,7 @@ angular.module('fastpass', ['firebase', 'ionic', 'fastpass.controllers', 'fastpa
       views: {
         'home-tab': {
           templateUrl: "templates/offerInput.html",
+          controller: 'offerController'
         }
       }
     })
@@ -51,7 +53,17 @@ angular.module('fastpass', ['firebase', 'ionic', 'fastpass.controllers', 'fastpa
       url: "/getDetails",
       views: {
         'home-tab': {
-          templateUrl: "getDetails.html"
+          templateUrl: "getDetails.html",
+          controller: 'detailController'
+        }
+      }
+    })
+    .state('tabs.connection', {
+      url: "/connection",
+      views: {
+        'home-tab': {
+          templateUrl: "connection.html",
+          controller: 'connectionController'
         }
       }
     })

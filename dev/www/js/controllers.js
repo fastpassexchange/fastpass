@@ -1,8 +1,21 @@
 angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
+// .controller('LoadingCtrl', function($scope, $ionicLoading) {
+//   $scope.show = function() {
+//     $ionicLoading.show({
+//       template: 'Loading...'
+//     });
+//   };
+//   $scope.hide = function(){
+//     $ionicLoading.hide();
+//   };
+// })
+
 .controller('listController', function($scope, $state, $rootScope, listService) {
   $scope.text = listService;
+   // getting object that we click on to see detailed view
    $scope.setMaster = function(section) {
+    // setting this object on the rootscope so that we can access it in the detailed view
     $rootScope.selected = section;
     console.log($scope.selected);
   };
@@ -38,6 +51,20 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
 .controller('detailController', function($scope, $firebase) {
 
+
+})
+
+.controller('connectionController', function($scope, $firebase, $rootScope) {
+  $scope.comment = {
+    text: ''
+  };
+  $scope.sendComment = function(input) {
+    console.log($scope.comment.text);
+    $scope.comment.text = '';
+    console.log($scope.comment.text);
+    
+
+  };
 
 })
 

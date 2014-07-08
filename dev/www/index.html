@@ -85,35 +85,46 @@
 
     <script id="getDetails.html" type="text/ng-template">
       <ion-view title="Details" ng-controller="listController" class="padding">
-        <ion-content>
-        <!-- list style type 1 -->
-          <ul>{{ selected.name }}</ul>
-          <ul>{{ selected.ride }}</ul>
-          <ul>{{ selected.number_give }}</ul>
-          <ul>{{ selected.location }}</ul>
-          <ul>{{ selected.comment }}</ul>
+        <ion-content>        
+          <p> name: {{ selected.name }}</p>
+          <p> ride: {{ selected.ride }}</p>
+          <p> number of passes: {{ selected.number_give }}</p>
+          <p> current location: {{ selected.location }}</p>
+          <p> comment: {{ selected.comment }}</p>
           <p>
-            <a class="button icon-left ion-star button" href="#/tab/home">Make Connection </a>
+            <a class="button icon-left ion-star button" href="#/tab/connection">Make Connection </a>
+          </p>
+          <p> * to make a connection you must be within the park, have location services enabled, and allow others to see you current location
           </p>
         </ion-content>
       </ion-view>
-      </div>
     </script>
+
+    <script id="connection.html" type="text/ng-template">
+      <ion-view title="Make Connection" ng-controller="connectionController" class="padding">
+        <ion-content>
+        <form>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Message to {{ selected.name }}</span>
+            <input type="text" placeholder="write message" ng-model="comment.text">
+          </label>
+          <button class="button button-block button-calm" type="submit" ng-click="sendComment(comment.text)">
+            send comment
+          </button>
+        </form>
+        <p>{{ selected.name }}s location:</p>
+        <img src="img/disneymap.png" alt="disney map load error" class="image">
+        </ion-content>
+      </ion-view>
+    </script>
+
 
     <script id="about.html" type="text/ng-template">
       <ion-view title="About">
         <ion-content class="padding">
           <p>
-            <a class="button icon icon-right ion-chevron-right" href="#/tab/navstack">Tabs Nav Stack</a>
+            <!-- <a class="button icon icon-right ion-chevron-right" href="#/tab/navstack">Tabs Nav Stack</a> -->
           </p>
-        </ion-content>
-      </ion-view>
-    </script>
-
-    <script id="nav-stack.html" type="text/ng-template">
-      <ion-view title="cool picture">
-        <ion-content class="padding">
-          <p>coll picture</p>
         </ion-content>
       </ion-view>
     </script>
