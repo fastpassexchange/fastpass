@@ -3,175 +3,38 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <title></title>
-
+    <title>fastpass connection</title>
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
-
     <script src="lib/ionic/js/ionic.bundle.js"></script>
     <script src="https://cdn.firebase.com/js/client/1.0.17/firebase.js"></script>
     <script src="https://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js"></script>
     <script src="https://cdn.firebase.com/js/simple-login/1.5.0/firebase-simple-login.js"></script>
-
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
-
     <script src="js/app.js"></script>
     <script src="js/controllers.js"></script>
     <script src="js/services.js"></script>
-
   </head>
 
   <body>  
-
+    <!-- back button on all tabs pages -->
     <ion-nav-bar class="nav-title-slide-ios7 bar-calm">
       <ion-nav-back-button class="button-icon ion-arrow-left-c">
       </ion-nav-back-button>
     </ion-nav-bar>
-             
+    
+    <!-- pages swipe left or right like a photo -->         
     <ion-nav-view animation="slide-left-right"></ion-nav-view>
-
-    <script id="tabs.html" type="text/ng-template">
-      <ion-tabs class="tabs-icon-top tabs-calm">
-
-        <ion-tab title="Home" icon="ion-home" href="#/tab/home">
-          <ion-nav-view name="home-tab"></ion-nav-view>
-        </ion-tab>
-
-        <ion-tab title="About" icon="ion-ios7-information" href="#/tab/about">
-          <ion-nav-view name="about-tab"></ion-nav-view>
-        </ion-tab>
-
-        <ion-tab title="sign in" icon="ion-log-in" ui-sref="tabs.contact">
-          <ion-nav-view name="contact-tab"></ion-nav-view>
-        </ion-tab>
-
-      </ion-tabs>
-    </script>
-
-    <script id="home.html" type="text/ng-template">
-      <ion-view title="Home">
-        <ion-content class="padding">
-          <!--<p>Example of Ionic tabs. Navigate to each tab, and
-          navigate to child views of each tab and notice how
-          each tab has its own navigation history.</p>-->
-          <p>
-            <a class="button button-block button-stable" href="#/tab/getPass">Get Fastpass</a>
-          </p>
-          <p>
-            <a class="button button-block button-stable" href="#/tab/offerInput">Give Fastpass</a>
-          </p>
-          <img src="img/logo2.png" alt="disney map load error" class="imagelogo">
-        </ion-content>
-      </ion-view>
-    </script>
-
-    <!-- <script id="getPass.html" type="text/ng-template">
-      <ion-view title="Get Fastpass" ng-controller="listController" class="padding">
-        <ion-content>
-         <!-- three way data binding -->
-         <!-- <input type="text" ng-model="text"/>
-          <h1>{{text.offers}}</h1> -->
-          <!-- <div class="repeat-offers" ng-repeat="offer in text.offers">
-            <a class="button icon icon-right ion-chevron-right"
-            href="#/tab/getDetails"></a> -->
-          </div>
-        </ion-content>
-      </ion-view>
-    </script> -->
-
-    <script id="getDetails.html" type="text/ng-template">
-      <ion-view title="Details" ng-controller="listController" class="padding">
-        <ion-content>        
-          <p> name: {{ selected.name }}</p>
-          <p> ride: {{ selected.ride }}</p>
-          <p> {{ selected.number_give }}</p>
-          <p> price: {{ selected.comment }}</p>
-          <p> {{ selected.location }}</p>
-          <p>
-            <a class="button button-block button-stable" href="#/tab/connection">Make Connection</a>
-          </p>
-          <p> * to make a connection you must be within the park, have location services enabled, and allow others to see you current location
-          </p>
-        </ion-content>
-      </ion-view>
-    </script>
-
-    <script id="connection.html" type="text/ng-template">
-      <ion-view title="Make Connection" ng-controller="connectionController" class="padding">
-        <ion-content>
-        <form>
-          <label class="item item-input item-stacked-label">
-            <span class="input-label">Message to {{ selected.name }}</span>
-            <input type="text" placeholder="write message" ng-model="comment.text">
-          </label>
-          <button class="button button-block button-stable" type="submit" ng-click="sendComment()">
-            send message
-          </button>
-        </form>
-        <p>{{ selected.name }}s location:</p>
-        <img src="img/disneymap.png" alt="disney map load error" class="image">
-        </ion-content>
-      </ion-view>
-    </script>
-
-    <script id="my-modal.html" type="text/ng-template">
-      <div class="modal">
-        <ion-header-bar>
-          <h1 class="title">My Modal title</h1>
-        </ion-header-bar>
-        <ion-content>
-          Hello!
-        </ion-content>
-      </div>
-    </script>
-
-
-    <script id="about.html" type="text/ng-template">
-      <ion-view title="About">
-        <ion-content class="padding">
-          <p>
-            <!-- <a class="button icon icon-right ion-chevron-right" href="#/tab/navstack">Tabs Nav Stack</a> -->
-          </p>
-        </ion-content>
-      </ion-view>
-    </script>
-
-    <script id="contact.html" type="text/ng-template">
-      <ion-view title="Sign In" ng-controller="loginController">
-      
-      <ion-header-bar class="bar-calm">
-        <h1 class="title">Sign In</h1>
-      </ion-header-bar>
-      
-          <ion-content class="has-header padding">
-            <form class="list">
-              <label class="item item-input">
-                <span class="input-label">Email</span>
-                <input type="text" ng-model="user.email">
-              </label>
-              <label class="item item-input">
-                <span class="input-label">Password</span>
-                <input type="password" ng-model="user.password">
-              </label>
-              <label class="item item-input">
-                <button class="button button-block button-stable" type= "submit" ng-click="validateUser()">Sign In</button>
-              </label>
-            </form>
-          </ion-content>
-        </ion-view>
-
-    </script>
 
     <!-- 
       The views will be rendered in the <ion-nav-view> directive below
       Templates are in the /templates folder (but you could also
       have templates inline in this html file if you'd like).
     -->
-    <!--<ion-nav-view></ion-nav-view>-->
+    <ion-nav-view></ion-nav-view>
   </body>
 </html>

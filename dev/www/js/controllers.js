@@ -1,5 +1,6 @@
 angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
+// need to implement loading feature
 // .controller('LoadingCtrl', function($scope, $ionicLoading) {
 //   $scope.show = function() {
 //     $ionicLoading.show({
@@ -19,9 +20,6 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     $rootScope.selected = section;
     console.log($scope.selected);
   };
-  // $scope.isSelected = function(section) {
-  //   return $scope.selected === section;
-  // };
 })
 
 // couldn't get three way data binding to work :(
@@ -33,7 +31,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
 .controller('offerController', function($scope, $firebase, formService) {
   $scope.offer = {};
-
+  // $scope properties for drop down menus
   $scope.rides = [
     'splash mountain',
     'space mountain',
@@ -78,16 +76,19 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     'sell for $100',
   ];
 
+  // set default properties for drop down menus
   $scope.offer.ride = $scope.rides[0];
   $scope.offer.location = $scope.locations[0];
   $scope.offer.number_give = $scope.numbers_give[0];
   $scope.offer.comment = $scope.comments[0];
 
+  // when user submits an offer do this
   $scope.addOffer = function() {
+    // set a createdAt property that is equal to the current date/time
     $scope.offer.createdAt = new Date();
-    console.log($scope.offer);
+    // get all offers from the database
     var offerRef = new Firebase('https://fastpass-connection.firebaseio.com/offers');
-    //delete $scope.offer.rides;
+    // add new offer to the database
     $firebase(offerRef).$add($scope.offer);
     // clear input fields of form
     $scope.offer = {
@@ -106,6 +107,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 })
 
 .controller('connectionController', function($scope, $firebase, $rootScope, $ionicModal) {
+  // handle messages to/from users
   $scope.comment = {
     text: ''
   };
@@ -114,15 +116,17 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     console.log($scope.comment.text);
     $scope.comment.text = '';
     console.log($scope.comment.text);
+    // try to use modal for successful send of message
     // $scope.openModal();
   };
 
-    $ionicModal.fromTemplateUrl('my-modal.html', {
-      scope: $scope,
-      animation: 'slide-in-up'
-    }).then(function(modal) {
-      $scope.modal = modal;
-    });
+  // unused modal functionality
+  $ionicModal.fromTemplateUrl('templates/my-modal.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.modal = modal;
+  });
 
   $scope.openModal = function() {
     $scope.modal.show();
@@ -145,21 +149,13 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
 })
 
-// .controller('adminController', function($scope) {
-//   $scope.setMaster = function(section) {
-//     $scope.selected = section;
-//   };
-//   $scope.isSelected = function(section) {
-//     return $scope.selected === section;
-//   };
-// })
-// 
-
 .controller('loginController', function($scope, $firebase) {
   $scope.user = {
     email: '',
     password: ''
   };
+  // use this tutorial for firebase simple login, give option for FB or Twitter
+  // http://www.sitepoint.com/creating-firebase-powered-end-end-ionic-application
   $scope.validateUser = function() {
     console.log($scope.user);
     $scope.user = {

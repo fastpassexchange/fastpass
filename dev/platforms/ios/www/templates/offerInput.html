@@ -6,20 +6,9 @@
         <span class="input-label">name</span>
         <input type="text" ng-model="offer.name" required name="name">
       </label>
-      <!--<label class="item item-input">
-        <span class="input-label">ride</span>
-        <input type="text"  name="ride">
-          <select ng-model="offer.ride" required>
-            <option value="splash mountain">splash mountain</option>option>
-          </select>
-      </label>-->
       <label class="item item-input">
         <select ng-model="offer.ride" ng-options="ride for ride in rides"></select>
       </label>
-      <!-- <label class="item item-input">
-        <span class="input-label">number of passes</span>
-        <input type="number" ng-model="offer.number_give" required name="number_give">
-      </label> -->
       <label class="item item-input">
         <select ng-model="offer.location" ng-options="location for location in locations"></select>
       </label>
@@ -29,11 +18,10 @@
       <label class="item item-input">
         <select ng-model="offer.comment" ng-options="comment for comment in comments"></select>
       </label>
-      <!-- <input type="submit" id="submit" value="Submit" /> -->
       <button class="button button-block button-calm" type="submit">
         submit
       </button>
     </form>
     </div>
- </ion-content>
+   </ion-content>
 </ion-view>

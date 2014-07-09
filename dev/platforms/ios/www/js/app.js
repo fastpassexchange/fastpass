@@ -14,19 +14,20 @@ angular.module('fastpass', ['firebase', 'ionic', 'fastpass.controllers', 'fastpa
   });
 })
 
+// ui-router https://github.com/angular-ui/ui-router
 .config(function($stateProvider, $urlRouterProvider) {
 
   $stateProvider
     .state('tabs', {
       url: "/tab",
       abstract: true,
-      templateUrl: "tabs.html"
+      templateUrl: "templates/tabs.html"
     })
     .state('tabs.home', {
       url: "/home",
       views: {
         'home-tab': {
-          templateUrl: "home.html",
+          templateUrl: "templates/home.html",
           controller: 'HomeTabCtrl'
         }
       }
@@ -53,7 +54,7 @@ angular.module('fastpass', ['firebase', 'ionic', 'fastpass.controllers', 'fastpa
       url: "/getDetails",
       views: {
         'home-tab': {
-          templateUrl: "getDetails.html",
+          templateUrl: "templates/getDetails.html",
           controller: 'detailController'
         }
       }
@@ -62,7 +63,7 @@ angular.module('fastpass', ['firebase', 'ionic', 'fastpass.controllers', 'fastpa
       url: "/connection",
       views: {
         'home-tab': {
-          templateUrl: "connection.html",
+          templateUrl: "templates/connection.html",
           controller: 'connectionController'
         }
       }
@@ -71,7 +72,7 @@ angular.module('fastpass', ['firebase', 'ionic', 'fastpass.controllers', 'fastpa
       url: "/about",
       views: {
         'about-tab': {
-          templateUrl: "about.html"
+          templateUrl: "templates/about.html"
         }
       }
     })
@@ -79,21 +80,19 @@ angular.module('fastpass', ['firebase', 'ionic', 'fastpass.controllers', 'fastpa
       url: "/navstack",
       views: {
         'about-tab': {
-          templateUrl: "nav-stack.html"
+          templateUrl: "templates/nav-stack.html"
         }
       }
     })
-    .state('tabs.contact', {
-      url: "/contact",
+    .state('tabs.signin', {
+      url: "/signin",
       views: {
         'contact-tab': {
-          templateUrl: "contact.html"
+          templateUrl: "templates/signin.html"
         }
       }
     });
-
-
+   // if any other url is entered go to home page
    $urlRouterProvider.otherwise("/tab/home");
-
 });
 

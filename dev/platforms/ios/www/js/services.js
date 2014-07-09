@@ -1,5 +1,7 @@
 angular.module('fastpass.services', ['ionic'])
 
+// factory to setup our firebase connection
+// used in listController
 .factory('listService', ['$firebase', function($firebase) {
   var ref = new Firebase('https://fastpass-connection.firebaseio.com/');
   return $firebase(ref);
@@ -9,6 +11,7 @@ angular.module('fastpass.services', ['ionic'])
   
 }]);
 
+// leftover tutorial junk
 // .factory('Friends', function() {
 //   // Might use a resource here that returns a JSON array
 
