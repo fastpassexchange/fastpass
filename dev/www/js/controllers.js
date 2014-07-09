@@ -33,6 +33,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
 .controller('offerController', function($scope, $firebase, formService) {
   $scope.offer = {};
+
   $scope.rides = [
     'splash mountain',
     'space mountain',
@@ -43,7 +44,44 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     'matterhorn bobsleds',
     'star tours'
   ];
+
+  $scope.locations = [
+    'current location: adventureland',
+    'current location: critter country',
+    'current location: fantasyland',
+    'current location: frontierland',
+    'current location: main street',
+    'current loctation: mickey\'s toontown',
+    'current location: new orleans square',
+    'current location: tomorrowland'
+  ];
+
+  $scope.numbers_give = [
+    '1 fastpass',
+    '2 fastpasses',
+    '3 fastpasses',
+    '4 fastpasses',
+    '5 fastpasses'
+  ];
+
+  $scope.comments = [
+    'free',
+    'sell for $10',
+    'sell for $20',
+    'sell for $30',
+    'sell for $40',
+    'sell for $50',
+    'sell for $60',
+    'sell for $70',
+    'sell for $80',
+    'sell for $90',
+    'sell for $100',
+  ];
+
   $scope.offer.ride = $scope.rides[0];
+  $scope.offer.location = $scope.locations[0];
+  $scope.offer.number_give = $scope.numbers_give[0];
+  $scope.offer.comment = $scope.comments[0];
 
   $scope.addOffer = function() {
     $scope.offer.createdAt = new Date();

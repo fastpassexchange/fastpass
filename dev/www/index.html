@@ -89,9 +89,9 @@
         <ion-content>        
           <p> name: {{ selected.name }}</p>
           <p> ride: {{ selected.ride }}</p>
-          <p> number of passes: {{ selected.number_give }}</p>
-          <p> current location: {{ selected.location }}</p>
-          <p> comment: {{ selected.comment }}</p>
+          <p> {{ selected.number_give }}</p>
+          <p> price: {{ selected.comment }}</p>
+          <p> {{ selected.location }}</p>
           <p>
             <a class="button button-block button-stable" href="#/tab/connection">Make Connection</a>
           </p>
@@ -142,11 +142,12 @@
     </script>
 
     <script id="contact.html" type="text/ng-template">
+      <ion-view title="Sign In" ng-controller="loginController">
+      
       <ion-header-bar class="bar-calm">
         <h1 class="title">Sign In</h1>
       </ion-header-bar>
       
-        <ion-view ng-controller="loginController">
           <ion-content class="has-header padding">
             <form class="list">
               <label class="item item-input">

@@ -63,3 +63,116 @@
 2014-07-07 15:41:55.228 Fastpass Connection[5943:70b] Resetting plugins due to page load.
 2014-07-07 15:41:55.497 Fastpass Connection[5943:70b] Finished load of: file:///Users/jamesyothers/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/365B309D-BFD0-4E30-A4BC-945B20FC32C3/Fastpass%20Connection.app/www/index.html#/tab/home
 2014-07-07 15:42:27.245 Fastpass Connection[5943:70b] HomeTabCtrl
+2014-07-08 16:53:02.565 Fastpass Connection[20761:70b] Multi-tasking -> Device: YES, App: YES
+2014-07-08 16:53:02.588 Fastpass Connection[20761:70b] Unlimited access to network resources
+2014-07-08 16:53:02.717 Fastpass Connection[20761:70b] [CDVTimer][keyboard] 0.052989ms
+2014-07-08 16:53:02.717 Fastpass Connection[20761:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-07-08 16:53:02.718 Fastpass Connection[20761:70b] [CDVTimer][statusbar] 0.320971ms
+2014-07-08 16:53:02.718 Fastpass Connection[20761:70b] [CDVTimer][TotalPluginStartup] 1.053989ms
+2014-07-08 16:53:02.816 Fastpass Connection[20761:70b] Resetting plugins due to page load.
+2014-07-08 16:53:03.175 Fastpass Connection[20761:70b] Finished load of: file:///Users/jamesyothers/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/365B309D-BFD0-4E30-A4BC-945B20FC32C3/Fastpass%20Connection.app/www/index.html#/tab/home
+2014-07-08 16:53:28.794 Fastpass Connection[20761:70b] {"comment":"free","createdAt":"2014-07-08T23:47:41.926Z","location":"current location: adventureland","name":"James","number_give":"give 1 fastpass","ride":"ride: splash mountain","$$hashKey":"00L"}
+2014-07-08 16:53:44.875 Fastpass Connection[20761:70b] HomeTabCtrl
+2014-07-08 16:54:46.828 Fastpass Connection[21080:70b] Multi-tasking -> Device: YES, App: YES
+2014-07-08 16:54:46.835 Fastpass Connection[21080:70b] Unlimited access to network resources
+2014-07-08 16:54:46.847 Fastpass Connection[21080:70b] [CDVTimer][keyboard] 0.046015ms
+2014-07-08 16:54:46.848 Fastpass Connection[21080:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-07-08 16:54:46.848 Fastpass Connection[21080:70b] [CDVTimer][statusbar] 0.396013ms
+2014-07-08 16:54:46.848 Fastpass Connection[21080:70b] [CDVTimer][TotalPluginStartup] 1.141012ms
+2014-07-08 16:54:46.876 Fastpass Connection[21080:70b] Resetting plugins due to page load.
+2014-07-08 16:54:47.620 Fastpass Connection[21080:70b] Finished load of: file:///Users/jamesyothers/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/365B309D-BFD0-4E30-A4BC-945B20FC32C3/Fastpass%20Connection.app/www/index.html#/tab/home
+2014-07-08 16:54:47.656 Fastpass Connection[21080:70b] HomeTabCtrl
+2014-07-08 16:56:16.379 Fastpass Connection[21399:70b] Multi-tasking -> Device: YES, App: YES
+2014-07-08 16:56:16.387 Fastpass Connection[21399:70b] Unlimited access to network resources
+2014-07-08 16:56:16.401 Fastpass Connection[21399:70b] [CDVTimer][keyboard] 0.073016ms
+2014-07-08 16:56:16.401 Fastpass Connection[21399:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-07-08 16:56:16.402 Fastpass Connection[21399:70b] [CDVTimer][statusbar] 0.346005ms
+2014-07-08 16:56:16.402 Fastpass Connection[21399:70b] [CDVTimer][TotalPluginStartup] 1.151979ms
+2014-07-08 16:56:16.432 Fastpass Connection[21399:70b] Resetting plugins due to page load.
+2014-07-08 16:56:18.203 Fastpass Connection[21399:70b] Finished load of: file:///Users/jamesyothers/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/365B309D-BFD0-4E30-A4BC-945B20FC32C3/Fastpass%20Connection.app/www/index.html#/tab/home
+2014-07-08 16:56:18.230 Fastpass Connection[21399:70b] HomeTabCtrl
+2014-07-08 17:04:36.087 Fastpass Connection[21867:70b] Multi-tasking -> Device: YES, App: YES
+2014-07-08 17:04:36.094 Fastpass Connection[21867:70b] Unlimited access to network resources
+2014-07-08 17:04:36.108 Fastpass Connection[21867:70b] [CDVTimer][keyboard] 0.062943ms
+2014-07-08 17:04:36.109 Fastpass Connection[21867:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-07-08 17:04:36.109 Fastpass Connection[21867:70b] [CDVTimer][statusbar] 0.363946ms
+2014-07-08 17:04:36.110 Fastpass Connection[21867:70b] [CDVTimer][TotalPluginStartup] 1.184046ms
+2014-07-08 17:04:36.139 Fastpass Connection[21867:70b] Resetting plugins due to page load.
+2014-07-08 17:04:36.389 Fastpass Connection[21867:70b] Finished load of: file:///Users/jamesyothers/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/365B309D-BFD0-4E30-A4BC-945B20FC32C3/Fastpass%20Connection.app/www/index.html#/tab/home
+2014-07-08 17:07:30.806 Fastpass Connection[22521:70b] Multi-tasking -> Device: YES, App: YES
+2014-07-08 17:07:30.812 Fastpass Connection[22521:70b] Unlimited access to network resources
+2014-07-08 17:07:30.829 Fastpass Connection[22521:70b] [CDVTimer][keyboard] 0.064015ms
+2014-07-08 17:07:30.829 Fastpass Connection[22521:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-07-08 17:07:30.830 Fastpass Connection[22521:70b] [CDVTimer][statusbar] 0.406981ms
+2014-07-08 17:07:30.830 Fastpass Connection[22521:70b] [CDVTimer][TotalPluginStartup] 1.221001ms
+2014-07-08 17:07:30.866 Fastpass Connection[22521:70b] Resetting plugins due to page load.
+2014-07-08 17:07:31.618 Fastpass Connection[22521:70b] Finished load of: file:///Users/jamesyothers/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/365B309D-BFD0-4E30-A4BC-945B20FC32C3/Fastpass%20Connection.app/www/index.html#/tab/home
+2014-07-08 17:07:31.642 Fastpass Connection[22521:70b] HomeTabCtrl
+2014-07-08 17:08:17.805 Fastpass Connection[22838:70b] Multi-tasking -> Device: YES, App: YES
+2014-07-08 17:08:17.809 Fastpass Connection[22838:70b] Unlimited access to network resources
+2014-07-08 17:08:17.823 Fastpass Connection[22838:70b] [CDVTimer][keyboard] 0.060022ms
+2014-07-08 17:08:17.824 Fastpass Connection[22838:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-07-08 17:08:17.824 Fastpass Connection[22838:70b] [CDVTimer][statusbar] 0.415981ms
+2014-07-08 17:08:17.825 Fastpass Connection[22838:70b] [CDVTimer][TotalPluginStartup] 1.307964ms
+2014-07-08 17:08:17.858 Fastpass Connection[22838:70b] Resetting plugins due to page load.
+2014-07-08 17:08:18.135 Fastpass Connection[22838:70b] Finished load of: file:///Users/jamesyothers/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/365B309D-BFD0-4E30-A4BC-945B20FC32C3/Fastpass%20Connection.app/www/index.html#/tab/home
+2014-07-08 17:09:32.679 Fastpass Connection[23167:70b] Multi-tasking -> Device: YES, App: YES
+2014-07-08 17:09:32.685 Fastpass Connection[23167:70b] Unlimited access to network resources
+2014-07-08 17:09:32.698 Fastpass Connection[23167:70b] [CDVTimer][keyboard] 0.045955ms
+2014-07-08 17:09:32.698 Fastpass Connection[23167:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-07-08 17:09:32.699 Fastpass Connection[23167:70b] [CDVTimer][statusbar] 0.288010ms
+2014-07-08 17:09:32.699 Fastpass Connection[23167:70b] [CDVTimer][TotalPluginStartup] 0.934005ms
+2014-07-08 17:09:32.729 Fastpass Connection[23167:70b] Resetting plugins due to page load.
+2014-07-08 17:09:33.011 Fastpass Connection[23167:70b] Finished load of: file:///Users/jamesyothers/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/365B309D-BFD0-4E30-A4BC-945B20FC32C3/Fastpass%20Connection.app/www/index.html#/tab/home
+2014-07-08 17:10:00.101 Fastpass Connection[23480:70b] Multi-tasking -> Device: YES, App: YES
+2014-07-08 17:10:00.106 Fastpass Connection[23480:70b] Unlimited access to network resources
+2014-07-08 17:10:00.120 Fastpass Connection[23480:70b] [CDVTimer][keyboard] 0.061989ms
+2014-07-08 17:10:00.120 Fastpass Connection[23480:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-07-08 17:10:00.120 Fastpass Connection[23480:70b] [CDVTimer][statusbar] 0.336051ms
+2014-07-08 17:10:00.121 Fastpass Connection[23480:70b] [CDVTimer][TotalPluginStartup] 1.093984ms
+2014-07-08 17:10:00.149 Fastpass Connection[23480:70b] Resetting plugins due to page load.
+2014-07-08 17:10:00.648 Fastpass Connection[23480:70b] Finished load of: file:///Users/jamesyothers/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/365B309D-BFD0-4E30-A4BC-945B20FC32C3/Fastpass%20Connection.app/www/index.html#/tab/home
+2014-07-08 17:10:00.669 Fastpass Connection[23480:70b] HomeTabCtrl
+2014-07-08 17:10:29.755 Fastpass Connection[23797:70b] Multi-tasking -> Device: YES, App: YES
+2014-07-08 17:10:29.760 Fastpass Connection[23797:70b] Unlimited access to network resources
+2014-07-08 17:10:29.774 Fastpass Connection[23797:70b] [CDVTimer][keyboard] 0.043988ms
+2014-07-08 17:10:29.774 Fastpass Connection[23797:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-07-08 17:10:29.774 Fastpass Connection[23797:70b] [CDVTimer][statusbar] 0.293016ms
+2014-07-08 17:10:29.775 Fastpass Connection[23797:70b] [CDVTimer][TotalPluginStartup] 0.893950ms
+2014-07-08 17:10:29.800 Fastpass Connection[23797:70b] Resetting plugins due to page load.
+2014-07-08 17:10:30.084 Fastpass Connection[23797:70b] Finished load of: file:///Users/jamesyothers/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/365B309D-BFD0-4E30-A4BC-945B20FC32C3/Fastpass%20Connection.app/www/index.html#/tab/home
+2014-07-08 17:11:06.744 Fastpass Connection[23797:70b] {"comment":"free","createdAt":"2014-07-09T00:01:37.372Z","location":"current location: adventureland","name":"James","number_give":"1 fastpass","ride":"splash mountain","$$hashKey":"00L"}
+2014-07-08 17:11:12.510 Fastpass Connection[23797:70b] HomeTabCtrl
+2014-07-08 17:11:24.446 Fastpass Connection[23797:70b] {"ride":"splash mountain","location":"current location: adventureland","number_give":"1 fastpass","comment":"free","createdAt":"2014-07-09T00:11:24.437Z"}
+2014-07-08 17:12:22.455 Fastpass Connection[23797:70b] {"name":"josh","ride":"splash mountain","number_give":"2 fastpasses","location":"current location: fantasyland","comment":"sell for $50","createdAt":"2014-07-09T00:12:22.442Z"}
+2014-07-08 17:12:23.796 Fastpass Connection[23797:70b] HomeTabCtrl
+2014-07-08 17:12:28.001 Fastpass Connection[23797:70b] {"comment":"sell for $50","createdAt":"2014-07-09T00:12:22.442Z","location":"current location: fantasyland","name":"josh","number_give":"2 fastpasses","ride":"splash mountain","$$hashKey":"01B"}
+2014-07-08 17:15:43.233 Fastpass Connection[23797:70b] HomeTabCtrl
+2014-07-08 17:16:08.359 Fastpass Connection[24164:70b] Multi-tasking -> Device: YES, App: YES
+2014-07-08 17:16:08.365 Fastpass Connection[24164:70b] Unlimited access to network resources
+2014-07-08 17:16:08.380 Fastpass Connection[24164:70b] [CDVTimer][keyboard] 0.046968ms
+2014-07-08 17:16:08.380 Fastpass Connection[24164:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-07-08 17:16:08.381 Fastpass Connection[24164:70b] [CDVTimer][statusbar] 0.369012ms
+2014-07-08 17:16:08.381 Fastpass Connection[24164:70b] [CDVTimer][TotalPluginStartup] 1.053989ms
+2014-07-08 17:16:08.416 Fastpass Connection[24164:70b] Resetting plugins due to page load.
+2014-07-08 17:16:11.338 Fastpass Connection[24164:70b] Finished load of: file:///Users/jamesyothers/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/365B309D-BFD0-4E30-A4BC-945B20FC32C3/Fastpass%20Connection.app/www/index.html#/tab/home
+2014-07-08 17:16:11.358 Fastpass Connection[24164:70b] HomeTabCtrl
+2014-07-08 17:16:15.622 Fastpass Connection[24164:70b] HomeTabCtrl
+2014-07-08 17:16:19.725 Fastpass Connection[24164:70b] {"comment":"sell for $50","createdAt":"2014-07-09T00:12:22.442Z","location":"current location: fantasyland","name":"josh","number_give":"2 fastpasses","ride":"splash mountain","$$hashKey":"00Y"}
+2014-07-08 17:17:59.896 Fastpass Connection[24508:70b] Multi-tasking -> Device: YES, App: YES
+2014-07-08 17:17:59.904 Fastpass Connection[24508:70b] Unlimited access to network resources
+2014-07-08 17:17:59.917 Fastpass Connection[24508:70b] [CDVTimer][keyboard] 0.059009ms
+2014-07-08 17:17:59.917 Fastpass Connection[24508:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-07-08 17:17:59.918 Fastpass Connection[24508:70b] [CDVTimer][statusbar] 0.357032ms
+2014-07-08 17:17:59.918 Fastpass Connection[24508:70b] [CDVTimer][TotalPluginStartup] 1.168966ms
+2014-07-08 17:17:59.948 Fastpass Connection[24508:70b] Resetting plugins due to page load.
+2014-07-08 17:18:01.568 Fastpass Connection[24508:70b] Finished load of: file:///Users/jamesyothers/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/365B309D-BFD0-4E30-A4BC-945B20FC32C3/Fastpass%20Connection.app/www/index.html#/tab/home
+2014-07-08 17:18:01.569 Fastpass Connection[24508:70b] HomeTabCtrl
+2014-07-08 17:18:07.704 Fastpass Connection[24508:70b] HomeTabCtrl
+2014-07-08 17:18:10.249 Fastpass Connection[24508:70b] {"comment":"free","createdAt":"2014-07-09T00:01:37.372Z","location":"current location: adventureland","name":"James","number_give":"1 fastpass","ride":"splash mountain","$$hashKey":"00W"}
+2014-07-08 17:18:21.979 Fastpass Connection[24508:70b] HomeTabCtrl
+2014-07-08 17:18:26.382 Fastpass Connection[24508:70b] HomeTabCtrl
+2014-07-08 17:18:30.682 Fastpass Connection[24508:70b] HomeTabCtrl
+2014-07-08 17:18:51.919 Fastpass Connection[24508:70b] {"comment":"free","createdAt":"2014-07-09T00:01:37.372Z","location":"current location: adventureland","name":"James","number_give":"1 fastpass","ride":"splash mountain","$$hashKey":"00W"}
+2014-07-08 17:18:58.584 Fastpass Connection[24508:70b] HomeTabCtrl
+2014-07-08 17:19:00.875 Fastpass Connection[24508:70b] HomeTabCtrl

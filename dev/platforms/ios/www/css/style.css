@@ -1,1 +1,13 @@
 /* Empty. Add your own CSS if you like */
+.image {
+  max-width: 100%;
+}
+
+.imagelogo {
+  margin-top: 30px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+  height: 75%;
+}
