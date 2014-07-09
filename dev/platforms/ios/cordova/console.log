@@ -176,3 +176,80 @@
 2014-07-08 17:18:51.919 Fastpass Connection[24508:70b] {"comment":"free","createdAt":"2014-07-09T00:01:37.372Z","location":"current location: adventureland","name":"James","number_give":"1 fastpass","ride":"splash mountain","$$hashKey":"00W"}
 2014-07-08 17:18:58.584 Fastpass Connection[24508:70b] HomeTabCtrl
 2014-07-08 17:19:00.875 Fastpass Connection[24508:70b] HomeTabCtrl
+2014-07-08 17:21:18.920 Fastpass Connection[24508:70b] HomeTabCtrl
+2014-07-08 17:21:54.070 Fastpass Connection[24508:70b] HomeTabCtrl
+2014-07-08 17:21:55.582 Fastpass Connection[24508:70b] {"comment":"free","createdAt":"2014-07-09T00:11:24.437Z","location":"current location: adventureland","number_give":"1 fastpass","ride":"splash mountain","$$hashKey":"00X"}
+2014-07-08 17:25:45.696 Fastpass Connection[24508:70b] {"comment":"free","createdAt":"2014-07-09T00:11:24.437Z","location":"current location: adventureland","number_give":"1 fastpass","ride":"splash mountain","$$hashKey":"00X"}
+2014-07-08 17:25:49.898 Fastpass Connection[24508:70b] HomeTabCtrl
+2014-07-08 17:26:13.295 Fastpass Connection[25007:70b] Multi-tasking -> Device: YES, App: YES
+2014-07-08 17:26:13.303 Fastpass Connection[25007:70b] Unlimited access to network resources
+2014-07-08 17:26:13.318 Fastpass Connection[25007:70b] [CDVTimer][keyboard] 0.063002ms
+2014-07-08 17:26:13.318 Fastpass Connection[25007:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-07-08 17:26:13.319 Fastpass Connection[25007:70b] [CDVTimer][statusbar] 0.358999ms
+2014-07-08 17:26:13.319 Fastpass Connection[25007:70b] [CDVTimer][TotalPluginStartup] 1.164019ms
+2014-07-08 17:26:13.348 Fastpass Connection[25007:70b] Resetting plugins due to page load.
+2014-07-08 17:26:13.593 Fastpass Connection[25007:70b] Finished load of: file:///Users/jamesyothers/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/365B309D-BFD0-4E30-A4BC-945B20FC32C3/Fastpass%20Connection.app/www/index.html#/tab/home
+2014-07-08 17:26:20.245 Fastpass Connection[25007:70b] {"comment":"sell for $50","createdAt":"2014-07-09T00:12:22.442Z","location":"current location: fantasyland","name":"josh","number_give":"2 fastpasses","ride":"splash mountain","$$hashKey":"00N"}
+2014-07-08 17:26:30.561 Fastpass Connection[25007:70b] HomeTabCtrl
+2014-07-08 17:58:44.791 Fastpass Connection[25007:70b] HomeTabCtrl
+2014-07-08 17:58:47.536 Fastpass Connection[25007:70b] HomeTabCtrl
+2014-07-08 17:58:51.224 Fastpass Connection[25007:70b] HomeTabCtrl
+2014-07-08 17:58:59.973 Fastpass Connection[25007:70b] {"comment":"sell for $50","createdAt":"2014-07-09T00:12:22.442Z","location":"current location: fantasyland","name":"josh","number_give":"2 fastpasses","ride":"splash mountain","$$hashKey":"00N"}
+2014-07-08 17:59:28.943 Fastpass Connection[25007:70b] He
+2014-07-08 17:59:40.489 Fastpass Connection[25007:70b] HomeTabCtrl
+2014-07-08 18:00:04.329 Fastpass Connection[25007:70b] {"ride":"buzz lightyear astro blasters","location":"current location: adventureland","number_give":"1 fastpass","comment":"free","name":"Helen","createdAt":"2014-07-09T01:00:04.269Z"}
+2014-07-08 18:00:40.185 Fastpass Connection[25007:70b] {"name":"","ride":"space mountain","number_give":"5 fastpasses","location":"current location: critter country","comment":"","createdAt":"2014-07-09T01:00:40.179Z"}
+2014-07-08 18:01:18.657 Fastpass Connection[25007:70b] {"name":"","ride":"big thunder mountain railroad","number_give":"4 fastpasses","location":"current location: new orleans square","comment":"sell for $40","createdAt":"2014-07-09T01:01:18.646Z"}
+2014-07-08 18:01:20.803 Fastpass Connection[25007:70b] HomeTabCtrl
+2014-07-08 18:01:27.326 Fastpass Connection[25007:70b] {"comment":"sell for $40","createdAt":"2014-07-09T01:01:18.646Z","location":"current location: new orleans square","name":"","number_give":"4 fastpasses","ride":"big thunder mountain railroad","$$hashKey":"03K"}
+2014-07-08 18:01:39.578 Fastpass Connection[25007:70b] {"comment":"","createdAt":"2014-07-09T01:00:40.179Z","location":"current location: critter country","name":"","number_give":"5 fastpasses","ride":"space mountain","$$hashKey":"03J"}
+2014-07-08 18:01:45.564 Fastpass Connection[25007:70b] {"comment":"free","createdAt":"2014-07-09T01:00:04.269Z","location":"current location: adventureland","name":"Helen","number_give":"1 fastpass","ride":"buzz lightyear astro blasters","$$hashKey":"03I"}
+2014-07-08 18:01:54.165 Fastpass Connection[25007:70b] {"comment":"free","createdAt":"2014-07-09T01:00:04.269Z","location":"current location: adventureland","name":"Helen","number_give":"1 fastpass","ride":"buzz lightyear astro blasters","$$hashKey":"03I"}
+2014-07-08 18:13:06.904 Fastpass Connection[25007:70b] HomeTabCtrl
+2014-07-08 18:13:23.192 Fastpass Connection[25638:70b] Multi-tasking -> Device: YES, App: YES
+2014-07-08 18:13:23.200 Fastpass Connection[25638:70b] Unlimited access to network resources
+2014-07-08 18:13:23.217 Fastpass Connection[25638:70b] [CDVTimer][keyboard] 0.064015ms
+2014-07-08 18:13:23.217 Fastpass Connection[25638:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-07-08 18:13:23.217 Fastpass Connection[25638:70b] [CDVTimer][statusbar] 0.369966ms
+2014-07-08 18:13:23.218 Fastpass Connection[25638:70b] [CDVTimer][TotalPluginStartup] 1.080990ms
+2014-07-08 18:13:23.317 Fastpass Connection[25638:70b] Resetting plugins due to page load.
+2014-07-08 18:13:24.642 Fastpass Connection[25638:70b] Finished load of: file:///Users/jamesyothers/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/365B309D-BFD0-4E30-A4BC-945B20FC32C3/Fastpass%20Connection.app/www/index.html#/tab/home
+2014-07-08 18:13:24.659 Fastpass Connection[25638:70b] HomeTabCtrl
+2014-07-08 18:16:44.833 Fastpass Connection[25638:70b] HomeTabCtrl
+2014-07-08 18:17:05.586 Fastpass Connection[25638:70b] {"comment":"free","createdAt":"2014-07-09T00:11:24.437Z","location":"current location: adventureland","number_give":"1 fastpass","ride":"splash mountain","$$hashKey":"015"}
+2014-07-08 18:17:25.040 Fastpass Connection[25638:70b] {"comment":"sell for $50","createdAt":"2014-07-09T00:12:22.442Z","location":"current location: fantasyland","name":"josh","number_give":"2 fastpasses","ride":"splash mountain","$$hashKey":"01K"}
+2014-07-08 18:17:43.806 Fastpass Connection[25638:70b] HomeTabCtrl
+2014-07-08 18:17:52.374 Fastpass Connection[25832:70b] Multi-tasking -> Device: YES, App: YES
+2014-07-08 18:17:52.378 Fastpass Connection[25832:70b] Unlimited access to network resources
+2014-07-08 18:17:52.390 Fastpass Connection[25832:70b] [CDVTimer][keyboard] 0.047028ms
+2014-07-08 18:17:52.390 Fastpass Connection[25832:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-07-08 18:17:52.391 Fastpass Connection[25832:70b] [CDVTimer][statusbar] 0.295997ms
+2014-07-08 18:17:52.391 Fastpass Connection[25832:70b] [CDVTimer][TotalPluginStartup] 0.946999ms
+2014-07-08 18:17:52.417 Fastpass Connection[25832:70b] Resetting plugins due to page load.
+2014-07-08 18:17:52.763 Fastpass Connection[25832:70b] Finished load of: file:///Users/jamesyothers/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/365B309D-BFD0-4E30-A4BC-945B20FC32C3/Fastpass%20Connection.app/www/index.html#/tab/home
+2014-07-08 18:49:35.596 Fastpass Connection[25832:70b] HomeTabCtrl
+2014-07-08 18:49:45.447 Fastpass Connection[25832:70b] HomeTabCtrl
+2014-07-08 18:49:53.557 Fastpass Connection[25832:70b] {"ride":"splash mountain","location":"current location: adventureland","number_give":"1 fastpass","comment":"free","name":"James","createdAt":"2014-07-09T01:49:53.519Z"}
+2014-07-08 18:50:01.734 Fastpass Connection[25832:70b] HomeTabCtrl
+2014-07-08 18:50:05.113 Fastpass Connection[25832:70b] {"comment":"free","createdAt":"2014-07-09T01:49:53.519Z","location":"current location: adventureland","name":"James","number_give":"1 fastpass","ride":"splash mountain","$$hashKey":"016"}
+2014-07-08 18:50:11.862 Fastpass Connection[25832:70b] HomeTabCtrl
+2014-07-08 18:50:39.730 Fastpass Connection[26433:70b] Multi-tasking -> Device: YES, App: YES
+2014-07-08 18:50:39.738 Fastpass Connection[26433:70b] Unlimited access to network resources
+2014-07-08 18:50:39.755 Fastpass Connection[26433:70b] [CDVTimer][keyboard] 0.073969ms
+2014-07-08 18:50:39.756 Fastpass Connection[26433:70b] CDVPlugin class CDVStatusBar (pluginName: statusbar) does not exist.
+2014-07-08 18:50:39.756 Fastpass Connection[26433:70b] [CDVTimer][statusbar] 0.427008ms
+2014-07-08 18:50:39.757 Fastpass Connection[26433:70b] [CDVTimer][TotalPluginStartup] 1.392007ms
+2014-07-08 18:50:39.855 Fastpass Connection[26433:70b] Resetting plugins due to page load.
+2014-07-08 18:50:40.235 Fastpass Connection[26433:70b] Finished load of: file:///Users/jamesyothers/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/365B309D-BFD0-4E30-A4BC-945B20FC32C3/Fastpass%20Connection.app/www/index.html#/tab/home
+2014-07-08 18:50:40.257 Fastpass Connection[26433:70b] HomeTabCtrl
+2014-07-08 19:27:39.097 Fastpass Connection[26433:70b] {"comment":"sell for $50","createdAt":"2014-07-09T00:12:22.442Z","location":"current location: fantasyland","name":"josh","number_give":"2 fastpasses","ride":"splash mountain","$$hashKey":"00M"}
+2014-07-08 19:28:37.786 Fastpass Connection[26433:70b] gjhhjg
+2014-07-08 19:28:41.215 Fastpass Connection[26433:70b] HomeTabCtrl
+2014-07-08 19:29:04.041 Fastpass Connection[26433:70b] {"ride":"space mountain","location":"current location: adventureland","number_give":"1 fastpass","comment":"free","createdAt":"2014-07-09T02:29:04.031Z"}
+2014-07-08 19:29:05.354 Fastpass Connection[26433:70b] HomeTabCtrl
+2014-07-08 19:29:08.463 Fastpass Connection[26433:70b] {"comment":"free","createdAt":"2014-07-09T02:29:04.031Z","location":"current location: adventureland","number_give":"1 fastpass","ride":"space mountain","$$hashKey":"01H"}
+2014-07-08 19:31:22.052 Fastpass Connection[26433:70b] HomeTabCtrl
+2014-07-08 19:32:54.362 Fastpass Connection[26433:70b] {"ride":"splash mountain","location":"current location: adventureland","number_give":"1 fastpass","comment":"free","createdAt":"2014-07-09T02:32:54.352Z"}
+2014-07-08 19:32:55.640 Fastpass Connection[26433:70b] HomeTabCtrl
+2014-07-08 20:04:02.889 Fastpass Connection[26433:70b] HomeTabCtrl
+2014-07-08 20:04:05.029 Fastpass Connection[26433:70b] HomeTabCtrl
