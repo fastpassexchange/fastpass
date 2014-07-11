@@ -97,8 +97,23 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
 })
 
-.controller('connectionController', function($scope, $firebase, $rootScope, $ionicModal) {
- 
+.controller('connectionController', function($scope, $firebase, $rootScope, $ionicModal, authService) {
+  // verify that user is logged in
+  authService.checkSession();
+
+  // handle messages to/from users
+  $scope.comment = {
+    text: ''
+  };
+
+  $scope.sendComment = function() {
+    console.log($scope.comment.text);
+    $scope.comment.text = '';
+    console.log($scope.comment.text);
+    // try to use modal for successful send of message
+    // $scope.openModal();
+  };
+
   // unused modal functionality
   $ionicModal.fromTemplateUrl('templates/my-modal.html', {
     scope: $scope,
@@ -150,21 +165,16 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
 })
 
-.controller('loginController', function($scope, $firebase) {
+.controller('loginController', function($scope, authService) {
   $scope.user = {
     email: '',
     password: ''
   };
-  // use this tutorial for firebase simple login, give option for FB or Twitter
-  // http://www.sitepoint.com/creating-firebase-powered-end-end-ionic-application
-  $scope.validateUser = function() {
-    console.log($scope.user);
-    $scope.user = {
-      email: '',
-      password: ''
-    };
-  };
 
+  // log in user
+  $scope.validateUser = function() {
+    authService.login($scope.user.email, $scope.user.password);
+  };
 })
 
 .controller('HomeTabCtrl', function($scope) {
