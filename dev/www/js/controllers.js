@@ -166,21 +166,16 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   };
 })
 
-.controller('loginController', function($scope, $firebase) {
+.controller('loginController', function($scope, authService) {
   $scope.user = {
     email: '',
     password: ''
   };
-  // use this tutorial for firebase simple login, give option for FB or Twitter
-  // http://www.sitepoint.com/creating-firebase-powered-end-end-ionic-application
-  $scope.validateUser = function() {
-    console.log($scope.user);
-    $scope.user = {
-      email: '',
-      password: ''
-    };
-  };
 
+  // log in user
+  $scope.validateUser = function() {
+    authService.login($scope.user.email, $scope.user.password);
+  };
 })
 
 .controller('HomeTabCtrl', function($scope) {
