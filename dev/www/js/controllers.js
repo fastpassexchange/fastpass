@@ -143,8 +143,10 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
 })
 
-.controller('chatController', function($scope, $rootScope, $timeout, $firebase) {
+.controller('chatController', function($scope, $rootScope, $timeout, $firebase, listService) {
+  // initialize object for message contents
   $scope.comment = {};
+  // the name asociated of the selected offer
   $scope.comment.to = $rootScope.selected.name;
   $scope.comment.from = "logged in user";
   $scope.comment.content = "";
@@ -153,14 +155,28 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     console.log($scope.comment.content);
     var messageRef = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + $scope.conversation);
     // add new message to the database
+    // todo: refactor with transaction
     $firebase(messageRef).$add($scope.comment);
     $scope.comment.content = '';
     console.log($scope.comment.content);
-    // try to use modal for successful send of message
+    // todo: try to use modal for successful send of message
     // $scope.openModal();
   };
- // handle messages to/from users
-  $scope.comment.content = "";
+  
+  $scope.messages = listService.messages.james;
+  console.log(listService.messages.james);
+
+  // var displayMessages = function() {
+  //   var url = "https://fastpass-connection.firebaseapp.com/messages/" + $scope.conversation;
+  //   $scope.messages = angularFireCollection(new Firebase(url));
+  //   $scope.username = "Guest";
+  //   $scope.addMessage = function() {
+  //     $scope.messages.$add({from: $scope.username, content: $scope.message});
+  //     $scope.message = "";
+  //   };
+  // };
+
+  // displayMessages();
 
 
 })

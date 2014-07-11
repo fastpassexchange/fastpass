@@ -2,13 +2,10 @@
   <ion-content>
       <div style="height: 300px">
         <div ng-cloak ng-repeat="message in messages">
-         <!--  var url = "https://fastpass-connection.firebaseapp.com/messages";
-          $scope.messages = angularFireCollection(new Firebase(url));
-          $scope.username = "Guest";
-          $scope.addMessage = function() {
-            $scope.messages.$add({from: $scope.username, content: $scope.message});
-            $scope.message = "";
-          } -->
+          <div>
+            {{ message }}
+          </div>
+
         </div>
       </div>
     <form>
@@ -22,3 +19,9 @@
     </form>
   </ion-content>
 </ion-view>
+
+
+ <!-- <div ng-repeat="offer in text.offers | orderByPriority"> <!-- ng-class="{active : isSelected(offer)}"> -->
+      <a class="button button-block button-stable" ng-click="setMaster(offer)"
+      ui-sref="tabs.getDetails">{{ offer.number_give }} for {{ offer.ride }}  </a>
+    </div> -->
