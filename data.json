@@ -80,14 +80,24 @@
     }
   },
   "messages": {
-    "james": [{
-      "from": "james",
-      "to": "sarah",
-      "content": "message"
-    }, {
-      "from": "sarah",
-      "to": "james",
-      "content": "message2"
-    }]
+    "james": {
+      "justin": [{
+        "content": "message1",
+        "createdAt": "20140707T185314Z"
+      }, {
+        "content": "message2",
+        "createdAt": "20140707T185314Z"
+      }]
+
+    },
+    "justin": {
+      "james": [{
+        "content": "message1",
+        "createdAt": "20140707T185314Z"
+      }, {
+        "content": "message2",
+        "createdAt": "20140707T185314Z"
+      }]
+    }
   }
 }

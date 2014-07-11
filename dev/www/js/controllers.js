@@ -147,40 +147,24 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   // initialize object for message contents
   $scope.comment = {};
   // the name asociated of the selected offer
-  $scope.comment.to = $rootScope.selected.name;
-  $scope.comment.from = "logged in user";
-  $scope.comment.content = "";
-  $scope.conversation = $scope.comment.from + $scope.comment.to;
+  $scope.to = $rootScope.selected.name;
+  // current logged in user 'james'
+  $scope.from = "James";
+  var messageRef = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + $scope.from + '/' + $scope.to);
+  messageRef.on('value', function(snapshot) {
+    $scope.userMessages = snapshot.val();
+  });
+
   $scope.sendComment = function() {
-    console.log($scope.comment.content);
-    var messageRef = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + $scope.conversation);
+    $scope.comment.createdAt = new Date();
     // add new message to the database
     // todo: refactor with transaction
     $firebase(messageRef).$add($scope.comment);
     $scope.comment.content = '';
-    console.log($scope.comment.content);
     // todo: try to use modal for successful send of message
     // $scope.openModal();
   };
   
-  // temp 'james' hash for his messages
-  // to be replaced by logged in user
-  $scope.messages = listService.messages.james;
-  console.log(listService.messages.james);
-
-  // var displayMessages = function() {
-  //   var url = "https://fastpass-connection.firebaseapp.com/messages/" + $scope.conversation;
-  //   $scope.messages = angularFireCollection(new Firebase(url));
-  //   $scope.username = "Guest";
-  //   $scope.addMessage = function() {
-  //     $scope.messages.$add({from: $scope.username, content: $scope.message});
-  //     $scope.message = "";
-  //   };
-  // };
-
-  // displayMessages();
-
-
 })
 
 .controller('loginController', function($scope, authService) {

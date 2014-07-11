@@ -2,74 +2,12 @@
   <ion-content>
       <!-- <div style="height: 300px"> -->
     <div class="messageDiv">
-      <div ng-cloak ng-repeat="message in messages">
+      <div ng-cloak ng-repeat="message in userMessages">
         <div>
-          {{ message.from }} : {{ message.content }}
+          {{ message.content }} : {{ message.createdAt }}
         </div>
-         
-        <div>
-            {{ message.from }} : {{ message.content }}
-          </div>
-          <div>
-            {{ message.from }} : {{ message.content }}
-          </div>
-          <div>
-            {{ message.from }} : {{ message.content }}
-          </div>
-          <div>
-            {{ message.from }} : {{ message.content }}
-          </div>
-          <div>
-            {{ message.from }} : {{ message.content }}
-          </div>
-          <div>
-            {{ message.from }} : {{ message.content }}
-          </div>
-          <div>
-            {{ message.from }} : {{ message.content }}
-          </div>
-          <div>
-            {{ message.from }} : {{ message.content }}
-          </div>
-          <div>
-            {{ message.from }} : {{ message.content }}
-          </div>
-          <div>
-            {{ message.from }} : {{ message.content }}
-          </div>
-          <div>
-            {{ message.from }} : {{ message.content }}
-          </div>
-          <div>
-            {{ message.from }} : {{ message.content }}
-          </div>
-          <div>
-            {{ message.from }} : {{ message.content }}
-          </div>
-          <div>
-            {{ message.from }} : {{ message.content }}
-          </div>
-          <div>
-            {{ message.from }} : {{ message.content }}
-          </div>
-          <div>
-            {{ message.from }} : {{ message.content }}
-          </div>
-          <div>
-            {{ message.from }} : {{ message.content }}
-          </div>
-          <div>
-            {{ message.from }} : {{ message.content }}
-          </div>
-          <div>
-            {{ message.from }} : {{ message.content }}
-          </div>
-          <div>
-            {{ message.from }} : {{ message.content }}
-          </div>    
-        </div>
-        <!-- </div> -->
       </div>
+    </div>
     <form>
       <label class="item item-input item-stacked-label">
         <span class="input-label">Message to {{ selected.name }}</span>
