@@ -9,7 +9,20 @@ angular.module('fastpass.services', ['ionic'])
 
 .factory('formService', [function() {
   
-}]);
+}])
+
+.factory('userService', function(){
+
+  var isLoggedIn = function(){
+    return true;
+  };
+
+  return {
+    isLoggedIn: isLoggedIn
+  };
+});
+
+
 
 // leftover tutorial junk
 // .factory('Friends', function() {

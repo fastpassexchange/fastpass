@@ -106,8 +106,26 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
 })
 
-.controller('connectionController', function($scope, $firebase, $rootScope, $ionicModal) {
- 
+.controller('connectionController', function($scope, $location, $firebase, $rootScope, $ionicModal, userService) {
+  
+  // verify that user is logged in
+  if (userService.isLoggedIn()){
+    // $location.path('/tab/signin');
+  }
+
+  // handle messages to/from users
+  $scope.comment = {
+    text: ''
+  };
+
+  $scope.sendComment = function() {
+    console.log($scope.comment.text);
+    $scope.comment.text = '';
+    console.log($scope.comment.text);
+    // try to use modal for successful send of message
+    // $scope.openModal();
+  };
+
   // unused modal functionality
   $ionicModal.fromTemplateUrl('templates/my-modal.html', {
     scope: $scope,
