@@ -8,17 +8,54 @@ angular.module('fastpass.services', ['ionic'])
 }])
 
 .factory('formService', [function() {
-  
+
 }])
 
-.factory('userService', function(){
+.factory('authService', function($firebaseSimpleLogin, $location) {
+  // initializing Firebase simple login helper object
+  var ref = new Firebase('https://fastpass-connection.firebaseio.com');
+  var auth = $firebaseSimpleLogin(ref);
 
-  var isLoggedIn = function(){
-    return true;
+  // TODO research navigation delay until async promise resolves
+  // submit email and password for authentication
+  var login = function(email, password) {
+    auth.$login('password', {
+      email: email,
+      password: password
+    }).then(function(user) {
+      console.log('Logged in:' + user.email);
+    }, function(err) {
+      console.log('Login failed: ' + err);
+    });
   };
 
+  // verify user object exists in auth object
+  var isLoggedIn = function() {
+    return auth.user !== null;
+  };
+
+  // verify user and redirect based on authentication state
+  var checkSession = function() {
+    if (!this.isLoggedIn()) {
+      console.log('User logged out');
+      $location.path('/tabs/signin');
+    }
+    console.log('User authenticated: ' + auth.user.email + '(' + auth.user.uid + ')');
+  };
+
+  // TODO remove debugging code
+  var loginTestUser = function() {
+    var testuser = 'fastpassuser@fastpassdomain.com';
+    var testpass = 'fastpasspass';
+    login(testuser, testpass);
+  };
+
+  // return factory interface
   return {
-    isLoggedIn: isLoggedIn
+    login: login,
+    isLoggedIn: isLoggedIn,
+    checkSession: checkSession,
+    loginTestUser: loginTestUser
   };
 });
 
