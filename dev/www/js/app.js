@@ -68,6 +68,15 @@ angular.module('fastpass', ['firebase', 'ionic', 'fastpass.controllers', 'fastpa
         }
       }
     })
+    .state('tabs.chat', {
+      url: "/chat",
+      views: {
+        'home-tab': {
+          templateUrl: "templates/chat.html",
+          controller: 'chatController'
+        }
+      }
+    })
     .state('tabs.about', {
       url: "/about",
       views: {

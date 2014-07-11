@@ -1,15 +1,16 @@
 <ion-view title="Make Connection" ng-controller="connectionController" class="padding">
   <ion-content>
     <form>
-      <label class="item item-input item-stacked-label">
-        <span class="input-label">Message to {{ selected.name }}</span>
-        <input type="text" placeholder="write message" ng-model="comment.text">
-      </label>
-      <button class="button button-block button-stable" type="submit" ng-click="sendComment()">
+      <button class="button button-block button-stable" type="submit" ui-sref="tabs.chat">
         send message
       </button>
     </form>
     <p>{{ selected.name }}s location:</p>
-    <img src="img/disneymap.png" alt="map load error" class="image">
+    <!-- <img src="img/disneymap.png" alt="map load error" class="image"> -->
+    <!-- Disneyland map -->
+    <!-- <iframe width='100%' height='500px' frameBorder='0' src='https://a.tiles.mapbox.com/v4/jamesjsdev.io6330mc/attribution,zoompan,zoomwheel,geocoder,share.html?access_token=pk.eyJ1IjoiamFtZXNqc2RldiIsImEiOiJyWnJ1aG5rIn0.ez7xPEHt9vgNn2h86IIvsA'></iframe> -->
+    <!-- Demo map -->
+    <iframe width='100%' height='500px' frameBorder='0' src='https://a.tiles.mapbox.com/v4/jamesjsdev.io6o2ok3/attribution,zoompan,zoomwheel,geocoder,share.html?access_token=pk.eyJ1IjoiamFtZXNqc2RldiIsImEiOiJyWnJ1aG5rIn0.ez7xPEHt9vgNn2h86IIvsA'></iframe>
+
   </ion-content>
 </ion-view>
