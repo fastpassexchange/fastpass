@@ -29,7 +29,11 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 //   }
 // ])
 
-.controller('offerController', function($scope, $firebase, formService) {
+.controller('offerController', function($scope, $firebase, formService, authService) {
+
+  // verify that user is logged in
+  authService.checkSession();
+
   $scope.offer = {};
   // $scope properties for drop down menus
   $scope.rides = [
@@ -177,6 +181,11 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   $scope.validateUser = function() {
     authService.login($scope.user.email, $scope.user.password);
   };
+})
+
+.controller('logoutController', function(authService) {
+  // log out user
+  authService.logout();
 })
 
 .controller('HomeTabCtrl', function($scope) {

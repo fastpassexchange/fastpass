@@ -43,7 +43,6 @@ angular.module('fastpass.services', ['ionic'])
 
   // verify user and redirect based on authentication state
   var checkSession = function() {
-
     if (!isLoggedIn()) {
       console.log('User logged out');
       $state.go('tabs.signin');
