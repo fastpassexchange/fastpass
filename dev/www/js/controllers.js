@@ -64,16 +64,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
   $scope.comments = [
     'free',
-    'sell for $10',
-    'sell for $20',
-    'sell for $30',
-    'sell for $40',
-    'sell for $50',
-    'sell for $60',
-    'sell for $70',
-    'sell for $80',
-    'sell for $90',
-    'sell for $100',
+    'trade',
   ];
 
   // set default properties for drop down menus
@@ -137,18 +128,26 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
 })
 
-.controller('chatController', function($scope) {
+.controller('chatController', function($scope, $rootScope, $timeout, $firebase) {
+  $scope.comment = {};
+  $scope.comment.to = $rootScope.selected.name;
+  $scope.comment.from = "logged in user";
+  $scope.comment.content = "";
+  $scope.conversation = $scope.comment.from + $scope.comment.to;
   $scope.sendComment = function() {
-    console.log($scope.comment.text);
-    $scope.comment.text = '';
-    console.log($scope.comment.text);
+    console.log($scope.comment.content);
+    var messageRef = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + $scope.conversation);
+    // add new message to the database
+    $firebase(messageRef).$add($scope.comment);
+    $scope.comment.content = '';
+    console.log($scope.comment.content);
     // try to use modal for successful send of message
     // $scope.openModal();
   };
  // handle messages to/from users
-  $scope.comment = {
-    text: ''
-  };
+  $scope.comment.content = "";
+
+
 })
 
 .controller('loginController', function($scope, $firebase) {
