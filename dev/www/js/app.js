@@ -1,6 +1,6 @@
 angular.module('fastpass', ['firebase', 'ionic', 'fastpass.controllers', 'fastpass.services'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, authService) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
