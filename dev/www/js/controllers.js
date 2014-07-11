@@ -119,54 +119,56 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   };
 
   // unused modal functionality
-  $ionicModal.fromTemplateUrl('templates/my-modal.html', {
-    scope: $scope,
-    animation: 'slide-in-up'
-  }).then(function(modal) {
-    $scope.modal = modal;
-  });
+//   $ionicModal.fromTemplateUrl('templates/my-modal.html', {
+//     scope: $scope,
+//     animation: 'slide-in-up'
+//   }).then(function(modal) {
+//     $scope.modal = modal;
+//   });
 
-  $scope.openModal = function() {
-    $scope.modal.show();
-  };
-  $scope.closeModal = function() {
-    $scope.modal.hide();
-  };
-  //Cleanup the modal when we're done with it!
-  $scope.$on('$destroy', function() {
-    $scope.modal.remove();
-  });
-  // Execute action on hide modal
-  $scope.$on('modal.hidden', function() {
-    // Execute action
-  });
-  // Execute action on remove modal
-  $scope.$on('modal.removed', function() {
-    // Execute action
-  });
+//   $scope.openModal = function() {
+//     $scope.modal.show();
+//   };
+//   $scope.closeModal = function() {
+//     $scope.modal.hide();
+//   };
+//   //Cleanup the modal when we're done with it!
+//   $scope.$on('$destroy', function() {
+//     $scope.modal.remove();
+//   });
+//   // Execute action on hide modal
+//   $scope.$on('modal.hidden', function() {
+//     // Execute action
+//   });
+//   // Execute action on remove modal
+//   $scope.$on('modal.removed', function() {
+//     // Execute action
+//   });
 
 })
 
-.controller('chatController', function($scope, $rootScope, $timeout, $firebase) {
+.controller('chatController', function($scope, $rootScope, $timeout, $firebase, listService) {
+  // initialize object for message contents
   $scope.comment = {};
-  $scope.comment.to = $rootScope.selected.name;
-  $scope.comment.from = "logged in user";
-  $scope.comment.content = "";
-  $scope.conversation = $scope.comment.from + $scope.comment.to;
+  // the name asociated of the selected offer
+  $scope.to = $rootScope.selected.name;
+  // current logged in user 'james'
+  $scope.from = "James";
+  var messageRef = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + $scope.from + '/' + $scope.to);
+  messageRef.on('value', function(snapshot) {
+    $scope.userMessages = snapshot.val();
+  });
+
   $scope.sendComment = function() {
-    console.log($scope.comment.content);
-    var messageRef = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + $scope.conversation);
+    $scope.comment.createdAt = new Date();
     // add new message to the database
+    // todo: refactor with transaction
     $firebase(messageRef).$add($scope.comment);
     $scope.comment.content = '';
-    console.log($scope.comment.content);
-    // try to use modal for successful send of message
+    // todo: try to use modal for successful send of message
     // $scope.openModal();
   };
- // handle messages to/from users
-  $scope.comment.content = "";
-
-
+  
 })
 
 .controller('loginController', function($scope, authService) {

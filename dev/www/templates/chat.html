@@ -1,16 +1,13 @@
 <ion-view title="Chats" ng-controller="chatController" class="padding">
   <ion-content>
-      <div style="height: 300px">
-        <div ng-cloak ng-repeat="message in messages">
-         <!--  var url = "https://fastpass-connection.firebaseapp.com/messages";
-          $scope.messages = angularFireCollection(new Firebase(url));
-          $scope.username = "Guest";
-          $scope.addMessage = function() {
-            $scope.messages.$add({from: $scope.username, content: $scope.message});
-            $scope.message = "";
-          } -->
+      <!-- <div style="height: 300px"> -->
+    <div class="messageDiv">
+      <div ng-cloak ng-repeat="message in userMessages">
+        <div>
+          {{ message.content }} : {{ message.createdAt }}
         </div>
       </div>
+    </div>
     <form>
       <label class="item item-input item-stacked-label">
         <span class="input-label">Message to {{ selected.name }}</span>
