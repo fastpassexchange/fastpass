@@ -163,6 +163,8 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     // $scope.openModal();
   };
   
+  // temp 'james' hash for his messages
+  // to be replaced by logged in user
   $scope.messages = listService.messages.james;
   console.log(listService.messages.james);
 

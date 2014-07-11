@@ -1,12 +1,74 @@
 <ion-view title="Chats" ng-controller="chatController" class="padding">
   <ion-content>
-      <div style="height: 300px">
-        <div ng-cloak ng-repeat="message in messages">
-          <div>
-            {{ message }}
-          </div>
-
+      <!-- <div style="height: 300px"> -->
+    <div class="messageDiv">
+      <div ng-cloak ng-repeat="message in messages">
+        <div>
+          {{ message.from }} : {{ message.content }}
         </div>
+         
+        <div>
+            {{ message.from }} : {{ message.content }}
+          </div>
+          <div>
+            {{ message.from }} : {{ message.content }}
+          </div>
+          <div>
+            {{ message.from }} : {{ message.content }}
+          </div>
+          <div>
+            {{ message.from }} : {{ message.content }}
+          </div>
+          <div>
+            {{ message.from }} : {{ message.content }}
+          </div>
+          <div>
+            {{ message.from }} : {{ message.content }}
+          </div>
+          <div>
+            {{ message.from }} : {{ message.content }}
+          </div>
+          <div>
+            {{ message.from }} : {{ message.content }}
+          </div>
+          <div>
+            {{ message.from }} : {{ message.content }}
+          </div>
+          <div>
+            {{ message.from }} : {{ message.content }}
+          </div>
+          <div>
+            {{ message.from }} : {{ message.content }}
+          </div>
+          <div>
+            {{ message.from }} : {{ message.content }}
+          </div>
+          <div>
+            {{ message.from }} : {{ message.content }}
+          </div>
+          <div>
+            {{ message.from }} : {{ message.content }}
+          </div>
+          <div>
+            {{ message.from }} : {{ message.content }}
+          </div>
+          <div>
+            {{ message.from }} : {{ message.content }}
+          </div>
+          <div>
+            {{ message.from }} : {{ message.content }}
+          </div>
+          <div>
+            {{ message.from }} : {{ message.content }}
+          </div>
+          <div>
+            {{ message.from }} : {{ message.content }}
+          </div>
+          <div>
+            {{ message.from }} : {{ message.content }}
+          </div>    
+        </div>
+        <!-- </div> -->
       </div>
     <form>
       <label class="item item-input item-stacked-label">
@@ -19,9 +81,3 @@
     </form>
   </ion-content>
 </ion-view>
-
-
- <!-- <div ng-repeat="offer in text.offers | orderByPriority"> <!-- ng-class="{active : isSelected(offer)}"> -->
-      <a class="button button-block button-stable" ng-click="setMaster(offer)"
-      ui-sref="tabs.getDetails">{{ offer.number_give }} for {{ offer.ride }}  </a>
-    </div> -->
