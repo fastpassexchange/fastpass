@@ -29,7 +29,11 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 //   }
 // ])
 
-.controller('offerController', function($scope, $firebase, formService) {
+.controller('offerController', function($scope, $firebase, formService, authService) {
+
+  // verify that user is logged in
+  authService.checkSession();
+
   $scope.offer = {};
   // $scope properties for drop down menus
   $scope.rides = [
@@ -64,16 +68,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
   $scope.comments = [
     'free',
-    'sell for $10',
-    'sell for $20',
-    'sell for $30',
-    'sell for $40',
-    'sell for $50',
-    'sell for $60',
-    'sell for $70',
-    'sell for $80',
-    'sell for $90',
-    'sell for $100',
+    'trade',
   ];
 
   // set default properties for drop down menus
@@ -106,11 +101,35 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
 })
 
-.controller('connectionController', function($scope, $firebase, $rootScope, $ionicModal) {
+.controller('connectionController', function($scope, $firebase, $rootScope, $ionicModal, authService) {
+  // verify that user is logged in
+  authService.checkSession();
+
+  // var app = angular.module('demoapp',['leaflet-directive']);
+
+  // app.controller('DemoController', [ '$scope', 'leafletData', function($scope, leafletData) {
+      // angular.extend($scope, {
+      //     center: {
+      //         lat: 51.505,
+      //         lng: -0.09,
+      //         zoom: 5
+      //     }
+      // });
+      
+
   // handle messages to/from users
   $scope.comment = {
     text: ''
   };
+
+  var map = L.mapbox.map('map', 'jamesjsdev.io6o2ok3', {
+    maxZoom: 18,
+    dragging: true
+  });
+  console.log(map);
+  map.locate({setView: true, maxZoom: 16});
+  // L.control.locate().addTo(map);
+  // map. invalidateSize();
 
   $scope.sendComment = function() {
     console.log($scope.comment.text);
@@ -121,49 +140,73 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   };
 
   // unused modal functionality
-  $ionicModal.fromTemplateUrl('templates/my-modal.html', {
-    scope: $scope,
-    animation: 'slide-in-up'
-  }).then(function(modal) {
-    $scope.modal = modal;
-  });
+//   $ionicModal.fromTemplateUrl('templates/my-modal.html', {
+//     scope: $scope,
+//     animation: 'slide-in-up'
+//   }).then(function(modal) {
+//     $scope.modal = modal;
+//   });
 
-  $scope.openModal = function() {
-    $scope.modal.show();
-  };
-  $scope.closeModal = function() {
-    $scope.modal.hide();
-  };
-  //Cleanup the modal when we're done with it!
-  $scope.$on('$destroy', function() {
-    $scope.modal.remove();
-  });
-  // Execute action on hide modal
-  $scope.$on('modal.hidden', function() {
-    // Execute action
-  });
-  // Execute action on remove modal
-  $scope.$on('modal.removed', function() {
-    // Execute action
-  });
+//   $scope.openModal = function() {
+//     $scope.modal.show();
+//   };
+//   $scope.closeModal = function() {
+//     $scope.modal.hide();
+//   };
+//   //Cleanup the modal when we're done with it!
+//   $scope.$on('$destroy', function() {
+//     $scope.modal.remove();
+//   });
+//   // Execute action on hide modal
+//   $scope.$on('modal.hidden', function() {
+//     // Execute action
+//   });
+//   // Execute action on remove modal
+//   $scope.$on('modal.removed', function() {
+//     // Execute action
+//   });
 
 })
 
-.controller('loginController', function($scope, $firebase) {
+.controller('chatController', function($scope, $rootScope, $timeout, $firebase, listService) {
+  // initialize object for message contents
+  $scope.comment = {};
+  // the name asociated of the selected offer
+  $scope.to = $rootScope.selected.name;
+  // current logged in user 'james'
+  $scope.from = "James";
+  var messageRef = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + $scope.from + '/' + $scope.to);
+  messageRef.on('value', function(snapshot) {
+    $scope.userMessages = snapshot.val();
+  });
+
+  $scope.sendComment = function() {
+    $scope.comment.createdAt = new Date();
+    // add new message to the database
+    // todo: refactor with transaction
+    $firebase(messageRef).$add($scope.comment);
+    $scope.comment.content = '';
+    // todo: try to use modal for successful send of message
+    // $scope.openModal();
+  };
+  
+})
+
+.controller('loginController', function($scope, authService) {
   $scope.user = {
     email: '',
     password: ''
   };
-  // use this tutorial for firebase simple login, give option for FB or Twitter
-  // http://www.sitepoint.com/creating-firebase-powered-end-end-ionic-application
-  $scope.validateUser = function() {
-    console.log($scope.user);
-    $scope.user = {
-      email: '',
-      password: ''
-    };
-  };
 
+  // log in user
+  $scope.validateUser = function() {
+    authService.login($scope.user.email, $scope.user.password);
+  };
+})
+
+.controller('logoutController', function(authService) {
+  // log out user
+  authService.logout();
 })
 
 .controller('HomeTabCtrl', function($scope) {

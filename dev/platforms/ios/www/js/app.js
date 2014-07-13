@@ -1,6 +1,6 @@
 angular.module('fastpass', ['firebase', 'ionic', 'fastpass.controllers', 'fastpass.services'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, authService) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -68,6 +68,15 @@ angular.module('fastpass', ['firebase', 'ionic', 'fastpass.controllers', 'fastpa
         }
       }
     })
+    .state('tabs.chat', {
+      url: "/chat",
+      views: {
+        'home-tab': {
+          templateUrl: "templates/chat.html",
+          controller: 'chatController'
+        }
+      }
+    })
     .state('tabs.about', {
       url: "/about",
       views: {
@@ -89,6 +98,14 @@ angular.module('fastpass', ['firebase', 'ionic', 'fastpass.controllers', 'fastpa
       views: {
         'contact-tab': {
           templateUrl: "templates/signin.html"
+        }
+      }
+    })
+    .state('tabs.signout', {
+      url: "/signout",
+      views: {
+        'contact-tab': {
+          templateUrl: "templates/signout.html"
         }
       }
     });

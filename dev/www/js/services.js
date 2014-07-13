@@ -20,8 +20,8 @@ angular.module('fastpass.services', ['ionic'])
   // submit email and password for authentication
   var login = function(email, password) {
     auth.$login('password', {
-      email: email,
-      password: password
+      'email': email,
+      'password': password
     }).then(function(user) {
       console.log('Logged in:' + user.email);
       $state.go('tabs.home');
