@@ -1,3 +1,4 @@
 www/lib/
 node_modules/
 firebase.json
+platforms/*
