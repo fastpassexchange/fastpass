@@ -16,19 +16,22 @@ angular.module('fastpass.services', ['ionic'])
   var ref = new Firebase('https://fastpass-connection.firebaseio.com');
   var auth = $firebaseSimpleLogin(ref);
 
-  // TODO research navigation delay until async promise resolves
-  // submit email and password for authentication
-  var login = function(email, password) {
-    auth.$login('password', {
-      'email': email,
-      'password': password
-    }).then(function(user) {
-      console.log('Logged in:' + user.email);
-      $state.go('tabs.home');
-    }, function(err) {
-      console.log('Login failed: ' + err);
+  // OAuth login: FB / twitter
+  var login = function(type) {
+    if (type === 'facebook' || type === 'twitter'){
+      auth.$login(type)
+      .then(function(user) {
+        console.log('Logged in:' + user.displayName);
+        console.dir(user);
+        $state.go('tabs.home');
+      }, function(err) {
+        console.log('Login failed: ' + err);
+        $state.go('tabs.signin');
+      });
+    }else{
+      console.log('Unrecognized login type');
       $state.go('tabs.signin');
-    });
+    }
   };
 
   // log out current user
