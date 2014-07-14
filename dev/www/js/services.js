@@ -56,9 +56,10 @@ angular.module('fastpass.services', ['ionic'])
 
   // return factory interface
   return {
+    isLoggedIn: isLoggedIn,
     login: login,
     logout: logout,
-    checkSession: checkSession,
+    checkSession: checkSession
   };
 });
 

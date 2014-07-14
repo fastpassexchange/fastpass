@@ -192,20 +192,15 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   
 })
 
+// log in user
 .controller('loginController', function($scope, authService) {
-  $scope.user = {
-    email: '',
-    password: ''
-  };
-
-  // log in user
-  $scope.validateUser = function() {
-    authService.login($scope.user.email, $scope.user.password);
+  $scope.validateUser = function(type) {
+    authService.login(type);
   };
 })
 
+// log out user
 .controller('logoutController', function(authService) {
-  // log out user
   authService.logout();
 })
 
