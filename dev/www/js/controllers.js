@@ -103,34 +103,20 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
 .controller('connectionController', function($scope, $firebase, $rootScope, $ionicModal, authService) {
   // verify that user is logged in
-  authService.checkSession();
-
-  // var app = angular.module('demoapp',['leaflet-directive']);
-
-  // app.controller('DemoController', [ '$scope', 'leafletData', function($scope, leafletData) {
-      // angular.extend($scope, {
-      //     center: {
-      //         lat: 51.505,
-      //         lng: -0.09,
-      //         zoom: 5
-      //     }
-      // });
-      
+  // authService.checkSession();      
 
   // handle messages to/from users
   $scope.comment = {
     text: ''
   };
 
-  var map = L.mapbox.map('map', 'jamesjsdev.io6o2ok3', {
-    maxZoom: 18,
-    dragging: true
-  });
-  console.log(map);
-  map.locate({setView: true, maxZoom: 16});
-  // L.control.locate().addTo(map);
-  // map. invalidateSize();
-
+  // var map = L.mapbox.map('map', 'jamesjsdev.io6o2ok3', {
+  //   maxZoom: 18,
+  //   dragging: true
+  // });
+  // console.log(map);
+  // map.locate({setView: true, maxZoom: 16});
+ 
   $scope.sendComment = function() {
     console.log($scope.comment.text);
     $scope.comment.text = '';
@@ -176,6 +162,8 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   // current logged in user 'james'
   $scope.from = "James";
   var messageRef = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + $scope.from + '/' + $scope.to);
+  var otherMessageRef = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + $scope.to + '/' + $scope.from);
+
   messageRef.on('value', function(snapshot) {
     $scope.userMessages = snapshot.val();
   });
@@ -185,7 +173,11 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     // add new message to the database
     // todo: refactor with transaction
     $firebase(messageRef).$add($scope.comment);
+
+    $firebase(otherMessageRef).$add($scope.comment);
+
     $scope.comment.content = '';
+    
     // todo: try to use modal for successful send of message
     // $scope.openModal();
   };
