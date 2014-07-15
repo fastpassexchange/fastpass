@@ -30,10 +30,6 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 // ])
 
 .controller('offerController', function($scope, $firebase, formService, authService) {
-
-  // verify that user is logged in
-  authService.checkSession();
-
   $scope.offer = {};
   // $scope properties for drop down menus
   $scope.rides = [
@@ -102,9 +98,6 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 })
 
 .controller('connectionController', function($scope, $firebase, $rootScope, $ionicModal, authService, listService) {
-  // verify that user is logged in
-  authService.checkSession();      
-
   // handle messages to/from users
   $scope.comment = {
     text: ''
@@ -215,7 +208,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
 })
 
-.controller('chatController', function($scope, $rootScope, $timeout, $firebase, listService) {
+.controller('chatController', function($scope, $rootScope, $timeout, $firebase, listService, authService) {
   // initialize object for message contents
   $scope.comment = {};
   // the name asociated of the selected offer
@@ -247,7 +240,9 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
 // log in user
 .controller('loginController', function($scope, authService) {
+  console.log("entering login controller");
   $scope.validateUser = function(type) {
+    console.log("entering validate user");
     authService.login(type);
   };
 })

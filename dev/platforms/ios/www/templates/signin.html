@@ -5,15 +5,10 @@
 <ion-content class="has-header padding">
   <form class="list">
     <label class="item item-input">
-      <span class="input-label">Email</span>
-      <input type="text" ng-model="user.email">
+      <button class="button button-block button-stable" type= "submit" ng-click="validateUser('facebook')">Facebook</button>
     </label>
     <label class="item item-input">
-      <span class="input-label">Password</span>
-      <input type="password" ng-model="user.password">
-    </label>
-    <label class="item item-input">
-      <button class="button button-block button-stable" type= "submit" ng-click="validateUser()">Sign In</button>
+      <button class="button button-block button-stable" type= "submit" ng-click="validateUser('twitter')">Twitter</button>
     </label>
   </form>
 </ion-content>

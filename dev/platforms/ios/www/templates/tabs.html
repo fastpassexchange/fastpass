@@ -3,16 +3,21 @@
   <!-- use us-sref with ui-router instead of href -->
   <!-- bug in home button when go to make connection
   click about, then home will go back to make connection -->
-  <ion-tab title="Home" icon="ion-home" ui-sref="tabs.home">
+  <ion-tab title="Home" icon="ion-home" href='#/tab/home'>
     <ion-nav-view name="home-tab"></ion-nav-view>
   </ion-tab>
 
-  <ion-tab title="About" icon="ion-ios7-information" ui-sref="tabs.about">
+  <ion-tab title="About" icon="ion-ios7-information" href='#/tab/about'>
     <ion-nav-view name="about-tab"></ion-nav-view>
   </ion-tab>
 
-  <ion-tab title="sign in" icon="ion-log-in" ui-sref="tabs.signin">
-    <ion-nav-view name="contact-tab"></ion-nav-view>
+  <ion-tab title="sign in" icon="ion-log-in" href='#/tab/signin'>
+    <ion-nav-view name="signin-tab"></ion-nav-view>
+  </ion-tab>
+
+  <ion-tab title="sign out" icon="ion-log-out" href='#/tab/signout'>
+    <ion-nav-view name="signout-tab"></ion-nav-view>
   </ion-tab>
 
 </ion-tabs>
+
