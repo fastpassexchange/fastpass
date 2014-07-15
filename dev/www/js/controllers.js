@@ -272,6 +272,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
 // log out user
 .controller('logoutController', function(authService) {
+  console.log("entering logout controller");
   authService.logout();
 })
 

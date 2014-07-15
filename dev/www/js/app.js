@@ -113,22 +113,6 @@ angular.module('fastpass', ['firebase', 'ionic', 'fastpass.controllers', 'fastpa
           templateUrl: "templates/signout.html"
         }
       }
-    })
-    .state('tabs.signin', {
-      url: "/signin",
-      views: {
-        'contact-tab': {
-          templateUrl: "templates/signin.html"
-        }
-      }
-    })
-    .state('tabs.signout', {
-      url: "/signout",
-      views: {
-        'contact-tab': {
-          templateUrl: "templates/signout.html"
-        }
-      }
     });
    // if any other url is entered go to home page
    $urlRouterProvider.otherwise("/tab/home");
