@@ -30,10 +30,6 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 // ])
 
 .controller('offerController', function($scope, $firebase, formService, authService) {
-
-  // verify that user is logged in
-  authService.checkSession();
-
   $scope.offer = {};
   // $scope properties for drop down menus
   $scope.rides = [
@@ -102,9 +98,6 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 })
 
 .controller('connectionController', function($scope, $firebase, $rootScope, $ionicModal, authService, listService) {
-  // verify that user is logged in
-  authService.checkSession();      
-
   // handle messages to/from users
   $scope.comment = {
     text: ''
