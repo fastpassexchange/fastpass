@@ -54,12 +54,29 @@ angular.module('fastpass.services', ['ionic'])
     }
   };
 
+  // getter for user uid
+  var getUserId = function() {
+    return auth.user.uid;
+  };
+
+  // getter for user display name
+  var getDisplayName = function() {
+    return auth.user.displayName;
+  };
+
+  var getProvider = function() {
+    return auth.user.provider;
+  };
+
   // return factory interface
   return {
     isLoggedIn: isLoggedIn,
     login: login,
     logout: logout,
-    checkSession: checkSession
+    checkSession: checkSession,
+    getUserId: getUserId,
+    getDisplayName: getDisplayName,
+    getProvider: getProvider
   };
 });
 

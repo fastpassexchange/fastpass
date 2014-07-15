@@ -1,6 +1,6 @@
 angular.module('fastpass', ['firebase', 'ionic', 'fastpass.controllers', 'fastpass.services'])
 
-.run(function($ionicPlatform, authService) {
+.run(function($ionicPlatform, $rootScope, authService, $state) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -10,6 +10,15 @@ angular.module('fastpass', ['firebase', 'ionic', 'fastpass.controllers', 'fastpa
     if(window.StatusBar) {
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
+    }
+  });
+  $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
+    console.log('entered state change callback');
+    console.log('toState: ', toState);
+    if (toState.authenticate && !authService.isLoggedIn()){
+      // User isn’t authenticated
+      $state.transitionTo("tabs.signin");
+      event.preventDefault(); 
     }
   });
 })
@@ -34,6 +43,7 @@ angular.module('fastpass', ['firebase', 'ionic', 'fastpass.controllers', 'fastpa
     })
     .state('tabs.getPass', {
       url: "/getPass",
+      authenticate: true,
       views: {
         'home-tab': {
           templateUrl: "templates/passes.html",
@@ -43,6 +53,7 @@ angular.module('fastpass', ['firebase', 'ionic', 'fastpass.controllers', 'fastpa
     })
     .state('tabs.offerInput', {
       url: "/offerInput",
+      authenticate: true,
       views: {
         'home-tab': {
           templateUrl: "templates/offerInput.html",
@@ -52,6 +63,7 @@ angular.module('fastpass', ['firebase', 'ionic', 'fastpass.controllers', 'fastpa
     })
     .state('tabs.getDetails', {
       url: "/getDetails",
+      authenticate: true,
       views: {
         'home-tab': {
           templateUrl: "templates/getDetails.html",
@@ -61,6 +73,7 @@ angular.module('fastpass', ['firebase', 'ionic', 'fastpass.controllers', 'fastpa
     })
     .state('tabs.connection', {
       url: "/connection",
+      authenticate: true,
       views: {
         'home-tab': {
           templateUrl: "templates/connection.html",
@@ -70,6 +83,7 @@ angular.module('fastpass', ['firebase', 'ionic', 'fastpass.controllers', 'fastpa
     })
     .state('tabs.chat', {
       url: "/chat",
+      authenticate: true,
       views: {
         'home-tab': {
           templateUrl: "templates/chat.html",
@@ -85,18 +99,10 @@ angular.module('fastpass', ['firebase', 'ionic', 'fastpass.controllers', 'fastpa
         }
       }
     })
-    .state('tabs.navstack', {
-      url: "/navstack",
-      views: {
-        'about-tab': {
-          templateUrl: "templates/nav-stack.html"
-        }
-      }
-    });
     .state('tabs.signin', {
       url: "/signin",
       views: {
-        'contact-tab': {
+        'signin-tab': {
           templateUrl: "templates/signin.html"
         }
       }
@@ -104,7 +110,7 @@ angular.module('fastpass', ['firebase', 'ionic', 'fastpass.controllers', 'fastpa
     .state('tabs.signout', {
       url: "/signout",
       views: {
-        'contact-tab': {
+        'signout-tab': {
           templateUrl: "templates/signout.html"
         }
       }
