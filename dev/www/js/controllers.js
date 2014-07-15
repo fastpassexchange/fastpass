@@ -77,13 +77,24 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   $scope.addOffer = function() {
     // set a createdAt property that is equal to the current date/time
     $scope.offer.createdAt = new Date();
+    $scope.offer.offererId = authService.getUserId();
+    $scope.offer.displayName = authService.getDisplayName();
+    console.log($scope.offer.offererId);
+    console.log($scope.offer.displayName);
+
     // get all offers from the database
     var offerRef = new Firebase('https://fastpass-connection.firebaseio.com/offers');
     // add new offer to the database
     $firebase(offerRef).$add($scope.offer);
+
+    // add to user's offer hash
+    var usersOffers = new Firebase('https://fastpass-connection.firebaseio.com/users/' + $scope.offer.offererId + '/offers');
+    // add offer hash to logged in users offers hash
+    $firebase(usersOffers).$add($scope.offer);
+
     // clear input fields of form
     $scope.offer = {
-      name: '',
+      // displayName: '',
       ride: '',
       number_give: '',
       location: '',
@@ -214,7 +225,11 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   // the name asociated of the selected offer
   $scope.to = $rootScope.selected.name;
   // current logged in user 'james'
-  $scope.from = "James";
+  $scope.from = authService.getUserID();
+  console.log('message from uid: ', $scope.from);
+  console.log('message from display: ', getDisplayName());
+  console.log('message from provider: ', getProvider());
+  // $scope.from = "James";
   var messageRef = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + $scope.from + '/' + $scope.to);
   var otherMessageRef = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + $scope.to + '/' + $scope.from);
 
@@ -244,6 +259,8 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   $scope.validateUser = function(type) {
     console.log("entering validate user");
     authService.login(type);
+
+
   };
 })
 
