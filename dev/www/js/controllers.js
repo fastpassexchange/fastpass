@@ -223,12 +223,12 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   // initialize object for message contents
   $scope.comment = {};
   // the name asociated of the selected offer
-  $scope.to = $rootScope.selected.name;
+  $scope.to = $rootScope.selected.offererId;
   // current logged in user 'james'
-  $scope.from = authService.getUserID();
+  $scope.from = authService.getUserId();
   console.log('message from uid: ', $scope.from);
-  console.log('message from display: ', getDisplayName());
-  console.log('message from provider: ', getProvider());
+  console.log('message from display: ', authService.getDisplayName());
+  console.log('message from provider: ', authService.getProvider());
   // $scope.from = "James";
   var messageRef = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + $scope.from + '/' + $scope.to);
   var otherMessageRef = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + $scope.to + '/' + $scope.from);
