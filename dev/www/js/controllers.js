@@ -101,7 +101,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
 })
 
-.controller('connectionController', function($scope, $firebase, $rootScope, $ionicModal, authService) {
+.controller('connectionController', function($scope, $firebase, $rootScope, $ionicModal, authService, listService) {
   // verify that user is logged in
   // authService.checkSession();      
 
@@ -109,21 +109,82 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   $scope.comment = {
     text: ''
   };
+  // if(map) {
+  //   map.remove();
+  // }
+  // create map and properties
+  var map = L.mapbox.map('map', 'jamesjsdev.io6o2ok3', {
+    maxZoom: 18,
+    dragging: true,
+    touchZoom: true,
+    tap: true,
+    inertia: true
+  });
 
-  // var map = L.mapbox.map('map', 'jamesjsdev.io6o2ok3', {
-  //   maxZoom: 18,
-  //   dragging: true
-  // });
-  // console.log(map);
-  // map.locate({setView: true, maxZoom: 16});
+  // find current location and watch it (track)
+  map.locate({setView: true, watch: true, maxZoom: 16});
+  // L.control.locate().addTo(map);
+  
+  // set user connected with to the marker location
+
+  // reference user connected to
+  // use $scope.selected.name when not using dummy info
+  var connectedUser = "somebody else(user connecting with)";
+  // get the lat and long from the database of the user you are connecting to
+  var connectedUserLat = new Firebase('https://fastpass-connection.firebaseio.com/users/' + connectedUser + '/location/latitude');
+  var connectedUserLng = new Firebase('https://fastpass-connection.firebaseio.com/users/' + connectedUser + '/location/longitude');
+
+  connectedUserLat.on('value', function(snapshot) {
+    $scope.connectedUserLat = snapshot.val();
+  });
+
+  connectedUserLng.on('value', function(snapshot) {
+    $scope.connectedUserLng = snapshot.val();
+  });
+  
+  // put marker on map of the user you are connecting to
+  L.marker([$scope.connectedUserLat, $scope.connectedUserLng]).addTo(map);
  
-  $scope.sendComment = function() {
-    console.log($scope.comment.text);
-    $scope.comment.text = '';
-    console.log($scope.comment.text);
-    // try to use modal for successful send of message
-    // $scope.openModal();
+  // intialize lat and long for onLocationFound function
+  var latitude = 0;
+  var longitude = 0;
+  var nextCircles = false;
+
+  var onLocationFound = function (e) {
+    console.log('latitude: ', e.latitude);
+    console.log('longitude: ', e.longitude);
+    console.log('latlng: ', e.latlng);
+    //console.log($rootScope.selected.name);
+    // represents presently logged in user
+    var user = 'somebody(logged in user)';
+    // create latitude and longitude parameters for logged in user
+    var userLat = new Firebase('https://fastpass-connection.firebaseio.com/users/' + user + '/location/latitude');
+    var userLng = new Firebase('https://fastpass-connection.firebaseio.com/users/' + user + '/location/longitude');
+    // use set instead of add to overwrite any previous values
+    $firebase(userLat).$set(e.latitude);
+    $firebase(userLng).$set(e.longitude);
+    // access properties of the locationfound event
+    // latitude = e.latitude;
+    // longitude = e.longitude;
+    // var distance = e.latlng.distanceTo([latitude, longitude]);
+    // console.log(distance);
+    // create a circle for display
+    // todo: make circle refresh when location changes
+    var circle;
+    // if (!nextCircles) {
+      var radius = e.accuracy / 2;
+      circle = L.circle(e.latlng, radius);
+      circle.addTo(map);
+      // nextCircles = true;
+    // } else {
+      // circle.update();
+      // circle.removeFrom(map);
+      // circle.setLatLng(e.latitude, e.longitude);
+    // }
   };
+ 
+   // event locationfound will trigger every time the user's position changes
+   map.on('locationfound', onLocationFound);
 
   // unused modal functionality
 //   $ionicModal.fromTemplateUrl('templates/my-modal.html', {
@@ -177,7 +238,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     $firebase(otherMessageRef).$add($scope.comment);
 
     $scope.comment.content = '';
-    
+
     // todo: try to use modal for successful send of message
     // $scope.openModal();
   };

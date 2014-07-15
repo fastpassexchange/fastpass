@@ -4,7 +4,7 @@
 }
 
 .imagelogo {
-  margin-top: 30px;
+  margin-top: 30dppx;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -14,7 +14,7 @@
 
 .messageDiv {
   overflow: scroll;
-  height: 500px;
+  height: 500dppx;
 }
 
 /*.angular-leaflet-map {
@@ -27,9 +27,9 @@
    /*top:0;*/
    bottom:0; 
    width:100%; 
-   height: 50%;
-   margin-top: 150px;
-   margin-bottom: 50px;
+   height: 75%;
+   margin-top: 25dppx;
+   margin-bottom: 50dppx;
 }
 
 .chatView {

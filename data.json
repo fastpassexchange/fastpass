@@ -1,103 +1,147 @@
-{  
-  "offers" : [{
-    "name": "James Yothers",
-    "ride": "Matterhorn",
-    "number_give": 4,
-    "location": "Critter County",
-    "comment": "selling for $50",
-    "createdAt": "20140707T185314Z"
-  }, {
-    "name": "Steve Tye",
-    "ride": "Space Mountain",
-    "number_give": 3,
-    "location": "Adventureland",
-    "comment": "selling for $40",
-    "createdAt": "20140707T195314Z"
-  }, {
-    "name": "Ron Tye",
-    "ride": "Big ass thunder mountain",
-    "number_give": 2,
-    "location": "Critter County",
-    "comment": "I'll sell for $40",
-    "createdAt": "20140707T204543Z"
-  }, {
-    "name": "Kristi Riche",
-    "ride": "Winnie the Pooh",
-    "number_give": 5,
-    "location": "Toon Town",
-    "Comment": "These are free",
-    "createdAt": "20140707T213416Z"
-  }],
-
-  "users": {
-    "Kristi Riche": {
-        "password": "hello",
-        "offers": {
-            "offer1": {
-              "ride": "Winnie the Pooh",
-              "number_give": 5,
-              "location": "Toon Town",
-              "Comment": "These are free",
-              "createdAt": "20140707T213416Z"
-            }
+{
+  "users" : {
+    "Ron Tye" : {
+      "offers" : {
+        "offer1" : {
+          "comment" : "I'll sell for $40",
+          "location" : "Critter County",
+          "ride" : "Big ass thunder mountain",
+          "number_give" : 2,
+          "createdAt" : "20140707T204543Z"
         }
+      },
+      "password" : "hendrick"
     },
-    "Ron Tye": {
-        "password": "hendrick",
-        "offers": {
-            "offer1": {
-              "ride": "Big ass thunder mountain",
-              "number_give": 2,
-              "location": "Critter County",
-              "comment": "I'll sell for $40",
-              "createdAt": "20140707T204543Z"
-            }
+    "James Yothers" : {
+      "offers" : {
+        "offer1" : {
+          "comment" : "selling for $50",
+          "location" : "Critter County",
+          "ride" : "Matterhorn",
+          "number_give" : 4,
+          "createdAt" : "20140707T185314Z"
         }
+      },
+      "password" : "hack reactor"
     },
-    "Steve Tye": {
-        "password": "emo",
-        "offers": {
-            "offer1": {
-              "ride": "Space Mountain",
-              "number_give": 3,
-              "location": "Adventureland",
-              "comment": "selling for $40",
-              "createdAt": "20140707T195314Z"    
-            }
-        }
+    "somebody(logged in user)" : {
+      "location" : {
+        "latitude" : 37.7659223,
+        "longitude" : -122.4186475
+      }
     },
-    "James Yothers": {
-        "password": "hack reactor",
-        "offers": {
-            "offer1": {
-              "ride": "Matterhorn",
-              "number_give": 4,
-              "location": "Critter County",
-              "comment": "selling for $50",
-              "createdAt": "20140707T185314Z"    
-            }
+    "somebody else(user connecting with)" : {
+      "location" : {
+        "latitude" : 37.77,
+        "longitude" : -122.42
+      }
+    },
+    "Kristi Riche" : {
+      "offers" : {
+        "offer1" : {
+          "location" : "Toon Town",
+          "ride" : "Winnie the Pooh",
+          "number_give" : 5,
+          "Comment" : "These are free",
+          "createdAt" : "20140707T213416Z"
         }
+      },
+      "password" : "hello"
+    },
+    "Steve Tye" : {
+      "offers" : {
+        "offer1" : {
+          "comment" : "selling for $40",
+          "location" : "Adventureland",
+          "ride" : "Space Mountain",
+          "number_give" : 3,
+          "createdAt" : "20140707T195314Z"
+        }
+      },
+      "password" : "emo"
     }
   },
-  "messages": {
-    "james": {
-      "justin": [{
-        "content": "message1",
-        "createdAt": "20140707T185314Z"
+  "offers" : [ {
+    "comment" : "selling for $50",
+    "location" : "Critter County",
+    "ride" : "Matterhorn",
+    "number_give" : 4,
+    "name" : "James Yothers",
+    "createdAt" : "20140707T185314Z"
+  }, {
+    "comment" : "selling for $40",
+    "location" : "Adventureland",
+    "ride" : "Space Mountain",
+    "number_give" : 3,
+    "name" : "Steve Tye",
+    "createdAt" : "20140707T195314Z"
+  }, {
+    "comment" : "I'll sell for $40",
+    "location" : "Critter County",
+    "ride" : "Big ass thunder mountain",
+    "number_give" : 2,
+    "name" : "Ron Tye",
+    "createdAt" : "20140707T204543Z"
+  }, {
+    "location" : "Toon Town",
+    "ride" : "Winnie the Pooh",
+    "number_give" : 5,
+    "name" : "Kristi Riche",
+    "Comment" : "These are free",
+    "createdAt" : "20140707T213416Z"
+  } ],
+  "messages" : {
+    "james" : {
+      "justin" : [ {
+        "content" : "message1",
+        "createdAt" : "20140707T185314Z"
       }, {
-        "content": "message2",
-        "createdAt": "20140707T185314Z"
-      }]
-
+        "content" : "message2",
+        "createdAt" : "20140707T185314Z"
+      } ]
     },
-    "justin": {
-      "james": [{
-        "content": "message1",
-        "createdAt": "20140707T185314Z"
+    "justin" : {
+      "james" : [ {
+        "content" : "message1",
+        "createdAt" : "20140707T185314Z"
       }, {
-        "content": "message2",
-        "createdAt": "20140707T185314Z"
-      }]
+        "content" : "message2",
+        "createdAt" : "20140707T185314Z"
+      } ]
+    },
+    "James" : {
+      "Ron Tye" : {
+        "-JRq0F6AcXUrlq3emz8Q" : {
+          "content" : "iytfviv",
+          "createdAt" : "2014-07-14T17:56:43.593Z"
+        }
+      },
+      "James Yothers" : {
+        "-JRqnpA1paR1h6irAQ1a" : {
+          "content" : "h;kj",
+          "createdAt" : "2014-07-14T21:37:42.618Z"
+        }
+      },
+      "Steve Tye" : {
+        "-JRqHnT4K33kCSF74gX1" : {
+          "createdAt" : "2014-07-14T19:13:24.819Z"
+        },
+        "-JRqHilOPWYvOlZoIfzj" : {
+          "createdAt" : "2014-07-14T19:13:05.574Z"
+        },
+        "-JRppFEYGVhP_47HYLcn" : {
+          "content" : "hi steve again",
+          "createdAt" : "2014-07-14T17:04:18.336Z"
+        }
+      }
+    },
+    "Steve Tye" : {
+      "James" : {
+        "-JRppFEgeLypWK4De_5y" : {
+          "content" : "hi steve again",
+          "createdAt" : "2014-07-14T17:04:18.336Z"
+        }
+      }
     }
   }
 }
