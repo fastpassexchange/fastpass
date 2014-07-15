@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
@@ -43,6 +42,8 @@
 		7E7966E71810823500FA85AD /* icon-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DD1810823500FA85AD /* icon-small@2x.png */; };
 		CCEA73C5916D40D0AF1FA2E8 /* CDVLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = A434778A8D964D98B658871B /* CDVLogger.m */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
+		A9847F9F5FDA48A594C33A10 /* CDVStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 017946CFDBA345BE8E9455FC /* CDVStatusBar.m */; };
+		DE36A32BA71745D698A06E79 /* CDVInAppBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 34ED7617C1DB4CC09804CDF6 /* CDVInAppBrowser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +116,10 @@
 		EB87FDF31871DA8E0020F90C /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../../www; sourceTree = "<group>"; };
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = "Fastpass Connection/config.xml"; sourceTree = "<group>"; };
+		017946CFDBA345BE8E9455FC /* CDVStatusBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVStatusBar.m"; path = "org.apache.cordova.statusbar/CDVStatusBar.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		F1F2F8351B9847BE8D376310 /* CDVStatusBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVStatusBar.h"; path = "org.apache.cordova.statusbar/CDVStatusBar.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		34ED7617C1DB4CC09804CDF6 /* CDVInAppBrowser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVInAppBrowser.m"; path = "org.apache.cordova.inappbrowser/CDVInAppBrowser.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		37690ADB2227421F9FB4F9EF /* CDVInAppBrowser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVInAppBrowser.h"; path = "org.apache.cordova.inappbrowser/CDVInAppBrowser.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,6 +248,10 @@
 				CF32D02613FE4516B823F8C9 /* CDVLogger.h */,
 				437931F2456C480DBDAF46A6 /* CDVDevice.m */,
 				16B4C1DED3CE4DCFB7ADD9C6 /* CDVDevice.h */,
+				017946CFDBA345BE8E9455FC /* CDVStatusBar.m */,
+				F1F2F8351B9847BE8D376310 /* CDVStatusBar.h */,
+				34ED7617C1DB4CC09804CDF6 /* CDVInAppBrowser.m */,
+				37690ADB2227421F9FB4F9EF /* CDVInAppBrowser.h */,
 			);
 			name = Plugins;
 			path = "Fastpass Connection/Plugins";
@@ -441,6 +450,8 @@
 				22A0027B756C4784B75E6941 /* UIWebViewExtension.m in Sources */,
 				CCEA73C5916D40D0AF1FA2E8 /* CDVLogger.m in Sources */,
 				45376FA6E5FF42DB99163EDE /* CDVDevice.m in Sources */,
+				A9847F9F5FDA48A594C33A10 /* CDVStatusBar.m in Sources */,
+				DE36A32BA71745D698A06E79 /* CDVInAppBrowser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

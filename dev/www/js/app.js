@@ -13,10 +13,9 @@ angular.module('fastpass', ['firebase', 'ionic', 'fastpass.controllers', 'fastpa
     }
   });
   $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
-    console.log('entered state change callback');
-    console.log('toState: ', toState);
     if (toState.authenticate && !authService.isLoggedIn()){
-      // User isn’t authenticated
+      // User not authenticated
+      console.log("User not authenticated");
       $state.transitionTo("tabs.signin");
       event.preventDefault(); 
     }

@@ -16,19 +16,25 @@ angular.module('fastpass.services', ['ionic'])
   var ref = new Firebase('https://fastpass-connection.firebaseio.com');
   var auth = $firebaseSimpleLogin(ref);
 
-  // TODO research navigation delay until async promise resolves
-  // submit email and password for authentication
-  var login = function(email, password) {
-    auth.$login('password', {
-      email: email,
-      password: password
-    }).then(function(user) {
-      console.log('Logged in:' + user.email);
-      $state.go('tabs.home');
-    }, function(err) {
-      console.log('Login failed: ' + err);
+  // OAuth login: FB / twitter
+  var login = function(type) {
+    console.log("entered auth service login");
+    if (type === 'facebook' || type === 'twitter'){
+      console.log("attempting auth service login");
+      auth.$login(type)
+      .then(function(user) {
+        console.log('Logged in:' + user.displayName);
+        console.dir(user);
+        $state.go('tabs.home');
+      }, function(err) {
+        console.log('Login failed: ' + err);
+        $state.go('tabs.signin');
+      });
+      console.log("crappy async bug");
+    }else{
+      console.log('Unrecognized login type');
       $state.go('tabs.signin');
-    });
+    }
   };
 
   // log out current user
@@ -51,11 +57,29 @@ angular.module('fastpass.services', ['ionic'])
     }
   };
 
+  // getter for user uid
+  var getUserId = function() {
+    return auth.user.uid;
+  };
+
+  // getter for user display name
+  var getDisplayName = function() {
+    return auth.user.displayName;
+  };
+
+  var getProvider = function() {
+    return auth.user.provider;
+  };
+
   // return factory interface
   return {
+    isLoggedIn: isLoggedIn,
     login: login,
     logout: logout,
     checkSession: checkSession,
+    getUserId: getUserId,
+    getDisplayName: getDisplayName,
+    getProvider: getProvider
   };
 });
 

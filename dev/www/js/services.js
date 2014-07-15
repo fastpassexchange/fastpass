@@ -18,7 +18,9 @@ angular.module('fastpass.services', ['ionic'])
 
   // OAuth login: FB / twitter
   var login = function(type) {
+    console.log("entered auth service login");
     if (type === 'facebook' || type === 'twitter'){
+      console.log("attempting auth service login");
       auth.$login(type)
       .then(function(user) {
         console.log('Logged in:' + user.displayName);
@@ -28,6 +30,7 @@ angular.module('fastpass.services', ['ionic'])
         console.log('Login failed: ' + err);
         $state.go('tabs.signin');
       });
+      console.log("crappy async bug");
     }else{
       console.log('Unrecognized login type');
       $state.go('tabs.signin');

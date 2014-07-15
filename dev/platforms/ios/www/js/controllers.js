@@ -30,10 +30,6 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 // ])
 
 .controller('offerController', function($scope, $firebase, formService, authService) {
-
-  // verify that user is logged in
-  authService.checkSession();
-
   $scope.offer = {};
   // $scope properties for drop down menus
   $scope.rides = [
@@ -101,43 +97,87 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
 })
 
-.controller('connectionController', function($scope, $firebase, $rootScope, $ionicModal, authService) {
-  // verify that user is logged in
-  authService.checkSession();
-
-  // var app = angular.module('demoapp',['leaflet-directive']);
-
-  // app.controller('DemoController', [ '$scope', 'leafletData', function($scope, leafletData) {
-      // angular.extend($scope, {
-      //     center: {
-      //         lat: 51.505,
-      //         lng: -0.09,
-      //         zoom: 5
-      //     }
-      // });
-      
-
+.controller('connectionController', function($scope, $firebase, $rootScope, $ionicModal, authService, listService) {
   // handle messages to/from users
   $scope.comment = {
     text: ''
   };
-
+  // if(map) {
+  //   map.remove();
+  // }
+  // create map and properties
   var map = L.mapbox.map('map', 'jamesjsdev.io6o2ok3', {
     maxZoom: 18,
-    dragging: true
+    dragging: true,
+    touchZoom: true,
+    tap: true,
+    inertia: true
   });
-  console.log(map);
-  map.locate({setView: true, maxZoom: 16});
-  // L.control.locate().addTo(map);
-  // map. invalidateSize();
 
-  $scope.sendComment = function() {
-    console.log($scope.comment.text);
-    $scope.comment.text = '';
-    console.log($scope.comment.text);
-    // try to use modal for successful send of message
-    // $scope.openModal();
+  // find current location and watch it (track)
+  map.locate({setView: true, watch: true, maxZoom: 16});
+  // L.control.locate().addTo(map);
+  
+  // set user connected with to the marker location
+
+  // reference user connected to
+  // use $scope.selected.name when not using dummy info
+  var connectedUser = "somebody else(user connecting with)";
+  // get the lat and long from the database of the user you are connecting to
+  var connectedUserLat = new Firebase('https://fastpass-connection.firebaseio.com/users/' + connectedUser + '/location/latitude');
+  var connectedUserLng = new Firebase('https://fastpass-connection.firebaseio.com/users/' + connectedUser + '/location/longitude');
+
+  connectedUserLat.on('value', function(snapshot) {
+    $scope.connectedUserLat = snapshot.val();
+  });
+
+  connectedUserLng.on('value', function(snapshot) {
+    $scope.connectedUserLng = snapshot.val();
+  });
+  
+  // put marker on map of the user you are connecting to
+  L.marker([$scope.connectedUserLat, $scope.connectedUserLng]).addTo(map);
+ 
+  // intialize lat and long for onLocationFound function
+  var latitude = 0;
+  var longitude = 0;
+  var nextCircles = false;
+
+  var onLocationFound = function (e) {
+    console.log('latitude: ', e.latitude);
+    console.log('longitude: ', e.longitude);
+    console.log('latlng: ', e.latlng);
+    //console.log($rootScope.selected.name);
+    // represents presently logged in user
+    var user = 'somebody(logged in user)';
+    // create latitude and longitude parameters for logged in user
+    var userLat = new Firebase('https://fastpass-connection.firebaseio.com/users/' + user + '/location/latitude');
+    var userLng = new Firebase('https://fastpass-connection.firebaseio.com/users/' + user + '/location/longitude');
+    // use set instead of add to overwrite any previous values
+    $firebase(userLat).$set(e.latitude);
+    $firebase(userLng).$set(e.longitude);
+    // access properties of the locationfound event
+    // latitude = e.latitude;
+    // longitude = e.longitude;
+    // var distance = e.latlng.distanceTo([latitude, longitude]);
+    // console.log(distance);
+    // create a circle for display
+    // todo: make circle refresh when location changes
+    var circle;
+    // if (!nextCircles) {
+      var radius = e.accuracy / 2;
+      circle = L.circle(e.latlng, radius);
+      circle.addTo(map);
+      // nextCircles = true;
+    // } else {
+      // circle.update();
+      // circle.removeFrom(map);
+      // circle.setLatLng(e.latitude, e.longitude);
+    // }
   };
+ 
+   // event locationfound will trigger every time the user's position changes
+   map.on('locationfound', onLocationFound);
 
   // unused modal functionality
 //   $ionicModal.fromTemplateUrl('templates/my-modal.html', {
@@ -168,7 +208,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
 })
 
-.controller('chatController', function($scope, $rootScope, $timeout, $firebase, listService) {
+.controller('chatController', function($scope, $rootScope, $timeout, $firebase, listService, authService) {
   // initialize object for message contents
   $scope.comment = {};
   // the name asociated of the selected offer
@@ -176,6 +216,8 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   // current logged in user 'james'
   $scope.from = "James";
   var messageRef = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + $scope.from + '/' + $scope.to);
+  var otherMessageRef = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + $scope.to + '/' + $scope.from);
+
   messageRef.on('value', function(snapshot) {
     $scope.userMessages = snapshot.val();
   });
@@ -185,27 +227,28 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     // add new message to the database
     // todo: refactor with transaction
     $firebase(messageRef).$add($scope.comment);
+
+    $firebase(otherMessageRef).$add($scope.comment);
+
     $scope.comment.content = '';
+
     // todo: try to use modal for successful send of message
     // $scope.openModal();
   };
   
 })
 
+// log in user
 .controller('loginController', function($scope, authService) {
-  $scope.user = {
-    email: '',
-    password: ''
-  };
-
-  // log in user
-  $scope.validateUser = function() {
-    authService.login($scope.user.email, $scope.user.password);
+  console.log("entering login controller");
+  $scope.validateUser = function(type) {
+    console.log("entering validate user");
+    authService.login(type);
   };
 })
 
+// log out user
 .controller('logoutController', function(authService) {
-  // log out user
   authService.logout();
 })
 

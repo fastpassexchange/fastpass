@@ -28,6 +28,12 @@
     <feature name="Device">
         <param name="ios-package" value="CDVDevice" />
     </feature>
+    <preference name="StatusBarOverlaysWebView" value="true" />
+    <preference name="StatusBarBackgroundColor" value="#000000" />
+    <preference name="StatusBarStyle" value="lightcontent" />
+    <feature name="InAppBrowser">
+        <param name="ios-package" value="CDVInAppBrowser" />
+    </feature>
     <name>Fastpass Connection</name>
     <description>
         a social app using fastpasses
@@ -36,6 +42,8 @@
       James Yothers
     </author>
     <content src="index.html" />
+    <access origin="*.firebaseio.*" />
+    <access origin="https://auth.firebase.com" />
     <access origin="*" />
     <preference name="webviewbounce" value="false" />
     <preference name="UIWebViewBounce" value="false" />

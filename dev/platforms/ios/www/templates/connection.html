@@ -5,7 +5,9 @@
         send message
       </button>
     </form>
-    <p>{{ selected.name }}s location:</p>
+    <div>
+     <p>{{ selected.name }}s location:</p>
+    </div>
     <!-- <img src="img/disneymap.png" alt="map load error" class="image"> -->
     <!-- Disneyland map -->
     <!-- <iframe width='100%' height='500px' frameBorder='0' src='https://a.tiles.mapbox.com/v4/jamesjsdev.io6330mc/attribution,zoompan,zoomwheel,geocoder,share.html?access_token=pk.eyJ1IjoiamFtZXNqc2RldiIsImEiOiJyWnJ1aG5rIn0.ez7xPEHt9vgNn2h86IIvsA'></iframe> -->
@@ -16,10 +18,10 @@
     <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.24.0/L.Control.Locate.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.24.0/L.Control.Locate.css' rel='stylesheet' />
     <div> -->
-   <!--    <style>
-      .leaflet-control-locate {
+     <!--  <style>
+     /* .leaflet-control-locate {
         border:1px solid rgba(0,0,0,0.4);
-        }
+        }*/
       .leaflet-control-locate a {
         background-color:#fff;
         background-position:-3px, -2px;
@@ -29,12 +31,12 @@
         }
       </style> -->
       <!-- <leaflet center="center"></leaflet> -->
+
       <div id='map'></div>
      <!--  <script type="text/ng-template">
           var map = L.mapbox.map('map', 'jamesjsdev.io6o2ok3');
           console.log(map);
           L.control.locate().addTo(map);
       </script> -->
-    </div>
   </ion-content>
 </ion-view>

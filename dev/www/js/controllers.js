@@ -240,7 +240,9 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
 // log in user
 .controller('loginController', function($scope, authService) {
+  console.log("entering login controller");
   $scope.validateUser = function(type) {
+    console.log("entering validate user");
     authService.login(type);
   };
 })
