@@ -103,7 +103,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
 .controller('connectionController', function($scope, $firebase, $rootScope, $ionicModal, authService, listService) {
   // verify that user is logged in
-  // authService.checkSession();      
+  authService.checkSession();      
 
   // handle messages to/from users
   $scope.comment = {
