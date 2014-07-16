@@ -1,147 +1,251 @@
 {
-  "users" : {
-    "Ron Tye" : {
-      "offers" : {
-        "offer1" : {
-          "comment" : "I'll sell for $40",
-          "location" : "Critter County",
-          "ride" : "Big ass thunder mountain",
-          "number_give" : 2,
-          "createdAt" : "20140707T204543Z"
-        }
+  "users": {
+      "facebook:10152155764586524": {
+          "offers": {
+              "-JRvPLVALigXv8e2aVZd": {
+                  "offererId": "facebook:10152155764586524",
+                  "comment": "free",
+                  "location": "current location: adventureland",
+                  "ride": "matterhorn bobsleds",
+                  "displayName": "James Yothers",
+                  "number_give": "1 fastpass",
+                  "createdAt": "2014-07-15T19:04:27.483Z"
+              }
+          }
       },
-      "password" : "hendrick"
-    },
-    "James Yothers" : {
-      "offers" : {
-        "offer1" : {
-          "comment" : "selling for $50",
-          "location" : "Critter County",
-          "ride" : "Matterhorn",
-          "number_give" : 4,
-          "createdAt" : "20140707T185314Z"
-        }
+      "somebody(logged in user)": {
+          "location": {
+              "latitude": 37.7659223,
+              "longitude": -122.4186475
+          }
       },
-      "password" : "hack reactor"
-    },
-    "somebody(logged in user)" : {
-      "location" : {
-        "latitude" : 37.7659223,
-        "longitude" : -122.4186475
+      "somebody else(user connecting with)": {
+          "location": {
+              "latitude": 37.77,
+              "longitude": -122.42
+          }
       }
-    },
-    "somebody else(user connecting with)" : {
-      "location" : {
-        "latitude" : 37.77,
-        "longitude" : -122.42
-      }
-    },
-    "Kristi Riche" : {
-      "offers" : {
-        "offer1" : {
-          "location" : "Toon Town",
-          "ride" : "Winnie the Pooh",
-          "number_give" : 5,
-          "Comment" : "These are free",
-          "createdAt" : "20140707T213416Z"
-        }
-      },
-      "password" : "hello"
-    },
-    "Steve Tye" : {
-      "offers" : {
-        "offer1" : {
-          "comment" : "selling for $40",
-          "location" : "Adventureland",
-          "ride" : "Space Mountain",
-          "number_give" : 3,
-          "createdAt" : "20140707T195314Z"
-        }
-      },
-      "password" : "emo"
-    }
   },
-  "offers" : [ {
-    "comment" : "selling for $50",
-    "location" : "Critter County",
-    "ride" : "Matterhorn",
-    "number_give" : 4,
-    "name" : "James Yothers",
-    "createdAt" : "20140707T185314Z"
-  }, {
-    "comment" : "selling for $40",
-    "location" : "Adventureland",
-    "ride" : "Space Mountain",
-    "number_give" : 3,
-    "name" : "Steve Tye",
-    "createdAt" : "20140707T195314Z"
-  }, {
-    "comment" : "I'll sell for $40",
-    "location" : "Critter County",
-    "ride" : "Big ass thunder mountain",
-    "number_give" : 2,
-    "name" : "Ron Tye",
-    "createdAt" : "20140707T204543Z"
-  }, {
-    "location" : "Toon Town",
-    "ride" : "Winnie the Pooh",
-    "number_give" : 5,
-    "name" : "Kristi Riche",
-    "Comment" : "These are free",
-    "createdAt" : "20140707T213416Z"
-  } ],
-  "messages" : {
-    "james" : {
-      "justin" : [ {
-        "content" : "message1",
-        "createdAt" : "20140707T185314Z"
-      }, {
-        "content" : "message2",
-        "createdAt" : "20140707T185314Z"
-      } ]
-    },
-    "justin" : {
-      "james" : [ {
-        "content" : "message1",
-        "createdAt" : "20140707T185314Z"
-      }, {
-        "content" : "message2",
-        "createdAt" : "20140707T185314Z"
-      } ]
-    },
-    "James" : {
-      "Ron Tye" : {
-        "-JRq0F6AcXUrlq3emz8Q" : {
-          "content" : "iytfviv",
-          "createdAt" : "2014-07-14T17:56:43.593Z"
-        }
+  "offers": {
+      "-JRvPLV4jE7ExQWw5In4": {
+          "offererId": "facebook:10152155764586524",
+          "comment": "free",
+          "location": "current location: adventureland",
+          "ride": "matterhorn bobsleds",
+          "displayName": "James Yothers",
+          "number_give": "1 fastpass",
+          "createdAt": "2014-07-15T19:04:27.483Z"
       },
-      "James Yothers" : {
-        "-JRqnpA1paR1h6irAQ1a" : {
-          "content" : "h;kj",
-          "createdAt" : "2014-07-14T21:37:42.618Z"
-        }
+      "-JRvP41WfPJlcmpe21Wu": {
+          "offererId": "facebook:10152155764586524",
+          "comment": "free",
+          "location": "current location: main street",
+          "ride": "buzz lightyear astro blasters",
+          "displayName": "James Yothers",
+          "number_give": "1 fastpass",
+          "createdAt": "2014-07-15T19:03:15.977Z"
+      }
+  },
+  "messages": {
+      "facebook:10152155764586524": {
+          "facebook:10152155764586524": {
+              "-JRvVT27iWe6VeJZ09_M": {
+                  "content": "hello again",
+                  "createdAt": "2014-07-15T19:31:10.789Z"
+              },
+              "-JRvVT25hWR04oDa8gB4": {
+                  "content": "hello again",
+                  "createdAt": "2014-07-15T19:31:10.789Z"
+              },
+              "-JRvVQGGEhdTsWx3VWCt": {
+                  "content": "hello you (me)",
+                  "createdAt": "2014-07-15T19:30:59.407Z"
+              },
+              "-JRvVQGKH3f79dSnDXIs": {
+                  "content": "hello you (me)",
+                  "createdAt": "2014-07-15T19:30:59.407Z"
+              }
+          }
       },
-      "Steve Tye" : {
-        "-JRqHnT4K33kCSF74gX1" : {
-          "createdAt" : "2014-07-14T19:13:24.819Z"
-        },
-        "-JRqHilOPWYvOlZoIfzj" : {
-          "createdAt" : "2014-07-14T19:13:05.574Z"
-        },
-        "-JRppFEYGVhP_47HYLcn" : {
-          "content" : "hi steve again",
-          "createdAt" : "2014-07-14T17:04:18.336Z"
-        }
+      "james": {
+          "justin": [
+              {
+                  "content": "message1",
+                  "createdAt": "20140707T185314Z"
+              },
+              {
+                  "content": "message2",
+                  "createdAt": "20140707T185314Z"
+              }
+          ],
+          "James": {
+              "-JRs9uTi_ymKjGlcravu": {
+                  "content": "safdas",
+                  "createdAt": "2014-07-15T03:58:10.426Z"
+              },
+              "-JRs0F1vhrU6zfP2Uylr": {
+                  "createdAt": "2014-07-15T03:15:56.607Z"
+              },
+              "-JRra6q6KQyTQklRNL8F": {
+                  "createdAt": "2014-07-15T01:17:19.639Z"
+              },
+              "-JRrbg_t9GMd8CSWQSzD": {
+                  "createdAt": "2014-07-15T01:24:12.138Z"
+              },
+              "-JRraS6A9wCIotjuTapV": {
+                  "createdAt": "2014-07-15T01:18:46.697Z"
+              },
+              "-JRrcA_isz5bgjocIw92": {
+                  "createdAt": "2014-07-15T01:26:25.835Z"
+              },
+              "-JRrTXuDaBISqGJn5fF1": {
+                  "createdAt": "2014-07-15T00:44:13.929Z"
+              },
+              "-JRraSRaPVso3W8hNb3O": {
+                  "content": "",
+                  "createdAt": "2014-07-15T01:18:48.073Z"
+              },
+              "-JRra7iZmPpkSJCgxggU": {
+                  "content": "jhlkjh",
+                  "createdAt": "2014-07-15T01:17:23.256Z"
+              }
+          }
+      },
+      "undefined": {
+          "James": {
+              "-JRvUVQHAO_NymOyMUqF": {
+                  "content": "jhlkljklj",
+                  "createdAt": "2014-07-15T19:27:00.790Z"
+              }
+          }
+      },
+      "justin": {
+          "james": [
+              {
+                  "content": "message1",
+                  "createdAt": "20140707T185314Z"
+              },
+              {
+                  "content": "message2",
+                  "createdAt": "20140707T185314Z"
+              }
+          ]
+      },
+      "James": {
+          "Ron Tye": {
+              "-JRq0F6AcXUrlq3emz8Q": {
+                  "content": "iytfviv",
+                  "createdAt": "2014-07-14T17:56:43.593Z"
+              }
+          },
+          "james": {
+              "-JRs0F1p7tCcP2WGxvmm": {
+                  "createdAt": "2014-07-15T03:15:56.607Z"
+              },
+              "-JRraS65QIW2Sxp_P93Z": {
+                  "createdAt": "2014-07-15T01:18:46.697Z"
+              },
+              "-JRra6q1wgIdE3_IZFGW": {
+                  "createdAt": "2014-07-15T01:17:19.639Z"
+              },
+              "-JRrTXu9GhUWeITws0e9": {
+                  "createdAt": "2014-07-15T00:44:13.929Z"
+              },
+              "-JRrbg_oaXVl5b8GWbUL": {
+                  "createdAt": "2014-07-15T01:24:12.138Z"
+              },
+              "-JRs9uTfCTpOFJAweuRm": {
+                  "content": "safdas",
+                  "createdAt": "2014-07-15T03:58:10.426Z"
+              },
+              "-JRraSRZnbtbOW_azUMc": {
+                  "content": "",
+                  "createdAt": "2014-07-15T01:18:48.073Z"
+              },
+              "-JRra7iXFGwjr_C6WtxD": {
+                  "content": "jhlkjh",
+                  "createdAt": "2014-07-15T01:17:23.256Z"
+              },
+              "-JRrcA_af6jqkx77HBnh": {
+                  "createdAt": "2014-07-15T01:26:25.835Z"
+              }
+          },
+          "James Yothers": {
+              "-JRqnpA1paR1h6irAQ1a": {
+                  "content": "h;kj",
+                  "createdAt": "2014-07-14T21:37:42.618Z"
+              }
+          },
+          "undefined": {
+              "-JRvUVQBNJ5yNrxaPKzC": {
+                  "content": "jhlkljklj",
+                  "createdAt": "2014-07-15T19:27:00.790Z"
+              }
+          },
+          "Steve Tye": {
+              "-JRrRCZ_8pxG7gqHs1_U": {
+                  "content": "hello world your okay",
+                  "createdAt": "2014-07-15T00:34:02.435Z"
+              },
+              "-JRqHnT4K33kCSF74gX1": {
+                  "createdAt": "2014-07-14T19:13:24.819Z"
+              },
+              "-JRrHewZKcg22KJZu1R9": {
+                  "content": "kk;lk",
+                  "createdAt": "2014-07-14T23:52:22.129Z"
+              },
+              "-JRqHilOPWYvOlZoIfzj": {
+                  "createdAt": "2014-07-14T19:13:05.574Z"
+              },
+              "-JRppFEYGVhP_47HYLcn": {
+                  "content": "hi steve again",
+                  "createdAt": "2014-07-14T17:04:18.336Z"
+              },
+              "-JRrNqHnt1pBBjcVCQXF": {
+                  "content": "",
+                  "createdAt": "2014-07-15T00:19:20.932Z"
+              },
+              "-JRrENZZV-eF0j6f2t2A": {
+                  "content": "sdfasdfa",
+                  "createdAt": "2014-07-14T23:38:00.633Z"
+              },
+              "-JRr6jd1rMFOUlko_UMf": {
+                  "content": "jknjk",
+                  "createdAt": "2014-07-14T23:04:42.783Z"
+              },
+              "-JRrNq-WC_GJZZi9kbaM": {
+                  "content": "ljkfj",
+                  "createdAt": "2014-07-15T00:19:19.760Z"
+              }
+          }
+      },
+      "Steve Tye": {
+          "James": {
+              "-JRrNqHohNRGG260bgiQ": {
+                  "content": "",
+                  "createdAt": "2014-07-15T00:19:20.932Z"
+              },
+              "-JRrRCZe12auJJtgMGle": {
+                  "content": "hello world your okay",
+                  "createdAt": "2014-07-15T00:34:02.435Z"
+              },
+              "-JRrENZanp6wXzJ-Tryi": {
+                  "content": "sdfasdfa",
+                  "createdAt": "2014-07-14T23:38:00.633Z"
+              },
+              "-JRrHewcA6XmdFZrBJID": {
+                  "content": "kk;lk",
+                  "createdAt": "2014-07-14T23:52:22.129Z"
+              },
+              "-JRppFEgeLypWK4De_5y": {
+                  "content": "hi steve again",
+                  "createdAt": "2014-07-14T17:04:18.336Z"
+              },
+              "-JRrNq-aV0E6JsllhSPK": {
+                  "content": "ljkfj",
+                  "createdAt": "2014-07-15T00:19:19.760Z"
+              }
+          }
       }
-    },
-    "Steve Tye" : {
-      "James" : {
-        "-JRppFEgeLypWK4De_5y" : {
-          "content" : "hi steve again",
-          "createdAt" : "2014-07-14T17:04:18.336Z"
-        }
-      }
-    }
   }
 }

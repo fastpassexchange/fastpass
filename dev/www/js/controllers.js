@@ -256,7 +256,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 .controller('chatController', function($scope, $rootScope, $timeout, $firebase, listService, authService) {
   // initialize object for message contents
   $scope.comment = {};
-  // the name asociated of the selected offer
+  // the name associated with the selected offer
   $scope.to = $rootScope.selected.offererId;
   // current logged in user 'james'
   $scope.from = authService.getUserId();
