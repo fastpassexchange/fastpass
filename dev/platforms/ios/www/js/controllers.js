@@ -12,6 +12,35 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 //   };
 // })
 
+.controller('dashboardController', function($scope, authService) {
+
+  var chatPartnerIds = [];
+  var chatSessions = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + authService.getUserId());
+  console.log(chatSessions);
+  chatSessions.on('value', function(snapshot) {
+    var people = snapshot.val();
+    console.log(snapshot.val());
+    for (var key in people) {
+      chatPartnerIds.push(key);
+    }
+    console.log(chatPartnerIds);
+  });
+
+  $scope.displayNameArray = [];
+  for (var i = 0; i < chatPartnerIds.length; i++) {
+    var current = chatPartnerIds[i];
+    var chatSessions2 = new Firebase('https://fastpass-connection.firebaseio.com/users/' + current);
+
+    // chatSessions2.on('value', function(snapshot) {
+    //     var outtaIdeas = snapshot.val();
+    //     console.log(outtaIdeas);
+    //     for (var key in outtaIdeas) {
+    //      $scope.displayNameArray.push(outtaIdeas[key]);
+    //     }
+    // });
+  }
+})
+
 .controller('listController', function($scope, $state, $rootScope, listService) {
   $scope.text = listService;
    // getting object that we click on to see detailed view
@@ -77,13 +106,24 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   $scope.addOffer = function() {
     // set a createdAt property that is equal to the current date/time
     $scope.offer.createdAt = new Date();
+    $scope.offer.offererId = authService.getUserId();
+    $scope.offer.displayName = authService.getDisplayName();
+    console.log($scope.offer.offererId);
+    console.log($scope.offer.displayName);
+
     // get all offers from the database
     var offerRef = new Firebase('https://fastpass-connection.firebaseio.com/offers');
     // add new offer to the database
     $firebase(offerRef).$add($scope.offer);
+
+    // add to user's offer hash
+    var usersOffers = new Firebase('https://fastpass-connection.firebaseio.com/users/' + $scope.offer.offererId + '/offers');
+    // add offer hash to logged in users offers hash
+    $firebase(usersOffers).$add($scope.offer);
+
     // clear input fields of form
     $scope.offer = {
-      name: '',
+      // displayName: '',
       ride: '',
       number_give: '',
       location: '',
@@ -93,7 +133,6 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 })
 
 .controller('detailController', function($scope, $firebase) {
-
 
 })
 
@@ -143,6 +182,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   var longitude = 0;
   var nextCircles = false;
 
+  var first = true;
   var onLocationFound = function (e) {
     console.log('latitude: ', e.latitude);
     console.log('longitude: ', e.longitude);
@@ -163,11 +203,17 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     // console.log(distance);
     // create a circle for display
     // todo: make circle refresh when location changes
-    var circle;
-    // if (!nextCircles) {
+    // if (!nextCircles) {  
       var radius = e.accuracy / 2;
-      circle = L.circle(e.latlng, radius);
-      circle.addTo(map);
+      if (first){
+        me = L.circleMarker(e.latlng, radius);
+        map.addLayer(me);
+        first = false;
+      } else{
+        map.removeLayer(me);
+        me = L.circleMarker(e.latlng, radius);
+        map.addLayer(me);
+      } 
       // nextCircles = true;
     // } else {
       // circle.update();
@@ -211,10 +257,14 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 .controller('chatController', function($scope, $rootScope, $timeout, $firebase, listService, authService) {
   // initialize object for message contents
   $scope.comment = {};
-  // the name asociated of the selected offer
-  $scope.to = $rootScope.selected.name;
+  // the name associated with the selected offer
+  $scope.to = $rootScope.selected.offererId;
   // current logged in user 'james'
-  $scope.from = "James";
+  $scope.from = authService.getUserId();
+  console.log('message from uid: ', $scope.from);
+  console.log('message from display: ', authService.getDisplayName());
+  console.log('message from provider: ', authService.getProvider());
+  // $scope.from = "James";
   var messageRef = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + $scope.from + '/' + $scope.to);
   var otherMessageRef = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + $scope.to + '/' + $scope.from);
 
@@ -224,6 +274,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
   $scope.sendComment = function() {
     $scope.comment.createdAt = new Date();
+    $scope.comment.senderDisplayName = authService.getDisplayName();
     // add new message to the database
     // todo: refactor with transaction
     $firebase(messageRef).$add($scope.comment);
@@ -241,6 +292,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 // log in user
 .controller('loginController', function($scope, authService) {
   console.log("entering login controller");
+  
   $scope.validateUser = function(type) {
     console.log("entering validate user");
     authService.login(type);
@@ -249,6 +301,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
 // log out user
 .controller('logoutController', function(authService) {
+  console.log("entering logout controller");
   authService.logout();
 })
 

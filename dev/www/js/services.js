@@ -19,6 +19,19 @@ angular.module('fastpass.services', ['ionic'])
   // OAuth login: FB / twitter
   var login = function(type) {
     console.log("entered auth service login");
+
+    //console.log('window.cookies: ', window.cookies);
+    //console.log('window.cookie: ', window.cookie);
+    console.dir(document.cookie);
+    //console.log('document.cookies: ', document.cookies);
+
+    if(document.cookie !== undefined){
+      // document.cookie.clear(function() {
+        console.log('Cookies cleared!');
+        // document.cookie = name + '=;expires=Thu, 05 Oct 1990 00:00:01 GMT;';
+      // });
+    }
+
     if (type === 'facebook' || type === 'twitter'){
       console.log("attempting auth service login");
       auth.$login(type)
@@ -44,6 +57,11 @@ angular.module('fastpass.services', ['ionic'])
 
   // log out current user
   var logout = function() {
+    if(window.cookies){
+      window.cookies.clear(function() {
+      console.log('Cookies cleared!');
+    });
+}
     auth.$logout();
   };
 

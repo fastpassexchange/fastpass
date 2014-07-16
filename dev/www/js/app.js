@@ -12,6 +12,12 @@ angular.module('fastpass', ['firebase', 'ionic', 'fastpass.controllers', 'fastpa
       StatusBar.styleDefault();
     }
   });
+  authService.logout();
+  // if(window.cookies){
+  //   window.cookies.clear(function() {
+  //     console.log('Cookies cleared!');
+  //   });
+  // }
   $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
     if (toState.authenticate && !authService.isLoggedIn()){
       // User not authenticated

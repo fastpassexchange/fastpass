@@ -29,14 +29,15 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   $scope.displayNameArray = [];
   for (var i = 0; i < chatPartnerIds.length; i++) {
     var current = chatPartnerIds[i];
-  var chatSessions2 = new Firebase('https://fastpass-connection.firebaseio.com/users/' + current);
+    var chatSessions2 = new Firebase('https://fastpass-connection.firebaseio.com/users/' + current);
 
-  chatSessions2.on('value', function(snapshot) {
-    var outtaIdeas = snapshot.val();
-    console.log(outtaIdeas)
-    for (var key in outtaIdeas)
-    $scope.displayNameArray.push(outtaIdeas[key]);
-    });  
+    // chatSessions2.on('value', function(snapshot) {
+    //     var outtaIdeas = snapshot.val();
+    //     console.log(outtaIdeas);
+    //     for (var key in outtaIdeas) {
+    //      $scope.displayNameArray.push(outtaIdeas[key]);
+    //     }
+    // });
   }
 })
 
@@ -291,11 +292,10 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 // log in user
 .controller('loginController', function($scope, authService) {
   console.log("entering login controller");
+  
   $scope.validateUser = function(type) {
     console.log("entering validate user");
     authService.login(type);
-
-
   };
 })
 
