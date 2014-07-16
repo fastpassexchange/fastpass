@@ -12,6 +12,12 @@ angular.module('fastpass', ['firebase', 'ionic', 'fastpass.controllers', 'fastpa
       StatusBar.styleDefault();
     }
   });
+  authService.logout();
+  // if(window.cookies){
+  //   window.cookies.clear(function() {
+  //     console.log('Cookies cleared!');
+  //   });
+  // }
   $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
     if (toState.authenticate && !authService.isLoggedIn()){
       // User not authenticated
@@ -90,11 +96,13 @@ angular.module('fastpass', ['firebase', 'ionic', 'fastpass.controllers', 'fastpa
         }
       }
     })
-    .state('tabs.about', {
-      url: "/about",
+    .state('tabs.dashboard', {
+      url: "/dashboard",
+      authenticate: true,
       views: {
-        'about-tab': {
-          templateUrl: "templates/about.html"
+        'dashboard-tab': {
+          templateUrl: "templates/dashboard.html",
+          controller: 'dashboardController'
         }
       }
     })

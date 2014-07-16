@@ -11,7 +11,7 @@ angular.module('fastpass.services', ['ionic'])
 
 }])
 
-.factory('authService', function($firebaseSimpleLogin, $state) {
+.factory('authService', function($firebaseSimpleLogin, $state, $firebase) {
   // initializing Firebase simple login helper object
   var ref = new Firebase('https://fastpass-connection.firebaseio.com');
   var auth = $firebaseSimpleLogin(ref);
@@ -19,12 +19,30 @@ angular.module('fastpass.services', ['ionic'])
   // OAuth login: FB / twitter
   var login = function(type) {
     console.log("entered auth service login");
+
+    //console.log('window.cookies: ', window.cookies);
+    //console.log('window.cookie: ', window.cookie);
+    console.dir(document.cookie);
+    //console.log('document.cookies: ', document.cookies);
+
+    if(document.cookie !== undefined){
+      // document.cookie.clear(function() {
+        console.log('Cookies cleared!');
+        // document.cookie = name + '=;expires=Thu, 05 Oct 1990 00:00:01 GMT;';
+      // });
+    }
+
     if (type === 'facebook' || type === 'twitter'){
       console.log("attempting auth service login");
       auth.$login(type)
       .then(function(user) {
         console.log('Logged in:' + user.displayName);
         console.dir(user);
+
+        var newUser = new Firebase('https://fastpass-connection.firebaseio.com/users/' + user.uid);
+
+        newUser.set({displayName: user.displayName});
+
         $state.go('tabs.home');
       }, function(err) {
         console.log('Login failed: ' + err);
@@ -39,22 +57,17 @@ angular.module('fastpass.services', ['ionic'])
 
   // log out current user
   var logout = function() {
+    if(window.cookies){
+      window.cookies.clear(function() {
+      console.log('Cookies cleared!');
+    });
+}
     auth.$logout();
   };
 
   // verify user object exists in auth object
   var isLoggedIn = function() {
     return auth.user !== null;
-  };
-
-  // verify user and redirect based on authentication state
-  var checkSession = function() {
-    if (!isLoggedIn()) {
-      console.log('User logged out');
-      $state.go('tabs.signin');
-    } else {
-      console.log('User authenticated: ' + auth.user.email + '(' + auth.user.uid + ')');
-    }
   };
 
   // getter for user uid
@@ -76,7 +89,6 @@ angular.module('fastpass.services', ['ionic'])
     isLoggedIn: isLoggedIn,
     login: login,
     logout: logout,
-    checkSession: checkSession,
     getUserId: getUserId,
     getDisplayName: getDisplayName,
     getProvider: getProvider

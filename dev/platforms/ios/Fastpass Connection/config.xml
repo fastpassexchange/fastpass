@@ -34,6 +34,9 @@
     <feature name="InAppBrowser">
         <param name="ios-package" value="CDVInAppBrowser" />
     </feature>
+    <feature name="Cookies">
+        <param name="ios-package" value="CDVCookies" />
+    </feature>
     <name>Fastpass Connection</name>
     <description>
         a social app using fastpasses
@@ -42,9 +45,9 @@
       James Yothers
     </author>
     <content src="index.html" />
+    <access origin="*" />
     <access origin="*.firebaseio.*" />
     <access origin="https://auth.firebase.com" />
-    <access origin="*" />
     <preference name="webviewbounce" value="false" />
     <preference name="UIWebViewBounce" value="false" />
     <preference name="DisallowOverscroll" value="true" />

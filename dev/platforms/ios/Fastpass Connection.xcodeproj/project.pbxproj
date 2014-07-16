@@ -44,6 +44,7 @@
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
 		A9847F9F5FDA48A594C33A10 /* CDVStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 017946CFDBA345BE8E9455FC /* CDVStatusBar.m */; };
 		DE36A32BA71745D698A06E79 /* CDVInAppBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 34ED7617C1DB4CC09804CDF6 /* CDVInAppBrowser.m */; };
+		0B15303B373349D1B16F3400 /* CDVCookies.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADB49F7A6E9420BBC4C0422 /* CDVCookies.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +121,8 @@
 		F1F2F8351B9847BE8D376310 /* CDVStatusBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVStatusBar.h"; path = "org.apache.cordova.statusbar/CDVStatusBar.h"; sourceTree = "<group>"; fileEncoding = 4; };
 		34ED7617C1DB4CC09804CDF6 /* CDVInAppBrowser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVInAppBrowser.m"; path = "org.apache.cordova.inappbrowser/CDVInAppBrowser.m"; sourceTree = "<group>"; fileEncoding = 4; };
 		37690ADB2227421F9FB4F9EF /* CDVInAppBrowser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVInAppBrowser.h"; path = "org.apache.cordova.inappbrowser/CDVInAppBrowser.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		2ADB49F7A6E9420BBC4C0422 /* CDVCookies.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVCookies.m"; path = "com.bez4pieci.cookies/CDVCookies.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		C383236CBEF54535ACC935FB /* CDVCookies.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVCookies.h"; path = "com.bez4pieci.cookies/CDVCookies.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +255,8 @@
 				F1F2F8351B9847BE8D376310 /* CDVStatusBar.h */,
 				34ED7617C1DB4CC09804CDF6 /* CDVInAppBrowser.m */,
 				37690ADB2227421F9FB4F9EF /* CDVInAppBrowser.h */,
+				2ADB49F7A6E9420BBC4C0422 /* CDVCookies.m */,
+				C383236CBEF54535ACC935FB /* CDVCookies.h */,
 			);
 			name = Plugins;
 			path = "Fastpass Connection/Plugins";
@@ -452,6 +457,7 @@
 				45376FA6E5FF42DB99163EDE /* CDVDevice.m in Sources */,
 				A9847F9F5FDA48A594C33A10 /* CDVStatusBar.m in Sources */,
 				DE36A32BA71745D698A06E79 /* CDVInAppBrowser.m in Sources */,
+				0B15303B373349D1B16F3400 /* CDVCookies.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

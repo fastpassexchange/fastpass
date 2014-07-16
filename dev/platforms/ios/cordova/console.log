@@ -1075,3 +1075,409 @@ objc[1396]: Class AXEmojiUtilities is implemented in both /Applications/Xcode.ap
 2014-07-15 09:27:32.915 Fastpass Connection[1396:70b] IAB.close() called but it was already closed.
 2014-07-15 09:27:42.804 Fastpass Connection[1396:70b] IAB.close() called but it was already closed.
 2014-07-15 09:27:50.392 Fastpass Connection[1396:70b] IAB.close() called but it was already closed.
+objc[10652]: Class AXEmojiUtilities is implemented in both /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/PrivateFrameworks/AccessibilityUtilities.framework/AccessibilityUtilities and /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/libAXSpeechManager.dylib. One of the two will be used. Which one is undefined.
+2014-07-15 19:18:14.891 Fastpass Connection[10652:70b] Cannot find executable for CFBundle 0xa357b00 </Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/AccessibilityBundles/GeoServices.axbundle> (not loaded)
+2014-07-15 19:18:14.895 Fastpass Connection[10652:70b] Cannot find executable for CFBundle 0xa3894a0 </Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/AccessibilityBundles/CertUIFramework.axbundle> (not loaded)
+2014-07-15 19:18:14.939 Fastpass Connection[10652:70b] Multi-tasking -> Device: YES, App: YES
+2014-07-15 19:18:14.945 Fastpass Connection[10652:70b] Unlimited access to network resources
+2014-07-15 19:18:15.036 Fastpass Connection[10652:70b] [CDVTimer][keyboard] 0.047982ms
+2014-07-15 19:18:15.076 Fastpass Connection[10652:70b] [CDVTimer][statusbar] 39.707005ms
+2014-07-15 19:18:15.077 Fastpass Connection[10652:70b] [CDVTimer][TotalPluginStartup] 40.399015ms
+2014-07-15 19:18:15.138 Fastpass Connection[10652:70b] Resetting plugins due to page load.
+2014-07-15 19:18:15.474 Fastpass Connection[10652:70b] Finished load of: file:///Users/jamesyothers/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/365B309D-BFD0-4E30-A4BC-945B20FC32C3/Fastpass%20Connection.app/www/index.html#/tab/home
+2014-07-15 19:18:17.843 Fastpass Connection[10652:70b] User not authenticated
+2014-07-15 19:18:17.856 Fastpass Connection[10652:70b] entering login controller
+2014-07-15 19:18:19.088 Fastpass Connection[10652:70b] entering validate user
+2014-07-15 19:18:19.088 Fastpass Connection[10652:70b] entered auth service login
+2014-07-15 19:18:19.089 Fastpass Connection[10652:70b] ""
+2014-07-15 19:18:19.089 Fastpass Connection[10652:70b] Cookies cleared!
+2014-07-15 19:18:19.089 Fastpass Connection[10652:70b] attempting auth service login
+2014-07-15 19:18:19.089 Fastpass Connection[10652:70b] crappy async bug
+2014-07-15 19:18:19.117 Fastpass Connection[10652:70b] Setting the WebView's frame to {{0, 0}, {320, 436}}
+2014-07-15 19:18:19.120 Fastpass Connection[10652:70b] THREAD WARNING: ['InAppBrowser'] took '30.472168' ms. Plugin should use a background thread.
+2014-07-15 19:18:20.555 Fastpass Connection[10652:70b] Logged in:James Yothers
+2014-07-15 19:18:20.555 Fastpass Connection[10652:70b] {"id":"10152155764586524","uid":"facebook:10152155764586524","displayName":"James Yothers","provider":"facebook","thirdPartyUserData":{"id":"10152155764586524","name":"James Yothers","last_name":"Yothers","first_name":"James","gender":"male","link":"https://www.facebook.com/app_scoped_user_id/10152155764586524/","picture":{"data":{"is_silhouette":false,"url":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfp1/t1.0-1/c0.15.50.50/p50x50/1610011_10151881925216524_219444707_n.jpg"}},"age_range":{"min":21},"locale":"en_US","timezone":-7},"accessToken":"CAAJcZC6XsV8cBAIU8nZC2hxPZBRhwfyWkRdm5GugCR7Jr7Iman1Jzgv78UT9nIjUZA6r1t1OmZCqpg8wqgXkhVneOsrZCEdbDb6qjz5vkOG6403K75ZCLm9kqwz4PXTza4UMqmIB8hMnKwiZA8CZBkvh1g4Nw6XYg2O4pXlfdU92kK5WCjl5DZCvJGiBjK1W2hCzaJrj2PFibRdRhxZAwZCnUrE4","firebaseAuthToken":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0MDU0OTE0OTksInYiOjAsImQiOnsiaWQiOiIxMDE1MjE1NTc2NDU4NjUyNCIsInVpZCI6ImZhY2Vib29rOjEwMTUyMTU1NzY0NTg2NTI0IiwicHJvdmlkZXIiOiJmYWNlYm9vayJ9LCJpYXQiOjE0MDU0NzcwOTl9.AKvNFz0C6GvCK5HXSsXxVczQVRbABVajfFmh1JA92kw"}
+2014-07-15 19:18:20.556 Fastpass Connection[10652:70b] HomeTabCtrl
+2014-07-15 19:18:27.639 Fastpass Connection[10652:70b] entering logout controller
+2014-07-15 19:18:27.641 Fastpass Connection[10652:70b] Cookies cleared!
+2014-07-15 19:18:29.161 Fastpass Connection[10652:70b] HomeTabCtrl
+2014-07-15 19:18:30.264 Fastpass Connection[10652:70b] User not authenticated
+2014-07-15 19:18:30.264 Fastpass Connection[10652:70b] entering login controller
+2014-07-15 19:18:30.907 Fastpass Connection[10652:70b] entering validate user
+2014-07-15 19:18:30.907 Fastpass Connection[10652:70b] entered auth service login
+2014-07-15 19:18:30.907 Fastpass Connection[10652:70b] ""
+2014-07-15 19:18:30.907 Fastpass Connection[10652:70b] Cookies cleared!
+2014-07-15 19:18:30.908 Fastpass Connection[10652:70b] attempting auth service login
+2014-07-15 19:18:30.908 Fastpass Connection[10652:70b] crappy async bug
+2014-07-15 19:18:30.911 Fastpass Connection[10652:70b] Setting the WebView's frame to {{0, 0}, {320, 436}}
+2014-07-15 19:18:31.467 Fastpass Connection[10652:70b] webView:didFailLoadWithError - -999: The operation couldn’t be completed. (NSURLErrorDomain error -999.)
+2014-07-15 19:18:46.333 Fastpass Connection[10652:70b] Logged in:James Yothers
+2014-07-15 19:18:46.334 Fastpass Connection[10652:70b] {"id":"10152155764586524","uid":"facebook:10152155764586524","displayName":"James Yothers","provider":"facebook","thirdPartyUserData":{"id":"10152155764586524","name":"James Yothers","last_name":"Yothers","first_name":"James","gender":"male","link":"https://www.facebook.com/app_scoped_user_id/10152155764586524/","picture":{"data":{"is_silhouette":false,"url":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfp1/t1.0-1/c0.15.50.50/p50x50/1610011_10151881925216524_219444707_n.jpg"}},"age_range":{"min":21},"locale":"en_US","timezone":-7},"accessToken":"CAAJcZC6XsV8cBAGvrgx7k6INdROPgcrR9CPrkZA5yQwlp0i25eKoSoZCjVv4FrBLZAqsChPd490icKorHDZAI9yyXO2r1QOLLaTAshfuM0bVoMaj8sc6WWxMnDDMdBAarrNKmFvLyfeesR8Pe8u22LWq5ZAEizOMZCNioxrHG570iwRxiQM1QmA2ybL670h6qTI6oJeUZC43ZB2JOa3jNriyT","firebaseAuthToken":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0MDU0OTE1MjUsInYiOjAsImQiOnsiaWQiOiIxMDE1MjE1NTc2NDU4NjUyNCIsInVpZCI6ImZhY2Vib29rOjEwMTUyMTU1NzY0NTg2NTI0IiwicHJvdmlkZXIiOiJmYWNlYm9vayJ9LCJpYXQiOjE0MDU0NzcxMjV9.JxdcNdo_nKiABdOjso4eI8FeCGKvKVxieCpcvVN5C5k"}
+2014-07-15 19:18:46.334 Fastpass Connection[10652:70b] HomeTabCtrl
+objc[10886]: Class AXEmojiUtilities is implemented in both /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/PrivateFrameworks/AccessibilityUtilities.framework/AccessibilityUtilities and /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/libAXSpeechManager.dylib. One of the two will be used. Which one is undefined.
+2014-07-15 19:19:15.733 Fastpass Connection[10886:70b] Cannot find executable for CFBundle 0xa524e50 </Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/AccessibilityBundles/GeoServices.axbundle> (not loaded)
+2014-07-15 19:19:15.744 Fastpass Connection[10886:70b] Cannot find executable for CFBundle 0xa658df0 </Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/AccessibilityBundles/CertUIFramework.axbundle> (not loaded)
+2014-07-15 19:19:15.778 Fastpass Connection[10886:70b] Multi-tasking -> Device: YES, App: YES
+2014-07-15 19:19:15.785 Fastpass Connection[10886:70b] Unlimited access to network resources
+2014-07-15 19:19:15.804 Fastpass Connection[10886:70b] [CDVTimer][keyboard] 0.077009ms
+2014-07-15 19:19:15.812 Fastpass Connection[10886:70b] [CDVTimer][statusbar] 7.043958ms
+2014-07-15 19:19:15.812 Fastpass Connection[10886:70b] [CDVTimer][TotalPluginStartup] 8.044004ms
+2014-07-15 19:19:15.916 Fastpass Connection[10886:70b] Resetting plugins due to page load.
+2014-07-15 19:19:16.238 Fastpass Connection[10886:70b] Finished load of: file:///Users/jamesyothers/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/365B309D-BFD0-4E30-A4BC-945B20FC32C3/Fastpass%20Connection.app/www/index.html#/tab/home
+2014-07-15 19:19:21.544 Fastpass Connection[10886:70b] HomeTabCtrl
+2014-07-15 19:19:24.822 Fastpass Connection[10886:70b] HomeTabCtrl
+2014-07-15 19:19:26.145 Fastpass Connection[10886:70b] entering logout controller
+2014-07-15 19:19:26.147 Fastpass Connection[10886:70b] Cookies cleared!
+2014-07-15 19:19:29.776 Fastpass Connection[10886:70b] HomeTabCtrl
+2014-07-15 19:19:30.989 Fastpass Connection[10886:70b] User not authenticated
+2014-07-15 19:19:30.999 Fastpass Connection[10886:70b] entering login controller
+2014-07-15 19:19:31.678 Fastpass Connection[10886:70b] entering validate user
+2014-07-15 19:19:31.678 Fastpass Connection[10886:70b] entered auth service login
+2014-07-15 19:19:31.679 Fastpass Connection[10886:70b] ""
+2014-07-15 19:19:31.679 Fastpass Connection[10886:70b] Cookies cleared!
+2014-07-15 19:19:31.679 Fastpass Connection[10886:70b] attempting auth service login
+2014-07-15 19:19:31.679 Fastpass Connection[10886:70b] crappy async bug
+2014-07-15 19:19:31.691 Fastpass Connection[10886:70b] Setting the WebView's frame to {{0, 0}, {320, 436}}
+2014-07-15 19:19:31.693 Fastpass Connection[10886:70b] THREAD WARNING: ['InAppBrowser'] took '13.541992' ms. Plugin should use a background thread.
+2014-07-15 19:19:36.052 Fastpass Connection[10886:70b] Login failed: Error: FirebaseSimpleLogin: User cancelled the authentication request.
+objc[11136]: Class AXEmojiUtilities is implemented in both /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/PrivateFrameworks/AccessibilityUtilities.framework/AccessibilityUtilities and /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/libAXSpeechManager.dylib. One of the two will be used. Which one is undefined.
+2014-07-15 19:20:52.796 Fastpass Connection[11136:70b] Cannot find executable for CFBundle 0xaaaac50 </Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/AccessibilityBundles/GeoServices.axbundle> (not loaded)
+2014-07-15 19:20:52.800 Fastpass Connection[11136:70b] Cannot find executable for CFBundle 0xaab7b80 </Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/AccessibilityBundles/CertUIFramework.axbundle> (not loaded)
+2014-07-15 19:20:52.829 Fastpass Connection[11136:70b] Multi-tasking -> Device: YES, App: YES
+2014-07-15 19:20:52.835 Fastpass Connection[11136:70b] Unlimited access to network resources
+2014-07-15 19:20:52.854 Fastpass Connection[11136:70b] [CDVTimer][keyboard] 0.090003ms
+2014-07-15 19:20:52.861 Fastpass Connection[11136:70b] [CDVTimer][statusbar] 7.194996ms
+2014-07-15 19:20:52.862 Fastpass Connection[11136:70b] [CDVTimer][TotalPluginStartup] 8.195043ms
+2014-07-15 19:20:52.966 Fastpass Connection[11136:70b] Resetting plugins due to page load.
+2014-07-15 19:20:53.334 Fastpass Connection[11136:70b] Finished load of: file:///Users/jamesyothers/Library/Application%20Support/iPhone%20Simulator/7.1/Applications/365B309D-BFD0-4E30-A4BC-945B20FC32C3/Fastpass%20Connection.app/www/index.html#/tab/home
+2014-07-15 19:20:54.554 Fastpass Connection[11136:70b] User not authenticated
+2014-07-15 19:20:54.569 Fastpass Connection[11136:70b] entering login controller
+2014-07-15 19:20:56.338 Fastpass Connection[11136:70b] entering validate user
+2014-07-15 19:20:56.338 Fastpass Connection[11136:70b] entered auth service login
+2014-07-15 19:20:56.338 Fastpass Connection[11136:70b] ""
+2014-07-15 19:20:56.338 Fastpass Connection[11136:70b] Cookies cleared!
+2014-07-15 19:20:56.339 Fastpass Connection[11136:70b] attempting auth service login
+2014-07-15 19:20:56.339 Fastpass Connection[11136:70b] crappy async bug
+2014-07-15 19:20:56.350 Fastpass Connection[11136:70b] Setting the WebView's frame to {{0, 0}, {320, 436}}
+2014-07-15 19:20:56.352 Fastpass Connection[11136:70b] THREAD WARNING: ['InAppBrowser'] took '13.495850' ms. Plugin should use a background thread.
+2014-07-15 19:21:09.225 Fastpass Connection[11136:70b] Logged in:James Yothers
+2014-07-15 19:21:09.225 Fastpass Connection[11136:70b] {"id":"10152155764586524","uid":"facebook:10152155764586524","displayName":"James Yothers","provider":"facebook","thirdPartyUserData":{"id":"10152155764586524","name":"James Yothers","last_name":"Yothers","first_name":"James","gender":"male","link":"https://www.facebook.com/app_scoped_user_id/10152155764586524/","picture":{"data":{"is_silhouette":false,"url":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfp1/t1.0-1/c0.15.50.50/p50x50/1610011_10151881925216524_219444707_n.jpg"}},"age_range":{"min":21},"locale":"en_US","timezone":-7},"accessToken":"CAAJcZC6XsV8cBAIKmfYT11kZCeREWC5fJ6UofIZBYBV3O0i2BnME3RM0LUxXjRNKAnr5TNVtlHx0QzGujm5XKYSTAIH8N5dmivvZANEZBSsDwfK75EZBswm62ejcyW6Xd2yOURLJxitxxVfyDozBhRrnqoEwrxeY7MU1yuZChlQfpNmS7YOUOyoW9X8QwVc3ZBSyo8NIgqvHBsmTSUsjHJGD","firebaseAuthToken":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0MDU0OTE2NjgsInYiOjAsImQiOnsiaWQiOiIxMDE1MjE1NTc2NDU4NjUyNCIsInVpZCI6ImZhY2Vib29rOjEwMTUyMTU1NzY0NTg2NTI0IiwicHJvdmlkZXIiOiJmYWNlYm9vayJ9LCJpYXQiOjE0MDU0NzcyNjh9.IBm86NyU8at2PltXXnKzjxZvdnb8M2JqFLOryyXssNU"}
+2014-07-15 19:21:09.225 Fastpass Connection[11136:70b] HomeTabCtrl
+2014-07-15 19:21:11.776 Fastpass Connection[11136:70b] {"comment":"free","createdAt":"2014-07-15T19:03:15.977Z","displayName":"James Yothers","location":"current location: main street","number_give":"1 fastpass","offererId":"facebook:10152155764586524","ride":"buzz lightyear astro blasters","$$hashKey":"00Z"}
+2014-07-15 19:21:12.671 Fastpass Connection[11136:70b] message from uid:  facebook:10152155764586524
+2014-07-15 19:21:12.671 Fastpass Connection[11136:70b] message from display:  James Yothers
+2014-07-15 19:21:12.671 Fastpass Connection[11136:70b] message from provider:  facebook
+2014-07-15 19:21:12.671 Fastpass Connection[11136:70b] message from uid:  facebook:10152155764586524
+2014-07-15 19:21:12.671 Fastpass Connection[11136:70b] message from display:  James Yothers
+2014-07-15 19:21:12.672 Fastpass Connection[11136:70b] message from provider:  facebook
+2014-07-15 19:21:18.335 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:21:18.335 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:21:18.336 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:21:18.358 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:21:18.358 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:21:18.358 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:21:19.362 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:21:19.362 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:21:19.362 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:21:20.360 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:21:20.360 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:21:20.360 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:21:21.361 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:21:21.361 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:21:21.361 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:21:22.362 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:21:22.362 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:21:22.362 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:21:23.361 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:21:23.362 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:21:23.362 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:21:24.362 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:21:24.362 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:21:24.362 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:21:25.366 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:21:25.367 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:21:25.367 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:21:26.363 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:21:26.364 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:21:26.364 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:21:27.367 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:21:27.367 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:21:27.367 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:21:28.277 Fastpass Connection[11136:70b] entering logout controller
+2014-07-15 19:21:28.278 Fastpass Connection[11136:70b] Cookies cleared!
+2014-07-15 19:21:28.364 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:21:28.364 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:21:28.365 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:21:29.365 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:21:29.365 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:21:29.365 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:21:30.319 Fastpass Connection[11136:70b] User not authenticated
+2014-07-15 19:21:30.320 Fastpass Connection[11136:70b] entering login controller
+2014-07-15 19:21:30.366 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:21:30.366 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:21:30.367 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:21:31.367 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:21:31.367 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:21:31.367 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:21:32.368 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:21:32.369 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:21:32.369 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:21:33.372 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:21:33.372 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:21:33.372 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:21:34.369 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:21:34.369 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:21:34.369 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:21:35.369 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:21:35.370 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:21:35.370 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:21:36.368 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:21:36.368 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:21:36.368 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:21:37.371 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:21:37.371 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:21:37.371 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:21:38.372 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:21:38.372 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:21:38.372 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:21:39.372 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:21:39.372 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:21:39.373 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:21:40.374 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:21:40.374 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:21:40.374 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:21:41.374 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:21:41.374 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:21:41.375 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:21:42.375 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:21:42.375 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:21:42.375 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:21:43.377 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:21:43.377 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:21:43.377 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:21:44.376 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:21:44.377 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:21:44.377 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:21:45.377 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:21:45.377 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:21:45.377 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:21:46.378 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:21:46.379 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:21:46.379 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:21:47.378 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:21:47.378 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:21:47.379 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:21:48.380 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:21:48.381 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:21:48.381 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:21:49.380 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:21:49.381 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:21:49.381 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:21:50.381 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:21:50.382 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:21:50.382 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:21:51.383 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:21:51.383 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:21:51.384 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:21:52.383 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:21:52.384 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:21:52.384 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:21:53.387 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:21:53.387 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:21:53.387 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:21:54.390 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:21:54.390 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:21:54.391 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:21:55.390 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:21:55.390 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:21:55.390 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:21:56.390 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:21:56.390 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:21:56.390 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:21:57.391 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:21:57.391 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:21:57.391 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:21:58.389 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:21:58.389 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:21:58.389 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:21:59.388 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:21:59.389 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:21:59.389 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:00.391 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:00.391 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:00.391 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:01.391 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:01.391 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:01.391 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:02.391 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:02.392 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:02.392 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:03.393 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:03.394 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:03.394 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:04.396 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:04.397 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:04.397 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:05.393 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:05.394 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:05.394 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:06.395 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:06.395 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:06.396 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:07.396 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:07.397 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:07.397 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:08.396 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:08.397 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:08.397 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:09.398 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:09.399 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:09.399 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:10.398 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:10.398 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:10.398 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:11.398 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:11.398 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:11.399 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:12.400 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:12.400 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:12.401 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:13.399 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:13.399 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:13.400 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:14.399 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:14.399 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:14.399 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:15.400 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:15.400 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:15.400 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:16.403 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:16.403 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:16.403 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:17.402 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:17.402 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:17.402 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:18.404 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:18.404 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:18.404 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:19.404 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:19.405 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:19.405 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:20.404 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:20.405 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:20.405 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:21.405 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:21.406 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:21.406 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:22.407 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:22.407 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:22.407 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:23.408 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:23.408 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:23.409 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:24.408 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:24.409 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:24.409 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:25.408 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:25.409 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:25.409 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:26.409 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:26.409 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:26.410 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:27.410 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:27.411 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:27.411 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:28.409 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:28.409 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:28.410 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:29.410 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:29.411 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:29.411 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:30.416 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:30.416 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:30.416 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:31.411 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:31.411 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:31.411 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:32.412 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:32.412 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:32.412 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:33.413 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:33.413 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:33.413 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:34.415 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:34.415 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:34.415 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:35.415 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:35.416 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:35.416 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:36.416 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:36.417 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:36.417 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:37.418 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:37.419 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:37.419 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:38.418 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:38.419 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:38.419 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:39.419 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:39.420 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:39.420 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:40.420 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:40.421 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:40.421 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:41.422 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:41.422 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:41.422 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:42.422 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:42.422 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:42.422 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:43.422 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:43.422 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:43.422 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:44.423 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:44.423 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:44.423 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:45.424 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:45.425 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:45.425 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:46.424 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:46.424 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:46.425 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:47.424 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:47.425 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:47.425 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:48.427 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:48.427 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:48.427 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:49.429 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:49.429 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:49.429 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:50.428 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:50.428 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:50.428 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:51.429 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:51.430 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:51.430 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:52.431 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:52.432 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:52.432 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:53.431 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:53.431 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:53.432 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:54.430 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:54.431 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:54.431 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:55.435 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:55.435 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:55.435 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:56.296 Fastpass Connection[11136:70b] IAB.close() called but it was already closed.
+2014-07-15 19:22:56.438 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:56.438 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:56.439 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:57.437 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:57.437 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:57.437 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
+2014-07-15 19:22:58.439 Fastpass Connection[11136:70b] latitude:  37.785834
+2014-07-15 19:22:58.439 Fastpass Connection[11136:70b] longitude:  -122.406417
+2014-07-15 19:22:58.439 Fastpass Connection[11136:70b] latlng:  LatLng(37.78583, -122.40642)
