@@ -52,16 +52,6 @@ angular.module('fastpass.services', ['ionic'])
     return auth.user !== null;
   };
 
-  // verify user and redirect based on authentication state
-  var checkSession = function() {
-    if (!isLoggedIn()) {
-      console.log('User logged out');
-      $state.go('tabs.signin');
-    } else {
-      console.log('User authenticated: ' + auth.user.email + '(' + auth.user.uid + ')');
-    }
-  };
-
   // getter for user uid
   var getUserId = function() {
     return auth.user.uid;
@@ -81,7 +71,6 @@ angular.module('fastpass.services', ['ionic'])
     isLoggedIn: isLoggedIn,
     login: login,
     logout: logout,
-    checkSession: checkSession,
     getUserId: getUserId,
     getDisplayName: getDisplayName,
     getProvider: getProvider
