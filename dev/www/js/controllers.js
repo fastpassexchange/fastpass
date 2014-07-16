@@ -12,6 +12,34 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 //   };
 // })
 
+.controller('dashboardController', function($scope, authService) {
+
+  var chatPartnerIds = [];
+  var chatSessions = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + authService.getUserId());
+  console.log(chatSessions);
+  chatSessions.on('value', function(snapshot) {
+    var people = snapshot.val();
+    console.log(snapshot.val());
+    for (var key in people) {
+      chatPartnerIds.push(key);
+    }
+    console.log(chatPartnerIds);
+  });
+
+  $scope.displayNameArray = [];
+  for (var i = 0; i < chatPartnerIds.length; i++) {
+    var current = chatPartnerIds[i];
+  var chatSessions2 = new Firebase('https://fastpass-connection.firebaseio.com/users/' + current);
+
+  chatSessions2.on('value', function(snapshot) {
+    var outtaIdeas = snapshot.val();
+    console.log(outtaIdeas)
+    for (var key in outtaIdeas)
+    $scope.displayNameArray.push(outtaIdeas[key]);
+    });  
+  }
+})
+
 .controller('listController', function($scope, $state, $rootScope, listService) {
   $scope.text = listService;
    // getting object that we click on to see detailed view
@@ -239,6 +267,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
   $scope.sendComment = function() {
     $scope.comment.createdAt = new Date();
+    $scope.comment.senderDisplayName = authService.getDisplayName();
     // add new message to the database
     // todo: refactor with transaction
     $firebase(messageRef).$add($scope.comment);

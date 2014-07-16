@@ -11,7 +11,7 @@ angular.module('fastpass.services', ['ionic'])
 
 }])
 
-.factory('authService', function($firebaseSimpleLogin, $state) {
+.factory('authService', function($firebaseSimpleLogin, $state, $firebase) {
   // initializing Firebase simple login helper object
   var ref = new Firebase('https://fastpass-connection.firebaseio.com');
   var auth = $firebaseSimpleLogin(ref);
@@ -25,6 +25,11 @@ angular.module('fastpass.services', ['ionic'])
       .then(function(user) {
         console.log('Logged in:' + user.displayName);
         console.dir(user);
+
+        var newUser = new Firebase('https://fastpass-connection.firebaseio.com/users/' + user.uid);
+
+        newUser.set({displayName: user.displayName});
+
         $state.go('tabs.home');
       }, function(err) {
         console.log('Login failed: ' + err);

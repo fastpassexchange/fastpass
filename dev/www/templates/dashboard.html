@@ -1,0 +1,20 @@
+<!-- unused about template -->
+<ion-view title="Dashboard">
+  <ion-content class="padding">
+
+  </ion-content>
+</ion-view>
+
+
+<ion-view title="Dashboard" ng-controller="dashboardController" class="padding">
+  <ion-content>
+   <!-- three way data binding -->
+   <!-- <input type="text" ng-model="text"/>
+    <h1>{{text.offers}}</h1> -->
+    <!-- displays in order on firebase -->
+    <div ng-cloak ng-repeat="person in displayNameArray | orderByPriority"> <!-- ng-class="{active : isSelected(offer)}"> -->
+      <a class="button button-block button-stable" ng-click="setMaster(offer)"
+      ui-sref="tabs.getDetails">{{ person }}</a>
+    </div>
+  </ion-content>
+</ion-view>

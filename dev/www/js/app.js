@@ -90,11 +90,13 @@ angular.module('fastpass', ['firebase', 'ionic', 'fastpass.controllers', 'fastpa
         }
       }
     })
-    .state('tabs.about', {
-      url: "/about",
+    .state('tabs.dashboard', {
+      url: "/dashboard",
+      authenticate: true,
       views: {
-        'about-tab': {
-          templateUrl: "templates/about.html"
+        'dashboard-tab': {
+          templateUrl: "templates/dashboard.html",
+          controller: 'dashboardController'
         }
       }
     })
