@@ -12,33 +12,50 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 //   };
 // })
 
-.controller('dashboardController', function($scope, authService) {
+.controller('dashboardController', function($scope, $rootScope, authService, listService) {
 
   var chatPartnerIds = [];
-  var chatSessions = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + authService.getUserId());
-  console.log(chatSessions);
-  chatSessions.on('value', function(snapshot) {
+  $scope.chatSessions = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + authService.getUserId());
+  $scope.loggedInUser = authService.getUserId();
+  // $scope.database = listService;
+  // console.log('entire database: ', listService);
+  // console.log('logged in users conversations: ', listService.messages);
+  // $scope.myMessages = listService.messages.loggedInUser;
+  // console.log("logged in user message array: ", $scope.myMessages);
+  // console.log(chatSessions);
+  $scope.chatSessions.on('value', function(snapshot) {
     var people = snapshot.val();
-    console.log(snapshot.val());
     for (var key in people) {
       chatPartnerIds.push(key);
     }
-    console.log(chatPartnerIds);
+
+    $scope.displayNameArray = [];
+    for (var i = 0; i < chatPartnerIds.length; i++) {
+      var current = chatPartnerIds[i];
+      $scope.chatSessions2 = new Firebase('https://fastpass-connection.firebaseio.com/users/' + current);
+      $scope.chatSessions2.on('value', function(snapshot) {
+          var outtaIdeas = snapshot.val();
+          for (var key in outtaIdeas) {
+           $scope.displayNameArray.push(outtaIdeas[key]);
+          }
+      });
+    }
+
   });
 
-  $scope.displayNameArray = [];
-  for (var i = 0; i < chatPartnerIds.length; i++) {
-    var current = chatPartnerIds[i];
-    var chatSessions2 = new Firebase('https://fastpass-connection.firebaseio.com/users/' + current);
+  $scope.chatRetriever = function (displayName) {
+    var currentConvoId = $scope.displayNameArray.indexOf(displayName);
+    // $rootScope.currentConvo = {};
+    var partnerId = chatPartnerIds[currentConvoId];
+    $scope.chatSessions3 = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + authService.getUserId() + '/' + partnerId);
+    $scope.chatSessions3.on('value', function (snapshot) {
+      console.log(snapshot.val());
+      $rootScope.selected = snapshot.val();
+      $rootScope.selected.offererId = partnerId;
+      console.log($rootScope.selected);
+    });
+  };
 
-    // chatSessions2.on('value', function(snapshot) {
-    //     var outtaIdeas = snapshot.val();
-    //     console.log(outtaIdeas);
-    //     for (var key in outtaIdeas) {
-    //      $scope.displayNameArray.push(outtaIdeas[key]);
-    //     }
-    // });
-  }
 })
 
 .controller('listController', function($scope, $state, $rootScope, listService) {
