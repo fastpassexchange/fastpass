@@ -11,7 +11,7 @@ angular.module('fastpass.services', ['ionic'])
 
 }])
 
-.factory('authService', function($firebaseSimpleLogin, $state, $firebase) {
+.factory('authService', function($firebaseSimpleLogin, $state, $firebase, $ionicLoading) {
   // initializing Firebase simple login helper object
   var ref = new Firebase('https://fastpass-connection.firebaseio.com');
   var auth = $firebaseSimpleLogin(ref);
@@ -34,6 +34,9 @@ angular.module('fastpass.services', ['ionic'])
 
     if (type === 'facebook' || type === 'twitter'){
       console.log("attempting auth service login");
+      $ionicLoading.show({
+        template: 'Loading...'
+      });
       auth.$login(type)
       .then(function(user) {
         console.log('Logged in:' + user.displayName);
@@ -43,9 +46,11 @@ angular.module('fastpass.services', ['ionic'])
 
         newUser.set({displayName: user.displayName});
 
+        $ionicLoading.hide();
         $state.go('tabs.home');
       }, function(err) {
         console.log('Login failed: ' + err);
+        $ionicLoading.hide();
         $state.go('tabs.signin');
       });
       console.log("crappy async bug");
