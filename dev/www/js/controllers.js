@@ -26,7 +26,9 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   $scope.chatSessions.on('value', function(snapshot) {
     var people = snapshot.val();
     for (var key in people) {
-      chatPartnerIds.push(key);
+      if (key !== "offer") {
+        chatPartnerIds.push(key);
+      }
     }
 
     $scope.displayNameArray = [];
@@ -36,7 +38,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
       $scope.chatSessions2.on('value', function(snapshot) {
           var outtaIdeas = snapshot.val();
           for (var key in outtaIdeas) {
-           $scope.displayNameArray.push(outtaIdeas[key]);
+              $scope.displayNameArray.push(outtaIdeas[key]);
           }
       });
     }
@@ -49,10 +51,15 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     var partnerId = chatPartnerIds[currentConvoId];
     $scope.chatSessions3 = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + authService.getUserId() + '/' + partnerId);
     $scope.chatSessions3.on('value', function (snapshot) {
-      console.log(snapshot.val());
-      $rootScope.selected = snapshot.val();
+      $rootScope.selected = {};
+      var convoParts = snapshot.val();
+      for (var key in convoParts) {
+        if (key === "offer") {
+          $rootScope.selected = convoParts[key];
+        }
+      }
       $rootScope.selected.offererId = partnerId;
-      console.log($rootScope.selected);
+      console.dir($rootScope.selected);
     });
   };
 
@@ -61,10 +68,10 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 .controller('listController', function($scope, $state, $rootScope, listService) {
   $scope.text = listService;
    // getting object that we click on to see detailed view
-   $scope.setMaster = function(section) {
+   $scope.setMaster = function(offer) {
     // setting this object on the rootscope so that we can access it in the detailed view
-    $rootScope.selected = section;
-    console.log($scope.selected);
+    $rootScope.selected = offer;
+    console.dir($rootScope.selected);
   };
 })
 
@@ -125,8 +132,6 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     $scope.offer.createdAt = new Date();
     $scope.offer.offererId = authService.getUserId();
     $scope.offer.displayName = authService.getDisplayName();
-    console.log($scope.offer.offererId);
-    console.log($scope.offer.displayName);
 
     // get all offers from the database
     var offerRef = new Firebase('https://fastpass-connection.firebaseio.com/offers');
@@ -278,9 +283,6 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   $scope.to = $rootScope.selected.offererId;
   // current logged in user 'james'
   $scope.from = authService.getUserId();
-  console.log('message from uid: ', $scope.from);
-  console.log('message from display: ', authService.getDisplayName());
-  console.log('message from provider: ', authService.getProvider());
   // $scope.from = "James";
   var messageRef = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + $scope.from + '/' + $scope.to);
   var otherMessageRef = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + $scope.to + '/' + $scope.from);
@@ -298,6 +300,9 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
     $firebase(otherMessageRef).$add($scope.comment);
 
+    $firebase(messageRef).$update({offer: $rootScope.selected});
+    $firebase(otherMessageRef).$update({offer: $rootScope.selected});
+
     $scope.comment.content = '';
 
     // todo: try to use modal for successful send of message
@@ -308,20 +313,16 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
 // log in user
 .controller('loginController', function($scope, authService) {
-  console.log("entering login controller");
   
   $scope.validateUser = function(type) {
-    console.log("entering validate user");
     authService.login(type);
   };
 })
 
 // log out user
 .controller('logoutController', function(authService) {
-  console.log("entering logout controller");
   authService.logout();
 })
 
 .controller('HomeTabCtrl', function($scope) {
-  console.log('HomeTabCtrl');
 });
