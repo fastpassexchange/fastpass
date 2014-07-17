@@ -11,6 +11,7 @@
     <div ng-cloak ng-repeat="displayName in displayNameArray | orderByPriority"> 
         <a class="item" ng-click="chatRetriever(displayName)"
         ui-sref="tabs.chat">{{ displayName }}</a>
+        
     </div>
 
   </div>
@@ -23,11 +24,10 @@
 
     <div ng-cloak ng-repeat="offer in offers | orderByPriority"> 
         <div class="offer">
-          <p> name: {{ offer.displayName }}</p>
           <p> ride: {{ offer.ride }}</p>
           <p> {{ offer.number_give }}</p>
           <p> price: {{ offer.comment }}</p>
-          <p> {{ offer.location }}</p>
+          <p> {{ offer.location }}</p><br>
         </div>
     </div>
 

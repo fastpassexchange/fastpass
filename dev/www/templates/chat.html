@@ -17,6 +17,14 @@
         send message
       </button>
     </form>
+      <div>
+        <p> You are chatting in reference to the following offer: </p>
+        <p> name: {{ selected.displayName }}</p>
+        <p> ride: {{ selected.ride }}</p>
+        <p> {{ selected.number_give }}</p>
+        <p> price: {{ selected.comment }}</p>
+        <p> {{ selected.location }}</p><br>
+      </div>
     <button class="button button-block button-stable" ui-sref="tabs.connection">    <!-- ng-click="sendComment()"> -->
         see map
     </button>
