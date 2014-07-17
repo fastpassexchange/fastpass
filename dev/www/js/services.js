@@ -48,6 +48,7 @@ angular.module('fastpass.services', ['ionic'])
 
         // update user's geolocation position
         geolocationService.updateUserGeolocation(function(){
+          console.log("updateUserCallback")
           $ionicLoading.hide();
           $state.go('tabs.home');
         });
@@ -70,7 +71,9 @@ angular.module('fastpass.services', ['ionic'])
         console.log('Cookies cleared!');
       });
     }
-    auth.$logout();
+    if (isLoggedIn()){
+      auth.$logout();
+    }
   };
 
   var isAuthenticated = function() {
@@ -113,17 +116,17 @@ angular.module('fastpass.services', ['ionic'])
 
   var disneyLandBoundaries = {
     maxLat: 33.814641,
-    minLat: 33.810112,
+    minLat: 33.803622,
     maxLng: -117.915745,
-    minLng: -117.923899
+    minLng: -117.923684
   };
 
   // SF testing
   // var hackReactorBoundaries = {
-  //   maxLat: 33.814641,
-  //   minLat: 33.810112,
-  //   maxLong: -117.915745,
-  //   minLong: -117.923899
+  //   maxLat: 37.784115,
+  //   minLat: 37.782903,
+  //   maxLong: -122.408381,
+  //   minLong: -122.409636
   // };
 
   var userCoords = {
@@ -134,12 +137,18 @@ angular.module('fastpass.services', ['ionic'])
   // updates user coord with current geolocation position
   // hard coded numbers for debugging
   var updateUserGeolocation = function(callback){
+    console.log("inside updateUserGeo")
+    var options = { timeout: 20000, enableHighAccuracy: true, maximumAge: 90000 };
     navigator.geolocation.getCurrentPosition(function(position){
+      console.log('inside navigator');
       userCoords.lat = 33.812/*position.coords.latitude*/;
       userCoords.lng = -117.92/*position.coords.longitude*/;
       console.log("updated Lat :" + userCoords.lat + ", updated Lng :" + userCoords.lng)
       callback(position);
-    });
+    }, function(error){
+      console.log("FAIL: " + error);
+      console.dir(error);
+    }, options);
   };
 
   // checks whether user is within Disneyland
