@@ -64,26 +64,31 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
         $scope.offerRef = offerChild.val();
         $scope.offerName = offerChild.name();
         console.log('offerChild.name(): ', offerChild.name());
-
         console.log('offerRef.createdAt: ', $scope.offerRef.createdAt);
         console.log('offer.createdAt: ', offer.createdAt);
         if ($scope.offerRef.createdAt === offer.createdAt) {
           console.log('offerRef: ', $scope.offerRef);
           $scope.selectedOffer = new Firebase('https://fastpass-connection.firebaseio.com/users/' + authService.getUserId() + '/offers/' + $scope.offerName);
-          
           $firebase($scope.selectedOffer).$update({available: false});
         }
-
       });
-
-
     });
 
-    
-
-
-
-
+    $scope.offerList = new Firebase('https://fastpass-connection.firebaseio.com/offers/');
+    $scope.offerList.on('value', function(snapshot) {
+      snapshot.forEach(function(offerChild) {
+        $scope.offerRef = offerChild.val();
+        $scope.offerName = offerChild.name();
+        console.log('offerChild.name(): ', offerChild.name());
+        console.log('offerRef.createdAt: ', $scope.offerRef.createdAt);
+        console.log('offer.createdAt: ', offer.createdAt);
+        if ($scope.offerRef.createdAt === offer.createdAt) {
+          console.log('offerRef: ', $scope.offerRef);
+          $scope.selectedOfferInList = new Firebase('https://fastpass-connection.firebaseio.com/offers/' + $scope.offerName);
+          $firebase($scope.selectedOfferInList).$update({available: false});
+        }
+      });
+    });
   };
 
   $scope.chatRetriever = function (displayName) {
@@ -166,7 +171,6 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   $scope.offer.location = $scope.locations[0];
   $scope.offer.number_give = $scope.numbers_give[0];
   $scope.offer.comment = $scope.comments[0];
-  $scope.offer.available = true;
 
   // when user submits an offer do this
   $scope.addOffer = function() {
@@ -174,6 +178,8 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     $scope.offer.createdAt = new Date();
     $scope.offer.offererId = authService.getUserId();
     $scope.offer.displayName = authService.getDisplayName();
+    $scope.offer.available = true;
+
 
     // get all offers from the database
     var offerRef = new Firebase('https://fastpass-connection.firebaseio.com/offers');

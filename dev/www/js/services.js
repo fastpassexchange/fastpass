@@ -153,7 +153,7 @@ angular.module('fastpass.services', ['ionic'])
 
   // checks whether user is within Disneyland
   var inDisneyLand = function(){
-    console.log("inside inDisneyLand")
+    console.log("inside inDisneyLand");
     if (disneyLandBoundaries.minLat < userCoords.lat &&
       userCoords.lat < disneyLandBoundaries.maxLat &&
       disneyLandBoundaries.minLng < userCoords.lng &&

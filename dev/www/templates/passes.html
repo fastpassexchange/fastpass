@@ -5,7 +5,7 @@
     <h1>{{text.offers}}</h1> -->
     <!-- displays in order on firebase -->
     <div ng-cloak ng-repeat="offer in text.offers | orderByPriority"> <!-- ng-class="{active : isSelected(offer)}"> -->
-      <a class="button button-block button-stable" ng-click="setMaster(offer)"
+      <a class="button button-block button-stable" ng-if="offer.available" ng-click="setMaster(offer)"
       ui-sref="tabs.getDetails">{{ offer.number_give }} for {{ offer.ride }}  </a>
     </div>
   </ion-content>

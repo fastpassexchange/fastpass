@@ -8,7 +8,7 @@
       Your Conversations
     </div>
 
-    <div ng-cloak ng-repeat="displayName in displayNameArray | orderByPriority"> 
+    <div ng-cloak ng-repeat="displayName in displayNameArray | orderByPriority track by $index"> 
         <a class="item" ng-click="chatRetriever(displayName)"
         ui-sref="tabs.chat">{{ displayName }}</a>
         
@@ -23,7 +23,7 @@
     </div>
 
     <div ng-cloak ng-repeat="offer in offers | orderByPriority"> 
-        <div class="offer" ng-click="deleteOffer(offer)">
+        <div class="offer" ng-if="offer.available" ng-click="deleteOffer(offer)">
           <p> ride: {{ offer.ride }}</p>
           <p> {{ offer.number_give }}</p>
           <p> price: {{ offer.comment }}</p>
