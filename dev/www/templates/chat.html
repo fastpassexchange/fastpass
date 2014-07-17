@@ -3,7 +3,7 @@
       <!-- <div style="height: 300px"> -->
     <div class="messageDiv">
       <div ng-cloak ng-repeat="message in userMessages">
-        <div>
+        <div ng-if="message.content">
           {{ message.content }} : {{ message.createdAt }}
         </div>
       </div>

@@ -38,7 +38,9 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
       $scope.chatSessions2.on('value', function(snapshot) {
           var outtaIdeas = snapshot.val();
           for (var key in outtaIdeas) {
-              $scope.displayNameArray.push(outtaIdeas[key]);
+              if (key === "displayName") {
+                $scope.displayNameArray.push(outtaIdeas[key]);
+              }
           }
       });
     }
