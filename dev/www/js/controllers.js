@@ -323,7 +323,6 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
 // log in user
 .controller('loginController', function($scope, authService) {
-  
   $scope.validateUser = function(type) {
     authService.login(type);
   };

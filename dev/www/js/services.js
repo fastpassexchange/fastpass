@@ -71,7 +71,9 @@ angular.module('fastpass.services', ['ionic'])
         console.log('Cookies cleared!');
       });
     }
-    auth.$logout();
+    if (isLoggedIn()){
+      auth.$logout();
+    }
   };
 
   var isAuthenticated = function() {
