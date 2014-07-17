@@ -38,11 +38,21 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
       $scope.chatSessions2.on('value', function(snapshot) {
           var outtaIdeas = snapshot.val();
           for (var key in outtaIdeas) {
-              $scope.displayNameArray.push(outtaIdeas[key]);
+              if (key === "displayName") {
+                $scope.displayNameArray.push(outtaIdeas[key]);
+              }
           }
       });
     }
 
+  });
+
+
+  // for display of logged in user's offers from database
+  $scope.usersOffers = new Firebase('https://fastpass-connection.firebaseio.com/users/' + $scope.loggedInUser + '/offers');
+  console.log($scope.usersOffers);
+  $scope.usersOffers.on('value', function(snapshot) {
+    $scope.offers = snapshot.val();
   });
 
   $scope.chatRetriever = function (displayName) {

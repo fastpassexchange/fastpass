@@ -1,9 +1,50 @@
 <ion-view title="Dashboard" ng-controller="dashboardController" class="padding">
   <ion-content>
-  <div ng-cloak ng-repeat="displayName in displayNameArray | orderByPriority"> 
-      <a class="button button-block button-stable" ng-click="chatRetriever(displayName)"
-      ui-sref="tabs.chat">{{ displayName }}</a>
-<!--       <a>{{message}}</a>
- -->    </div>
+
+
+  <div class="list">
+
+    <div class="item item-divider">
+      Your Conversations
+    </div>
+
+    <div ng-cloak ng-repeat="displayName in displayNameArray | orderByPriority"> 
+        <a class="item" ng-click="chatRetriever(displayName)"
+        ui-sref="tabs.chat">{{ displayName }}</a>
+        
+    </div>
+
+  </div>
+
+  <div class="list">
+
+    <div class="item item-divider">
+      Your Offers
+    </div>
+
+    <div ng-cloak ng-repeat="offer in offers | orderByPriority"> 
+        <div class="offer">
+          <p> ride: {{ offer.ride }}</p>
+          <p> {{ offer.number_give }}</p>
+          <p> price: {{ offer.comment }}</p>
+          <p> {{ offer.location }}</p><br>
+        </div>
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   </ion-content>
 </ion-view>
