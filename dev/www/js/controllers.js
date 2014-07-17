@@ -111,14 +111,18 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
 })
 
-.controller('listController', function($scope, $state, $rootScope, listService) {
+.controller('listController', function($scope, $state, $rootScope, listService, authService) {
   $scope.text = listService;
    // getting object that we click on to see detailed view
    $scope.setMaster = function(offer) {
     // setting this object on the rootscope so that we can access it in the detailed view
     $rootScope.selected = offer;
-    console.dir($rootScope.selected);
   };
+
+  $scope.isNotYourOffer = function(offererId) {
+    return authService.getUserId() !== offererId;
+  };
+
 })
 
 // couldn't get three way data binding to work :(
