@@ -48,6 +48,7 @@ angular.module('fastpass.services', ['ionic'])
 
         // update user's geolocation position
         geolocationService.updateUserGeolocation(function(){
+          console.log("updateUserCallback")
           $ionicLoading.hide();
           $state.go('tabs.home');
         });
@@ -134,12 +135,18 @@ angular.module('fastpass.services', ['ionic'])
   // updates user coord with current geolocation position
   // hard coded numbers for debugging
   var updateUserGeolocation = function(callback){
+    console.log("inside updateUserGeo")
+    var options = { timeout: 20000, enableHighAccuracy: true, maximumAge: 90000 };
     navigator.geolocation.getCurrentPosition(function(position){
+      console.log('inside navigator');
       userCoords.lat = 33.812/*position.coords.latitude*/;
       userCoords.lng = -117.92/*position.coords.longitude*/;
       console.log("updated Lat :" + userCoords.lat + ", updated Lng :" + userCoords.lng)
       callback(position);
-    });
+    }, function(error){
+      console.log("FAIL: " + error);
+      console.dir(error);
+    }, options);
   };
 
   // checks whether user is within Disneyland
