@@ -20,19 +20,7 @@ angular.module('fastpass.services', ['ionic'])
   var login = function(type) {
     console.log("entered auth service login");
 
-    //console.log('window.cookies: ', window.cookies);
-    //console.log('window.cookie: ', window.cookie);
-    console.dir(document.cookie);
-    //console.log('document.cookies: ', document.cookies);
-
-    if(document.cookie !== undefined){
-      // document.cookie.clear(function() {
-        console.log('Cookies cleared!');
-        // document.cookie = name + '=;expires=Thu, 05 Oct 1990 00:00:01 GMT;';
-      // });
-    }
-
-    if (type === 'facebook' || type === 'twitter'){
+    if (type === 'facebook' || type === 'twitter' || 'google'){
       console.log("attempting auth service login");
       $ionicLoading.show({
         template: 'Loading...'

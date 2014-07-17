@@ -1,4 +1,4 @@
-<ion-view title="Chats" ng-controller="chatController" class="chatView">
+<ion-view title="Conversation" ng-controller="chatController" class="chatView">
   <ion-content>
       <!-- <div style="height: 300px"> -->
     <div class="messageDiv">
@@ -10,7 +10,7 @@
     </div>
     <form>
       <label class="item item-input item-stacked-label">
-        <span class="input-label">Message to {{ selected.name }}</span>
+        <span class="input-label">Conversation with {{ selected.displayName }}</span>
         <input type="text" placeholder="write message" ng-model="comment.content">
       </label>
       <button class="button button-block button-stable" type="submit" ng-click="sendComment()">
@@ -25,8 +25,8 @@
         <p> price: {{ selected.comment }}</p>
         <p> {{ selected.location }}</p><br>
       </div>
-    <button class="button button-block button-stable" ui-sref="tabs.connection">    <!-- ng-click="sendComment()"> -->
+    <!-- <button class="button button-block button-stable" ui-sref="tabs.connection">    ng-click="sendComment()">
         see map
-    </button>
+    </button> -->
   </ion-content>
 </ion-view>

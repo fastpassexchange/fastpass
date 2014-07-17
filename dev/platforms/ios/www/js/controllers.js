@@ -12,7 +12,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 //   };
 // })
 
-.controller('dashboardController', function($scope, $rootScope, authService, listService) {
+.controller('dashboardController', function($scope, $rootScope, $firebase, authService, listService) {
 
   var chatPartnerIds = [];
   $scope.chatSessions = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + authService.getUserId());
@@ -55,6 +55,42 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     $scope.offers = snapshot.val();
   });
 
+  $scope.deleteOffer = function(offer) {
+
+    $scope.yourOffers = new Firebase('https://fastpass-connection.firebaseio.com/users/' + authService.getUserId() + '/offers');
+    $scope.yourOffers.on('value', function(snapshot) {
+      snapshot.forEach(function(offerChild) {
+
+        $scope.offerRef = offerChild.val();
+        $scope.offerName = offerChild.name();
+        console.log('offerChild.name(): ', offerChild.name());
+        console.log('offerRef.createdAt: ', $scope.offerRef.createdAt);
+        console.log('offer.createdAt: ', offer.createdAt);
+        if ($scope.offerRef.createdAt === offer.createdAt) {
+          console.log('offerRef: ', $scope.offerRef);
+          $scope.selectedOffer = new Firebase('https://fastpass-connection.firebaseio.com/users/' + authService.getUserId() + '/offers/' + $scope.offerName);
+          $firebase($scope.selectedOffer).$update({available: false});
+        }
+      });
+    });
+
+    $scope.offerList = new Firebase('https://fastpass-connection.firebaseio.com/offers/');
+    $scope.offerList.on('value', function(snapshot) {
+      snapshot.forEach(function(offerChild) {
+        $scope.offerRef = offerChild.val();
+        $scope.offerName = offerChild.name();
+        console.log('offerChild.name(): ', offerChild.name());
+        console.log('offerRef.createdAt: ', $scope.offerRef.createdAt);
+        console.log('offer.createdAt: ', offer.createdAt);
+        if ($scope.offerRef.createdAt === offer.createdAt) {
+          console.log('offerRef: ', $scope.offerRef);
+          $scope.selectedOfferInList = new Firebase('https://fastpass-connection.firebaseio.com/offers/' + $scope.offerName);
+          $firebase($scope.selectedOfferInList).$update({available: false});
+        }
+      });
+    });
+  };
+
   $scope.chatRetriever = function (displayName) {
     var currentConvoId = $scope.displayNameArray.indexOf(displayName);
     // $rootScope.currentConvo = {};
@@ -75,14 +111,18 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
 })
 
-.controller('listController', function($scope, $state, $rootScope, listService) {
+.controller('listController', function($scope, $state, $rootScope, listService, authService) {
   $scope.text = listService;
    // getting object that we click on to see detailed view
    $scope.setMaster = function(offer) {
     // setting this object on the rootscope so that we can access it in the detailed view
     $rootScope.selected = offer;
-    console.dir($rootScope.selected);
   };
+
+  $scope.isNotYourOffer = function(offererId) {
+    return authService.getUserId() !== offererId;
+  };
+
 })
 
 // couldn't get three way data binding to work :(
@@ -142,6 +182,8 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     $scope.offer.createdAt = new Date();
     $scope.offer.offererId = authService.getUserId();
     $scope.offer.displayName = authService.getDisplayName();
+    $scope.offer.available = true;
+
 
     // get all offers from the database
     var offerRef = new Firebase('https://fastpass-connection.firebaseio.com/offers');
@@ -323,7 +365,6 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
 // log in user
 .controller('loginController', function($scope, authService) {
-  
   $scope.validateUser = function(type) {
     authService.login(type);
   };
