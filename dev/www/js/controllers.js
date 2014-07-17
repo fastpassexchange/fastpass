@@ -12,7 +12,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 //   };
 // })
 
-.controller('dashboardController', function($scope, $rootScope, authService, listService) {
+.controller('dashboardController', function($scope, $rootScope, $firebase, authService, listService) {
 
   var chatPartnerIds = [];
   $scope.chatSessions = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + authService.getUserId());
@@ -54,6 +54,37 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   $scope.usersOffers.on('value', function(snapshot) {
     $scope.offers = snapshot.val();
   });
+
+  $scope.deleteOffer = function(offer) {
+
+    $scope.yourOffers = new Firebase('https://fastpass-connection.firebaseio.com/users/' + authService.getUserId() + '/offers');
+    $scope.yourOffers.on('value', function(snapshot) {
+      snapshot.forEach(function(offerChild) {
+
+        $scope.offerRef = offerChild.val();
+        $scope.offerName = offerChild.name();
+        console.log('offerChild.name(): ', offerChild.name());
+
+        console.log('offerRef.createdAt: ', $scope.offerRef.createdAt);
+        console.log('offer.createdAt: ', offer.createdAt);
+        if ($scope.offerRef.createdAt === offer.createdAt) {
+          console.log('offerRef: ', $scope.offerRef);
+          $scope.selectedOffer = new Firebase('https://fastpass-connection.firebaseio.com/users/' + authService.getUserId() + '/offers/' + $scope.offerName);
+          
+          $firebase($scope.selectedOffer).$update({available: false});
+        }
+
+      });
+
+
+    });
+
+    
+
+
+
+
+  };
 
   $scope.chatRetriever = function (displayName) {
     var currentConvoId = $scope.displayNameArray.indexOf(displayName);
@@ -135,6 +166,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   $scope.offer.location = $scope.locations[0];
   $scope.offer.number_give = $scope.numbers_give[0];
   $scope.offer.comment = $scope.comments[0];
+  $scope.offer.available = true;
 
   // when user submits an offer do this
   $scope.addOffer = function() {

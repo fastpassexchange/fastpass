@@ -23,7 +23,7 @@
     </div>
 
     <div ng-cloak ng-repeat="offer in offers | orderByPriority"> 
-        <div class="offer">
+        <div class="offer" ng-click="deleteOffer(offer)">
           <p> ride: {{ offer.ride }}</p>
           <p> {{ offer.number_give }}</p>
           <p> price: {{ offer.comment }}</p>

@@ -3,7 +3,7 @@
       <!-- <div style="height: 300px"> -->
     <div class="messageDiv">
       <div ng-cloak ng-repeat="message in userMessages">
-        <div>
+        <div ng-if="message.content">
           {{ message.content }} : {{ message.createdAt }}
         </div>
       </div>
@@ -17,6 +17,14 @@
         send message
       </button>
     </form>
+      <div>
+        <p> You are chatting in reference to the following offer: </p>
+        <p> name: {{ selected.displayName }}</p>
+        <p> ride: {{ selected.ride }}</p>
+        <p> {{ selected.number_give }}</p>
+        <p> price: {{ selected.comment }}</p>
+        <p> {{ selected.location }}</p><br>
+      </div>
     <button class="button button-block button-stable" ui-sref="tabs.connection">    <!-- ng-click="sendComment()"> -->
         see map
     </button>
