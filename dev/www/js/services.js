@@ -44,7 +44,7 @@ angular.module('fastpass.services', ['ionic'])
 
         var newUser = new Firebase('https://fastpass-connection.firebaseio.com/users/' + user.uid);
 
-        newUser.set({displayName: user.displayName});
+        newUser.update({displayName: user.displayName});
 
         // update user's geolocation position
         geolocationService.updateUserGeolocation(function(){
