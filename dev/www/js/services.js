@@ -47,10 +47,10 @@ angular.module('fastpass.services', ['ionic'])
         newUser.set({displayName: user.displayName});
 
         // update user's geolocation position
-        geolocationService.updateUserGeolocation();
-
-        $ionicLoading.hide();
-        $state.go('tabs.home');
+        geolocationService.updateUserGeolocation(function(){
+          $ionicLoading.hide();
+          $state.go('tabs.home');
+        });
       }, function(err) {
         console.log('Login failed: ' + err);
         $ionicLoading.hide();
@@ -133,11 +133,12 @@ angular.module('fastpass.services', ['ionic'])
 
   // updates user coord with current geolocation position
   // hard coded numbers for debugging
-  var updateUserGeolocation = function(){
+  var updateUserGeolocation = function(callback){
     navigator.geolocation.getCurrentPosition(function(position){
       userCoords.lat = 33.812/*position.coords.latitude*/;
       userCoords.lng = -117.92/*position.coords.longitude*/;
       console.log("updated Lat :" + userCoords.lat + ", updated Lng :" + userCoords.lng)
+      callback(position);
     });
   };
 
