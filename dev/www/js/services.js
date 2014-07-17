@@ -11,7 +11,7 @@ angular.module('fastpass.services', ['ionic'])
 
 }])
 
-.factory('authService', function($firebaseSimpleLogin, $state, $firebase, $ionicLoading) {
+.factory('authService', function($firebaseSimpleLogin, $state, $firebase, $ionicLoading, geolocationService) {
   // initializing Firebase simple login helper object
   var ref = new Firebase('https://fastpass-connection.firebaseio.com');
   var auth = $firebaseSimpleLogin(ref);
@@ -46,8 +46,11 @@ angular.module('fastpass.services', ['ionic'])
 
         newUser.set({displayName: user.displayName});
 
-        $ionicLoading.hide();
-        $state.go('tabs.home');
+        // update user's geolocation position
+        geolocationService.updateUserGeolocation(function(){
+          $ionicLoading.hide();
+          $state.go('tabs.home');
+        });
       }, function(err) {
         console.log('Login failed: ' + err);
         $ionicLoading.hide();
@@ -64,10 +67,15 @@ angular.module('fastpass.services', ['ionic'])
   var logout = function() {
     if(window.cookies){
       window.cookies.clear(function() {
-      console.log('Cookies cleared!');
-    });
-}
+        console.log('Cookies cleared!');
+      });
+    }
     auth.$logout();
+  };
+
+  var isAuthenticated = function() {
+    console.log("Inside isAuthenticated");
+    return isLoggedIn() && geolocationService.inDisneyLand();
   };
 
   // verify user object exists in auth object
@@ -92,15 +100,69 @@ angular.module('fastpass.services', ['ionic'])
   // return factory interface
   return {
     isLoggedIn: isLoggedIn,
+    isAuthenticated: isAuthenticated,
     login: login,
     logout: logout,
     getUserId: getUserId,
     getDisplayName: getDisplayName,
     getProvider: getProvider
   };
+})
+
+.factory('geolocationService', function() {
+
+  var disneyLandBoundaries = {
+    maxLat: 33.814641,
+    minLat: 33.810112,
+    maxLng: -117.915745,
+    minLng: -117.923899
+  };
+
+  // SF testing
+  // var hackReactorBoundaries = {
+  //   maxLat: 33.814641,
+  //   minLat: 33.810112,
+  //   maxLong: -117.915745,
+  //   minLong: -117.923899
+  // };
+
+  var userCoords = {
+    lat: 0,
+    lng: 0,
+  };
+
+  // updates user coord with current geolocation position
+  // hard coded numbers for debugging
+  var updateUserGeolocation = function(callback){
+    navigator.geolocation.getCurrentPosition(function(position){
+      userCoords.lat = 33.812/*position.coords.latitude*/;
+      userCoords.lng = -117.92/*position.coords.longitude*/;
+      console.log("updated Lat :" + userCoords.lat + ", updated Lng :" + userCoords.lng)
+      callback(position);
+    });
+  };
+
+  // checks whether user is within Disneyland
+  var inDisneyLand = function(){
+    console.log("inside inDisneyLand")
+    if (disneyLandBoundaries.minLat < userCoords.lat &&
+      userCoords.lat < disneyLandBoundaries.maxLat &&
+      disneyLandBoundaries.minLng < userCoords.lng &&
+      userCoords.lng < disneyLandBoundaries.maxLng){
+      console.log('inDisneyLand true');
+      return true;
+    } else{
+      console.log('inDisneyLand false');
+      return false;
+    }
+  };
+
+  return {
+    updateUserGeolocation: updateUserGeolocation,
+    inDisneyLand: inDisneyLand,
+  };
+
 });
-
-
 
 // leftover tutorial junk
 // .factory('Friends', function() {
