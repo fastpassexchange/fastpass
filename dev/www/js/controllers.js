@@ -205,7 +205,8 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   ];
 
   var initVars = function() {
-    // clear error message
+    // clear status and error message
+    $scope.statusMsg = '';
     $scope.errorMsg = '';
 
     // initialize offer scope and default values
@@ -247,6 +248,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     $scope.offer.offererId = authService.getUserId();
     $scope.offer.displayName = authService.getDisplayName();
     $scope.offer.available = true;
+    $scope.statusMsg = '';
     
     if (isDataValid()) {
       if (timerService.isOfferAfterTimeLimit()){
@@ -265,6 +267,9 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
         // clear input fields of form
         initVars();
+
+        // set status message
+        $scope.statusMsg = "New Offer Submitted";
       } else {
         $scope.errorMsg = "Please wait 30 minutes between submitting offers.";
       }

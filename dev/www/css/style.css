@@ -22,6 +22,11 @@
     height: 480px;
 }*/
 
+.statusMsg {
+  text-align: center;
+  font-weight: bold;
+}
+
 .errorMsg {
   color: red;
   text-align: center;
