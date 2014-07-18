@@ -15,13 +15,12 @@
       <p>Your offers</p>
       <p>(Select an offer to remove it from available offers others will see)</p>
     </div>
-    <br>
-    <div ng-cloak ng-repeat="offer in offers | orderByPriority"> 
+    <div ng-cloak ng-repeat="offer in offers | orderByPriority" style="text-align:center; background-color:#FFD700"> 
         <div class="offer" ng-if="offer.available" ng-click="deleteOffer(offer)">
-          <p> ride: {{ offer.ride }}</p>
-          <p> {{ offer.number_give }}</p>
-          <p> free or trade: {{ offer.comment }}</p>
-          <p> {{ offer.location }}</p><br>
+          <p> Ride: {{ offer.ride }}<br>
+            {{ offer.number_give }}<br>
+            Free or trade: {{ offer.comment }}<br>
+            {{ offer.location }}</p>
         </div>
     </div>
   </div>
