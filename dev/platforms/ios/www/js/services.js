@@ -43,7 +43,6 @@ angular.module('fastpass.services', ['ionic'])
       }, function(err) {
         console.log('Login failed: ' + err);
         $ionicLoading.hide();
-        $state.go('tabs.signin');
       });
       console.log("crappy async bug");
     }else{
@@ -100,7 +99,7 @@ angular.module('fastpass.services', ['ionic'])
   };
 })
 
-.factory('geolocationService', function() {
+.factory('geolocationService', function($ionicLoading) {
 
   var disneyLandBoundaries = {
     maxLat: 33.814641,
@@ -134,8 +133,9 @@ angular.module('fastpass.services', ['ionic'])
       console.log("updated Lat :" + userCoords.lat + ", updated Lng :" + userCoords.lng)
       callback(position);
     }, function(error){
-      console.log("FAIL: " + error);
+      console.log("FAIL geolocation: " + error);
       console.dir(error);
+      $ionicLoading.hide();
     }, options);
   };
 
