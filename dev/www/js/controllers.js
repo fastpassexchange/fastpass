@@ -44,7 +44,6 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
           }
       });
     }
-
   });
 
 
@@ -54,13 +53,6 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   $scope.usersOffers.on('value', function(snapshot) {
     $scope.offers = snapshot.val();
   });
-
-
-
-  
-
-
-
 
   $scope.deleteOffer = function(offer) {
 
@@ -115,7 +107,6 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
       console.dir($rootScope.selected);
     });
   };
-
 })
 
 .controller('listController', function($scope, $state, $rootScope, listService, authService) {
@@ -139,7 +130,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 //   }
 // ])
 
-.controller('offerController', function($scope, $firebase, formService, authService) {
+.controller('offerController', function($scope, $firebase, authService, timerService) {
   $scope.offer = {};
   // $scope properties for drop down menus
   $scope.rides = [
@@ -159,7 +150,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     'current location: fantasyland',
     'current location: frontierland',
     'current location: main street',
-    'current loctation: mickey\'s toontown',
+    'current location: mickey\'s toontown',
     'current location: new orleans square',
     'current location: tomorrowland'
   ];
@@ -190,26 +181,30 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     $scope.offer.offererId = authService.getUserId();
     $scope.offer.displayName = authService.getDisplayName();
     $scope.offer.available = true;
+    
+    if (timerService.isOfferAfterTimeLimit()){
+      // get all offers from the database
+      var offerRef = new Firebase('https://fastpass-connection.firebaseio.com/offers');
+      // add new offer to the database
+      $firebase(offerRef).$add($scope.offer);
 
+      // add to user's offer hash
+      var usersOffers = new Firebase('https://fastpass-connection.firebaseio.com/users/' + $scope.offer.offererId + '/offers');
+      // add offer hash to logged in users offers hash
+      $firebase(usersOffers).$add($scope.offer);
 
-    // get all offers from the database
-    var offerRef = new Firebase('https://fastpass-connection.firebaseio.com/offers');
-    // add new offer to the database
-    $firebase(offerRef).$add($scope.offer);
+      // update last offer time
+      timerService.setLastOfferTime($scope.offer.createdAt);
 
-    // add to user's offer hash
-    var usersOffers = new Firebase('https://fastpass-connection.firebaseio.com/users/' + $scope.offer.offererId + '/offers');
-    // add offer hash to logged in users offers hash
-    $firebase(usersOffers).$add($scope.offer);
-
-    // clear input fields of form
-    $scope.offer = {
-      // displayName: '',
-      ride: '',
-      number_give: '',
-      location: '',
-      comment: ''
-    };
+      // clear input fields of form
+      $scope.offer = {
+        // displayName: '',
+        ride: '',
+        number_give: '',
+        location: '',
+        comment: ''
+      };
+    }
   };
 })
 
@@ -368,7 +363,6 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     // todo: try to use modal for successful send of message
     // $scope.openModal();
   };
-  
 })
 
 // log in user
