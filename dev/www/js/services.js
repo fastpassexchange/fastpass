@@ -180,6 +180,27 @@ angular.module('fastpass.services', ['ionic'])
 
 });
 
+// .factory('messageNotificationFactory', function() {
+//   var notification = {};
+//   var setNotification = function(conversationObj) {
+
+//   };
+//   var getNotification = function() {
+//     return object;
+//   };
+//   var deleteNotificaiton = function(conversationObjKey) {
+
+//   };
+
+
+//   return {
+//     setNotification: setNotification,
+//     getNotification: getNotification,
+//     deleteNotification: deleteNotification
+//   };
+
+// });
+
 // leftover tutorial junk
 // .factory('Friends', function() {
 //   // Might use a resource here that returns a JSON array
