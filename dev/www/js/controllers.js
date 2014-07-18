@@ -54,6 +54,38 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     $scope.offers = snapshot.val();
   });
 
+  
+  $scope.watchedConversations = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + authService.getUserId());
+  $scope.watchedConversations.on('value', function(convos) {
+    $scope.pulledConvoIds = convos.val();
+  //   console.log('newConversationMessage: ', newConversationMessage);
+  //   console.log('prevChildName: ', prevChildName);
+  });
+  var index = 0;
+  var watchedConversations=[];
+  for (var personImChattingWith in $scope.pulledConvoIds) {
+    console.log('personImChattingWith: ', personImChattingWith);
+    console.log('index: ', index);
+    watchedConversations[index] = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + authService.getUserId() + '/' + personImChattingWith);
+
+      watchedConversations[index].endAt.on('child_added', function(newConversationMessage, prevChildName) {
+        console.dir('newconversation message val: ', newConversationMessage.val());
+        console.dir('newconversation message name: ', newConversationMessage.name());
+        console.log('newConversationMessage: ', newConversationMessage);
+        console.log('prevChildName: ', prevChildName);
+      });  
+    index++;
+  }
+
+  
+    // console.log('watchedconv val: ', $scope.watchedConversations.val());
+    // console.log('watchedconv name: ', $scope.watchedConversations.name());
+
+
+  
+    // console.log('watchedconv val: ', $scope.watchedConversations.val());
+    // console.log('watchedconv name: ', $scope.watchedConversations.name());
+
   $scope.deleteOffer = function(offer) {
 
     $scope.yourOffers = new Firebase('https://fastpass-connection.firebaseio.com/users/' + authService.getUserId() + '/offers');
@@ -359,6 +391,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     $firebase(otherMessageRef).$update({offer: $rootScope.selected});
 
     $scope.comment.content = '';
+    
 
     // todo: try to use modal for successful send of message
     // $scope.openModal();
