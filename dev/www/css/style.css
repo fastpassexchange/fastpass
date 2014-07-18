@@ -37,6 +37,19 @@
   margin: 0;
 }
 
+.bar.bar-calm {
+  background-color: #000000;
+  border-color: #000000;
+  color: #fff;
+}
+
+.tabs-calm > .tabs, 
+.tabs.tabs-calm {
+  background-color: #000000;
+  border-color: #000000;
+  color: #fff;
+}
+
 /*
       html { height: 100% }
       body { height: 100%; margin: 0; padding: 0 }
