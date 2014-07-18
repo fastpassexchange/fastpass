@@ -7,9 +7,28 @@ angular.module('fastpass.services', ['ionic'])
   return $firebase(ref);
 }])
 
-.factory('formService', [function() {
+.factory('timerService', function(){
 
-}])
+  var lastOfferTime = null;
+
+  var isOfferAfterTimeLimit = function(){
+    var currentTime = new Date();
+    if (currentTime - lastOfferTime > 1800000 || lastOfferTime === null){
+      return true;
+    } else{
+      return false;
+    }
+  };
+
+  var setLastOfferTime = function(time){
+    lastOfferTime = time;
+  };
+
+  return {
+    isOfferAfterTimeLimit: isOfferAfterTimeLimit,
+    setLastOfferTime: setLastOfferTime
+  };
+})
 
 .factory('authService', function($firebaseSimpleLogin, $state, $firebase, $ionicLoading, geolocationService) {
   // initializing Firebase simple login helper object
