@@ -55,6 +55,13 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     $scope.offers = snapshot.val();
   });
 
+
+
+  
+
+
+
+
   $scope.deleteOffer = function(offer) {
 
     $scope.yourOffers = new Firebase('https://fastpass-connection.firebaseio.com/users/' + authService.getUserId() + '/offers');
