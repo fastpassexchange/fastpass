@@ -143,7 +143,7 @@ angular.module('fastpass.services', ['ionic'])
   // updates user coord with current geolocation position
   // hard coded numbers for debugging
   var updateUserGeolocation = function(callback){
-    console.log("inside updateUserGeo")
+    console.log("inside updateUserGeo");
     var options = { timeout: 20000, enableHighAccuracy: true, maximumAge: 90000 };
     navigator.geolocation.getCurrentPosition(function(position){
       console.log('inside navigator');
@@ -179,6 +179,27 @@ angular.module('fastpass.services', ['ionic'])
   };
 
 });
+
+// .factory('messageNotificationFactory', function() {
+//   var notification = {};
+//   var setNotification = function(conversationObj) {
+
+//   };
+//   var getNotification = function() {
+//     return object;
+//   };
+//   var deleteNotificaiton = function(conversationObjKey) {
+
+//   };
+
+
+//   return {
+//     setNotification: setNotification,
+//     getNotification: getNotification,
+//     deleteNotification: deleteNotification
+//   };
+
+// });
 
 // leftover tutorial junk
 // .factory('Friends', function() {

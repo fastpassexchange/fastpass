@@ -39,7 +39,9 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
           var outtaIdeas = snapshot.val();
           for (var key in outtaIdeas) {
               if (key === "displayName") {
-                $scope.displayNameArray.push(outtaIdeas[key]);
+                if ($scope.displayNameArray.indexOf(outtaIdeas[key]) === -1){
+                  $scope.displayNameArray.push(outtaIdeas[key]);
+                }
               }
           }
       });
@@ -53,6 +55,37 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   $scope.usersOffers.on('value', function(snapshot) {
     $scope.offers = snapshot.val();
   });
+
+  
+  $scope.watchedConversations = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + authService.getUserId());
+  $scope.watchedConversations.on('value', function(convos) {
+    $scope.pulledConvoIds = convos.val();
+  //   console.log('newConversationMessage: ', newConversationMessage);
+  //   console.log('prevChildName: ', prevChildName);
+  });
+
+  var index = 0;
+  var watchedConversations=[];
+  
+  for (var personImChattingWith in $scope.pulledConvoIds) {
+    console.log('personImChattingWith: ', personImChattingWith);
+    console.log('index: ', index);
+    watchedConversations[index] = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + authService.getUserId() + '/' + personImChattingWith);
+      
+      $firebase(watchedConversations[index]).$on('child_removed', function(oldChildSnapshot) {
+        console.log(oldChildSnapshot);
+      });  
+    index++;
+  }
+
+  
+    // console.log('watchedconv val: ', $scope.watchedConversations.val());
+    // console.log('watchedconv name: ', $scope.watchedConversations.name());
+
+
+  
+    // console.log('watchedconv val: ', $scope.watchedConversations.val());
+    // console.log('watchedconv name: ', $scope.watchedConversations.name());
 
   $scope.deleteOffer = function(offer) {
 
@@ -352,13 +385,26 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     // add new message to the database
     // todo: refactor with transaction
     $firebase(messageRef).$add($scope.comment);
-
     $firebase(otherMessageRef).$add($scope.comment);
 
     $firebase(messageRef).$update({offer: $rootScope.selected});
     $firebase(otherMessageRef).$update({offer: $rootScope.selected});
+    
+
+    var dummyID;
+    var dummyID2;
+    $firebase(messageRef).$add({dummy: 'dummy'}).then(function(ref) {
+      dummyID = ref.name();
+    });
+    $firebase(otherMessageRef).$add({dummy: 'dummy'}).then(function(ref) {
+      dummyID2 = ref.name();
+    });
+    $firebase(messageRef).$remove('dummyID');
+    $firebase(otherMessageRef).$remove('dummyID2');
+
 
     $scope.comment.content = '';
+    
 
     // todo: try to use modal for successful send of message
     // $scope.openModal();

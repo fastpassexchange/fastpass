@@ -8,10 +8,9 @@
       Your Conversations
     </div>
 
-    <div ng-cloak ng-repeat="displayName in displayNameArray | orderByPriority track by $index"> 
+    <div ng-cloak ng-repeat="displayName in displayNameArray | orderByPriority"> <!--track by $index-->
         <a class="item" ng-click="chatRetriever(displayName)"
         ui-sref="tabs.chat">{{ displayName }}</a>
-        
     </div>
 
   </div>
