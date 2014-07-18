@@ -22,6 +22,10 @@
     height: 480px;
 }*/
 
+.errorMsg {
+  color: red;
+}
+
 #map {
    position:absolute;
    /*top:0;*/
