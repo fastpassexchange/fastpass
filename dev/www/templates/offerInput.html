@@ -1,22 +1,23 @@
 <ion-view title="Give Fastpass" ng-controller="offerController" class="padding">
   <ion-content>
+    <div class="errorMsg">{{ errorMsg }}</div>
     <div class="list">
       <!-- <label class="item item-input">
         <div class="display-name">{{ offer.displayName }}</div>
         <input type="text" ng-model="offer.name" required name="name">
       </label> -->
-    <form name="offerList" ng-submit="addOffer()">
+    <form name="offerList" ng-submit="addOffer()" >
       <label class="item item-input">
-        <select ng-model="offer.ride" ng-options="ride for ride in rides"></select>
+        <select ng-model="offer.ride" ng-options="ride.value as ride.name for ride in rides"></select>
       </label>
       <label class="item item-input">
-        <select ng-model="offer.location" ng-options="location for location in locations"></select>
+        <select ng-model="offer.location" ng-options="location.value as location.name for location in locations"></select>
       </label>
       <label class="item item-input">
-        <select ng-model="offer.number_give" ng-options="number_give for number_give in numbers_give"></select>
+        <select ng-model="offer.number_give" ng-options="number_give.value as number_give.name for number_give in numbers_give"></select>
       </label>
       <label class="item item-input">
-        <select ng-model="offer.comment" ng-options="comment for comment in comments"></select>
+        <select ng-model="offer.comment" ng-options="comment.value as comment.name for comment in comments"></select>
       </label>
       <button class="button button-block button-calm" type="submit">
         submit
