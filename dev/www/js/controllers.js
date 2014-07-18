@@ -418,8 +418,9 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 })
 
 // log out user
-.controller('logoutController', function(authService) {
+.controller('logoutController', function(authService, $state) {
   authService.logout();
+  $state.go('tabs.home');
 })
 
 .controller('HomeTabCtrl', function($scope) {
