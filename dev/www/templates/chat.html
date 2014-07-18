@@ -4,13 +4,13 @@
     <div class="messageDiv">
       <div ng-cloak ng-repeat="message in userMessages">
         <div ng-if="message.content">
-          {{ message.content }} : {{ message.createdAt }}
+          {{ message.senderDisplayName }}: {{ message.content }}  <!-- : {{ message.createdAt }} -->
         </div>
       </div>
     </div>
     <form>
       <label class="item item-input item-stacked-label">
-        <span class="input-label">Conversation with {{ selected.displayName }}</span>
+        <!-- <span class="input-label">Conversation with {{ selected.displayName }}</span> -->
         <input type="text" placeholder="write message" ng-model="comment.content">
       </label>
       <button class="button button-block button-stable" type="submit" ng-click="sendComment()">

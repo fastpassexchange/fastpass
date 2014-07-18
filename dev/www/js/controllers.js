@@ -13,41 +13,17 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 // })
 
 .controller('dashboardController', function($scope, $rootScope, $firebase, authService, listService) {
-
-  var chatPartnerIds = [];
-  $scope.chatSessions = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + authService.getUserId());
-  $scope.loggedInUser = authService.getUserId();
-  // $scope.database = listService;
-  // console.log('entire database: ', listService);
-  // console.log('logged in users conversations: ', listService.messages);
-  // $scope.myMessages = listService.messages.loggedInUser;
-  // console.log("logged in user message array: ", $scope.myMessages);
-  // console.log(chatSessions);
-  $scope.chatSessions.on('value', function(snapshot) {
-    var people = snapshot.val();
-    for (var key in people) {
-      if (key !== "offer") {
-        chatPartnerIds.push(key);
-      }
-    }
-
-    $scope.displayNameArray = [];
-    for (var i = 0; i < chatPartnerIds.length; i++) {
-      var current = chatPartnerIds[i];
-      $scope.chatSessions2 = new Firebase('https://fastpass-connection.firebaseio.com/users/' + current);
-      $scope.chatSessions2.on('value', function(snapshot) {
-          var outtaIdeas = snapshot.val();
-          for (var key in outtaIdeas) {
-              if (key === "displayName") {
-                if ($scope.displayNameArray.indexOf(outtaIdeas[key]) === -1){
-                  $scope.displayNameArray.push(outtaIdeas[key]);
-                }
-              }
-          }
+  // retrieve chat partner information
+  $scope.chatPartnerArray = [];
+  var chatSessions = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + authService.getUserId());
+  chatSessions.on('value', function(snapshot) {
+    snapshot.forEach(function(elem) {
+      $scope.chatPartnerArray.push({
+        uid: elem.name(),
+        name: elem.child('displayName').val() + " (" + elem.child('offer/ride').val() + ")",
       });
-    }
+    });
   });
-
 
   // for display of logged in user's offers from database
   $scope.usersOffers = new Firebase('https://fastpass-connection.firebaseio.com/users/' + $scope.loggedInUser + '/offers');
@@ -123,10 +99,9 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     });
   };
 
-  $scope.chatRetriever = function (displayName) {
-    var currentConvoId = $scope.displayNameArray.indexOf(displayName);
-    // $rootScope.currentConvo = {};
-    var partnerId = chatPartnerIds[currentConvoId];
+  $scope.chatRetriever = function (partnerId) {
+    console.log("this is craaaazy");
+    console.log("parterId: " + partnerId);
     $scope.chatSessions3 = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + authService.getUserId() + '/' + partnerId);
     $scope.chatSessions3.on('value', function (snapshot) {
       $rootScope.selected = {};
@@ -424,8 +399,8 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     $firebase(messageRef).$add($scope.comment);
     $firebase(otherMessageRef).$add($scope.comment);
 
-    $firebase(messageRef).$update({offer: $rootScope.selected});
-    $firebase(otherMessageRef).$update({offer: $rootScope.selected});
+    $firebase(messageRef).$update({offer: $rootScope.selected, displayName: $rootScope.selected.displayName});
+    $firebase(otherMessageRef).$update({offer: $rootScope.selected, displayName: $scope.comment.senderDisplayName});
     
 
     // var dummyID;

@@ -1,50 +1,29 @@
 <ion-view title="Dashboard" ng-controller="dashboardController" class="padding">
   <ion-content>
-
-
   <div class="list">
-
     <div class="item item-divider">
-      Your Conversations
+      <p>Your conversations</p>
+      <p>(Select a conversation to chat)</p>
     </div>
-
-    <div ng-cloak ng-repeat="displayName in displayNameArray | orderByPriority"> <!--track by $index-->
-        <a class="item" ng-click="chatRetriever(displayName)"
-        ui-sref="tabs.chat">{{ displayName }}</a>
+    <div ng-cloak ng-repeat="chatPartner in chatPartnerArray | orderByPriority"> <!--track by $index-->
+        <a class="item" ng-click="chatRetriever('{{ chatPartner.uid }}')"
+        ui-sref="tabs.chat">{{ chatPartner.name }}</a>
     </div>
-
   </div>
-
   <div class="list">
-
     <div class="item item-divider">
-      Your Offers
+      <p>Your offers</p>
+      <p>(Select an offer to remove it from available offers others will see)</p>
     </div>
-
+    <br>
     <div ng-cloak ng-repeat="offer in offers | orderByPriority"> 
         <div class="offer" ng-if="offer.available" ng-click="deleteOffer(offer)">
           <p> ride: {{ offer.ride }}</p>
           <p> {{ offer.number_give }}</p>
-          <p> price: {{ offer.comment }}</p>
+          <p> free or trade: {{ offer.comment }}</p>
           <p> {{ offer.location }}</p><br>
         </div>
     </div>
-
   </div>
-  <p> tap your offers to remove them from available offers others will see </p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   </ion-content>
 </ion-view>
