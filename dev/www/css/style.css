@@ -49,24 +49,60 @@
 }
 
 .bar.bar-calm {
-  background-color: #000000;
-  border-color: #000000;
-  color: #fff;
-  background-image: linear-gradient(0deg, #000000, #000000 50%, transparent 50%);
+  background-color: #222;
+  border-color: #222;
+  color: #F8F8F8;
+  font-size: 18px;
+  background-image: linear-gradient(0deg, #222, #222 50%, transparent 50%);
 }
 
 .tabs-calm > .tabs, 
 .tabs.tabs-calm {
-  background-color: #000000;
-  border-color: #000000;
-  color: #fff;
-  background-image: linear-gradient(0deg, #000000, #000000 50%, transparent 50%);
+  background-color: #222;
+  border-color: #222;
+  color: #F8F8F8;
+  background-image: linear-gradient(0deg, #222, #222 50%, transparent 50%);
+}
+
+.button-assertive > .button, 
+.button.button-assertive {
+  background-color: #D80600;
+  border-color: #D80600;
+  color: #F8F8F8;
+  font-size: 24px;
+  text-align: center;
+}
+
+.button-clear > .button, 
+.button.button-clear {
+  color: #222;
+  font-size: 18px;
+  text-align: center;
 }
 
 .button {
--moz-border-radius: 15px;
-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  text-align: center;
+  color: #F8F8F8;
 }
+
+.offer {
+  text-align:center; 
+  background-color: #FFD700;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  font-color: #222;
+}
+
+.image {
+  background:  no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 
 /*
       html { height: 100% }
