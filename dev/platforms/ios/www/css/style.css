@@ -1,6 +1,8 @@
 /* Empty. Add your own CSS if you like */
 .image {
-  max-width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto
 }
 
 .imagelogo {
@@ -12,15 +14,39 @@
   height: 75%;
 }
 
+.headerFont {
+  font-family: helvetica;
+}
+
+.bodyFont {
+  font-family: georgia;
+}
+
+.offerList {
+  word-wrap:break-word;
+}
+
 .messageDiv {
-  overflow: scroll;
-  height: 500dppx;
+   -webkit-overflow-scrolling: touch;
+  /*overflow: scroll;
+  height: 500dppx;*/
 }
 
 /*.angular-leaflet-map {
     width: 640px;
     height: 480px;
 }*/
+
+.statusMsg {
+  text-align: center;
+  font-weight: bold;
+}
+
+.errorMsg {
+  color: red;
+  text-align: center;
+  font-weight: bold;
+}
 
 #map {
    position:absolute;
@@ -36,6 +62,64 @@
   padding: 0;
   margin: 0;
 }
+
+.bar.bar-calm {
+  background-color: #333;
+  border-color: #333;
+  color: #F8F8F8;
+  font-size: 18px;
+  background-image: linear-gradient(0deg, #333, #333 50%, transparent 50%);
+}
+
+.tabs-calm > .tabs, 
+.tabs.tabs-calm {
+  background-color: #333;
+  border-color: #333;
+  color: #F8F8F8;
+  background-image: linear-gradient(0deg, #333, #333 50%, transparent 50%);
+}
+
+.button-assertive > .button, 
+.button.button-assertive {
+  background-color: #E00000 ;
+  border-color: #E00000 ;
+  color: #F8F8F8;
+  font-size: 24px;
+  text-align: center;
+}
+
+.button-clear > .button, 
+.button.button-clear {
+  width: 93%;
+  background-color: #E00000 ;
+  border-color: #E00000 ;
+  color: #F8F8F8;
+  font-size: 18px;
+  text-align: center;
+}
+
+.button {
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  text-align: center;
+  color: #F8F8F8;
+}
+
+.offer {
+  text-align:center; 
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  font-color: #333;
+}
+
+.image {
+  background:  no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 
 /*
       html { height: 100% }

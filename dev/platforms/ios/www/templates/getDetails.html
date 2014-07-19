@@ -1,14 +1,13 @@
 <ion-view title="Details" ng-controller="listController" class="padding">
-  <ion-content>        
-    <p> name: {{ selected.displayName }}</p>
-    <p> ride: {{ selected.ride }}</p>
-    <p> {{ selected.number_give }}</p>
-    <p> price: {{ selected.comment }}</p>
-    <p> {{ selected.location }}</p>
-    <p>
-      <a class="button button-block button-stable" ui-sref="tabs.chat">Make Connection</a>
-    </p>
-    <p> * to make a connection you must be within the park, have location services enabled, and allow others to see you current location
-    </p>
+  <ion-content style="text-align:center">        
+    <p> Name: {{ selected.displayName }}<br>
+    Ride: {{ selected.ride }}<br>
+   {{ selected.number_give }}<br>
+    Free or trade: {{ selected.comment }}<br>
+    Offerer's current location: {{ selected.location }}</p>
+
+      <a class="button button-assertive" ui-sref="tabs.chat">Make Connection</a>
+   <!--  <p> * To exchange a pass you must be within the park, have location services enabled on your device, and allow others to see you current location
+    </p> -->
   </ion-content>
 </ion-view>

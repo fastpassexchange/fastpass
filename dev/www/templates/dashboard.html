@@ -1,28 +1,37 @@
 <ion-view title="Dashboard" ng-controller="dashboardController" class="padding">
   <ion-content style="overflow:scroll">
   <div class="list" style="text-align:center">
-    <div class="item item-divider" style="background-color:#FFD700; text-align:center">
+    <div class="item item-divider" style="background-color:#FFFFF; text-align:center; font-weight:bold; color:black">
       <p class="headerFont">Your Conversations</p>
       <p class="headerFont">(Select a conversation to chat)</p>
     </div>
+    <p>
     <div class="bodyFont" ng-cloak ng-repeat="chatPartner in chatPartnerArray | orderByPriority"> <!--track by $index-->
-        <a class="item" ng-click="chatRetriever('{{ chatPartner.uid }}')"
+      <p>
+        <a class="button button-clear" ng-click="chatRetriever('{{ chatPartner.uid }}')"
         ui-sref="tabs.chat">{{ chatPartner.name }}</a>
+      </p>
     </div>
+    </p>
   </div>
-  <div class="list">
-    <div class="item item-divider" style="background-color:#FFD700; text-align:center">
+  <div class="offerList">
+    <div class="item item-divider" style="background-color:#FFFFF; text-align:center; font-weight:bold; color:black">
       <p class="headerFont">Your Offers</p>
-      <p class="headerFont">(Select an offer to remove it from available offers others will see)</p>
+      <p class="headerFont">(Select an offer to delete it)</p>
     </div>
+    </p>
     <div class="bodyFont" ng-cloak ng-repeat="offer in offers | orderByPriority" style="text-align:center"> 
-        <div class="offer" ng-if="offer.available" ng-click="deleteOffer(offer)">
-          <p> Ride: {{ offer.ride }}<br>
+      <p>
+        <div class="button button-clear" ng-if="offer.available" ng-click="deleteOffer(offer)">
+          <p> {{ offer.number_give }} for {{ offer.ride }} </p>
+          <!-- <p> Ride: {{ offer.ride }}<br>
             {{ offer.number_give }}<br>
             Free or trade: {{ offer.comment }}<br>
-            {{ offer.location }}</p><br>
+            {{ offer.location }}</p><br> -->
         </div>
+      </p>
     </div>
+    </p>
   </div>
   </ion-content>
 </ion-view>
