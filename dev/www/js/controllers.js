@@ -144,35 +144,35 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   // $scope properties for drop down menus
   $scope.rides = [
     {name: 'Select A Ride', value: ''},
-    {name: 'Splash Mountain', value: 'splash mountain'},
-    {name: 'Space Mountain', value: 'space mountain'},
-    {name: 'Big Thunder Mountain Railroad', value: 'big thunder mountain railroad'},
-    {name: 'Buzz Lightyear Astro Blasters', value: 'buzz lightyear astro blasters'},
-    {name: 'Haunted Mansion', value: 'haunted mansion'},
-    {name: 'Indiana Jones', value: 'indiana jones'},
-    {name: 'Matterhorn Bobsleds', value: 'matterhorn bobsleds'},
-    {name: 'Star Tours', value: 'star tours'},
+    {name: 'Splash Mountain', value: 'Splash Mountain'},
+    {name: 'Space Mountain', value: 'Space Mountain'},
+    {name: 'Big Thunder Mountain Railroad', value: 'Big Thunder Mountain Railroad'},
+    {name: 'Buzz Lightyear Astro Blasters', value: 'Buzz Lightyear Astro Blasters'},
+    {name: 'Haunted Mansion', value: 'Haunted Mansion'},
+    {name: 'Indiana Jones', value: 'Indiana Jones'},
+    {name: 'Matterhorn Bobsleds', value: 'Matterhorn Bobsleds'},
+    {name: 'Star Tours', value: 'Star Tours'},
   ];
 
   $scope.locations = [
     {name: 'Select Your Current Location', value: ''},
-    {name: 'AdventureLand', value: 'adventureland'},
-    {name: 'Critter Country', value: 'critter country'},
-    {name: 'Fantasyland', value: 'fantasyland'},
-    {name: 'Frontierland', value: 'frontierland'},
-    {name: 'Main Street', value: 'main street'},
-    {name: 'Mickey\'s Toontown', value: 'mickey\'s toontown'},
-    {name: 'New Orleans Square', value: 'new orleans square'},
-    {name: 'Tomorrowland', value: 'tomorrowland'},
+    {name: 'AdventureLand', value: 'Adventureland'},
+    {name: 'Critter Country', value: 'Critter Country'},
+    {name: 'Fantasyland', value: 'Fantasyland'},
+    {name: 'Frontierland', value: 'Frontierland'},
+    {name: 'Main Street', value: 'Main Street'},
+    {name: 'Mickey\'s Toontown', value: 'Mickey\'s Toontown'},
+    {name: 'New Orleans Square', value: 'New Orleans Square'},
+    {name: 'Tomorrowland', value: 'Tomorrowland'},
   ];
 
   $scope.numbers_give = [
     {name: 'Select Number of Passes', value: ''},
-    {name: '1 Fastpass', value: '1 fastpass'},
-    {name: '2 Fastpasses', value: '2 fastpasses'},
-    {name: '3 Fastpasses', value: '3 fastpasses'},
-    {name: '4 Fastpasses', value: '4 fastpasses'},
-    {name: '5 Fastpasses', value: '5 fastpasses'},
+    {name: '1 Fastpass', value: '1 Fastpass'},
+    {name: '2 Fastpasses', value: '2 Fastpasses'},
+    {name: '3 Fastpasses', value: '3 Fastpasses'},
+    {name: '4 Fastpasses', value: '4 Fastpasses'},
+    {name: '5 Fastpasses', value: '5 Fastpasses'},
   ];
 
   $scope.comments = [

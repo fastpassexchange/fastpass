@@ -12,6 +12,14 @@
   height: 75%;
 }
 
+.headerFont {
+  font-family: helvetica;
+}
+
+.bodyFont {
+  font-family: georgia;
+}
+
 .messageDiv {
   overflow: scroll;
   height: 500dppx;
@@ -89,7 +97,6 @@
 
 .offer {
   text-align:center; 
-  background-color: #FFD700;
   -moz-border-radius: 15px;
   border-radius: 15px;
   font-color: #222;
