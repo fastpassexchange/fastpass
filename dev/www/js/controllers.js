@@ -171,8 +171,8 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
   $scope.comments = [
     {name: 'Select Free or Trade', value: ''},
-    {name: 'Free', value: 'Free'},
-    {name: 'Trade', value: 'Trade'}
+    {name: 'Free', value: 'free'},
+    {name: 'Trade', value: 'trade'}
   ];
 
   var initVars = function() {
@@ -247,6 +247,10 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     }
   };
 })
+
+.controller('detailController', function($scope, $firebase) {
+ 
+ })
 
 //mostly map and geolocation functionality to ensure user is in the park before they can use the app
 //TODO: actually use the map to allow users to see other users' locations since we're currently only using geolocation services
@@ -385,13 +389,18 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     $scope.comment.createdAt = new Date();
     $scope.comment.senderDisplayName = authService.getDisplayName();
     // add new message to the database
-    // todo: refactor with transaction
     $firebase(messageRef).$add($scope.comment);
     $firebase(otherMessageRef).$add($scope.comment);
 
     $firebase(messageRef).$update({offer: $rootScope.selected, displayName: $rootScope.selected.displayName});
     $firebase(otherMessageRef).$update({offer: $rootScope.selected, displayName: $scope.comment.senderDisplayName});
-
+    //refactor to use $transaction not working yet
+    // $firebase(messageRef).$transaction(function(currentData) {
+    //   return {offer: $rootScope.selected, displayName: $rootScope.selected.displayName};
+    // });
+    // $firebase(otherMessageRef).$transaction(function(currentData) {
+    //   return {offer: $rootScope.selected, displayName: $scope.comment.senderDisplayName};
+    // });
 
     $scope.comment.content = '';
     
