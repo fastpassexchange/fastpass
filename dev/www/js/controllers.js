@@ -13,8 +13,12 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 // })
 
 //handles functionality relating to what's displayed in logged in user's dashboard
-.controller('dashboardController', function($scope, $rootScope, $firebase, authService, listService) {
-  // retrieve logged in user's chat partner information
+.controller('dashboardController', function($scope, $rootScope, $firebase, $ionicLoading, authService, listService) {
+  $ionicLoading.show({
+    template: 'Loading...'
+  });
+  
+  // retrieve chat partner information
   $scope.chatPartnerArray = [];
   var chatSessions = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + authService.getUserId());
   chatSessions.on('value', function(snapshot) {
@@ -31,29 +35,31 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   console.log($scope.usersOffers);
   $scope.usersOffers.on('value', function(snapshot) {
     $scope.offers = snapshot.val();
+    $ionicLoading.hide();
   });
 
-  //grab all of logged in user's conversations form the database
-  $scope.watchedConversations = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + authService.getUserId());
-  $scope.watchedConversations.on('value', function(convos) {
-    //grab the ID of each conversation
-    $scope.pulledConvoIds = convos.val();
-  });
 
-  var index = 0;
-  var watchedConversations=[];
   
-// iterate through each of the conversations
-  for (var personImChattingWith in $scope.pulledConvoIds) {
-    console.log('personImChattingWith: ', personImChattingWith);
-    console.log('index: ', index);
-    watchedConversations[index] = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + authService.getUserId() + '/' + personImChattingWith);
+  // $scope.watchedConversations = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + authService.getUserId());
+  // $scope.watchedConversations.on('value', function(convos) {
+  //   $scope.pulledConvoIds = convos.val();
+  // //   console.log('newConversationMessage: ', newConversationMessage);
+  // //   console.log('prevChildName: ', prevChildName);
+  // });
+
+  // var index = 0;
+  // var watchedConversations=[];
+  
+  // for (var personImChattingWith in $scope.pulledConvoIds) {
+  //   console.log('personImChattingWith: ', personImChattingWith);
+  //   console.log('index: ', index);
+  //   watchedConversations[index] = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + authService.getUserId() + '/' + personImChattingWith);
       
-      $firebase(watchedConversations[index]).$on('child_removed', function(oldChildSnapshot) {
-        console.log(oldChildSnapshot);
-      });  
-    index++;
-  }
+  //     $firebase(watchedConversations[index]).$on('child_removed', function(oldChildSnapshot) {
+  //       console.log(oldChildSnapshot);
+  //     });  
+  //   index++;
+  // }
 
   //allow logged in user to delete any of the offers they have made by clicking on it in dashboard
   //offer clicked on is passed in
@@ -124,7 +130,6 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   $scope.isNotYourOffer = function(offererId) {
     return authService.getUserId() !== offererId;
   };
-
 })
 
 // couldn't get three way data binding to work :(
@@ -140,8 +145,8 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     {name: 'Select A Ride', value: ''},
     {name: 'Splash Mountain', value: 'Splash Mountain'},
     {name: 'Space Mountain', value: 'Space Mountain'},
-    {name: 'Big Thunder Mountain Railroad', value: 'Big Thunder Mountain Railroad'},
-    {name: 'Buzz Lightyear Astro Blasters', value: 'Buzz Lightyear Astro Blasters'},
+    {name: 'Big Thunder Mountain Railroad', value: 'Thunder Railroad'},
+    {name: 'Buzz Lightyear Astro Blasters', value: 'Astro Blasters'},
     {name: 'Haunted Mansion', value: 'Haunted Mansion'},
     {name: 'Indiana Jones', value: 'Indiana Jones'},
     {name: 'Matterhorn Bobsleds', value: 'Matterhorn Bobsleds'},
@@ -418,8 +423,9 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 })
 
 // log out user
-.controller('logoutController', function(authService) {
+.controller('logoutController', function(authService, $state) {
   authService.logout();
+  $state.go('tabs.home');
 })
 
 .controller('HomeTabCtrl', function($scope) {

@@ -2,8 +2,14 @@ angular.module('fastpass.services', ['ionic'])
 
 // factory to setup our firebase connection
 // used in listController
-.factory('listService', ['$firebase', function($firebase) {
+.factory('listService', ['$firebase', '$ionicLoading', function($firebase, $ionicLoading) {
+  $ionicLoading.show({
+    template: 'Loading...'
+  });
   var ref = new Firebase('https://fastpass-connection.firebaseio.com/');
+  ref.on('value', function() {
+    $ionicLoading.hide();
+  });
   return $firebase(ref);
 }])
 

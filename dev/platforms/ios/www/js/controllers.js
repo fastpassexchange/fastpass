@@ -12,55 +12,63 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 //   };
 // })
 
-.controller('dashboardController', function($scope, $rootScope, $firebase, authService, listService) {
-
-  var chatPartnerIds = [];
-  $scope.chatSessions = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + authService.getUserId());
-  $scope.loggedInUser = authService.getUserId();
-  // $scope.database = listService;
-  // console.log('entire database: ', listService);
-  // console.log('logged in users conversations: ', listService.messages);
-  // $scope.myMessages = listService.messages.loggedInUser;
-  // console.log("logged in user message array: ", $scope.myMessages);
-  // console.log(chatSessions);
-  $scope.chatSessions.on('value', function(snapshot) {
-    var people = snapshot.val();
-    for (var key in people) {
-      if (key !== "offer") {
-        chatPartnerIds.push(key);
-      }
-    }
-
-    $scope.displayNameArray = [];
-    for (var i = 0; i < chatPartnerIds.length; i++) {
-      var current = chatPartnerIds[i];
-      $scope.chatSessions2 = new Firebase('https://fastpass-connection.firebaseio.com/users/' + current);
-      $scope.chatSessions2.on('value', function(snapshot) {
-          var outtaIdeas = snapshot.val();
-          for (var key in outtaIdeas) {
-              if (key === "displayName") {
-                $scope.displayNameArray.push(outtaIdeas[key]);
-              }
-          }
-      });
-    }
-
+.controller('dashboardController', function($scope, $rootScope, $firebase, $ionicLoading, authService, listService) {
+  $ionicLoading.show({
+    template: 'Loading...'
   });
+  
+  // retrieve chat partner information
+  $scope.chatPartnerArray = [];
+  var chatSessions = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + authService.getUserId());
+  chatSessions.on('value', function(snapshot) {
+    snapshot.forEach(function(elem) {
+      $scope.chatPartnerArray.push({
+        uid: elem.name(),
+        name: elem.child('displayName').val() + " (" + elem.child('offer/ride').val() + ")",
+      });
+    });
+  });
+
 
 
   // for display of logged in user's offers from database
-  $scope.usersOffers = new Firebase('https://fastpass-connection.firebaseio.com/users/' + $scope.loggedInUser + '/offers');
+  $scope.usersOffers = new Firebase('https://fastpass-connection.firebaseio.com/users/' + authService.getUserId() + '/offers');
   console.log($scope.usersOffers);
   $scope.usersOffers.on('value', function(snapshot) {
     $scope.offers = snapshot.val();
+    $ionicLoading.hide();
   });
 
+  
+  // $scope.watchedConversations = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + authService.getUserId());
+  // $scope.watchedConversations.on('value', function(convos) {
+  //   $scope.pulledConvoIds = convos.val();
+  // //   console.log('newConversationMessage: ', newConversationMessage);
+  // //   console.log('prevChildName: ', prevChildName);
+  // });
+
+  // var index = 0;
+  // var watchedConversations=[];
+  
+  // for (var personImChattingWith in $scope.pulledConvoIds) {
+  //   console.log('personImChattingWith: ', personImChattingWith);
+  //   console.log('index: ', index);
+  //   watchedConversations[index] = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + authService.getUserId() + '/' + personImChattingWith);
+      
+  //     $firebase(watchedConversations[index]).$on('child_removed', function(oldChildSnapshot) {
+  //       console.log(oldChildSnapshot);
+  //     });  
+  //   index++;
+  // }
+
+  
+    // console.log('watchedconv val: ', $scope.watchedConversations.val());
+    // console.log('watchedconv name: ', $scope.watchedConversations.name());
 
 
   
-
-
-
+    // console.log('watchedconv val: ', $scope.watchedConversations.val());
+    // console.log('watchedconv name: ', $scope.watchedConversations.name());
 
   $scope.deleteOffer = function(offer) {
 
@@ -98,10 +106,9 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     });
   };
 
-  $scope.chatRetriever = function (displayName) {
-    var currentConvoId = $scope.displayNameArray.indexOf(displayName);
-    // $rootScope.currentConvo = {};
-    var partnerId = chatPartnerIds[currentConvoId];
+  $scope.chatRetriever = function (partnerId) {
+    console.log("this is craaaazy");
+    console.log("parterId: " + partnerId);
     $scope.chatSessions3 = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + authService.getUserId() + '/' + partnerId);
     $scope.chatSessions3.on('value', function (snapshot) {
       $rootScope.selected = {};
@@ -115,7 +122,6 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
       console.dir($rootScope.selected);
     });
   };
-
 })
 
 .controller('listController', function($scope, $state, $rootScope, listService, authService) {
@@ -129,7 +135,6 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   $scope.isNotYourOffer = function(offererId) {
     return authService.getUserId() !== offererId;
   };
-
 })
 
 // couldn't get three way data binding to work :(
@@ -139,49 +144,83 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 //   }
 // ])
 
-.controller('offerController', function($scope, $firebase, formService, authService) {
-  $scope.offer = {};
+.controller('offerController', function($scope, $firebase, authService, timerService) {
   // $scope properties for drop down menus
   $scope.rides = [
-    'splash mountain',
-    'space mountain',
-    'big thunder mountain railroad',
-    'buzz lightyear astro blasters',
-    'haunted mansion',
-    'indiana jones',
-    'matterhorn bobsleds',
-    'star tours'
+    {name: 'Select A Ride', value: ''},
+    {name: 'Splash Mountain', value: 'Splash Mountain'},
+    {name: 'Space Mountain', value: 'Space Mountain'},
+    {name: 'Big Thunder Mountain Railroad', value: 'Thunder Railroad'},
+    {name: 'Buzz Lightyear Astro Blasters', value: 'Astro Blasters'},
+    {name: 'Haunted Mansion', value: 'Haunted Mansion'},
+    {name: 'Indiana Jones', value: 'Indiana Jones'},
+    {name: 'Matterhorn Bobsleds', value: 'Matterhorn Bobsleds'},
+    {name: 'Star Tours', value: 'Star Tours'},
   ];
 
   $scope.locations = [
-    'current location: adventureland',
-    'current location: critter country',
-    'current location: fantasyland',
-    'current location: frontierland',
-    'current location: main street',
-    'current loctation: mickey\'s toontown',
-    'current location: new orleans square',
-    'current location: tomorrowland'
+    {name: 'Select Your Current Location', value: ''},
+    {name: 'AdventureLand', value: 'Adventureland'},
+    {name: 'Critter Country', value: 'Critter Country'},
+    {name: 'Fantasyland', value: 'Fantasyland'},
+    {name: 'Frontierland', value: 'Frontierland'},
+    {name: 'Main Street', value: 'Main Street'},
+    {name: 'Mickey\'s Toontown', value: 'Mickey\'s Toontown'},
+    {name: 'New Orleans Square', value: 'New Orleans Square'},
+    {name: 'Tomorrowland', value: 'Tomorrowland'},
   ];
 
   $scope.numbers_give = [
-    '1 fastpass',
-    '2 fastpasses',
-    '3 fastpasses',
-    '4 fastpasses',
-    '5 fastpasses'
+    {name: 'Select Number of Passes', value: ''},
+    {name: '1 Fastpass', value: '1 Fastpass'},
+    {name: '2 Fastpasses', value: '2 Fastpasses'},
+    {name: '3 Fastpasses', value: '3 Fastpasses'},
+    {name: '4 Fastpasses', value: '4 Fastpasses'},
+    {name: '5 Fastpasses', value: '5 Fastpasses'},
   ];
 
   $scope.comments = [
-    'free',
-    'trade',
+    {name: 'Select Free or Trade', value: ''},
+    {name: 'Free', value: 'Free'},
+    {name: 'Trade', value: 'Trade'}
   ];
 
-  // set default properties for drop down menus
-  $scope.offer.ride = $scope.rides[0];
-  $scope.offer.location = $scope.locations[0];
-  $scope.offer.number_give = $scope.numbers_give[0];
-  $scope.offer.comment = $scope.comments[0];
+  var initVars = function() {
+    // clear status and error message
+    $scope.statusMsg = '';
+    $scope.errorMsg = '';
+
+    // initialize offer scope and default values
+    $scope.offer = {};
+    $scope.offer.ride = '';
+    $scope.offer.location = '';
+    $scope.offer.number_give = '';
+    $scope.offer.comment = '';
+  };
+
+  // form validation function
+  var isDataValid = function() {
+    if ($scope.offer.ride === '') {
+      $scope.errorMsg = "Please select a ride.";
+      return false;
+    }
+    if ($scope.offer.location === '') {
+      $scope.errorMsg = "Please select your current location.";
+      return false;
+    }
+    if ($scope.offer.number_give === '') {
+      $scope.errorMsg = "Please select number of passes.";
+      return false;
+    }
+    if ($scope.offer.comment === '') {
+      $scope.errorMsg = "Please select Free or Trade.";
+      return false;
+    }
+    return true;
+  };
+
+  // initialize variables
+  initVars();
 
   // when user submits an offer do this
   $scope.addOffer = function() {
@@ -190,26 +229,32 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     $scope.offer.offererId = authService.getUserId();
     $scope.offer.displayName = authService.getDisplayName();
     $scope.offer.available = true;
+    $scope.statusMsg = '';
+    
+    if (isDataValid()) {
+      if (timerService.isOfferAfterTimeLimit()){
+        // get all offers from the database
+        var offerRef = new Firebase('https://fastpass-connection.firebaseio.com/offers');
+        // add new offer to the database
+        $firebase(offerRef).$add($scope.offer);
 
+        // add to user's offer hash
+        var usersOffers = new Firebase('https://fastpass-connection.firebaseio.com/users/' + $scope.offer.offererId + '/offers');
+        // add offer hash to logged in users offers hash
+        $firebase(usersOffers).$add($scope.offer);
 
-    // get all offers from the database
-    var offerRef = new Firebase('https://fastpass-connection.firebaseio.com/offers');
-    // add new offer to the database
-    $firebase(offerRef).$add($scope.offer);
+        // update last offer time
+        timerService.setLastOfferTime($scope.offer.createdAt);
 
-    // add to user's offer hash
-    var usersOffers = new Firebase('https://fastpass-connection.firebaseio.com/users/' + $scope.offer.offererId + '/offers');
-    // add offer hash to logged in users offers hash
-    $firebase(usersOffers).$add($scope.offer);
+        // clear input fields of form
+        initVars();
 
-    // clear input fields of form
-    $scope.offer = {
-      // displayName: '',
-      ride: '',
-      number_give: '',
-      location: '',
-      comment: ''
-    };
+        // set status message
+        $scope.statusMsg = "New Offer Submitted";
+      } else {
+        $scope.errorMsg = "Please wait 30 minutes between submitting offers.";
+      }
+    }
   };
 })
 
@@ -350,6 +395,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   messageRef.on('value', function(snapshot) {
     $scope.userMessages = snapshot.val();
   });
+  console.log('userMessages: ', $scope.userMessages);
 
   $scope.sendComment = function() {
     $scope.comment.createdAt = new Date();
@@ -357,18 +403,30 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     // add new message to the database
     // todo: refactor with transaction
     $firebase(messageRef).$add($scope.comment);
-
     $firebase(otherMessageRef).$add($scope.comment);
 
-    $firebase(messageRef).$update({offer: $rootScope.selected});
-    $firebase(otherMessageRef).$update({offer: $rootScope.selected});
+    $firebase(messageRef).$update({offer: $rootScope.selected, displayName: $rootScope.selected.displayName});
+    $firebase(otherMessageRef).$update({offer: $rootScope.selected, displayName: $scope.comment.senderDisplayName});
+    
+
+    // var dummyID;
+    // var dummyID2;
+    // $firebase(messageRef).$add({dummy: 'dummy'}).then(function(ref) {
+    //   dummyID = ref.name();
+    // });
+    // $firebase(otherMessageRef).$add({dummy: 'dummy'}).then(function(ref) {
+    //   dummyID2 = ref.name();
+    // });
+    // $firebase(messageRef).$remove('dummyID');
+    // $firebase(otherMessageRef).$remove('dummyID2');
+
 
     $scope.comment.content = '';
+    
 
     // todo: try to use modal for successful send of message
     // $scope.openModal();
   };
-  
 })
 
 // log in user
@@ -379,8 +437,9 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 })
 
 // log out user
-.controller('logoutController', function(authService) {
+.controller('logoutController', function(authService, $state) {
   authService.logout();
+  $state.go('tabs.home');
 })
 
 .controller('HomeTabCtrl', function($scope) {

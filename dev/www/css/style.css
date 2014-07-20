@@ -1,6 +1,8 @@
 /* Empty. Add your own CSS if you like */
 .image {
-  max-width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto
 }
 
 .imagelogo {
@@ -20,9 +22,14 @@
   font-family: georgia;
 }
 
+.offerList {
+  word-wrap:break-word;
+}
+
 .messageDiv {
-  overflow: scroll;
-  height: 500dppx;
+   -webkit-overflow-scrolling: touch;
+  /*overflow: scroll;
+  height: 500dppx;*/
 }
 
 /*.angular-leaflet-map {
@@ -57,25 +64,25 @@
 }
 
 .bar.bar-calm {
-  background-color: #222;
-  border-color: #222;
+  background-color: #333;
+  border-color: #333;
   color: #F8F8F8;
   font-size: 18px;
-  background-image: linear-gradient(0deg, #222, #222 50%, transparent 50%);
+  background-image: linear-gradient(0deg, #333, #333 50%, transparent 50%);
 }
 
 .tabs-calm > .tabs, 
 .tabs.tabs-calm {
-  background-color: #222;
-  border-color: #222;
+  background-color: #333;
+  border-color: #333;
   color: #F8F8F8;
-  background-image: linear-gradient(0deg, #222, #222 50%, transparent 50%);
+  background-image: linear-gradient(0deg, #333, #333 50%, transparent 50%);
 }
 
 .button-assertive > .button, 
 .button.button-assertive {
-  background-color: #D80600;
-  border-color: #D80600;
+  background-color: #E00000 ;
+  border-color: #E00000 ;
   color: #F8F8F8;
   font-size: 24px;
   text-align: center;
@@ -83,7 +90,10 @@
 
 .button-clear > .button, 
 .button.button-clear {
-  color: #222;
+  width: 93%;
+  background-color: #E00000 ;
+  border-color: #E00000 ;
+  color: #F8F8F8;
   font-size: 18px;
   text-align: center;
 }
@@ -99,7 +109,7 @@
   text-align:center; 
   -moz-border-radius: 15px;
   border-radius: 15px;
-  font-color: #222;
+  font-color: #333;
 }
 
 .image {

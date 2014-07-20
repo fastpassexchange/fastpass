@@ -1,29 +1,32 @@
 <ion-view title="Conversation" ng-controller="chatController" class="chatView">
-  <ion-content>
+  <ion-content style="text-align:center">
       <!-- <div style="height: 300px"> -->
     <div class="messageDiv">
       <div ng-cloak ng-repeat="message in userMessages">
         <div ng-if="message.content">
-          {{ message.content }} : {{ message.createdAt }}
+          {{ message.senderDisplayName }}: {{ message.content }}  <!-- : {{ message.createdAt }} -->
         </div>
       </div>
     </div>
     <form>
       <label class="item item-input item-stacked-label">
-        <span class="input-label">Conversation with {{ selected.displayName }}</span>
+        <!-- <span class="input-label">Conversation with {{ selected.displayName }}</span> -->
         <input type="text" placeholder="write message" ng-model="comment.content">
       </label>
-      <button class="button button-block button-stable" type="submit" ng-click="sendComment()">
+      <br>
+      <button class="button button-assertive" type="submit" ng-click="sendComment()">
         send message
       </button>
+      <br>
+      <br>
     </form>
       <div>
-        <p> You are chatting in reference to the following offer: </p>
-        <p> name: {{ selected.displayName }}</p>
-        <p> ride: {{ selected.ride }}</p>
-        <p> {{ selected.number_give }}</p>
-        <p> price: {{ selected.comment }}</p>
-        <p> {{ selected.location }}</p><br>
+        <p class="bodyFont" style="font-size:18px"> You are chatting in reference to the following offer: </p>
+        Name: {{ selected.displayName }}<br>
+        Ride: {{ selected.ride }}<br>
+        {{ selected.number_give }}<br>
+        free or trade: {{ selected.comment }}<br>
+        {{ selected.location }}</p><br>
       </div>
     <!-- <button class="button button-block button-stable" ui-sref="tabs.connection">    ng-click="sendComment()">
         see map
