@@ -16,7 +16,7 @@ FPE is built on Ionic with Firebase/AngularFire and Cordova.
 
 ## Usage
 
-> Some usage instructions
+http://ionicframework.com/docs/guide/testing.html
 
 ## Requirements
 
