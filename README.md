@@ -16,7 +16,8 @@ FPE is built on Ionic with Firebase/AngularFire and Cordova.
 
 ## Usage
 
-http://ionicframework.com/docs/guide/testing.html
+- Use Ionic for build and emulation:
+http://ionicframework.com/getting-started/
 
 ## Requirements
 
@@ -36,6 +37,11 @@ From within the root directory:
 sudo npm install -g bower
 npm install
 bower install
+sudo npm install -g gulp
+```
+To run the app in the browser:
+```
+gulp serve
 ```
 
 ### Tasks
