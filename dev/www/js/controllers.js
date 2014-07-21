@@ -191,7 +191,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   ];
 
   $scope.passTimeAmPm = [
-    {name: 'AM', value: ''},
+    {name: 'AM/PM', value: ''},
     {name: 'AM', value: 'AM'},
     {name: 'PM', value: 'PM'}    
   ];
@@ -246,18 +246,6 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
       $scope.errorMsg = "Please select a ride.";
       return false;
     }
-    if ($scope.offer.location === '') {
-      $scope.errorMsg = "Please select your current location.";
-      return false;
-    }
-    if ($scope.offer.number_give === '') {
-      $scope.errorMsg = "Please select number of passes.";
-      return false;
-    }
-    if ($scope.offer.comment === '') {
-      $scope.errorMsg = "Please select Free or Trade.";
-      return false;
-    }
     if ($scope.offer.hour === '') {
       $scope.errorMsg = "Please select hour.";
       return false;
@@ -268,6 +256,18 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     }
     if ($scope.offer.ampm === '') {
       $scope.errorMsg = "Please select AM or PM.";
+      return false;
+    }
+    if ($scope.offer.location === '') {
+      $scope.errorMsg = "Please select your current location.";
+      return false;
+    }
+    if ($scope.offer.number_give === '') {
+      $scope.errorMsg = "Please select number of passes.";
+      return false;
+    }
+    if ($scope.offer.comment === '') {
+      $scope.errorMsg = "Please select Free or Trade.";
       return false;
     }
     return true;
