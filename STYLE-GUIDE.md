@@ -83,22 +83,6 @@ When writing any block of code that is logically subordinate to the line immedia
 
 ### Language constructs
 
-* Do not use `for...in` statements with the intent of iterating over a list of numeric keys. Use a for-with-semicolons statement in stead.
-
-  ```javascript
-  // good:
-  var list = ['a', 'b', 'c']
-  for(var i = 0; i < list.length; i++){
-    alert(list[i]);
-  }
-
-  // bad:
-  var list = ['a', 'b', 'c']
-  for(var i in list){
-    alert(list[i]);
-  }
-  ```
-
 * Never omit braces for statement blocks (although they are technically optional).
     ```javascript
     // good:
@@ -129,17 +113,6 @@ When writing any block of code that is logically subordinate to the line immedia
     }
     ```
 
-* Don't use function statements for the entire first half of the course. They introduce a slew of subtle new rules to how the language behaves, and without a clear benefit. Once you and all your peers are expert level in the second half, you can start to use the more (needlessly) complicated option if you like.
-
-    ```javascript
-    // good:
-    var go = function(){...};
-
-    // bad:
-    function stop(){...};
-    ```
-
-
 ### Semicolons
 
 * Don't forget semicolons at the end of lines
@@ -150,35 +123,6 @@ When writing any block of code that is logically subordinate to the line immedia
 
   // bad:
   alert('hi')
-  ```
-
-* Semicolons are not required at the end of statements that include a block--i.e. `if`, `for`, `while`, etc.
-
-
-  ```javascript
-  // good:
-  if(condition){
-    response();
-  }
-
-  // bad:
-  if(condition){
-    response();
-  };
-  ```
-
-* Misleadingly, a function may be used at the end of a normal assignment statement, and would require a semicolon (even though it looks rather like the end of some statement block).
-
-  ```javascript
-  // good:
-  var greet = function(){
-    alert('hi');
-  };
-
-  // bad:
-  var greet = function(){
-    alert('hi');
-  }
   ```
 
 # Supplemental reading
@@ -235,48 +179,6 @@ When writing any block of code that is logically subordinate to the line immedia
     }
     ```
 
-
-
-### Working with files
-
-* Do not end a file with any character other than a newline.
-* Don't use the -a or -m flags for `git commit` for the first half of the class, since they conceal what is actually happening (and do slightly different things than most people expect).
-
-    ```shell
-    # good:
-    > git add .
-    > git commit
-    [save edits to the commit message file using the text editor that opens]
-
-    # bad:
-    > git commit -a
-    [save edits to the commit message file using the text editor that opens]
-
-    # bad:
-    > git add .
-    > git commit -m "updated algorithm"
-    ```
-
-
-### Opening or closing too many blocks at once
-
-* The more blocks you open on a single line, the more your reader needs to remember about the context of what they are reading. Try to resolve your blocks early, and refactor. A good rule is to avoid closing more than two blocks on a single line--three in a pinch.
-
-    ```javascript
-    // avoid:
-    _.ajax(url, {success: function(){
-      // ...
-    }});
-
-    // prefer:
-    _.ajax(url, {
-      success: function(){
-        // ...
-      }
-    });
-    ```
-
-
 ### Variable declaration
 
 * Use a new var statement for each line you declare a variable on.
@@ -306,19 +208,6 @@ When writing any block of code that is logically subordinate to the line immedia
 
 ### Minutia
 
-* Don't rely on JavaScripts implicit global variables. If you are intending to write to the global scope, export things to `window.*` explicitly instead.
-
-    ```javascript
-    // good:
-    var overwriteNumber = function(){
-      window.exported = Math.random();
-    };
-
-    // bad:
-    var overwriteNumber = function(){
-      exported = Math.random();
-    };
-    ```
 
 * For lists, put commas at the end of each newline, not at the beginning of each item in a list
 
@@ -340,22 +229,7 @@ When writing any block of code that is logically subordinate to the line immedia
 
 * Avoid use of `switch` statements altogether. They are hard to outdent using the standard whitespace rules above, and are prone to error due to missing `break` statements. See [this article](http://ericleads.com/2012/12/switch-case-considered-harmful/) for more detail.
 
-* Prefer single quotes around JavaScript strings, rather than double quotes. Having a standard of any sort is preferable to a mix-and-match approach, and single quotes allow for easy embedding of HTML, which prefers double quotes around tag attributes.
-
-    ```javascript
-    // good:
-    var dog = 'dog';
-    var cat = 'cat';
-
-    // acceptable:
-    var dog = "dog";
-    var cat = "cat";
-
-    // bad:
-    var dog = 'dog';
-    var cat = "cat";
-    ```
-
+* Prefer double quotes around JavaScript strings, rather than single quotes.
 
 ### HTML
 
@@ -378,3 +252,8 @@ When writing any block of code that is logically subordinate to the line immedia
     <!-- bad -->
     <script src="a.js" type="text/javascript"></script>
     ```
+
+### STYLING
+
+* For now, add any styling using the style.css file rather than utilizing SCSS.
+
