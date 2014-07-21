@@ -16,22 +16,26 @@ FPE is built on Ionic with Firebase/AngularFire and Cordova.
 
 ## Usage
 
+- The app uses a Firebase database, accessible at: https://fastpass-connection.firebaseio.com
+- For password to the account, email: jamesjsdev@gmail.com
+
 - Use Ionic for build and emulation:
-http://ionicframework.com/getting-started/
+http://ionicframework.com/docs/guide
+
+- To run the app in the Android or iOS emulator and on an Android or iPhone, see instructions in the Wiki.
 
 ## Requirements
 
-- gulp 3.5.6
-- Bower 1.3.3
-- Ionic
-- Cordova
-- Leaflet/Mapbox
+- Ionic (see chapter two of Ionic guide)
+- Node.js ^0.10.26
+- Bower ^1.3.6
 
 ## Development
 
+
 ### Installing Dependencies
 
-From within the root directory:
+- From within the root directory:
 
 ```sh
 sudo npm install -g bower
@@ -39,10 +43,13 @@ npm install
 bower install
 sudo npm install -g gulp
 ```
-To run the app in the browser:
+- To run the app in the browser:
 ```
 gulp serve
 ```
+
+
+
 
 ### Tasks
 
