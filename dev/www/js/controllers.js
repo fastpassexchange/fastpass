@@ -145,12 +145,55 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     {name: 'Select A Ride', value: ''},
     {name: 'Splash Mountain', value: 'Splash Mountain'},
     {name: 'Space Mountain', value: 'Space Mountain'},
-    {name: 'Big Thunder Mountain Railroad', value: 'Thunder Railroad'},
-    {name: 'Buzz Lightyear Astro Blasters', value: 'Astro Blasters'},
-    {name: 'Haunted Mansion', value: 'Haunted Mansion'},
+    {name: 'Thunder Mtn Railroad', value: 'Thunder Mtn Railroad'},
     {name: 'Indiana Jones', value: 'Indiana Jones'},
-    {name: 'Matterhorn Bobsleds', value: 'Matterhorn Bobsleds'},
     {name: 'Star Tours', value: 'Star Tours'},
+    {name: 'Autopia', value: 'Autopia'},
+    {name: 'Roger Rabbit', value: 'Roger Rabbit'},
+    {name: 'California Screamin', value: 'California Screamin'},
+    {name: 'Goofy\'s Sky School', value: 'Goofy\'s Sky School'},
+    {name: 'Grizzly River Run', value: 'Grizzly River Run'},
+    {name: 'Radiator Racers', value: 'Radiator Racers'},
+    {name: 'Soarin Over CA', value: 'Soarin Over CA'},
+    {name: 'Tower Of Terror', value: 'Tower Of Terror'}
+  ];
+
+  $scope.passTimeHour = [
+    {name: 'Hour', value: ''},
+    {name: '1', value: '1'},
+    {name: '2', value: '2'},
+    {name: '3', value: '3'},
+    {name: '4', value: '4'},
+    {name: '5', value: '5'},
+    {name: '6', value: '6'},
+    {name: '7', value: '7'},
+    {name: '8', value: '8'},
+    {name: '9', value: '9'},
+    {name: '10', value: '10'},
+    {name: '11', value: '11'},
+    {name: '12', value: '12'}
+  ];
+
+  $scope.passTimeMin = [
+    {name: 'Min', value: ''},
+    {name: '00', value: '00'},
+    {name: '05', value: '05'},
+    {name: '10', value: '10'},
+    {name: '15', value: '15'},
+    {name: '20', value: '20'},
+    {name: '25', value: '25'},
+    {name: '30', value: '30'},
+    {name: '35', value: '35'},
+    {name: '40', value: '40'},
+    {name: '45', value: '45'},
+    {name: '50', value: '50'},
+    {name: '55', value: '55'}
+  ];
+
+  $scope.passTimeAmPm = [
+    {name: 'AM/PM', value: ''},
+    {name: 'AM', value: 'AM'},
+    {name: 'PM', value: 'PM'}    
   ];
 
   $scope.locations = [
@@ -191,12 +234,28 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     $scope.offer.location = '';
     $scope.offer.number_give = '';
     $scope.offer.comment = '';
+    $scope.offer.hour = '';
+    $scope.offer.min = '';
+    $scope.offer.ampm = '';
+
   };
 
   // form validation function
   var isDataValid = function() {
     if ($scope.offer.ride === '') {
       $scope.errorMsg = "Please select a ride.";
+      return false;
+    }
+    if ($scope.offer.hour === '') {
+      $scope.errorMsg = "Please select hour.";
+      return false;
+    }
+    if ($scope.offer.min === '') {
+      $scope.errorMsg = "Please select minutes.";
+      return false;
+    }
+    if ($scope.offer.ampm === '') {
+      $scope.errorMsg = "Please select AM or PM.";
       return false;
     }
     if ($scope.offer.location === '') {
