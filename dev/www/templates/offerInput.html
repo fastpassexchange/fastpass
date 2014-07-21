@@ -10,6 +10,15 @@
       <label class="item item-input">
         <select ng-model="offer.ride" ng-options="ride.value as ride.name for ride in rides"></select>
       </label>
+        <label class="item item-input">
+        <select ng-model="offer.hour" ng-options="hour.value as hour.name for hour in passTimeHour"></select>
+      </label>
+        <label class="item item-input">
+        <select ng-model="offer.min" ng-options="min.value as min.name for min in passTimeMin"></select>
+      </label>
+        <label class="item item-input">
+        <select ng-model="offer.ampm" ng-options="ampm.value as ampm.name for ampm in passTimeAmPm"></select>
+      </label>
       <label class="item item-input">
         <select ng-model="offer.location" ng-options="location.value as location.name for location in locations"></select>
       </label>
