@@ -1,6 +1,8 @@
 # Project Name
 
-> Pithy project description
+FastPass Exchange
+
+Giving Disneyland visitors the power to go on all the rides they want, when they want.
 
 ## Table of Contents
 
