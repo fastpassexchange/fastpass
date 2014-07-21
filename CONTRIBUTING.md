@@ -33,7 +33,7 @@
 Use github’s interface to make a fork of the repo, then add that repo as an upstream remote:
 
 ```
-git remote add upstream https://github.com/hackreactor-labs/<NAME_OF_REPO>.git
+git remote add upstream https://github.com/fastpassexchange/fastpass.git
 ```
 
 ### Cut a namespaced feature branch from master
@@ -146,33 +146,3 @@ Thanks for contributing!
    new, testable behavior.
 1. Your pull request is comprised of a single ([squashed][]) commit.
 
-## Checklist:
-
-This is just to help you organize your process
-
-- [ ] Did I cut my work branch off of master (don't cut new branches from existing feature brances)?
-- [ ] Did I follow the correct naming convention for my branch?
-- [ ] Is my branch focused on a single main change?
- - [ ] Do all of my changes directly relate to this change?
-- [ ] Did I rebase the upstream master branch after I finished all my
-  work?
-- [ ] Did I write a clear pull request message detailing what changes I made?
-- [ ] Did I get a code review?
- - [ ] Did I make any requested changes from that code review?
-
-If you follow all of these guidelines and make good changes, you should have
-no problem getting your changes merged in.
-
-
-<!-- Links -->
-[style guide]: https://github.com/hackreactor-labs/style-guide
-[n-queens]: https://github.com/hackreactor-labs/n-queens
-[Underbar]: https://github.com/hackreactor-labs/underbar
-[curriculum workflow diagram]: http://i.imgur.com/p0e4tQK.png
-[cons of merge]: https://f.cloud.github.com/assets/1577682/1458274/1391ac28-435e-11e3-88b6-69c85029c978.png
-[Bookstrap]: https://github.com/hackreactor/bookstrap
-[Taser]: https://github.com/hackreactor/bookstrap
-[tools workflow diagram]: http://i.imgur.com/kzlrDj7.png
-[Git Flow]: http://nvie.com/posts/a-successful-git-branching-model/
-[GitHub Flow]: http://scottchacon.com/2011/08/31/github-flow.html
-[Squash]: http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html
