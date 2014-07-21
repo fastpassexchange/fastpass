@@ -1,35 +1,35 @@
 <ion-view title="Conversation" ng-controller="chatController" class="chatView">
   <ion-content style="text-align:center">
       <!-- <div style="height: 300px"> -->
-    <div class="messageDiv">
+    <div class="messageDiv" style="height:200px; overflow:scroll">
       <div ng-cloak ng-repeat="message in userMessages">
         <div ng-if="!!message.content">
           {{ message.senderDisplayName }}: {{ message.content }}  <!-- : {{ message.createdAt }} -->
         </div>
       </div>
     </div>
-    <form>
-      <label class="item item-input item-stacked-label">
-        <!-- <span class="input-label">Conversation with {{ selected.displayName }}</span> -->
-        <input type="text" placeholder="write message" ng-model="comment.content">
-      </label>
-      <br>
-      <button class="button button-assertive" type="submit" ng-click="sendComment()">
-        send message
-      </button>
-      <br>
-      <br>
-    </form>
-      <div>
-        <p class="bodyFont" style="font-size:18px"> You are chatting in reference to the following offer: </p>
-        Name: {{ selected.displayName }}<br>
-        Ride: {{ selected.ride }}<br>
-        {{ selected.number_give }}<br>
-        free or trade: {{ selected.comment }}<br>
-        {{ selected.location }}</p><br>
-      </div>
-    <!-- <button class="button button-block button-stable" ui-sref="tabs.connection">    ng-click="sendComment()">
-        see map
-    </button> -->
+    <div style="overflow:scroll">
+      <form>
+        <label class="item item-input item-stacked-label">
+          <!-- <span class="input-label">Conversation with {{ selected.displayName }}</span> -->
+          <input type="text" placeholder="write message" ng-model="comment.content">
+        </label>
+        <button class="button button-small button-assertive" style="font-size: 18px; margin-top:5px;margin-bottom:5px" type="submit" ng-click="sendComment()">
+          send message
+        </button>
+        <br>
+      </form>
+        <div style="font-size:12px; border-style:solid; border-width:1px">
+          <p class="bodyFont"> You are chatting in reference to the following offer:<br>
+<!--           Name: {{ selected.displayName }}<br> -->
+          Ride: {{ selected.ride }}<br>
+          {{ selected.number_give }}<br>
+          free or trade: {{ selected.comment }}<br>
+          <!-- {{ selected.location }}</p> -->
+        </div>
+      <!-- <button class="button button-block button-stable" ui-sref="tabs.connection">    ng-click="sendComment()">
+          see map
+      </button> -->
+    </div>
   </ion-content>
 </ion-view>
