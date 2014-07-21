@@ -14,7 +14,7 @@ DFE Product Owner James Yothers says the app was born out of his own experiences
 
 Guests can go to Google Play or the Apple App store and download DFE in seconds to immediately start viewing which passes are available. Users are able to contact other users for exchanges or gifting the moment they enter the park grounds.
 
-Keving Liang from Poughkeepsie, NY says that he had not gone to Disneyland for years before he used DFE. 
+Kevin Liang from Poughkeepsie, NY says that he had not gone to Disneyland for years before he used DFE. 
 
 “The lines for my favorite rides were so insane that it was just no fun anymore. I was only able to get one or two fastpasses a day, so it was not worth it. With DFE, I was able to go on the Cars ride 22 times in one day. Score!” Liang says.
 
