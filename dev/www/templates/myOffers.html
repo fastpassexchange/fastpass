@@ -1,0 +1,27 @@
+<ion-view title="My Offers" ng-controller="myOffersController" class="padding">
+  <ion-content style="overflow:scroll">
+  <div class="button-bar">
+    <button class="button button-clear button-positive" ui-sref="tabs.myConvos">My Conversations</button>
+    <button class="button button-clear button-positive" ui-sref="tabs.myOffers">My Offers</button>
+  </div>
+  <div class="offerList">
+    <div class="item item-divider" style="background-color:#FFFFF; text-align:center; font-weight:bold; color:black">
+      <p class="headerFont">Your Offers</p>
+      <p class="headerFont">(Select an offer to delete it)</p>
+    </div>
+    </p>
+    <div class="bodyFont" ng-cloak ng-repeat="offer in offers | orderByPriority" style="text-align:center"> 
+      <p>
+        <div class="button button-clear" ng-if="offer.available" ng-click="deleteOffer(offer)">
+          <p> {{ offer.number_give }} for {{ offer.ride }} </p>
+          <!-- <p> Ride: {{ offer.ride }}<br>
+            {{ offer.number_give }}<br>
+            Free or trade: {{ offer.comment }}<br>
+            {{ offer.location }}</p><br> -->
+        </div>
+      </p>
+    </div>
+    </p>
+  </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,22 @@
+<ion-view title="My Conversations" ng-controller="myConvosController" class="padding">
+  <ion-content style="overflow:scroll">
+  <div class="button-bar">
+    <button class="button button-clear button-positive" ui-sref="tabs.myConvos">My Conversations</button>
+    <button class="button button-clear button-positive" ui-sref="tabs.myOffers">My Offers</button>
+  </div>
+  <div class="list" style="text-align:center">
+    <div class="item item-divider" style="background-color:#FFFFF; text-align:center; font-weight:bold; color:black">
+      <p class="headerFont">Your Conversations</p>
+      <p class="headerFont">(Select a conversation to chat)</p>
+    </div>
+    <p>
+    <div class="bodyFont" ng-cloak ng-repeat="chatPartner in chatPartnerArray | orderByPriority"> <!--track by $index-->
+      <p>
+        <a class="button button-clear" ng-click="chatRetriever('{{ chatPartner.uid }}')"
+        ui-sref="tabs.chat">{{ chatPartner.name }}</a>
+      </p>
+    </div>
+    </p>
+  </div>
+  </ion-content>
+</ion-view>

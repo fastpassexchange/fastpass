@@ -12,6 +12,99 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 //   };
 // })
 
+.controller('myConvosController', function($scope, $rootScope, $ionicLoading, authService) {
+
+  // display page loading overlay while retrieving information from Firebase
+  $ionicLoading.show({
+    template: 'Loading...'
+  });
+
+  // retrieve chat partner information
+  $scope.chatPartnerArray = [];
+  var chatSessions = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + authService.getUserId());
+  chatSessions.on('value', function(snapshot) {
+    snapshot.forEach(function(elem) {
+      $scope.chatPartnerArray.push({
+        uid: elem.name(),
+        name: elem.child('displayName').val() + " (" + elem.child('offer/ride').val() + ")",
+      });
+    });
+    $ionicLoading.hide();
+  });
+
+  //grabs interacting with about offers
+  $scope.chatRetriever = function (partnerId) {
+    //grab all messages between logged in user and user clicked on in dashboard
+    $scope.chatSessions3 = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + authService.getUserId() + '/' + partnerId);
+    $scope.chatSessions3.on('value', function (snapshot) {
+      //reset $rootscope.selected (it also gets set when another user selects an offer from the offers list)
+      $rootScope.selected = {};
+      //all messages between LIU and other user
+      var convoParts = snapshot.val();
+      for (var key in convoParts) {
+        //in DB, each collection of messages between two users also has an offer key
+        //loop through the message keys to find the offer that the two users are interacting about
+        if (key === "offer") {
+          $rootScope.selected = convoParts[key];
+        }
+      }
+      $rootScope.selected.offererId = partnerId;
+    });
+  };
+})
+
+.controller('myOffersController', function($scope, $ionicLoading, $firebase, authService) {
+
+  // display page loading overlay while retrieving information from Firebase
+  $ionicLoading.show({
+    template: 'Loading...'
+  });
+
+  // for display of logged in user's offers from database
+  $scope.usersOffers = new Firebase('https://fastpass-connection.firebaseio.com/users/' + authService.getUserId() + '/offers');
+  console.log($scope.usersOffers);
+  $scope.usersOffers.on('value', function(snapshot) {
+    $scope.offers = snapshot.val();
+    $ionicLoading.hide();
+  });
+
+  //allow logged in user to delete any of the offers they have made by clicking on it in dashboard
+  //offer clicked on is passed in
+  $scope.deleteOffer = function(offer) {
+    //set offer's available property to "false" in both the user's offers AND in the offers section of DB
+
+    //set offer to false in user's offers
+    //grab logged in user's offers
+    $scope.yourOffers = new Firebase('https://fastpass-connection.firebaseio.com/users/' + authService.getUserId() + '/offers');
+    $scope.yourOffers.on('value', function(snapshot) {
+      //iterate through offers
+      snapshot.forEach(function(offerChild) {
+        $scope.offerRef = offerChild.val();
+        $scope.offerName = offerChild.name();
+        //grab offer in DB that matches offer clicked on
+        if ($scope.offerRef.createdAt === offer.createdAt) {
+          $scope.selectedOffer = new Firebase('https://fastpass-connection.firebaseio.com/users/' + authService.getUserId() + '/offers/' + $scope.offerName);
+          // "delete" the offer from user's dashboard by setting its available property to false; offer is retained in DB
+          $firebase($scope.selectedOffer).$update({available: false});
+        }
+      });
+    });
+
+    //set offer to false in offers section of DB
+    $scope.offerList = new Firebase('https://fastpass-connection.firebaseio.com/offers/');
+    $scope.offerList.on('value', function(snapshot) {
+      snapshot.forEach(function(offerChild) {
+        $scope.offerRef = offerChild.val();
+        $scope.offerName = offerChild.name();
+        if ($scope.offerRef.createdAt === offer.createdAt) {
+          $scope.selectedOfferInList = new Firebase('https://fastpass-connection.firebaseio.com/offers/' + $scope.offerName);
+          $firebase($scope.selectedOfferInList).$update({available: false});
+        }
+      });
+    });
+  };
+})
+
 //handles functionality relating to what's displayed in logged in user's dashboard
 .controller('dashboardController', function($scope, $rootScope, $firebase, $ionicLoading, authService, listService) {
   $ionicLoading.show({
