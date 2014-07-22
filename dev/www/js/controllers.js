@@ -387,7 +387,18 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     $scope.offer.displayName = authService.getDisplayName();
     $scope.offer.available = true;
     $scope.statusMsg = '';
-    $scope.offer.passValidTime = $scope.offer.hour + ":" + $scope.offer.min + ":" + $scope.offer.ampm
+    var passTime = $scope.offer.hour + ':' + $scope.offer.min + ' ' + $scope.offer.ampm;
+    var date = new Date();
+    var day = date.getDate();
+    var month = date.getMonth() + 1;
+    var year = date.getFullYear();
+    $scope.offer.timeString = year + '-' + month + '-' + day + ' ' + passTime;
+    
+
+    // $scope.offer.fastpassTime = moment($scope.timeString, 'MMMM Do YYYY, h:mm:ss a');
+    // console.log($scope.offer.fastpassTime);
+
+
     
     if (isDataValid()) {
       if (timerService.isOfferAfterTimeLimit()){
