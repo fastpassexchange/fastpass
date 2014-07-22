@@ -61,7 +61,7 @@ angular.module('fastpass.services', ['ionic'])
 
         // update user's geolocation position
         geolocationService.updateUserGeolocation(function(){
-          console.log("updateUserCallback")
+          console.log("updateUserCallback");
           $ionicLoading.hide();
           $state.go('tabs.home');
         });
@@ -125,7 +125,8 @@ angular.module('fastpass.services', ['ionic'])
 })
 
 .factory('geolocationService', function($ionicLoading) {
-
+  
+  // Disneyland boundaries
   var disneyLandBoundaries = {
     maxLat: 33.814641,
     minLat: 33.803622,
@@ -133,13 +134,13 @@ angular.module('fastpass.services', ['ionic'])
     minLng: -117.923684
   };
 
-  // SF testing
-  // var hackReactorBoundaries = {
-  //   maxLat: 37.784115,
-  //   minLat: 37.782903,
-  //   maxLong: -122.408381,
-  //   minLong: -122.409636
-  // };
+  // // HR boundaries for testing
+  var hackReactorBoundaries = {
+    maxLat: 37.784115,
+    minLat: 37.782903,
+    maxLng: -122.408381,
+    minLng: -122.409636
+  };
 
   var userCoords = {
     lat: 0,
@@ -153,9 +154,9 @@ angular.module('fastpass.services', ['ionic'])
     var options = { timeout: 20000, enableHighAccuracy: true, maximumAge: 90000 };
     navigator.geolocation.getCurrentPosition(function(position){
       console.log('inside navigator');
-      userCoords.lat = 33.812/*position.coords.latitude*/;
-      userCoords.lng = -117.92/*position.coords.longitude*/;
-      console.log("updated Lat :" + userCoords.lat + ", updated Lng :" + userCoords.lng)
+      userCoords.lat = /*33.812*/position.coords.latitude;
+      userCoords.lng = /*-117.92*/position.coords.longitude;
+      console.log("updated Lat :" + userCoords.lat + ", updated Lng :" + userCoords.lng);
       callback(position);
     }, function(error){
       console.log("FAIL geolocation: " + error);
@@ -167,14 +168,16 @@ angular.module('fastpass.services', ['ionic'])
   // checks whether user is within Disneyland
   var inDisneyLand = function(){
     console.log("inside inDisneyLand");
-    if (disneyLandBoundaries.minLat < userCoords.lat &&
-      userCoords.lat < disneyLandBoundaries.maxLat &&
-      disneyLandBoundaries.minLng < userCoords.lng &&
-      userCoords.lng < disneyLandBoundaries.maxLng){
-      console.log('inDisneyLand true');
+    // set boundaries
+    var boundaries = hackReactorBoundaries;
+    if (boundaries.minLat < userCoords.lat &&
+      userCoords.lat < boundaries.maxLat &&
+      boundaries.minLng < userCoords.lng &&
+      userCoords.lng < boundaries.maxLng){
+      console.log('insideBoundaries true');
       return true;
     } else{
-      console.log('inDisneyLand false');
+      console.log('insideBoundaries false');
       return false;
     }
   };
