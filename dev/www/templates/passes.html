@@ -4,7 +4,15 @@
    <!-- <input type="text" ng-model="text"/>
     <h1>{{text.offers}}</h1> -->
     <!-- displays in order on firebase -->
-    <div class="bodyFont" id="offerList" ng-cloak ng-repeat="offer in text.offers | orderByPriority" style="text-align:center; color:#000000"> <!-- ng-class="{active : isSelected(offer)}"> -->
+    <div class="list">
+      <div class="item item-input-inset">
+        <label class="item-input-wrapper">
+          <input type="text" placeholder="Search" ng-model="search">
+        </label>
+      </div>
+    </div>
+
+    <div class="bodyFont" id="offerList" ng-cloak ng-repeat="offer in text.offers | orderByPriority | filter:search" style="text-align:center; color:#000000"> <!-- ng-class="{active : isSelected(offer)}"> -->
       <p>
         <a class="button button-clear" ng-if="offer.available  && isNotYourOffer(offer.offererId)" ng-click="setMaster(offer)"
         ui-sref="tabs.getDetails">{{ offer.number_give }} for {{ offer.ride }}  </a>
@@ -13,5 +21,3 @@
     <div class="statusMsg" ng-if="console.log('stop');">There are no offers available.</div>
   </ion-content>
 </ion-view>
-
-
