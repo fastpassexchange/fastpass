@@ -2,21 +2,38 @@
   <ion-content style="text-align:center">
     <div class="errorMsg">{{ errorMsg }}</div>
     <div class="list">
-      <!-- <label class="item item-input">
-        <div class="display-name">{{ offer.displayName }}</div>
-        <input type="text" ng-model="offer.name" required name="name">
-      </label> -->
     <form name="offerList" ng-submit="addOffer()" style="margin-left:auto; margin-right:auto">
       <label class="item item-input">
+        <span class="input-label">Fastpass ride:</span>
         <select ng-model="offer.ride" ng-options="ride.value as ride.name for ride in rides"></select>
       </label>
+      <!-- <div> -->
+
+          <label class="item item-input">
+            <span class="input-label">Pass start time:</span>
+            <!-- <select ng-model="offer.hour" ng-options="hour.value as hour.name for hour in passTimeHour"></select> -->
+          </label>
+          <label class="item item-input">
+            <!-- <span class="input-label">Pass start time:</span><br> -->
+            <select ng-model="offer.hour" ng-options="hour.value as hour.name for hour in passTimeHour"></select>
+          </label>
+          <label class="item item-input">
+            <select ng-model="offer.min" ng-options="min.value as min.name for min in passTimeMin"></select>
+          </label>
+          <label class="item item-input">
+            <select ng-model="offer.ampm" ng-options="ampm.value as ampm.name for ampm in passTimeAmPm"></select>
+          </label>
+    <!-- </div> -->
       <label class="item item-input">
+        <span class="input-label">Your location:</span>
         <select ng-model="offer.location" ng-options="location.value as location.name for location in locations"></select>
       </label>
       <label class="item item-input">
+        <span class="input-label">Number of passes:</span>
         <select ng-model="offer.number_give" ng-options="number_give.value as number_give.name for number_give in numbers_give"></select>
       </label>
       <label class="item item-input">
+        <span class="input-label">Free or trade:</span>
         <select ng-model="offer.comment" ng-options="comment.value as comment.name for comment in comments"></select>
       </label>
       <br>

@@ -92,9 +92,29 @@ angular.module('fastpass', ['firebase', 'ionic', 'fastpass.controllers', 'fastpa
       url: "/chat",
       authenticate: true,
       views: {
-        'home-tab': {
+        'dashboard-tab': {
           templateUrl: "templates/chat.html",
           controller: 'chatController'
+        }
+      }
+    })
+    .state('tabs.myOffers', {
+      url: "/myOffers",
+      authenticate: true,
+      views: {
+        'dashboard-tab': {
+          templateUrl: "templates/myOffers.html",
+          controller: "myOffersController"
+        }
+      }
+    })
+    .state('tabs.myConvos', {
+      url: "/myConvos",
+      authenticate: true,
+      views: {
+        'dashboard-tab': {
+          templateUrl: "templates/myConvos.html",
+          controller: "myConvosController"
         }
       }
     })
