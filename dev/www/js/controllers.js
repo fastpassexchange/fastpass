@@ -206,6 +206,16 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     {name: 'Mickey\'s Toontown', value: 'Mickey\'s Toontown'},
     {name: 'New Orleans Square', value: 'New Orleans Square'},
     {name: 'Tomorrowland', value: 'Tomorrowland'},
+    {name: 'Condor Flats', value: 'Condor Flats'},
+    {name: 'Buena Vista', value: 'Buena Vista'},
+    {name: 'Hollywood', value: 'Hollywood'},
+    {name: 'Grizzy Peak', value: 'Grizzy Peak'},
+    {name: 'Bug\'s Land', value: 'Bug\'s Land'},
+    {name: 'Paradise Pier', value: 'Paradise Pier'},
+    {name: 'Pacific Wharf', value: 'Pacific Wharf'},
+    {name: 'Car\'s Land', value: 'Car\'s Land'},
+    {name: 'Downtown Disney', value: 'Downtown Disney'},
+
   ];
 
   $scope.numbers_give = [
@@ -284,6 +294,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     $scope.offer.displayName = authService.getDisplayName();
     $scope.offer.available = true;
     $scope.statusMsg = '';
+    $scope.offer.passValidTime = $scope.offer.hour + ":" + $scope.offer.min + ":" + $scope.offer.ampm
     
     if (isDataValid()) {
       if (timerService.isOfferAfterTimeLimit()){
@@ -304,7 +315,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
         initVars();
 
         // set status message
-        $scope.statusMsg = "New Offer Submitted";
+        $scope.statusMsg = "New offer submitted. View offers in the dashboard.";
       } else {
         $scope.errorMsg = "Please wait 30 minutes between submitting offers.";
       }
