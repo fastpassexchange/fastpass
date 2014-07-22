@@ -90,11 +90,12 @@
 
 .button-clear > .button, 
 .button.button-clear {
+  overflow: hidden;
   width: 93%;
   background-color: #E00000 ;
   border-color: #E00000 ;
   color: #F8F8F8;
-  font-size: 18px;
+  font-size: 14px;
   text-align: center;
 }
 

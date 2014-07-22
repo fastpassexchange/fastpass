@@ -53,7 +53,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   };
 })
 
-.controller('myOffersController', function($scope, $ionicLoading, $firebase, authService) {
+.controller('myOffersController', function($scope, $ionicLoading, $firebase, authService, $ionicPopup) {
 
   // display page loading overlay while retrieving information from Firebase
   $ionicLoading.show({
@@ -70,43 +70,63 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
   //allow logged in user to delete any of the offers they have made by clicking on it in dashboard
   //offer clicked on is passed in
+//allow logged in user to delete any of the offers they have made by clicking on it in dashboard
+  //offer clicked on is passed in
   $scope.deleteOffer = function(offer) {
     //set offer's available property to "false" in both the user's offers AND in the offers section of DB
 
-    //set offer to false in user's offers
-    //grab logged in user's offers
-    $scope.yourOffers = new Firebase('https://fastpass-connection.firebaseio.com/users/' + authService.getUserId() + '/offers');
-    $scope.yourOffers.on('value', function(snapshot) {
-      //iterate through offers
-      snapshot.forEach(function(offerChild) {
-        $scope.offerRef = offerChild.val();
-        $scope.offerName = offerChild.name();
-        //grab offer in DB that matches offer clicked on
-        if ($scope.offerRef.createdAt === offer.createdAt) {
-          $scope.selectedOffer = new Firebase('https://fastpass-connection.firebaseio.com/users/' + authService.getUserId() + '/offers/' + $scope.offerName);
-          // "delete" the offer from user's dashboard by setting its available property to false; offer is retained in DB
-          $firebase($scope.selectedOffer).$update({available: false});
-        }
-      });
-    });
+   $scope.showConfirm = function() {
+       console.log('offer: ', offer);
+       var confirmPopup = $ionicPopup.confirm({
+       title: 'Delete Offer',
+       template: 'Are you sure you want to delete this offer?'
+     });
+     confirmPopup.then(function(res) {
+       if(res) {
+         console.log('You are sure');
+        //set offer to false in user's offers
+        //grab logged in user's offers
+        $scope.yourOffers = new Firebase('https://fastpass-connection.firebaseio.com/users/' + authService.getUserId() + '/offers');
+        $scope.yourOffers.on('value', function(snapshot) {
+          //iterate through offers
+          snapshot.forEach(function(offerChild) {
+            $scope.offerRef = offerChild.val();
+            $scope.offerName = offerChild.name();
+            //grab offer in DB that matches offer clicked on
+            if ($scope.offerRef.createdAt === offer.createdAt) {
+              $scope.selectedOffer = new Firebase('https://fastpass-connection.firebaseio.com/users/' + authService.getUserId() + '/offers/' + $scope.offerName);
+              // "delete" the offer from user's dashboard by setting its available property to false; offer is retained in DB
+              $firebase($scope.selectedOffer).$update({available: false});
+            }
+          });
+        });
 
-    //set offer to false in offers section of DB
-    $scope.offerList = new Firebase('https://fastpass-connection.firebaseio.com/offers/');
-    $scope.offerList.on('value', function(snapshot) {
-      snapshot.forEach(function(offerChild) {
-        $scope.offerRef = offerChild.val();
-        $scope.offerName = offerChild.name();
-        if ($scope.offerRef.createdAt === offer.createdAt) {
-          $scope.selectedOfferInList = new Firebase('https://fastpass-connection.firebaseio.com/offers/' + $scope.offerName);
-          $firebase($scope.selectedOfferInList).$update({available: false});
-        }
-      });
-    });
+        //set offer to false in offers section of DB
+        $scope.offerList = new Firebase('https://fastpass-connection.firebaseio.com/offers/');
+        $scope.offerList.on('value', function(snapshot) {
+          snapshot.forEach(function(offerChild) {
+            $scope.offerRef = offerChild.val();
+            $scope.offerName = offerChild.name();
+            if ($scope.offerRef.createdAt === offer.createdAt) {
+              $scope.selectedOfferInList = new Firebase('https://fastpass-connection.firebaseio.com/offers/' + $scope.offerName);
+              $firebase($scope.selectedOfferInList).$update({available: false});
+            }
+          });
+        });
+       } else {
+         console.log('You are not sure');
+       }
+     });
+   };
+
+   $scope.showConfirm();
+
+
   };
 })
 
 //handles functionality relating to what's displayed in logged in user's dashboard
-.controller('dashboardController', function($scope, $rootScope, $firebase, $ionicLoading, authService, listService) {
+.controller('dashboardController', function($scope, $rootScope, $firebase, $ionicLoading, authService, listService, $ionicPopup) {
   $ionicLoading.show({
     template: 'Loading...'
   });
@@ -159,35 +179,53 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   $scope.deleteOffer = function(offer) {
     //set offer's available property to "false" in both the user's offers AND in the offers section of DB
 
-    //set offer to false in user's offers
-    //grab logged in user's offers
-    $scope.yourOffers = new Firebase('https://fastpass-connection.firebaseio.com/users/' + authService.getUserId() + '/offers');
-    $scope.yourOffers.on('value', function(snapshot) {
-      //iterate through offers
-      snapshot.forEach(function(offerChild) {
-        $scope.offerRef = offerChild.val();
-        $scope.offerName = offerChild.name();
-        //grab offer in DB that matches offer clicked on
-        if ($scope.offerRef.createdAt === offer.createdAt) {
-          $scope.selectedOffer = new Firebase('https://fastpass-connection.firebaseio.com/users/' + authService.getUserId() + '/offers/' + $scope.offerName);
-          // "delete" the offer from user's dashboard by setting its available property to false; offer is retained in DB
-          $firebase($scope.selectedOffer).$update({available: false});
-        }
-      });
-    });
+   $scope.showConfirm = function() {
+       console.log('offer: ', offer);
+       var confirmPopup = $ionicPopup.confirm({
+       title: 'Delete Offer',
+       template: 'Are you sure you want to delete this offer?'
+     });
+     confirmPopup.then(function(res) {
+       if(res) {
+         console.log('You are sure');
+        //set offer to false in user's offers
+        //grab logged in user's offers
+        $scope.yourOffers = new Firebase('https://fastpass-connection.firebaseio.com/users/' + authService.getUserId() + '/offers');
+        $scope.yourOffers.on('value', function(snapshot) {
+          //iterate through offers
+          snapshot.forEach(function(offerChild) {
+            $scope.offerRef = offerChild.val();
+            $scope.offerName = offerChild.name();
+            //grab offer in DB that matches offer clicked on
+            if ($scope.offerRef.createdAt === offer.createdAt) {
+              $scope.selectedOffer = new Firebase('https://fastpass-connection.firebaseio.com/users/' + authService.getUserId() + '/offers/' + $scope.offerName);
+              // "delete" the offer from user's dashboard by setting its available property to false; offer is retained in DB
+              $firebase($scope.selectedOffer).$update({available: false});
+            }
+          });
+        });
 
-    //set offer to false in offers section of DB
-    $scope.offerList = new Firebase('https://fastpass-connection.firebaseio.com/offers/');
-    $scope.offerList.on('value', function(snapshot) {
-      snapshot.forEach(function(offerChild) {
-        $scope.offerRef = offerChild.val();
-        $scope.offerName = offerChild.name();
-        if ($scope.offerRef.createdAt === offer.createdAt) {
-          $scope.selectedOfferInList = new Firebase('https://fastpass-connection.firebaseio.com/offers/' + $scope.offerName);
-          $firebase($scope.selectedOfferInList).$update({available: false});
-        }
-      });
-    });
+        //set offer to false in offers section of DB
+        $scope.offerList = new Firebase('https://fastpass-connection.firebaseio.com/offers/');
+        $scope.offerList.on('value', function(snapshot) {
+          snapshot.forEach(function(offerChild) {
+            $scope.offerRef = offerChild.val();
+            $scope.offerName = offerChild.name();
+            if ($scope.offerRef.createdAt === offer.createdAt) {
+              $scope.selectedOfferInList = new Firebase('https://fastpass-connection.firebaseio.com/offers/' + $scope.offerName);
+              $firebase($scope.selectedOfferInList).$update({available: false});
+            }
+          });
+        });
+       } else {
+         console.log('You are not sure');
+       }
+     });
+   };
+
+   $scope.showConfirm();
+
+
   };
 
   //grabs interacting with about offers
@@ -387,7 +425,18 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     $scope.offer.displayName = authService.getDisplayName();
     $scope.offer.available = true;
     $scope.statusMsg = '';
-    $scope.offer.passValidTime = $scope.offer.hour + ":" + $scope.offer.min + ":" + $scope.offer.ampm
+    var passTime = $scope.offer.hour + ':' + $scope.offer.min + ' ' + $scope.offer.ampm;
+    var date = new Date();
+    var day = date.getDate();
+    var month = date.getMonth() + 1;
+    var year = date.getFullYear();
+    $scope.offer.timeString = year + '-' + month + '-' + day + ' ' + passTime;
+    
+
+    // $scope.offer.fastpassTime = moment($scope.timeString, 'MMMM Do YYYY, h:mm:ss a');
+    // console.log($scope.offer.fastpassTime);
+
+
     
     if (isDataValid()) {
       if (timerService.isOfferAfterTimeLimit()){
@@ -408,7 +457,8 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
         initVars();
 
         // set status message
-        $scope.statusMsg = "New offer submitted. View offers in the dashboard.";
+
+        $scope.statusMsg = "New Offer Submitted. Track your offers on the dashboard.";
       } else {
         $scope.errorMsg = "Please wait 30 minutes between submitting offers.";
       }
@@ -536,7 +586,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
 })
 
-.controller('chatController', function($scope, $rootScope, $timeout, $firebase, listService, authService) {
+.controller('chatController', function($scope, $rootScope, $ionicScrollDelegate, $timeout, $firebase, listService, authService) {
   // initialize object for message contents
   $scope.comment = {};
   // the name associated with the selected offer
@@ -552,7 +602,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     $scope.userMessages = snapshot.val();
   });
   console.log('userMessages: ', $scope.userMessages);
-
+  
   $scope.sendComment = function() {
     $scope.comment.createdAt = new Date();
     $scope.comment.senderDisplayName = authService.getDisplayName();
@@ -575,8 +625,38 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
     // todo: try to use modal for successful send of message
     // $scope.openModal();
+    
+
+    // $ionicScrollDelegate.scrollBottom();
   };
+
 })
+
+// .controller('scrollController', function($scope, $rootScope, $ionicScrollDelegate, $timeout, $firebase, listService, authService) {
+
+//    $ionicScrollDelegate.scrollBottom();
+
+//   // initialize object for message contents
+//   $scope.comment = {};
+//   // the name associated with the selected offer
+//   $scope.to = $rootScope.selected.offererId;
+//   console.log('selected: ', $rootScope.selected);
+//   // current logged in user
+//   $scope.from = authService.getUserId();
+  
+//   var messageRef = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + $scope.from + '/' + $scope.to);
+//   var otherMessageRef = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + $scope.to + '/' + $scope.from);
+
+//   messageRef.on('value', function(snapshot) {
+//     $scope.userMessages = snapshot.val();
+//   });
+//   console.log('userMessages: ', $scope.userMessages);
+
+
+
+
+
+// })
 
 // log in user
 .controller('loginController', function($scope, authService) {
