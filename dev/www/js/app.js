@@ -22,7 +22,7 @@ angular.module('fastpass', ['firebase', 'ionic', 'fastpass.controllers', 'fastpa
     if (toState.authenticate && !authService.isAuthenticated()){
       // User not authenticated
       console.log("User not authenticated");
-      $state.go("tabs.signin").then(function(){
+      $state.go("tabs.home").then(function(){
         $rootScope.$broadcast('$stateChangeSuccess');
       });
       event.preventDefault();
