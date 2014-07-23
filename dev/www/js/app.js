@@ -33,6 +33,17 @@ angular.module('fastpass', ['ionic', 'fastpass.controllers', 'firebase'])
       }
     })
 
+    .state('tabs.chat', {
+      url: "/chat",
+      // authenticate: true,
+      views: {
+        'menuContent': {
+          templateUrl: "templates/chat.html",
+          controller: 'chatController'
+        }
+      }
+    })
+
     .state('app.browse', {
       url: "/browse",
       views: {
