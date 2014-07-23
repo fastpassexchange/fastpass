@@ -40,7 +40,7 @@ angular.module('fastpass.filters', [])
   };
 }])
 
-// Excule all the offers made by this specific user.
+// Exclude all the offers made by this specific user.
 .filter('excludeMyOffers', ['authService', function (authService) {
   return function (offers) {
     var byOthers = [];
@@ -50,5 +50,17 @@ angular.module('fastpass.filters', [])
       }
     });
     return byOthers;
+  };
+}])
+
+
+// Extract rides for drop down box.
+.filter('uniqueRides', [function () {
+  return function (offers) {
+    var rides = {};
+    angular.forEach(offers, function (offer) {
+      rides[offer.ride] = true;
+    });
+    return Object.keys(rides);
   };
 }]);
