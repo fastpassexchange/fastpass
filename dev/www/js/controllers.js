@@ -1,17 +1,5 @@
 angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
-// need to implement loading feature
-// .controller('LoadingCtrl', function($scope, $ionicLoading) {
-//   $scope.show = function() {
-//     $ionicLoading.show({
-//       template: 'Loading...'
-//     });
-//   };
-//   $scope.hide = function(){
-//     $ionicLoading.hide();
-//   };
-// })
-
 .controller('myConvosController', function($scope, $rootScope, $ionicLoading, authService) {
 
   // display page loading overlay while retrieving information from Firebase
