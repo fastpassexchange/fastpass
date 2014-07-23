@@ -16,7 +16,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
   // display page loading overlay while retrieving information from Firebase
   $ionicLoading.show({
-    template: 'Loading...'
+    template: '<i class="icon ion-looping"></i>'
   });
 
   // retrieve chat partner information
@@ -57,7 +57,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
   // display page loading overlay while retrieving information from Firebase
   $ionicLoading.show({
-    template: 'Loading...'
+    template: '<i class="icon ion-looping"></i>'
   });
 
   // for display of logged in user's offers from database
@@ -128,9 +128,9 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 //handles functionality relating to what's displayed in logged in user's dashboard
 .controller('dashboardController', function($scope, $rootScope, $firebase, $ionicLoading, authService, listService, $ionicPopup) {
   $ionicLoading.show({
-    template: 'Loading...'
+    template: '<i class="icon ion-looping"></i>'
   });
-  
+
   // retrieve chat partner information
   $scope.chatPartnerArray = [];
   var chatSessions = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + authService.getUserId());
@@ -152,7 +152,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   });
 
 
-  
+
   // $scope.watchedConversations = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + authService.getUserId());
   // $scope.watchedConversations.on('value', function(convos) {
   //   $scope.pulledConvoIds = convos.val();
@@ -162,15 +162,15 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
   // var index = 0;
   // var watchedConversations=[];
-  
+
   // for (var personImChattingWith in $scope.pulledConvoIds) {
   //   console.log('personImChattingWith: ', personImChattingWith);
   //   console.log('index: ', index);
   //   watchedConversations[index] = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + authService.getUserId() + '/' + personImChattingWith);
-      
+
   //     $firebase(watchedConversations[index]).$on('child_removed', function(oldChildSnapshot) {
   //       console.log(oldChildSnapshot);
-  //     });  
+  //     });
   //   index++;
   // }
 
@@ -324,7 +324,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   $scope.passTimeAmPm = [
     {name: 'AM/PM', value: ''},
     {name: 'AM', value: 'AM'},
-    {name: 'PM', value: 'PM'}    
+    {name: 'PM', value: 'PM'}
   ];
 
   $scope.locations = [
@@ -431,13 +431,13 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     var month = date.getMonth() + 1;
     var year = date.getFullYear();
     $scope.offer.timeString = year + '-' + month + '-' + day + ' ' + passTime;
-    
+
 
     // $scope.offer.fastpassTime = moment($scope.timeString, 'MMMM Do YYYY, h:mm:ss a');
     // console.log($scope.offer.fastpassTime);
 
 
-    
+
     if (isDataValid()) {
       if (timerService.isOfferAfterTimeLimit()){
         // get all offers from the database
@@ -467,7 +467,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 })
 
 .controller('detailController', function($scope, $firebase) {
- 
+
  })
 
 //mostly map and geolocation functionality to ensure user is in the park before they can use the app
@@ -492,7 +492,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   // find current location and watch it (track)
   map.locate({setView: true, watch: true, maxZoom: 16});
   // L.control.locate().addTo(map);
-  
+
   // set user connected with to the marker location
 
   // reference user connected to
@@ -509,10 +509,10 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   connectedUserLng.on('value', function(snapshot) {
     $scope.connectedUserLng = snapshot.val();
   });
-  
+
   // put marker on map of the user you are connecting to
   L.marker([$scope.connectedUserLat, $scope.connectedUserLng]).addTo(map);
- 
+
   // intialize lat and long for onLocationFound function
   var latitude = 0;
   var longitude = 0;
@@ -535,7 +535,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     // console.log(distance);
     // create a circle for display
     // Todo: make circle refresh when location changes
-    // if (!nextCircles) {  
+    // if (!nextCircles) {
       var radius = e.accuracy / 2;
       if (first){
         me = L.circleMarker(e.latlng, radius);
@@ -545,7 +545,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
         map.removeLayer(me);
         me = L.circleMarker(e.latlng, radius);
         map.addLayer(me);
-      } 
+      }
       // nextCircles = true;
     // } else {
       // circle.update();
@@ -553,7 +553,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
       // circle.setLatLng(e.latitude, e.longitude);
     // }
   };
- 
+
    // event locationfound will trigger every time the user's position changes
    map.on('locationfound', onLocationFound);
 
@@ -595,7 +595,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   $scope.talkingTo = $rootScope.selected.displayName;
   // current logged in user
   $scope.from = authService.getUserId();
-  
+
   var messageRef = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + $scope.from + '/' + $scope.to);
   var otherMessageRef = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + $scope.to + '/' + $scope.from);
 
@@ -607,7 +607,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     }, 0);
   });
   console.log('userMessages: ', $scope.userMessages);
-  
+
   $scope.sendComment = function() {
     $scope.comment.createdAt = new Date();
     $scope.comment.senderDisplayName = authService.getDisplayName();
@@ -626,11 +626,11 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     // });
 
     $scope.comment.content = '';
-    
+
 
     // todo: try to use modal for successful send of message
     // $scope.openModal();
-    
+
 
     // $ionicScrollDelegate.scrollBottom();
   };
@@ -648,7 +648,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 //   console.log('selected: ', $rootScope.selected);
 //   // current logged in user
 //   $scope.from = authService.getUserId();
-  
+
 //   var messageRef = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + $scope.from + '/' + $scope.to);
 //   var otherMessageRef = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + $scope.to + '/' + $scope.from);
 
