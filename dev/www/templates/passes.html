@@ -12,11 +12,28 @@
       </div>
     </div>
 
-    <div class="bodyFont" id="offerList" ng-cloak ng-repeat="offer in text.offers | orderByPriority | filter:search" style="text-align:center; color:#000000"> <!-- ng-class="{active : isSelected(offer)}"> -->
-      <p>
-        <a class="button button-clear" ng-if="offer.available  && isNotYourOffer(offer.offererId)" ng-click="setMaster(offer)"
-        ui-sref="tabs.chat">{{ offer.number_give }} for {{ offer.ride }}  </a>
-      </p>
+    <div ng-cloak ng-repeat="offer in text.offers | orderByPriority | filter:search" class="list card" ng-if="offer.available  && isNotYourOffer(offer.offererId)">
+
+      <div class="item item-avatar">
+        <img ng-src="{{offer.offererId | profilePicture}}">
+        <h2><a ng-href="{{offer.offererId | profile}}">{{offer.displayName}}</a></h2>
+        <p>
+          {{offer.createdAt | date}}
+        </p>
+      </div>
+
+      <div class="item item-body">
+        <small>{{offer.location}}</small><br>
+        <!-- {{offer}} -->
+        <strong>{{ offer.number_give }} for {{ offer.ride }}</strong>
+      </div>
+
+      <!-- <div class="item tabs tabs-secondary tabs-icon-left">
+        <a class="tab-item" ng-click="setMaster(offer)" ui-sref="tabs.getDetails">
+          <i class="icon ion-ios7-cart"></i>
+          Get it!
+        </a>
+      </div> -->
     </div>
     <div class="statusMsg" ng-if="console.log('stop');">There are no offers available.</div>
   </ion-content>
