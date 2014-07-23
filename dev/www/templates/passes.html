@@ -15,10 +15,10 @@
         <div class="input-label">
           Ride
         </div>
-        <select ng-cloak ng-model="selectedRide" ng-options="offer for offer in text.offers | orderByPriority | uniqueRides"></select>
+        <select ng-cloak ng-model="selectedRide" ng-options="offer for offer in text.offers | orderByPriority | available | excludeMyOffers | uniqueRides"></select>
       </label>
 
-      <a class="item item-avatar" ng-cloak ng-repeat="offer in text.offers | orderByPriority | filter:search | available | excludeMyOffers" class="list card">
+      <a class="item item-avatar" ng-cloak ng-repeat="offer in text.offers | orderByPriority | filter:search | filter:selectedRide | available | excludeMyOffers" class="list card">
         <img ng-src="{{offer.offererId | profilePicture}}">
         <h2>{{offer.displayName}}</h2>
         <p>{{offer.number_give}} for {{offer.ride}}</p>
