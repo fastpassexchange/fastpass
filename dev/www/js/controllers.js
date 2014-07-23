@@ -586,12 +586,13 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
 })
 
-.controller('chatController', function($scope, $rootScope, $ionicScrollDelegate, $timeout, $firebase, listService, authService) {
+.controller('chatController', function($scope, $rootScope, $ionicScrollDelegate, $timeout,$firebase, listService, authService) {
   // initialize object for message contents
   $scope.comment = {};
   // the name associated with the selected offer
   $scope.to = $rootScope.selected.offererId;
-  console.log('selected: ', $rootScope.selected);
+  // Convo partner
+  $scope.talkingTo = $rootScope.selected.displayName;
   // current logged in user
   $scope.from = authService.getUserId();
   
@@ -600,6 +601,10 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
   messageRef.on('value', function(snapshot) {
     $scope.userMessages = snapshot.val();
+    // using timeout to set scroll at end of loop.
+    $timeout(function () {
+      $ionicScrollDelegate.scrollBottom();
+    }, 0);
   });
   console.log('userMessages: ', $scope.userMessages);
   
