@@ -1,4 +1,4 @@
-angular.module('fastpass.controllers', [])
+angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
   // Form data for the login modal
