@@ -27,12 +27,15 @@ angular.module('fastpass.filters', [])
   };
 }])
 
-// Filter out offers that are not available.
+// Filter out offers that are not available (available set to false or expired).
 .filter('available', [function () {
   return function (offers) {
     var available = [];
     angular.forEach(offers, function (offer) {
-      if (offer.available) {
+      // Filter out offers that are older than one hour.
+      var ageInSeconds = Math.floor(new Date().getTime()/1000) - moment(offer.timeString).unix();
+      var ageInHours = ageInSeconds/3600;
+      if (offer.available && ageInHours <= 1) {
         available.push(offer);
       }
     });
