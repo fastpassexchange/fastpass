@@ -15,13 +15,14 @@
         <div class="input-label">
           Ride
         </div>
-        <select ng-cloak ng-model="selectedRide" ng-options="offer for offer in text.offers | orderByPriority | available | excludeMyOffers | uniqueRides"></select>
+        <select ng-cloak ng-model="selectedRide" ng-options="offer for offer in text.offers | orderByPriority | available | excludeMyOffers | uniqueRides">
+          <option value="">All rides</option>
+        </select>
       </label>
 
-      <a class="item item-avatar" ng-cloak ng-repeat="offer in text.offers | orderByPriority | filter:search | filter:selectedRide | available | excludeMyOffers" class="list card">
-        <img ng-src="{{offer.offererId | profilePicture}}">
-        <h2>{{offer.displayName}}</h2>
-        <p>{{offer.number_give}} for {{offer.ride}}</p>
+      <a class="item" ng-cloak ng-repeat="offer in text.offers | orderByPriority | filter:search | filter:selectedRide | available | excludeMyOffers" ng-click="setMaster(offer)" ui-sref="tabs.chat">
+        <h2>{{offer.number_give}} for {{offer.ride}}</h2>
+        <p><i class="icon ion-ios7-location"></i> {{offer.location}}</p>
       </a>
     </div>
 
