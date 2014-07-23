@@ -10,12 +10,24 @@
           <input type="text" placeholder="Search" ng-model="search">
         </label>
       </div>
+
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Ride
+        </div>
+        <select ng-cloak ng-model="selectedRide" ng-options="offer for offer in text.offers | orderByPriority | available | excludeMyOffers | uniqueRides"></select>
+      </label>
+
+      <a class="item item-avatar" ng-cloak ng-repeat="offer in text.offers | orderByPriority | filter:search | filter:selectedRide | available | excludeMyOffers" class="list card">
+        <img ng-src="{{offer.offererId | profilePicture}}">
+        <h2>{{offer.displayName}}</h2>
+        <p>{{offer.number_give}} for {{offer.ride}}</p>
+      </a>
     </div>
 
-    <div ng-cloak ng-repeat="offer in text.offers | orderByPriority | filter:search | available | excludeMyOffers" class="list card">
+    <!-- <div ng-cloak ng-repeat="offer in text.offers | orderByPriority | filter:search | available | excludeMyOffers" class="list card">
 
       <div class="item item-avatar">
-        <img ng-src="{{offer.offererId | profilePicture}}">
         <h2><a ng-href="{{offer.offererId | profile}}">{{offer.displayName}}</a></h2>
         <p>
           {{offer.createdAt | date}}
@@ -24,8 +36,8 @@
 
       <div class="item item-body">
         <small>{{offer.location}}</small><br>
-        <!-- {{offer}} -->
-        <a ng-if="isNotYourOffer(offer.offererId)" ng-click="setMaster(offer)" ui-sref="tabs.chat"><strong>{{ offer.number_give }} for {{ offer.ride }}</strong></a>
+        <!-- {{offer}}
+        <a ng-if="isNotYourOffer(offer.offererId)" ng-click="setMaster(offer)" ui-sref="tabs.chat"><strong></strong></a>
       </div>
 
       <!-- <div class="item tabs tabs-secondary tabs-icon-left">
@@ -33,8 +45,8 @@
           <i class="icon ion-ios7-cart"></i>
           Get it!
         </a>
-      </div> -->
-    </div>
+      </div>
+    </div> -->
     <div class="statusMsg" ng-if="console.log('stop');">There are no offers available.</div>
   </ion-content>
 </ion-view>
