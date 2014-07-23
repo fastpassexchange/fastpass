@@ -1,4 +1,4 @@
-angular.module('fastpass', ['firebase', 'ionic', 'fastpass.controllers', 'fastpass.services'])
+angular.module('fastpass', ['firebase', 'ionic', 'fastpass.controllers', 'fastpass.services', 'fastpass.filters'])
 
 .run(function($ionicPlatform, $rootScope, authService, $state) {
   $ionicPlatform.ready(function() {
@@ -147,4 +147,3 @@ angular.module('fastpass', ['firebase', 'ionic', 'fastpass.controllers', 'fastpa
    // if any other url is entered go to home page
    $urlRouterProvider.otherwise("/tab/home");
 });
-
