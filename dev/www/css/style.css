@@ -26,10 +26,22 @@
   word-wrap:break-word;
 }
 
-.messageDiv {
-   -webkit-overflow-scrolling: touch;
-  /*overflow: scroll;
-  height: 500dppx;*/
+.chatMessages {
+  -webkit-overflow-scrolling: touch;
+  height: 50%;
+}
+
+.chatInput {
+  height: 20%;
+  postion:absolute;
+  top:57%;
+}
+
+.chatDetails {
+  height: 20%;
+  font-size:12px;
+  border-style:solid;
+  border-width:1px;
 }
 
 /*.angular-leaflet-map {
