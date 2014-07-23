@@ -1,8 +1,15 @@
-<!-- <ion-view title="Sign In" ng-controller="loginController"> -->
-<ion-view title="Sign In">
+<ion-view title="Sign In" ng-controller="loginController">
+<!-- <ion-view title="Sign In"> -->
   <ion-nav-buttons side="left">
     <button menu-toggle="left"class="button button-icon icon ion-navicon"></button>
   </ion-nav-buttons>
   <ion-content class="has-header">
+  <p>
+    <button class="button button-block button-assertive" type= "submit" ng-click="validateUser('facebook')">Facebook</button>
+  </p>
+  <p>
+    <button class="button button-block button-assertive" type= "submit" ng-click="validateUser('google')">Google</button>
+  </p>
+  <h1 class="bodyFont" style='text-align:center; font-size:18px'>You must be in the park and allow Fastpass Exchange to use your current location.</h1>
   </ion-content>
 </ion-view>

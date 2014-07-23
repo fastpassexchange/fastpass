@@ -1,5 +1,12 @@
 angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
+// log in user
+.controller('loginController', function($scope, authService) {
+  $scope.validateUser = function(type) {
+    authService.login(type);
+  };
+})
+
 .controller('chatController', function($scope, $rootScope, $ionicScrollDelegate, $timeout, $firebase, listService, authService) {
   // initialize object for message contents
   $scope.comment = {};
@@ -45,18 +52,4 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     // $ionicScrollDelegate.scrollBottom();
   };
 
-})
-
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
-})
-
-.controller('PlaylistCtrl', function($scope, $stateParams) {
 })

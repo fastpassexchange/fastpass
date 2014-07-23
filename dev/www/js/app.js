@@ -68,15 +68,6 @@ angular.module('fastpass', ['ionic', 'fastpass.controllers', 'firebase', 'fastpa
         }
       }
     })
-    .state('app.playlists', {
-      url: "/playlists",
-      views: {
-        'menuContent' :{
-          templateUrl: "templates/playlists.html",
-          controller: 'PlaylistsCtrl'
-        }
-      }
-    })
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/playlists');
