@@ -1,6 +1,12 @@
-angular.module('fastpass', ['firebase', 'ionic', 'fastpass.controllers', 'fastpass.services', 'fastpass.filters'])
+// Ionic Starter App
 
-.run(function($ionicPlatform, $rootScope, authService, $state) {
+// angular.module is a global place for creating, registering and retrieving Angular modules
+// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
+// the 2nd parameter is an array of 'requires'
+// 'starter.controllers' is found in controllers.js
+angular.module('starter', ['ionic', 'starter.controllers'])
+
+.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -12,138 +18,55 @@ angular.module('fastpass', ['firebase', 'ionic', 'fastpass.controllers', 'fastpa
       StatusBar.styleDefault();
     }
   });
-  authService.logout();
-  // if(window.cookies){
-  //   window.cookies.clear(function() {
-  //     console.log('Cookies cleared!');
-  //   });
-  // }
-  $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
-    if (toState.authenticate && !authService.isAuthenticated()){
-      // User not authenticated
-      console.log("User not authenticated");
-      $state.go("tabs.home").then(function(){
-        $rootScope.$broadcast('$stateChangeSuccess');
-      });
-      event.preventDefault();
-    }
-  });
 })
 
-// ui-router https://github.com/angular-ui/ui-router
 .config(function($stateProvider, $urlRouterProvider) {
-
   $stateProvider
-    .state('tabs', {
-      url: "/tab",
+
+    .state('app', {
+      url: "/app",
       abstract: true,
-      templateUrl: "templates/tabs.html"
+      templateUrl: "templates/menu.html",
+      controller: 'AppCtrl'
     })
-    .state('tabs.home', {
-      url: "/home",
+
+    .state('app.search', {
+      url: "/search",
       views: {
-        'home-tab': {
-          templateUrl: "templates/home.html",
-          controller: 'HomeTabCtrl'
+        'menuContent' :{
+          templateUrl: "templates/search.html"
         }
       }
     })
-    .state('tabs.getPass', {
-      url: "/getPass",
-      authenticate: true,
+
+    .state('app.browse', {
+      url: "/browse",
       views: {
-        'home-tab': {
-          templateUrl: "templates/passes.html",
-          controller: 'listController'
+        'menuContent' :{
+          templateUrl: "templates/browse.html"
         }
       }
     })
-    .state('tabs.offerInput', {
-      url: "/offerInput",
-      authenticate: true,
+    .state('app.playlists', {
+      url: "/playlists",
       views: {
-        'home-tab': {
-          templateUrl: "templates/offerInput.html",
-          controller: 'offerController'
+        'menuContent' :{
+          templateUrl: "templates/playlists.html",
+          controller: 'PlaylistsCtrl'
         }
       }
     })
-    .state('tabs.getDetails', {
-      url: "/getDetails",
-      authenticate: true,
+
+    .state('app.single', {
+      url: "/playlists/:playlistId",
       views: {
-        'home-tab': {
-          templateUrl: "templates/getDetails.html",
-          controller: 'detailController'
-        }
-      }
-    })
-    .state('tabs.connection', {
-      url: "/connection",
-      authenticate: true,
-      views: {
-        'home-tab': {
-          templateUrl: "templates/connection.html",
-          controller: 'connectionController'
-        }
-      }
-    })
-    .state('tabs.chat', {
-      url: "/chat",
-      authenticate: true,
-      views: {
-        'dashboard-tab': {
-          templateUrl: "templates/chat.html",
-          controller: 'chatController'
-        }
-      }
-    })
-    .state('tabs.myOffers', {
-      url: "/myOffers",
-      authenticate: true,
-      views: {
-        'dashboard-tab': {
-          templateUrl: "templates/myOffers.html",
-          controller: "myOffersController"
-        }
-      }
-    })
-    .state('tabs.myConvos', {
-      url: "/myConvos",
-      authenticate: true,
-      views: {
-        'dashboard-tab': {
-          templateUrl: "templates/myConvos.html",
-          controller: "myConvosController"
-        }
-      }
-    })
-    .state('tabs.dashboard', {
-      url: "/dashboard",
-      authenticate: true,
-      views: {
-        'dashboard-tab': {
-          templateUrl: "templates/dashboard.html",
-          controller: 'dashboardController'
-        }
-      }
-    })
-    .state('tabs.signin', {
-      url: "/signin",
-      views: {
-        'signin-tab': {
-          templateUrl: "templates/signin.html"
-        }
-      }
-    })
-    .state('tabs.signout', {
-      url: "/signout",
-      views: {
-        'signout-tab': {
-          templateUrl: "templates/signout.html"
+        'menuContent' :{
+          templateUrl: "templates/playlist.html",
+          controller: 'PlaylistCtrl'
         }
       }
     });
-   // if any other url is entered go to home page
-   $urlRouterProvider.otherwise("/tab/home");
+  // if none of the above states are matched, use this as the fallback
+  $urlRouterProvider.otherwise('/app/playlists');
 });
+
