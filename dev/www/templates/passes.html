@@ -25,9 +25,7 @@
       <div class="item item-body">
         <small>{{offer.location}}</small><br>
         <!-- {{offer}} -->
-        <strong>{{ offer.number_give }} for {{ offer.ride }}</strong>
-        <strong><a class="button button-clear" ng-if="offer.available  && isNotYourOffer(offer.offererId)" ng-click="setMaster(offer)"
-ui-sref="tabs.chat">{{ offer.number_give }} for {{ offer.ride }}</a></strong>
+        <a ng-if="offer.available && isNotYourOffer(offer.offererId)" ng-click="setMaster(offer)" ui-sref="tabs.chat"><strong>{{ offer.number_give }} for {{ offer.ride }}</strong></a>
       </div>
 
       <!-- <div class="item tabs tabs-secondary tabs-icon-left">
