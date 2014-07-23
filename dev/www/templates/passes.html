@@ -15,7 +15,9 @@
         <div class="input-label">
           Ride
         </div>
-        <select ng-cloak ng-model="selectedRide" ng-options="offer for offer in text.offers | orderByPriority | available | excludeMyOffers | uniqueRides"></select>
+        <select ng-cloak ng-model="selectedRide" ng-options="offer for offer in text.offers | orderByPriority | available | excludeMyOffers | uniqueRides">
+          <option value="">Select a ride</option>
+        </select>
       </label>
 
       <a class="item item-avatar" ng-cloak ng-repeat="offer in text.offers | orderByPriority | filter:search | filter:selectedRide | available | excludeMyOffers" class="list card">
