@@ -4,7 +4,7 @@ angular.module('fastpass.services', ['ionic'])
 // used in listController
 .factory('listService', ['$firebase', '$ionicLoading', function($firebase, $ionicLoading) {
   $ionicLoading.show({
-    template: 'Loading...'
+    template: '<i class="icon ion-looping"></i>'
   });
   var ref = new Firebase('https://fastpass-connection.firebaseio.com/');
   ref.on('value', function() {
@@ -48,7 +48,7 @@ angular.module('fastpass.services', ['ionic'])
     if (type === 'facebook' || type === 'twitter' || 'google'){
       console.log("attempting auth service login");
       $ionicLoading.show({
-        template: 'Loading...'
+        template: '<i class="icon ion-looping"></i>'
       });
       auth.$login(type)
       .then(function(user) {
@@ -124,7 +124,7 @@ angular.module('fastpass.services', ['ionic'])
 })
 
 .factory('geolocationService', function($ionicLoading) {
-  
+
   // Disneyland boundaries
   var disneyLandBoundaries = {
     maxLat: 33.814641,
@@ -231,6 +231,3 @@ angular.module('fastpass.services', ['ionic'])
 //     }
 //   };
 // });
-
-
-
