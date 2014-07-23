@@ -1,4 +1,5 @@
 <ion-view title="Details" ng-controller="listController" class="padding">
+<<<<<<< HEAD
   <ion-content>
     <!--  <p> * To exchange a pass you must be within the park, have location services enabled on your device, and allow others to see you current location
     </p> -->
@@ -42,5 +43,18 @@
     </div>
 
 
+=======
+  <ion-content style="text-align:center">        
+    <p> Name: {{ selected.displayName }}<br>
+    Ride: {{ selected.ride }}<br>
+    Pass Start Time: {{ selected.timeString }}<br>
+   {{ selected.number_give }}<br>
+    Free or trade: {{ selected.comment }}<br>
+    Offerer's current location: {{ selected.location }}</p>
+
+      <a class="button button-assertive" ui-sref="tabs.chat">Make Connection</a>
+   <!--  <p> * To exchange a pass you must be within the park, have location services enabled on your device, and allow others to see you current location
+    </p> -->
+>>>>>>> Make login the home page
   </ion-content>
 </ion-view>

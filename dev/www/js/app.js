@@ -70,6 +70,6 @@ angular.module('fastpass', ['ionic', 'fastpass.controllers', 'firebase', 'fastpa
     })
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/app/home');
 });
 

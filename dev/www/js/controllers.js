@@ -7,6 +7,8 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   };
 })
 
+
+
 .controller('chatController', function($scope, $rootScope, $ionicScrollDelegate, $timeout, $firebase, listService, authService) {
   // initialize object for message contents
   $scope.comment = {};
