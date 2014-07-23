@@ -6,22 +6,23 @@
           </div>
         </div>
   </ion-content>
-  <div class="chatInput">
+  <ion-pane class="chatInput">
       <form>
         <label class="item item-input item-stacked-label">
           <input type="text" placeholder="write message" ng-model="comment.content">
         </label>
-        <button class="button button-small button-assertive" style="font-size: 18px; margin-top:5px;margin-bottom:5px" type="submit" ng-click="sendComment()">
+        <button class="button button-small button-assertive" style="font-size:0.9em; margin-top:0.2em;margin-bottom:0.5em" type="submit" ng-click="sendComment()">
           send message
         </button>
         <br>
       </form>
-  </div>
-    <div class="chatDetails">
-      <p class="bodyFont"> You are chatting in reference to the following offer:<br>
-      Ride: {{ selected.ride }}<br>
-      Pass start time: {{ selected.timeString }}<br>
-      {{ selected.number_give }}<br>
-      free or trade: {{ selected.comment }}<br>
-    </div>
+  </ion-pane>
+
+  <ion-footer-bar class="chatDetails">
+    <p class="bodyFont"> You are chatting in reference to the following offer:<br>
+    Ride: {{ selected.ride }}<br>
+    Pass start time: {{ selected.timeString }}<br>
+    {{ selected.number_give }}<br>
+    free or trade: {{ selected.comment }}<br>
+  </ion-footer-bar>
 </ion-view>
