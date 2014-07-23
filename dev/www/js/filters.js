@@ -3,13 +3,13 @@ angular.module('fastpass.filters', [])
 // Given a user id in the format (facebook|google):[uid], this function returns
 // an URL for the profile picture, which can be used later on to display an
 // avatar.
-.filter('profilePicture', ['$http', function ($http) {
+.filter('avatar', [function () {
   return function (input) {
     input = input.split(':');
     if (input[0] === 'facebook') {
       return 'http://graph.facebook.com/' + input[1] + '/picture';
     } else if (input[0] === 'google') {
-      return '#';
+      return '';
     }
   };
 }])
@@ -53,7 +53,6 @@ angular.module('fastpass.filters', [])
   };
 }])
 
-
 // Extract rides for drop down box.
 .filter('uniqueRides', [function () {
   return function (offers) {
@@ -63,4 +62,15 @@ angular.module('fastpass.filters', [])
     });
     return Object.keys(rides);
   };
-}]);
+}])
+
+
+// Extract rides for drop down box.
+.filter('ago', [function () {
+  return function (timestamp) {
+    return moment(timestamp).fromNow();
+  };
+}])
+
+
+;

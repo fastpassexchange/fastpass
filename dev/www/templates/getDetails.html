@@ -1,14 +1,44 @@
 <ion-view title="Details" ng-controller="listController" class="padding">
-  <ion-content style="text-align:center">        
-    <p> Name: {{ selected.displayName }}<br>
-    Ride: {{ selected.ride }}<br>
-    Pass Start Time: {{ selected.timeString }}<br>
-   {{ selected.number_give }}<br>
-    Free or trade: {{ selected.comment }}<br>
-    Offerer's current location: {{ selected.location }}</p>
-
-      <a class="button button-assertive" ui-sref="tabs.chat">Make Connection</a>
-   <!--  <p> * To exchange a pass you must be within the park, have location services enabled on your device, and allow others to see you current location
+  <ion-content>
+    <!--  <p> * To exchange a pass you must be within the park, have location services enabled on your device, and allow others to see you current location
     </p> -->
+
+    <div class="list card">
+
+      <div class="item item-avatar">
+        <img ng-src="{{selected.offererId | avatar}}">
+        <h2>{{ selected.displayName }}</h2>
+        <p>{{ selected.createdAt | ago }}</p>
+      </div>
+
+      <div class="item item-body">
+        <p>
+          <i class="icon ion-ios7-location"></i> {{ selected.location }}
+        </p>
+        <!-- <strong>Ride</strong>
+          <span>{{ selected.ride }}</span><br>
+        <strong>Free or trade:</strong>
+          <span>{{ selected.comment }}</span>
+        <strong>Offerer's current location:</strong>
+          <span>{{ selected.location }}</span> -->
+        <p>
+          <span class="subdued">{{ selected.number_give }} for {{ selected.ride }} </span>
+          <span class="subdued">
+            <i class="icon ion-ios7-pricetag"></i>
+            {{ selected.comment }}
+          </span>
+        </p>
+      </div>
+
+      <div class="item tabs tabs-secondary tabs-icon-left">
+        <a class="tab-item" ui-sref="tabs.chat">
+          <i class="icon ion-chatbox"></i>
+          Make connection
+        </a>
+      </div>
+
+    </div>
+
+
   </ion-content>
 </ion-view>
