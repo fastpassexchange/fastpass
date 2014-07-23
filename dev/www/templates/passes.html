@@ -12,7 +12,7 @@
       </div>
     </div>
 
-    <div ng-cloak ng-repeat="offer in text.offers | orderByPriority | filter:search" class="list card" ng-if="offer.available  && isNotYourOffer(offer.offererId)">
+    <div ng-cloak ng-repeat="offer in text.offers | orderByPriority | filter:search | available | excludeMyOffers" class="list card">
 
       <div class="item item-avatar">
         <img ng-src="{{offer.offererId | profilePicture}}">
@@ -25,7 +25,7 @@
       <div class="item item-body">
         <small>{{offer.location}}</small><br>
         <!-- {{offer}} -->
-        <a ng-if="offer.available && isNotYourOffer(offer.offererId)" ng-click="setMaster(offer)" ui-sref="tabs.chat"><strong>{{ offer.number_give }} for {{ offer.ride }}</strong></a>
+        <a ng-if="isNotYourOffer(offer.offererId)" ng-click="setMaster(offer)" ui-sref="tabs.chat"><strong>{{ offer.number_give }} for {{ offer.ride }}</strong></a>
       </div>
 
       <!-- <div class="item tabs tabs-secondary tabs-icon-left">
