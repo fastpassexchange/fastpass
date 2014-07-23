@@ -1,4 +1,4 @@
-angular.module('fastpass', ['ionic', 'fastpass.controllers', 'firebase'])
+angular.module('fastpass', ['ionic', 'fastpass.controllers', 'firebase', 'fastpass.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -39,7 +39,7 @@ angular.module('fastpass', ['ionic', 'fastpass.controllers', 'firebase'])
       views: {
         'menuContent': {
           templateUrl: "templates/chat.html",
-          controller: 'chatController'
+          // controller: 'chatController'
         }
       }
     })

@@ -1,6 +1,6 @@
 angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
-.controller('chatController', function($scope, $rootScope, $ionicScrollDelegate, $timeout, $firebase, listService, authService) {
+.controller('chatController', function($scope, $rootScope, $ionicScrollDelegate, $timeout, $firebase, authService) {
   // initialize object for message contents
   $scope.comment = {};
   // the name associated with the selected offer
