@@ -79,7 +79,15 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
        console.log('offer: ', offer);
        var confirmPopup = $ionicPopup.confirm({
        title: 'Delete Offer',
-       template: 'Are you sure you want to delete this offer?'
+       template: 'Are you sure you want to delete this offer?',
+       buttons: [{
+        text: 'Cancel',
+        type: 'button-stable'
+       } , {
+        text: 'OK',
+        type: 'button-dark'
+       }
+       ]
      });
      confirmPopup.then(function(res) {
        if(res) {

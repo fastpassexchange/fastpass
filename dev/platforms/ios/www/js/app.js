@@ -1,4 +1,4 @@
-angular.module('fastpass', ['firebase', 'ionic', 'fastpass.controllers', 'fastpass.services'])
+angular.module('fastpass', ['firebase', 'ionic', 'fastpass.controllers', 'fastpass.services', 'fastpass.filters'])
 
 .run(function($ionicPlatform, $rootScope, authService, $state) {
   $ionicPlatform.ready(function() {
@@ -22,7 +22,7 @@ angular.module('fastpass', ['firebase', 'ionic', 'fastpass.controllers', 'fastpa
     if (toState.authenticate && !authService.isAuthenticated()){
       // User not authenticated
       console.log("User not authenticated");
-      $state.go("tabs.signin").then(function(){
+      $state.go("tabs.home").then(function(){
         $rootScope.$broadcast('$stateChangeSuccess');
       });
       event.preventDefault();
@@ -147,4 +147,3 @@ angular.module('fastpass', ['firebase', 'ionic', 'fastpass.controllers', 'fastpa
    // if any other url is entered go to home page
    $urlRouterProvider.otherwise("/tab/home");
 });
-
