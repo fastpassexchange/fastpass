@@ -15,6 +15,12 @@
         <p>
           <i class="icon ion-ios7-location"></i> {{ selected.location }}
         </p>
+        <p>
+          <i class="icon ion-calendar"></i> {{ selected.timeString }}
+        </p>
+        <p>
+          <i class="icon ion-cash"></i> {{ selected.comment }}
+        </p>
         <!-- <strong>Ride</strong>
           <span>{{ selected.ride }}</span><br>
         <strong>Free or trade:</strong>
@@ -22,17 +28,13 @@
         <strong>Offerer's current location:</strong>
           <span>{{ selected.location }}</span> -->
         <p>
-          <span class="subdued">{{ selected.number_give }} for {{ selected.ride }} </span>
-          <span class="subdued">
-            <i class="icon ion-ios7-pricetag"></i>
-            {{ selected.comment }}
-          </span>
+          <span class="subdued">{{ selected.number_give }} for {{ selected.ride }}</span>
         </p>
       </div>
 
       <div class="item tabs tabs-secondary tabs-icon-left">
         <a class="tab-item" ui-sref="tabs.chat">
-          <i class="icon ion-chatbox"></i>
+          <i class="icon ion-ios7-chatboxes-outline"></i>
           Make connection
         </a>
       </div>
