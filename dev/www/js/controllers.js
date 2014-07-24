@@ -285,7 +285,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 //   }
 // ])
 
-.controller('offerController', function($scope, $firebase, authService, timerService) {
+.controller('offerController', function($scope, $firebase, authService, $state, timerService) {
   // $scope properties for drop down menus
   $scope.rides = [
     {name: 'Select A Ride', value: ''},
@@ -470,6 +470,8 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
         // clear input fields of form
         initVars();
+
+        $state.go('app.getPass');
 
         // set status message
 
