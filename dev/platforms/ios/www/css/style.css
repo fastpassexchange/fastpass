@@ -26,10 +26,29 @@
   word-wrap:break-word;
 }
 
+<<<<<<< HEAD
+.chatMessages {
+  -webkit-overflow-scrolling: touch;
+  height: 50%;
+}
+
+.chatInput {
+  height: 20%;
+  postion:absolute;
+  top:57%;
+}
+
+.chatDetails {
+  height: 20%;
+  font-size:12px;
+  border-style:solid;
+  border-width:1px;
+=======
 .messageDiv {
    -webkit-overflow-scrolling: touch;
   /*overflow: scroll;
   height: 500dppx;*/
+>>>>>>> Transplant all but js and template folders
 }
 
 /*.angular-leaflet-map {
@@ -51,8 +70,13 @@
 #map {
    position:absolute;
    /*top:0;*/
+<<<<<<< HEAD
+   bottom:0;
+   width:100%;
+=======
    bottom:0; 
    width:100%; 
+>>>>>>> Transplant all but js and template folders
    height: 75%;
    margin-top: 25dppx;
    margin-bottom: 50dppx;
@@ -71,7 +95,11 @@
   background-image: linear-gradient(0deg, #333, #333 50%, transparent 50%);
 }
 
+<<<<<<< HEAD
+.tabs-calm > .tabs,
+=======
 .tabs-calm > .tabs, 
+>>>>>>> Transplant all but js and template folders
 .tabs.tabs-calm {
   background-color: #333;
   border-color: #333;
@@ -79,7 +107,11 @@
   background-image: linear-gradient(0deg, #333, #333 50%, transparent 50%);
 }
 
+<<<<<<< HEAD
+.button-assertive > .button,
+=======
 .button-assertive > .button, 
+>>>>>>> Transplant all but js and template folders
 .button.button-assertive {
   background-color: #E00000 ;
   border-color: #E00000 ;
@@ -88,7 +120,11 @@
   text-align: center;
 }
 
+<<<<<<< HEAD
+.button-clear > .button,
+=======
 .button-clear > .button, 
+>>>>>>> Transplant all but js and template folders
 .button.button-clear {
   overflow: hidden;
   width: 93%;
@@ -107,14 +143,22 @@
 }
 
 .offer {
+<<<<<<< HEAD
+  text-align:center;
+=======
   text-align:center; 
+>>>>>>> Transplant all but js and template folders
   -moz-border-radius: 15px;
   border-radius: 15px;
   font-color: #333;
 }
 
 .image {
+<<<<<<< HEAD
+  background:  no-repeat center center fixed;
+=======
   background:  no-repeat center center fixed; 
+>>>>>>> Transplant all but js and template folders
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -126,4 +170,8 @@
       html { height: 100% }
       body { height: 100%; margin: 0; padding: 0 }
       #map-canvas { height: 100% }
+<<<<<<< HEAD
     </style>*/
+=======
+    </style>*/
+>>>>>>> Transplant all but js and template folders

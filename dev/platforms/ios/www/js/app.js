@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+angular.module('fastpass', ['firebase', 'ionic', 'fastpass.controllers', 'fastpass.services', 'fastpass.filters'])
+=======
 angular.module('fastpass', ['firebase', 'ionic', 'fastpass.controllers', 'fastpass.services'])
+>>>>>>> Transplant all but js and template folders
 
 .run(function($ionicPlatform, $rootScope, authService, $state) {
   $ionicPlatform.ready(function() {
@@ -22,7 +26,11 @@ angular.module('fastpass', ['firebase', 'ionic', 'fastpass.controllers', 'fastpa
     if (toState.authenticate && !authService.isAuthenticated()){
       // User not authenticated
       console.log("User not authenticated");
+<<<<<<< HEAD
+      $state.go("tabs.home").then(function(){
+=======
       $state.go("tabs.signin").then(function(){
+>>>>>>> Transplant all but js and template folders
         $rootScope.$broadcast('$stateChangeSuccess');
       });
       event.preventDefault();
@@ -147,4 +155,7 @@ angular.module('fastpass', ['firebase', 'ionic', 'fastpass.controllers', 'fastpa
    // if any other url is entered go to home page
    $urlRouterProvider.otherwise("/tab/home");
 });
+<<<<<<< HEAD
+=======
 
+>>>>>>> Transplant all but js and template folders

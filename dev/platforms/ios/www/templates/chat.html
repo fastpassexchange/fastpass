@@ -1,13 +1,40 @@
+<<<<<<< HEAD
+  <ion-view title="{{talkingTo}}" ng-controller="chatController" class="chatView">
+  <ion-content style="text-align:center" class="chatMessages">
+=======
 <ion-view title="Conversation" ng-controller="chatController" class="chatView">
   <ion-content style="text-align:center">
       <!-- <div style="height: 300px"> -->
     <!-- <div ng-controller="scrollController"> -->
       <div class="messageDiv">   <!-- style="height:250px">  ; overflow:scroll"> -->
+>>>>>>> Transplant all but js and template folders
         <div ng-cloak ng-repeat="message in userMessages">
           <div ng-if="!!message.content">
             {{ message.senderDisplayName }}: {{ message.content }}  <!-- : {{ message.createdAt }} -->
           </div>
         </div>
+<<<<<<< HEAD
+  </ion-content>
+  <ion-pane class="chatInput">
+      <form>
+        <label class="item item-input item-stacked-label">
+          <input type="text" placeholder="write message" ng-model="comment.content">
+        </label>
+        <button class="button button-small button-assertive" style="font-size:0.9em; margin-top:0.2em;margin-bottom:0.5em" type="submit" ng-click="sendComment()">
+          send message
+        </button>
+        <br>
+      </form>
+  </ion-pane>
+
+  <ion-footer-bar class="chatDetails">
+    <p class="bodyFont"> You are chatting in reference to the following offer:<br>
+    Ride: {{ selected.ride }}<br>
+    Pass start time: {{ selected.timeString }}<br>
+    {{ selected.number_give }}<br>
+    free or trade: {{ selected.comment }}<br>
+  </ion-footer-bar>
+=======
       </div>
       <div>
           <form>
@@ -35,4 +62,5 @@
       see map
   </button> -->
   </ion-content>
+>>>>>>> Transplant all but js and template folders
 </ion-view>

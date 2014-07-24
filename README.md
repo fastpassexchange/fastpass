@@ -82,4 +82,8 @@ See the projects backlog in asana [here](https://app.asana.com/0/14550132432706/
 
 ## Contributing
 
+<<<<<<< HEAD
 See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
+=======
+See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
+>>>>>>> Transplant all but js and template folders
