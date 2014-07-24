@@ -60,6 +60,28 @@ angular.module('fastpass', ['ionic', 'fastpass.controllers', 'firebase', 'fastpa
       }
     })
 
+    .state('app.myConvos', {
+      url: "/myConvos",
+      // authenticate: true,
+      views: {
+        'menuContent': {
+          templateUrl: "templates/myConvos.html",
+          // controller: "myConvosController"
+        }
+      }
+    })
+
+    .state('app.myOffers', {
+      url: "/myOffers",
+      // authenticate: true,
+      views: {
+        'menuContent': {
+          templateUrl: "templates/myOffers.html",
+          // controller: "myOffersController"
+        }
+      }
+    })
+
     .state('app.chat', {
       url: "/chat",
       // authenticate: true,
