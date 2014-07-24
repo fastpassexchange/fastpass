@@ -67,13 +67,9 @@ angular.module('fastpass.filters', [])
   };
 }])
 
-
 // Extract rides for drop down box.
 .filter('ago', [function () {
   return function (timestamp) {
     return moment(timestamp).fromNow();
   };
-}])
-
-
-;
+}]);
