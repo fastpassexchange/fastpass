@@ -463,7 +463,9 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
         // add to user's offer hash
         var usersOffers = new Firebase('https://fastpass-connection.firebaseio.com/users/' + $scope.offer.offererId + '/offers');
         // add offer hash to logged in users offers hash
-        $firebase(usersOffers).$add($scope.offer);
+        $firebase(usersOffers).$add($scope.offer).then(function(ref){
+          $state.go('app.myOffers');
+        });
 
         // update last offer time
         timerService.setLastOfferTime($scope.offer.createdAt);
@@ -471,7 +473,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
         // clear input fields of form
         initVars();
 
-        $state.go('app.getPass');
+        
 
         // set status message
 
