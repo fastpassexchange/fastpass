@@ -79,6 +79,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
        console.log('offer: ', offer);
        var confirmPopup = $ionicPopup.confirm({
        title: 'Delete Offer',
+<<<<<<< HEAD
        template: 'Are you sure you want to delete this offer?',
        buttons: [{
         text: 'Cancel',
@@ -88,6 +89,9 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
         type: 'button-dark'
        }
        ]
+=======
+       template: 'Are you sure you want to delete this offer?'
+>>>>>>> Transplant all but js and template folders
      });
      confirmPopup.then(function(res) {
        if(res) {
@@ -594,13 +598,21 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
 })
 
+<<<<<<< HEAD
 .controller('chatController', function($scope, $rootScope, $ionicScrollDelegate, $timeout,$firebase, listService, authService) {
+=======
+.controller('chatController', function($scope, $rootScope, $ionicScrollDelegate, $timeout, $firebase, listService, authService) {
+>>>>>>> Transplant all but js and template folders
   // initialize object for message contents
   $scope.comment = {};
   // the name associated with the selected offer
   $scope.to = $rootScope.selected.offererId;
+<<<<<<< HEAD
   // Convo partner
   $scope.talkingTo = $rootScope.selected.displayName;
+=======
+  console.log('selected: ', $rootScope.selected);
+>>>>>>> Transplant all but js and template folders
   // current logged in user
   $scope.from = authService.getUserId();
   
@@ -609,10 +621,13 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
   messageRef.on('value', function(snapshot) {
     $scope.userMessages = snapshot.val();
+<<<<<<< HEAD
     // using timeout to set scroll at end of loop.
     $timeout(function () {
       $ionicScrollDelegate.scrollBottom();
     }, 0);
+=======
+>>>>>>> Transplant all but js and template folders
   });
   console.log('userMessages: ', $scope.userMessages);
   

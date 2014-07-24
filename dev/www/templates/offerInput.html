@@ -1,4 +1,7 @@
 <ion-view title="Give Fastpass" ng-controller="offerController" class="padding">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left"class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
   <ion-content style="text-align:center">
     <div class="errorMsg">{{ errorMsg }}</div>
     <div class="list">
@@ -8,13 +11,11 @@
         <select ng-model="offer.ride" ng-options="ride.value as ride.name for ride in rides"></select>
       </label>
       <!-- <div> -->
-
           <label class="item item-input">
             <span class="input-label">Pass start time:</span>
             <!-- <select ng-model="offer.hour" ng-options="hour.value as hour.name for hour in passTimeHour"></select> -->
           </label>
           <label class="item item-input">
-            <!-- <span class="input-label">Pass start time:</span><br> -->
             <select ng-model="offer.hour" ng-options="hour.value as hour.name for hour in passTimeHour"></select>
           </label>
           <label class="item item-input">

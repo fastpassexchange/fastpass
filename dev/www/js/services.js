@@ -63,7 +63,7 @@ angular.module('fastpass.services', ['ionic'])
         geolocationService.updateUserGeolocation(function(){
           console.log("updateUserCallback");
           $ionicLoading.hide();
-          $state.go('tabs.getPass');
+          $state.go('app.getPass');
         });
       }, function(err) {
         console.log('Login failed: ' + err);
@@ -71,7 +71,7 @@ angular.module('fastpass.services', ['ionic'])
       });
     }else{
       console.log('Unrecognized login type');
-      $state.go('tabs.home');
+      $state.go('app.home');
     }
   };
 

@@ -1,10 +1,10 @@
-  <ion-view title="{{talkingTo}}" ng-controller="chatController" class="chatView">
+<ion-view title="{{talkingTo}}" ng-controller="chatController" class="chatView">
   <ion-content style="text-align:center" class="chatMessages">
-        <div ng-cloak ng-repeat="message in userMessages">
-          <div ng-if="!!message.content">
-            {{ message.senderDisplayName }}: {{ message.content }}  <!-- : {{ message.createdAt }} -->
-          </div>
-        </div>
+    <div ng-cloak ng-repeat="message in userMessages">
+      <div ng-if="!!message.content">
+        {{ message.senderDisplayName }}: {{ message.content }}  <!-- : {{ message.createdAt }} -->
+      </div>
+    </div>
   </ion-content>
   <ion-pane class="chatInput">
       <form>
@@ -25,4 +25,5 @@
     {{ selected.number_give }}<br>
     free or trade: {{ selected.comment }}<br>
   </ion-footer-bar>
+
 </ion-view>
