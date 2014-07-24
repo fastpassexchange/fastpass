@@ -1,4 +1,4 @@
-angular.module('fastpass', ['ionic', 'fastpass.controllers', 'firebase', 'fastpass.services'])
+angular.module('fastpass', ['ionic', 'fastpass.controllers', 'firebase', 'fastpass.services', 'fastpass.filters'])
 
 .run(function($ionicPlatform, $rootScope, authService, $state) {
   $ionicPlatform.ready(function() {
