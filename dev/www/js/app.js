@@ -49,6 +49,17 @@ angular.module('fastpass', ['ionic', 'fastpass.controllers', 'firebase', 'fastpa
       }
     })
 
+    .state('app.getDetails', {
+      url: "/getDetails",
+      authenticate: true,
+      views: {
+        'menuContent': {
+          templateUrl: "templates/getDetails.html",
+          controller: 'detailController'
+        }
+      }
+    })
+
     .state('app.getPass', {
       url: "/getPass",
       authenticate: true,
