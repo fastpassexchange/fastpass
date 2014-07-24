@@ -473,7 +473,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
         // set status message
 
-        $scope.statusMsg = "New Offer Submitted. Track your offers on the dashboard.";
+        $scope.statusMsg = "New Offer Submitted.";
       } else {
         $scope.errorMsg = "Please wait 30 minutes between submitting offers.";
       }
