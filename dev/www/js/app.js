@@ -71,6 +71,15 @@ angular.module('fastpass', ['ionic', 'fastpass.controllers', 'firebase', 'fastpa
       }
     })
 
+    .state('app.signout', {
+      url: "/signout",
+      views: {
+        'menuContent': {
+          templateUrl: "templates/signout.html"
+        }
+      }
+    })
+
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/home');
 });
