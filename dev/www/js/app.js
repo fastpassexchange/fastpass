@@ -44,7 +44,7 @@ angular.module('fastpass', ['ionic', 'fastpass.controllers', 'firebase', 'fastpa
       views: {
         'menuContent': {
           templateUrl: "templates/home.html",
-          // controller: 'HomeTabCtrl'
+          controller: 'HomeTabCtrl'
         }
       }
     })
@@ -55,7 +55,7 @@ angular.module('fastpass', ['ionic', 'fastpass.controllers', 'firebase', 'fastpa
       views: {
         'menuContent': {
           templateUrl: "templates/passes.html",
-          // controller: 'listController'
+          controller: 'listController'
         }
       }
     })
@@ -66,7 +66,7 @@ angular.module('fastpass', ['ionic', 'fastpass.controllers', 'firebase', 'fastpa
       views: {
         'menuContent': {
           templateUrl: "templates/myConvos.html",
-          // controller: "myConvosController"
+          controller: "myConvosController"
         }
       }
     })
@@ -77,7 +77,7 @@ angular.module('fastpass', ['ionic', 'fastpass.controllers', 'firebase', 'fastpa
       views: {
         'menuContent': {
           templateUrl: "templates/myOffers.html",
-          // controller: "myOffersController"
+          controller: "myOffersController"
         }
       }
     })
@@ -88,7 +88,7 @@ angular.module('fastpass', ['ionic', 'fastpass.controllers', 'firebase', 'fastpa
       views: {
         'menuContent': {
           templateUrl: "templates/offerInput.html",
-          // controller: 'offerController'
+          controller: 'offerController'
         }
       }
     })
@@ -100,7 +100,7 @@ angular.module('fastpass', ['ionic', 'fastpass.controllers', 'firebase', 'fastpa
       views: {
         'menuContent': {
           templateUrl: "templates/chat.html",
-          // controller: 'chatController'
+          controller: 'chatController'
         }
       }
     })
