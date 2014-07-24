@@ -4,7 +4,7 @@ angular.module('fastpass.services', ['ionic'])
 // used in listController
 .factory('listService', ['$firebase', '$ionicLoading', function($firebase, $ionicLoading) {
   $ionicLoading.show({
-    template: 'Loading...'
+    template: '<i class="icon ion-looping"></i>'
   });
   var ref = new Firebase('https://fastpass-connection.firebaseio.com/');
   ref.on('value', function() {
@@ -48,7 +48,7 @@ angular.module('fastpass.services', ['ionic'])
     if (type === 'facebook' || type === 'twitter' || 'google'){
       console.log("attempting auth service login");
       $ionicLoading.show({
-        template: 'Loading...'
+        template: '<i class="icon ion-looping"></i>'
       });
       auth.$login(type)
       .then(function(user) {
@@ -63,26 +63,15 @@ angular.module('fastpass.services', ['ionic'])
         geolocationService.updateUserGeolocation(function(){
           console.log("updateUserCallback");
           $ionicLoading.hide();
-<<<<<<< HEAD
-          $state.go('tabs.getPass');
-=======
-          $state.go('tabs.home');
->>>>>>> Transplant all but js and template folders
+          $state.go('app.getPass');
         });
       }, function(err) {
         console.log('Login failed: ' + err);
         $ionicLoading.hide();
       });
-<<<<<<< HEAD
     }else{
       console.log('Unrecognized login type');
-      $state.go('tabs.home');
-=======
-      console.log("crappy async bug");
-    }else{
-      console.log('Unrecognized login type');
-      $state.go('tabs.signin');
->>>>>>> Transplant all but js and template folders
+      $state.go('app.home');
     }
   };
 
@@ -135,7 +124,7 @@ angular.module('fastpass.services', ['ionic'])
 })
 
 .factory('geolocationService', function($ionicLoading) {
-  
+
   // Disneyland boundaries
   var disneyLandBoundaries = {
     maxLat: 33.814641,
@@ -146,7 +135,6 @@ angular.module('fastpass.services', ['ionic'])
 
   // // HR boundaries for testing
   var hackReactorBoundaries = {
-<<<<<<< HEAD
     maxLat: 38,
     minLat: 37,
     maxLng: -121,
@@ -155,12 +143,6 @@ angular.module('fastpass.services', ['ionic'])
     // minLat: 37.782903,
     // maxLng: -122.408381,
     // minLng: -122.409636
-=======
-    maxLat: 37.784115,
-    minLat: 37.782903,
-    maxLng: -122.408381,
-    minLng: -122.409636
->>>>>>> Transplant all but js and template folders
   };
 
   var userCoords = {
@@ -253,6 +235,3 @@ angular.module('fastpass.services', ['ionic'])
 //     }
 //   };
 // });
-
-
-
