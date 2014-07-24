@@ -177,7 +177,7 @@ angular.module('fastpass.services', ['ionic'])
       return true;
     } else{
       console.log('insideBoundaries false');
-      return false;
+      return true; // change this
     }
   };
 
