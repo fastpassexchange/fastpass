@@ -58,6 +58,14 @@
   color:white;
 }
 
+.chat-button-send {
+  background-color:#ddd;
+  border:none;
+  width:10%;
+  border-radius:0.5em 0.5em 0.5em 0.5em;
+  color:white;
+}
+
 /*.angular-leaflet-map {
     width: 640px;
     height: 480px;
