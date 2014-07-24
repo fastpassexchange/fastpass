@@ -13,6 +13,7 @@
       <p class="headerFont">(Select a conversation to chat)</p>
     </div>
     <p>
+    <div class="bodyFont" ng-cloak ng-repeat="chatPartner in chatPartnerArray | orderByPriority"> <!--track by $index-->
       <p>
         <a class="button button-clear" ng-click="chatRetriever('{{ chatPartner.uid }}')"
         ui-sref="app.chat">{{ chatPartner.name }}</a>
