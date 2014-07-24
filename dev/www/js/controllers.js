@@ -606,7 +606,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   $scope.comment = {};
   // the name associated with the selected offer
   $scope.to = $rootScope.selected.offererId;
-  // Convo partner
+  // the name of the person talking to
   $scope.talkingTo = $rootScope.selected.displayName;
   // current logged in user
   $scope.from = authService.getUserId();
@@ -621,33 +621,21 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
       $ionicScrollDelegate.scrollBottom();
     }, 0);
   });
+
   console.log('userMessages: ', $scope.userMessages);
 
   $scope.sendComment = function() {
     $scope.comment.createdAt = new Date();
     $scope.comment.senderDisplayName = authService.getDisplayName();
+
     // add new message to the database
     $firebase(messageRef).$add($scope.comment);
     $firebase(otherMessageRef).$add($scope.comment);
 
     $firebase(messageRef).$update({offer: $rootScope.selected, displayName: $rootScope.selected.displayName});
     $firebase(otherMessageRef).$update({offer: $rootScope.selected, displayName: $scope.comment.senderDisplayName});
-    //refactor to use $transaction not working yet
-    // $firebase(messageRef).$transaction(function(currentData) {
-    //   return {offer: $rootScope.selected, displayName: $rootScope.selected.displayName};
-    // });
-    // $firebase(otherMessageRef).$transaction(function(currentData) {
-    //   return {offer: $rootScope.selected, displayName: $scope.comment.senderDisplayName};
-    // });
 
-    $scope.comment.content = '';
-
-
-    // todo: try to use modal for successful send of message
-    // $scope.openModal();
-
-
-    // $ionicScrollDelegate.scrollBottom();
+    $scope.comment.content = '';          
   };
 
 })
