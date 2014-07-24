@@ -1,10 +1,13 @@
-<ion-view title="Get Fastpass" ng-controller="listController" class="padding">
-  <ion-content>
+<ion-view title="Get Fastpass" ng-controller="listController" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left"class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+
+  <ion-content class="has-header">
    <!-- three way data binding -->
    <!-- <input type="text" ng-model="text"/>
     <h1>{{text.offers}}</h1> -->
     <!-- displays in order on firebase -->
-<<<<<<< HEAD
     <div class="list">
       <div class="item item-input-inset">
         <label class="item-input-wrapper">
@@ -21,7 +24,7 @@
         </select>
       </label>
 
-      <a class="item" ng-cloak ng-repeat="offer in text.offers | orderByPriority | filter:search | filter:selectedRide | available | excludeMyOffers" ng-click="setMaster(offer)" ui-sref="tabs.getDetails">
+      <a class="item" ng-cloak ng-repeat="offer in text.offers | orderByPriority | filter:search | filter:selectedRide | available | excludeMyOffers" ng-click="setMaster(offer)" ui-sref="app.getDetails">
         <h2>{{offer.number_give}} for {{offer.ride}}</h2>
         <p><i class="icon ion-ios7-location"></i> {{offer.location}}</p>
       </a>
@@ -49,19 +52,8 @@
         </a>
       </div>
     </div> -->
+
     <div class="statusMsg" ng-if="console.log('stop');">There are no offers available.</div>
   </ion-content>
-</ion-view>
-=======
-    <div class="bodyFont" id="offerList" ng-cloak ng-repeat="offer in text.offers | orderByPriority" style="text-align:center; color:#000000"> <!-- ng-class="{active : isSelected(offer)}"> -->
-      <p>
-        <a class="button button-clear" ng-if="offer.available  && isNotYourOffer(offer.offererId)" ng-click="setMaster(offer)"
-        ui-sref="tabs.getDetails">{{ offer.number_give }} for {{ offer.ride }}  </a>
-      </p>
-    </div>
-    <div class="statusMsg" ng-if="console.log('stop');">There are no offers available.</div>
-  </ion-content>
-</ion-view>
 
-
->>>>>>> Transplant all but js and template folders
+</ion-view>

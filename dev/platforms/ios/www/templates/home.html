@@ -1,9 +1,8 @@
-<<<<<<< HEAD
 <ion-view title="Sign In" ng-controller="loginController">
-<ion-header-bar class="bar-calm">
-  <!-- <h1 class="headerFont">Sign In</h1> -->
-</ion-header-bar>
-<ion-content class="has-header padding">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left"class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-content class="has-header">
   <p>
     <button class="button button-block button-assertive" type= "submit" ng-click="validateUser('facebook')">Facebook</button>
   </p>
@@ -11,17 +10,5 @@
     <button class="button button-block button-assertive" type= "submit" ng-click="validateUser('google')">Google</button>
   </p>
   <h1 class="bodyFont" style='text-align:center; font-size:18px'>You must be in the park and allow Fastpass Exchange to use your current location.</h1>
-</ion-content>
-=======
-<ion-view title="Fastpass Exchange">
-  <ion-content class="padding">
-    <p>
-      <a class="button button-block button-assertive headerFont" ui-sref="tabs.getPass">Get Fastpass</a>
-    </p>
-    <p>
-      <a class="button button-block button-assertive headerFont" ui-sref="tabs.offerInput">Give Fastpass</a>
-    </p>
-    <img src="img/mickey.png" alt="disney map load error" class="image">
   </ion-content>
->>>>>>> Transplant all but js and template folders
 </ion-view>
