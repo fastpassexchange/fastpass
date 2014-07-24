@@ -22,7 +22,7 @@ angular.module('fastpass', ['ionic', 'fastpass.controllers', 'firebase', 'fastpa
     if (toState.authenticate && !authService.isAuthenticated()){
       // User not authenticated
       console.log("User not authenticated");
-      $state.go("tabs.home").then(function(){
+      $state.go("app.home").then(function(){
         $rootScope.$broadcast('$stateChangeSuccess');
       });
       event.preventDefault();
@@ -51,7 +51,7 @@ angular.module('fastpass', ['ionic', 'fastpass.controllers', 'firebase', 'fastpa
 
     .state('app.getPass', {
       url: "/getPass",
-      // authenticate: true,
+      authenticate: true,
       views: {
         'menuContent': {
           templateUrl: "templates/passes.html",
@@ -62,7 +62,7 @@ angular.module('fastpass', ['ionic', 'fastpass.controllers', 'firebase', 'fastpa
 
     .state('app.myConvos', {
       url: "/myConvos",
-      // authenticate: true,
+      authenticate: true,
       views: {
         'menuContent': {
           templateUrl: "templates/myConvos.html",
@@ -73,7 +73,7 @@ angular.module('fastpass', ['ionic', 'fastpass.controllers', 'firebase', 'fastpa
 
     .state('app.myOffers', {
       url: "/myOffers",
-      // authenticate: true,
+      authenticate: true,
       views: {
         'menuContent': {
           templateUrl: "templates/myOffers.html",
@@ -84,7 +84,7 @@ angular.module('fastpass', ['ionic', 'fastpass.controllers', 'firebase', 'fastpa
 
     .state('app.offerInput', {
       url: "/offerInput",
-      // authenticate: true,
+      authenticate: true,
       views: {
         'menuContent': {
           templateUrl: "templates/offerInput.html",
@@ -96,7 +96,7 @@ angular.module('fastpass', ['ionic', 'fastpass.controllers', 'firebase', 'fastpa
 
     .state('app.chat', {
       url: "/chat",
-      // authenticate: true,
+      authenticate: true,
       views: {
         'menuContent': {
           templateUrl: "templates/chat.html",
