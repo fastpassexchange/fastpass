@@ -4,14 +4,50 @@
    <!-- <input type="text" ng-model="text"/>
     <h1>{{text.offers}}</h1> -->
     <!-- displays in order on firebase -->
-    <div class="bodyFont" id="offerList" ng-cloak ng-repeat="offer in text.offers | orderByPriority" style="text-align:center; color:#000000"> <!-- ng-class="{active : isSelected(offer)}"> -->
-      <p>
-        <a class="button button-clear" ng-if="offer.available  && isNotYourOffer(offer.offererId)" ng-click="setMaster(offer)"
-        ui-sref="tabs.getDetails">{{ offer.number_give }} for {{ offer.ride }}  </a>
-      </p>
+    <div class="list">
+      <div class="item item-input-inset">
+        <label class="item-input-wrapper">
+          <input type="text" placeholder="Search" ng-model="search">
+        </label>
+      </div>
+
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Ride
+        </div>
+        <select ng-cloak ng-model="selectedRide" ng-options="offer for offer in text.offers | orderByPriority | available | excludeMyOffers | uniqueRides">
+          <option value="">All rides</option>
+        </select>
+      </label>
+
+      <a class="item" ng-cloak ng-repeat="offer in text.offers | orderByPriority | filter:search | filter:selectedRide | available | excludeMyOffers" ng-click="setMaster(offer)" ui-sref="tabs.getDetails">
+        <h2>{{offer.number_give}} for {{offer.ride}}</h2>
+        <p><i class="icon ion-ios7-location"></i> {{offer.location}}</p>
+      </a>
     </div>
+
+    <!-- <div ng-cloak ng-repeat="offer in text.offers | orderByPriority | filter:search | available | excludeMyOffers" class="list card">
+
+      <div class="item item-avatar">
+        <h2><a ng-href="{{offer.offererId | profile}}">{{offer.displayName}}</a></h2>
+        <p>
+          {{offer.createdAt | date}}
+        </p>
+      </div>
+
+      <div class="item item-body">
+        <small>{{offer.location}}</small><br>
+        <!-- {{offer}}
+        <a ng-if="isNotYourOffer(offer.offererId)" ng-click="setMaster(offer)" ui-sref="tabs.chat"><strong></strong></a>
+      </div>
+
+      <!-- <div class="item tabs tabs-secondary tabs-icon-left">
+        <a class="tab-item" ng-click="setMaster(offer)" ui-sref="tabs.getDetails">
+          <i class="icon ion-ios7-cart"></i>
+          Get it!
+        </a>
+      </div>
+    </div> -->
     <div class="statusMsg" ng-if="console.log('stop');">There are no offers available.</div>
   </ion-content>
 </ion-view>
-
-

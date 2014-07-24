@@ -63,16 +63,15 @@ angular.module('fastpass.services', ['ionic'])
         geolocationService.updateUserGeolocation(function(){
           console.log("updateUserCallback");
           $ionicLoading.hide();
-          $state.go('tabs.home');
+          $state.go('tabs.getPass');
         });
       }, function(err) {
         console.log('Login failed: ' + err);
         $ionicLoading.hide();
       });
-      console.log("crappy async bug");
     }else{
       console.log('Unrecognized login type');
-      $state.go('tabs.signin');
+      $state.go('tabs.home');
     }
   };
 
@@ -136,10 +135,14 @@ angular.module('fastpass.services', ['ionic'])
 
   // // HR boundaries for testing
   var hackReactorBoundaries = {
-    maxLat: 37.784115,
-    minLat: 37.782903,
-    maxLng: -122.408381,
-    minLng: -122.409636
+    maxLat: 38,
+    minLat: 37,
+    maxLng: -121,
+    minLng: -123
+    // maxLat: 37.784115,
+    // minLat: 37.782903,
+    // maxLng: -122.408381,
+    // minLng: -122.409636
   };
 
   var userCoords = {
