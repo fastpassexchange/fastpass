@@ -28,11 +28,11 @@
 
 .chat-messages {
   -webkit-overflow-scrolling: touch;
-  height: 50%;
+  height: 60%;
 }
 
 .chat-input {
-  width:90%;
+  width:auto;
   display: inline-block;
 }
 .chat-input-container {
@@ -40,7 +40,7 @@
   position:absolute;
   border-top:1px solid #ddd;  
   border-bottom:1px solid #ddd;  
-  top:57%;
+  top:71%;
 }
 
 .chat-details {
@@ -62,6 +62,10 @@
   background-color:#ddd;
   border:none;
   width:10%;
+  float:right;
+  max-width:20px;
+  min-width:10px;
+  margin-right:0.5%;
   border-radius:0.5em 0.5em 0.5em 0.5em;
   color:white;
 }
