@@ -1,5 +1,8 @@
 <ion-view title="Give Fastpass" ng-controller="offerController" class="padding">
-  <ion-content style="text-align:center">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left"class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-content>
     <div class="errorMsg">{{ errorMsg }}</div>
     <div class="list">
     <form name="offerList" ng-submit="addOffer()" style="margin-left:auto; margin-right:auto">
@@ -34,7 +37,7 @@
 
       <label class="item item-input">
         <span class="input-label">Return time:</span>
-        <input ng-model="time" type="time">
+        <input class="givepass-time-input" ng-model="time" type="time">
       </label>
       <label class="item item-input item-select">
         <span class="input-label">Your location:</span>
@@ -49,7 +52,7 @@
         <select ng-model="offer.comment" ng-options="comment.value as comment.name for comment in comments"></select>
       </label>
       <br>
-      <button class="button button-assertive" type="submit">
+      <button class="button button-full button-stable">
         submit
       </button>
       <div class="statusMsg">{{ statusMsg }}</div>

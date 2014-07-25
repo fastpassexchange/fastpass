@@ -1,5 +1,24 @@
+.signin {
+  height: 54px;
+  /*padding: 0;*/
+}
+
+.signin .row {
+  padding: 0;
+}
+
+.signin .col {
+  padding: 0 auto;
+}
+
+.signin button {
+  margin: 0 !important;
+}
+
+
+
 /* Empty. Add your own CSS if you like */
-.image {
+/*.image {
   display: block;
   margin-left: auto;
   margin-right: auto
@@ -38,8 +57,8 @@
 .chat-input-container {
   height: 14.5%;
   position:absolute;
-  border-top:1px solid #ddd;  
-  border-bottom:1px solid #ddd;  
+  border-top:1px solid #ddd;
+  border-bottom:1px solid #ddd;
   top:71%;
 }
 
@@ -56,7 +75,7 @@
   width:10%;
   border-radius:0.5em 0.5em 0.5em 0.5em;
   color:white;
-} 
+}
 
 .chat-button-send {
   background-color:#ddd;
@@ -68,14 +87,14 @@
   margin-right:0.5%;
   border-radius:0.5em 0.5em 0.5em 0.5em;
   color:white;
-}
+}*/
 
 /*.angular-leaflet-map {
     width: 640px;
     height: 480px;
 }*/
 
-.statusMsg {
+/*.statusMsg {
   text-align: center;
   font-weight: bold;
 }
@@ -88,7 +107,7 @@
 
 #map {
    position:absolute;
-   /*top:0;*/
+   /*top:0;
 
    bottom:0;
    width:100%;
@@ -112,7 +131,7 @@
 }
 
 
-.tabs-calm > .tabs, 
+.tabs-calm > .tabs,
 .tabs.tabs-calm {
   background-color: #333;
   border-color: #333;
@@ -129,7 +148,7 @@
   text-align: center;
 }
 
-.button-clear > .button, 
+.button-clear > .button,
 .button.button-clear {
   overflow: hidden;
   width: 93%;
@@ -148,24 +167,29 @@
 }
 
 .offer {
-  text-align:center; 
+  text-align:center;
   -moz-border-radius: 15px;
   border-radius: 15px;
   font-color: #333;
 }
 
 .image {
-  background:  no-repeat center center fixed; 
+  background:  no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-}
+}*/
 
 .givepass-time-fields {
   margin-right:4em;
 }
 
+.givepass-time-input {
+  float:right; 
+  text-align:right;
+  padding:0;
+}
 
 /*
       html { height: 100% }

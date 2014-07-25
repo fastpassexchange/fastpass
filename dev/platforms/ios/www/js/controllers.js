@@ -285,10 +285,17 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 //   }
 // ])
 
-.controller('offerController', function($scope, $firebase, authService, timerService) {
+.controller('offerController', function($scope, $firebase, authService, $state, timerService) {
   // $scope properties for drop down menus
+  
+
+  $scope.time = new Date();
+  
+
+
+
   $scope.rides = [
-    {name: 'Select A Ride', value: ''},
+    {name: '', value: ''},
     {name: 'Splash Mountain', value: 'Splash Mountain'},
     {name: 'Space Mountain', value: 'Space Mountain'},
     {name: 'Thunder Mtn Railroad', value: 'Thunder Mtn Railroad'},
@@ -321,7 +328,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   ];
 
   $scope.passTimeMin = [
-    {name: 'Min', value: ''},
+    {name: '', value: ''},
     {name: '00', value: '00'},
     {name: '05', value: '05'},
     {name: '10', value: '10'},
@@ -337,13 +344,13 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   ];
 
   $scope.passTimeAmPm = [
-    {name: 'AM/PM', value: ''},
+    {name: '', value: ''},
     {name: 'AM', value: 'AM'},
     {name: 'PM', value: 'PM'}
   ];
 
   $scope.locations = [
-    {name: 'Select Your Current Location', value: ''},
+    {name: '', value: ''},
     {name: 'AdventureLand', value: 'Adventureland'},
     {name: 'Critter Country', value: 'Critter Country'},
     {name: 'Fantasyland', value: 'Fantasyland'},
@@ -365,7 +372,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   ];
 
   $scope.numbers_give = [
-    {name: 'Select Number of Passes', value: ''},
+    {name: '', value: ''},
     {name: '1 Fastpass', value: '1 Fastpass'},
     {name: '2 Fastpasses', value: '2 Fastpasses'},
     {name: '3 Fastpasses', value: '3 Fastpasses'},
@@ -374,7 +381,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   ];
 
   $scope.comments = [
-    {name: 'Select Free or Trade', value: ''},
+    {name: '', value: ''},
     {name: 'Free', value: 'free'},
     {name: 'Trade', value: 'trade'}
   ];
@@ -434,18 +441,21 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
   // when user submits an offer do this
   $scope.addOffer = function() {
+    console.log($scope.offer.time, "time");
+    $scope.offer.time = ($scope.time).toUTCString();
+    console.log($scope.time, "time zulu");
     // set a createdAt property that is equal to the current date/time
     $scope.offer.createdAt = new Date();
     $scope.offer.offererId = authService.getUserId();
     $scope.offer.displayName = authService.getDisplayName();
     $scope.offer.available = true;
     $scope.statusMsg = '';
-    var passTime = $scope.offer.hour + ':' + $scope.offer.min + ' ' + $scope.offer.ampm;
-    var date = new Date();
-    var day = date.getDate();
-    var month = date.getMonth() + 1;
-    var year = date.getFullYear();
-    $scope.offer.timeString = year + '-' + month + '-' + day + ' ' + passTime;
+    // var passTime = $scope.offer.hour + ':' + $scope.offer.min + ' ' + $scope.offer.ampm;
+    // var date = new Date();
+    // var day = date.getDate();
+    // var month = date.getMonth() + 1;
+    // var year = date.getFullYear();
+    // $scope.offer.timeString = year + '-' + month + '-' + day + ' ' + passTime;
 
 
     // $scope.offer.fastpassTime = moment($scope.timeString, 'MMMM Do YYYY, h:mm:ss a');
@@ -463,7 +473,9 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
         // add to user's offer hash
         var usersOffers = new Firebase('https://fastpass-connection.firebaseio.com/users/' + $scope.offer.offererId + '/offers');
         // add offer hash to logged in users offers hash
-        $firebase(usersOffers).$add($scope.offer);
+        $firebase(usersOffers).$add($scope.offer).then(function(ref){
+          $state.go('app.myOffers');
+        });
 
         // update last offer time
         timerService.setLastOfferTime($scope.offer.createdAt);
@@ -471,9 +483,11 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
         // clear input fields of form
         initVars();
 
+        
+
         // set status message
 
-        $scope.statusMsg = "New Offer Submitted. Track your offers on the dashboard.";
+        $scope.statusMsg = "New Offer Submitted.";
       } else {
         $scope.errorMsg = "Please wait 30 minutes between submitting offers.";
       }
