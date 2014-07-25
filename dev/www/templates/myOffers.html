@@ -1,26 +1,18 @@
 <ion-view title="My Offers" ng-controller="myOffersController" class="padding" hide-back-button="true">
   <ion-nav-buttons side="left">
-    <button menu-toggle="left"class="button button-icon icon ion-navicon"></button>
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
   </ion-nav-buttons>
-  <ion-content style="overflow:scroll" class="has-header">
-  <div class="button-bar">
-    <button class="button button-positive" style="background-color:grey" ui-sref="app.myConvos">Conversations</button>
-    <button class="button button-positive" style="background-color:grey" ui-sref="app.myOffers">Offers</button>
-  </div>
-  <div class="offerList">
-    <div class="item item-divider" style="background-color:#FFFFF; text-align:center; font-weight:bold; color:black">
-      <p class="headerFont">Your Offers</p>
-      <p class="headerFont">(Select an offer to delete it)</p>
-    </div>
-    </p>
-    <div class="bodyFont" ng-cloak ng-repeat="offer in offers | orderByPriority" style="text-align:center"> 
-      <p>
-        <div class="button button-clear" ng-if="offer.available" ng-click="deleteOffer(offer)">
-          <p> {{ offer.number_give }} for {{ offer.ride }} </p>
-        </div>
-      </p>
-    </div>
-    </p>
-  </div>
+  <ion-nav-buttons side="right">
+    <button class="button button-icon icon ion-edit" ng-click="showDelete = !showDelete"></button>
+  </ion-nav-buttons>
+
+  <ion-content>
+    <ion-list show-delete="showDelete">
+      <ion-item ng-cloak ng-repeat="offer in offers | orderByPriority | available">
+        {{ offer.number_give }} for {{ offer.ride }}
+        <ion-delete-button class="ion-ios7-trash-outline" ng-click="deleteOffer(offer)">
+        </ion-delete-button>
+      </ion-item>
+    </ion-list>
   </ion-content>
 </ion-view>

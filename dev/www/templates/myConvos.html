@@ -2,24 +2,13 @@
   <ion-nav-buttons side="left">
     <button menu-toggle="left"class="button button-icon icon ion-navicon"></button>
   </ion-nav-buttons>
-  <ion-content class="has-header" style="overflow:scroll">
-  <div class="button-bar">
-    <button class="button button-positive" style="background-color:grey" ui-sref="app.myConvos">Conversations</button>
-    <button class="button button-positive" style="background-color:grey" ui-sref="app.myOffers">Offers</button>
-  </div>
-  <div class="list" style="text-align:center">
-    <div class="item item-divider" style="background-color:#FFFFF; text-align:center; font-weight:bold; color:black">
-      <p class="headerFont">Your Conversations</p>
-      <p class="headerFont">(Select a conversation to chat)</p>
-    </div>
-    <p>
-    <div class="bodyFont" ng-cloak ng-repeat="chatPartner in chatPartnerArray | orderByPriority"> <!--track by $index-->
-      <p>
-        <a class="button button-clear" ng-click="chatRetriever('{{ chatPartner.uid }}')"
-        ui-sref="app.chat">{{ chatPartner.name }}</a>
-      </p>
-    </div>
-    </p>
-  </div>
+  <ion-content>
+    <ion-list>
+      <!-- <div class="item item-divider">
+        <p>Your Conversations</p>
+        <p>(Select a conversation to chat)</p>
+      </div> -->
+      <ion-item ng-cloak ng-repeat="chatPartner in chatPartnerArray | orderByPriority" ng-click="chatRetriever('{{ chatPartner.uid }}')" ui-sref="app.chat">{{ chatPartner.name }}</ion-item>
+    </ion-list>
   </ion-content>
 </ion-view>
