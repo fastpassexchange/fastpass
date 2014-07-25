@@ -6,7 +6,7 @@
     <div class="list card">
 
       <div class="item item-avatar">
-        <img ng-src="{{selected.offererId | avatar}}">
+        <img ng-if="selected.offererId | avatar" ng-src="{{selected.offererId | avatar}}">
         <h2>{{ selected.displayName }}</h2>
         <p>{{ selected.createdAt | ago }}</p>
       </div>

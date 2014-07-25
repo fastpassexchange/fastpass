@@ -9,7 +9,7 @@ angular.module('fastpass.filters', [])
     if (input[0] === 'facebook') {
       return 'http://graph.facebook.com/' + input[1] + '/picture';
     } else if (input[0] === 'google') {
-      return '';
+      return false;
     }
   };
 }])
@@ -60,11 +60,9 @@ angular.module('fastpass.filters', [])
 .filter('uniqueRides', [function () {
   return function (offers) {
     var rides = {};
-    console.log(offers);
     angular.forEach(offers, function (offer) {
       rides[offer.ride] = true;
     });
-    console.log(rides);
     return Object.keys(rides);
   };
 }])
