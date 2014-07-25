@@ -8,9 +8,7 @@ angular.module('fastpass.filters', [])
     input = input.split(':');
     if (input[0] === 'facebook') {
       return 'http://graph.facebook.com/' + input[1] + '/picture';
-    } // else if (input[0] === 'google') {
-    //   return '../img/mickey.png';
-    // }
+    }
   };
 }])
 
@@ -34,9 +32,7 @@ angular.module('fastpass.filters', [])
     angular.forEach(offers, function (offer) {
       // Filter out offers that are older than one hour.
       var ageInSeconds = moment().utc().unix() - moment(offer.time).unix();
-      // console.log(JSON.stringify(offer), 'Age in seconds', ageInSeconds);
       var ageInHours = ageInSeconds/3600;
-      // console.log(JSON.stringify(offer), 'Age in hours', ageInHours);
       if (offer.available && ageInHours <= 1) {
         available.push(offer);
       }
