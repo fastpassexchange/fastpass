@@ -1,17 +1,12 @@
 <ion-view title="{{talkingTo}}" ng-controller="chatController" class="chatView">
 
   <ion-content padding="true">
-    <!-- <div >
-      <div ng-if="!!message.content">
-      </div>
-    </div>
-     -->
     <ul class="list">
       <li class="item" ng-if="!!message.content" ng-cloak ng-repeat="message in userMessages">
-        <h5>{{ message.senderDisplayName }}</h5>
-        <p>
-          {{ message.content }}  <!-- : {{ message.createdAt }} -->
-        </p>
+          <h5>{{ message.senderDisplayName }} <small>{{ message.createdAt | ago }}</small></h5>
+          <p>
+            {{ message.content }}  <!-- : {{ message.createdAt }} -->
+          </p>
       </li>
     </ul>
     <br>
