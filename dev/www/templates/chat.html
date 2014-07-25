@@ -1,6 +1,29 @@
 <ion-view title="{{talkingTo}}" ng-controller="chatController" class="chatView">
 
   <ion-content padding="true">
+    <div class="list card">
+      <div class="item item-avatar">
+        <img ng-src="{{selected.offererId | avatar}}">
+        <h2>{{ selected.displayName }}</h2>
+        <p>{{ selected.createdAt | ago }}</p>
+      </div>
+
+      <div class="item item-body">
+        <p>
+          <i class="icon ion-ios7-location"></i> {{ selected.location }}
+        </p>
+        <p>
+          <i class="icon ion-calendar"></i> {{ selected.timeString }}
+        </p>
+        <p>
+          <i class="icon ion-cash"></i> {{ selected.comment }}
+        </p>
+        <p>
+          <span class="subdued">{{ selected.number_give }} for {{ selected.ride }}</span>
+        </p>
+      </div>
+    </div>
+
     <ul class="list">
       <li class="item" ng-if="!!message.content" ng-cloak ng-repeat="message in userMessages">
           <h5>{{ message.senderDisplayName }} <small>{{ message.createdAt | ago }}</small></h5>
