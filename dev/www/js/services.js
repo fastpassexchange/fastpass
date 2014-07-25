@@ -45,7 +45,6 @@ angular.module('fastpass.services', ['ionic'])
 
   // OAuth login: FB / twitter
   var login = function(type) {
-    console.log("entered auth service login");
 
     if (type === 'facebook' || type === 'twitter' || 'google'){
       console.log("attempting auth service login");
@@ -163,7 +162,7 @@ angular.module('fastpass.services', ['ionic'])
       userCoords.lng = /*-117.92*/position.coords.longitude;
       console.log("updated Lat :" + userCoords.lat + ", updated Lng :" + userCoords.lng);
       callback(position);
-    }, function(error){
+    }, function(error) {
       console.log("FAIL geolocation: " + error);
       console.dir(error);
       $ionicLoading.hide();
@@ -220,23 +219,3 @@ angular.module('fastpass.services', ['ionic'])
 
   };
 });
-// .factory('messageNotificationFactory', function() {
-//   var notification = {};
-//   var setNotification = function(conversationObj) {
-
-//   };
-//   var getNotification = function() {
-//     return object;
-//   };
-//   var deleteNotificaiton = function(conversationObjKey) {
-
-//   };
-
-
-//   return {
-//     setNotification: setNotification,
-//     getNotification: getNotification,
-//     deleteNotification: deleteNotification
-//   };
-
-// });
