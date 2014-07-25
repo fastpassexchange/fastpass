@@ -1,6 +1,10 @@
+/**
+ * home.html
+ * Style signin.
+ */
+
 .signin {
   height: 54px;
-  /*padding: 0;*/
 }
 
 .signin .row {
@@ -16,6 +20,18 @@
 }
 
 
+/**
+ * chat.html
+ * Style chat
+ */
+
+.chat {
+  height: 70px;
+}
+
+.chat .list {
+  margin: 10px;
+}
 
 /* Empty. Add your own CSS if you like */
 /*.image {
@@ -195,5 +211,4 @@
       html { height: 100% }
       body { height: 100%; margin: 0; padding: 0 }
       #map-canvas { height: 100% }
-<<<<<<< HEAD
     </style>*/

@@ -288,12 +288,8 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 .controller('offerController', function($scope, $firebase, authService, $state, timerService) {
   // $scope properties for drop down menus
   
-
-  $scope.time = new Date();
+  $scope.timeString = new Date();
   
-
-
-
   $scope.rides = [
     {name: '', value: ''},
     {name: 'Splash Mountain', value: 'Splash Mountain'},
@@ -397,9 +393,10 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     $scope.offer.location = '';
     $scope.offer.number_give = '';
     $scope.offer.comment = '';
-    $scope.offer.hour = '';
-    $scope.offer.min = '';
-    $scope.offer.ampm = '';
+    // $scope.offer.hour = '';
+    // $scope.offer.min = '';
+    // $scope.offer.ampm = '';
+    $scope.offer.timeString = new Date();
 
   };
 
@@ -409,18 +406,18 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
       $scope.errorMsg = "Please select a ride.";
       return false;
     }
-    if ($scope.offer.hour === '') {
-      $scope.errorMsg = "Please select hour.";
-      return false;
-    }
-    if ($scope.offer.min === '') {
-      $scope.errorMsg = "Please select minutes.";
-      return false;
-    }
-    if ($scope.offer.ampm === '') {
-      $scope.errorMsg = "Please select AM or PM.";
-      return false;
-    }
+    // if ($scope.offer.hour === '') {
+    //   $scope.errorMsg = "Please select hour.";
+    //   return false;
+    // }
+    // if ($scope.offer.min === '') {
+    //   $scope.errorMsg = "Please select minutes.";
+    //   return false;
+    // }
+    // if ($scope.offer.ampm === '') {
+    //   $scope.errorMsg = "Please select AM or PM.";
+    //   return false;
+    // }
     if ($scope.offer.location === '') {
       $scope.errorMsg = "Please select your current location.";
       return false;
@@ -441,9 +438,10 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
   // when user submits an offer do this
   $scope.addOffer = function() {
-    console.log($scope.offer.time, "time");
-    $scope.offer.time = ($scope.time).toUTCString();
-    console.log($scope.time, "time zulu");
+    console.log($scope.offer.timeString, "time");
+    // toUTCString() does not work because not a date object, need to fix
+    // $scope.offer.time = ($scope.offer.timeString).toUTCString();
+    // console.log($scope.offer.timeString, "time zulu");
     // set a createdAt property that is equal to the current date/time
     $scope.offer.createdAt = new Date();
     $scope.offer.offererId = authService.getUserId();
@@ -456,12 +454,8 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     // var month = date.getMonth() + 1;
     // var year = date.getFullYear();
     // $scope.offer.timeString = year + '-' + month + '-' + day + ' ' + passTime;
-
-
     // $scope.offer.fastpassTime = moment($scope.timeString, 'MMMM Do YYYY, h:mm:ss a');
     // console.log($scope.offer.fastpassTime);
-
-
 
     if (isDataValid()) {
       if (timerService.isOfferAfterTimeLimit()){
@@ -483,8 +477,6 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
         // clear input fields of form
         initVars();
 
-        
-
         // set status message
 
         $scope.statusMsg = "New Offer Submitted.";
@@ -497,7 +489,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
 .controller('detailController', function($scope, $firebase) {
 
- })
+})
 
 //mostly map and geolocation functionality to ensure user is in the park before they can use the app
 //TODO: actually use the map to allow users to see other users' locations since we're currently only using geolocation services
