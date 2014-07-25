@@ -3,7 +3,7 @@
     <button menu-toggle="left"class="button button-icon icon ion-navicon"></button>
   </ion-nav-buttons>
   <ion-content>
-    <div class="errorMsg">{{ errorMsg }}</div>
+    
     <div class="list">
     <form name="offerList" ng-submit="addOffer()" style="margin-left:auto; margin-right:auto">
       <label class="item item-input item-select">
@@ -30,6 +30,8 @@
       <button class="button button-full button-stable">
         submit
       </button>
+      <div class="errorMsg">{{ errorMsg }}</div>
+      
       <!-- <div class="statusMsg">{{ statusMsg }}</div> -->
     </form>
     </div>
