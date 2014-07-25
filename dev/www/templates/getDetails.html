@@ -1,7 +1,5 @@
 <ion-view title="Details" ng-controller="listController" class="padding" left-buttons="leftButtons">
   <ion-content>
-    <!--  <p> * To exchange a pass you must be within the park, have location services enabled on your device, and allow others to see you current location
-    </p> -->
 
     <div class="list card">
 
@@ -13,7 +11,6 @@
 
       <div class="item item-body">
         <p>
-          <!-- <i class="icon ion-ios7-location"></i> {{ selected.location }} -->
           <i class="icon ion-android-locate"></i> {{ selected.location }}
         </p>
         <p>
@@ -22,12 +19,6 @@
         <p>
           <i class="icon ion-loop"></i> {{ selected.comment }}
         </p>
-        <!-- <strong>Ride</strong>
-          <span>{{ selected.ride }}</span><br>
-        <strong>Free or trade:</strong>
-          <span>{{ selected.comment }}</span>
-        <strong>Offerer's current location:</strong>
-          <span>{{ selected.location }}</span> -->
         <p>
           <i class="ion-ios7-barcode"></i><span class="subdued"> {{ selected.number_give }} for {{ selected.ride }}</span>
         </p>

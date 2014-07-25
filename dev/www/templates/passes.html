@@ -4,10 +4,6 @@
   </ion-nav-buttons>
 
   <ion-content class="has-header">
-   <!-- three way data binding -->
-   <!-- <input type="text" ng-model="text"/>
-    <h1>{{text.offers}}</h1> -->
-    <!-- displays in order on firebase -->
     <div class="list">
       <div class="item item-input-inset">
         <label class="item-input-wrapper" for="search-input">
@@ -30,30 +26,6 @@
       </a>
     </div>
 
-    <!-- <div ng-cloak ng-repeat="offer in text.offers | orderByPriority | filter:search | available | excludeMyOffers" class="list card">
-
-      <div class="item item-avatar">
-        <h2><a ng-href="{{offer.offererId | profile}}">{{offer.displayName}}</a></h2>
-        <p>
-          {{offer.createdAt | date}}
-        </p>
-      </div>
-
-      <div class="item item-body">
-        <small>{{offer.location}}</small><br>
-        <!-- {{offer}}
-        <a ng-if="isNotYourOffer(offer.offererId)" ng-click="setMaster(offer)" ui-sref="tabs.chat"><strong></strong></a>
-      </div>
-
-      <!-- <div class="item tabs tabs-secondary tabs-icon-left">
-        <a class="tab-item" ng-click="setMaster(offer)" ui-sref="tabs.getDetails">
-          <i class="icon ion-ios7-cart"></i>
-          Get it!
-        </a>
-      </div>
-    </div> -->
-
     <div class="statusMsg" ng-if="console.log('stop');">There are no offers available.</div>
   </ion-content>
-
 </ion-view>
