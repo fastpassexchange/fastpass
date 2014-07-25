@@ -288,8 +288,6 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 .controller('offerController', function($scope, $firebase, authService, $state, timerService) {
   // $scope properties for drop down menus
   
-  $scope.timeString = new Date();
-  
   $scope.rides = [
     {name: '', value: ''},
     {name: 'Splash Mountain', value: 'Splash Mountain'},
@@ -392,11 +390,11 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     $scope.offer.ride = '';
     $scope.offer.location = '';
     $scope.offer.number_give = '';
-    $scope.offer.comment = '';
-    // $scope.offer.hour = '';
-    // $scope.offer.min = '';
-    // $scope.offer.ampm = '';
-    $scope.offer.timeString = new Date();
+    $scope.offer.comment = '';    
+    $scope.offer.time = '';
+    
+    // model for input time
+    $scope.returnTime = '';
 
   };
 
@@ -406,18 +404,10 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
       $scope.errorMsg = "Please select a ride.";
       return false;
     }
-    // if ($scope.offer.hour === '') {
-    //   $scope.errorMsg = "Please select hour.";
-    //   return false;
-    // }
-    // if ($scope.offer.min === '') {
-    //   $scope.errorMsg = "Please select minutes.";
-    //   return false;
-    // }
-    // if ($scope.offer.ampm === '') {
-    //   $scope.errorMsg = "Please select AM or PM.";
-    //   return false;
-    // }
+    if ($scope.offer.time === '') {
+      $scope.errorMsg = "Please set a time";
+      return false;
+    }
     if ($scope.offer.location === '') {
       $scope.errorMsg = "Please select your current location.";
       return false;
@@ -436,27 +426,28 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   // initialize variables
   initVars();
 
+  var formatReturnTime = function (time) {
+    var newTime = new Date();
+    time = time.split(':');
+
+    newTime.setHours(time[0]);
+    newTime.setMinutes(time[0]);
+    
+    return newTime.toUTCString();
+  }
+
   // when user submits an offer do this
   $scope.addOffer = function() {
-    console.log($scope.offer.timeString, "time");
-    // toUTCString() does not work because not a date object, need to fix
-    // $scope.offer.time = ($scope.offer.timeString).toUTCString();
-    // console.log($scope.offer.timeString, "time zulu");
-    // set a createdAt property that is equal to the current date/time
+    
+    console.log($scope.returnTime, "time");
+   
     $scope.offer.createdAt = new Date();
     $scope.offer.offererId = authService.getUserId();
     $scope.offer.displayName = authService.getDisplayName();
     $scope.offer.available = true;
     $scope.statusMsg = '';
-    // var passTime = $scope.offer.hour + ':' + $scope.offer.min + ' ' + $scope.offer.ampm;
-    // var date = new Date();
-    // var day = date.getDate();
-    // var month = date.getMonth() + 1;
-    // var year = date.getFullYear();
-    // $scope.offer.timeString = year + '-' + month + '-' + day + ' ' + passTime;
-    // $scope.offer.fastpassTime = moment($scope.timeString, 'MMMM Do YYYY, h:mm:ss a');
-    // console.log($scope.offer.fastpassTime);
-
+    $scope.offer.time = formatReturnTime($scope.returnTime);
+    
     if (isDataValid()) {
       console.log('submitted data is valid');
       if (timerService.isOfferAfterTimeLimit()){
