@@ -8,7 +8,7 @@
       James Yothers
     </author>
     <content src="index.html" />
-    <access origin="*" />
+    <!-- <access origin="*" /> -->
     <access origin="*.firebaseio.*" />
     <access origin="https://auth.firebase.com" />
     <preference name="webviewbounce" value="false" />

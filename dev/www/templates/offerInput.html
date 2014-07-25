@@ -10,34 +10,9 @@
         <span class="input-label">Ride:</span>
         <select ng-model="offer.ride" ng-options="ride.value as ride.name for ride in rides"></select>
       </label>
-
-
-
-
-
-
-
-
-      <!-- <label class="item item-input">
-        <span class="input-label">Pass start time:</span>
-      </label>
-      <label class="item item-input">
-        <select class="givepass-time-fields" ng-model="offer.hour" ng-options="hour.value as hour.name for hour in passTimeHour"></select>
-      </label>
-        <select class="givepass-time-fields" ng-model="offer.min" ng-options="min.value as min.name for min in passTimeMin"></select>
-        <select class="givepass-time-fields" ng-model="offer.ampm" ng-options="ampm.value as ampm.name for ampm in passTimeAmPm"></select>
-      </label> -->
-
-
-
-
-
-
-
-
       <label class="item item-input">
         <span class="input-label">Return time:</span>
-        <input class="givepass-time-input" ng-model="time" type="time">
+        <input class="givepass-time-input" ng-model="offer.timeString" type="time">
       </label>
       <label class="item item-input item-select">
         <span class="input-label">Your location:</span>
