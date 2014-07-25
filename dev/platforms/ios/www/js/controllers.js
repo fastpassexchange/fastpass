@@ -16,7 +16,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
   // display page loading overlay while retrieving information from Firebase
   $ionicLoading.show({
-    template: '<i class="icon ion-looping"></i>'
+    template: '<i class="icon ion-loading-c"></i>'
   });
 
   // retrieve chat partner information
@@ -57,7 +57,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
   // display page loading overlay while retrieving information from Firebase
   $ionicLoading.show({
-    template: '<i class="icon ion-looping"></i>'
+    template: '<i class="icon ion-loading-c"></i>'
   });
 
   // for display of logged in user's offers from database
@@ -287,7 +287,6 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
 .controller('offerController', function($scope, $firebase, authService, $state, timerService) {
   // $scope properties for drop down menus
-  
   $scope.rides = [
     {name: '', value: ''},
     {name: 'Splash Mountain', value: 'Splash Mountain'},
@@ -391,11 +390,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     $scope.offer.location = '';
     $scope.offer.number_give = '';
     $scope.offer.comment = '';    
-    $scope.offer.time = '';
-    
-    // model for input time
-    $scope.returnTime = '';
-
+    $scope.offer.time = new Date();
   };
 
   // form validation function
@@ -426,28 +421,30 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   // initialize variables
   initVars();
 
-  var formatReturnTime = function (time) {
+  var formatTime = function (time) {
     var newTime = new Date();
     time = time.split(':');
 
     newTime.setHours(time[0]);
-    newTime.setMinutes(time[0]);
+    newTime.setMinutes(time[1]);
+    newTime.setSeconds(0);
     
-    return newTime.toUTCString();
+    return newTime.toISOString();
   }
 
   // when user submits an offer do this
   $scope.addOffer = function() {
-    
-    console.log($scope.returnTime, "time");
-   
+
     $scope.offer.createdAt = new Date();
     $scope.offer.offererId = authService.getUserId();
     $scope.offer.displayName = authService.getDisplayName();
     $scope.offer.available = true;
     $scope.statusMsg = '';
-    $scope.offer.time = formatReturnTime($scope.returnTime);
-    
+
+    // need to format time because, angular stores the information as a string
+    // in format 'hh:mm', which is why it needs to be converted to UTC string.
+    $scope.offer.time = formatTime($scope.offer.time);
+
     if (isDataValid()) {
       console.log('submitted data is valid');
       if (timerService.isOfferAfterTimeLimit()){
@@ -671,13 +668,14 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   $scope.validateUser = function(type) {
     authService.login(type);
   };
+  authService.logout();
 })
 
-// log out user
-.controller('logoutController', function(authService, $state) {
-  authService.logout();
-  $state.go('app.home');
-})
+// // log out user
+// .controller('logoutController', function(authService, $state) {
+//   authService.logout();
+//   $state.go('app.home');
+// })
 
 .controller('HomeTabCtrl', function($scope) {
 });

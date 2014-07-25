@@ -11,9 +11,8 @@ angular.module('fastpass.services', ['ionic'])
   ref.on('value', function() {
     $ionicLoading.hide();
   });
-  var before  = $firebase(ref);
-  console.log('Yep Just before', before);
-  return before;
+
+  return $firebase(ref);
 }])
 
 .factory('timerService', function(){
