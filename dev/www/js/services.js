@@ -15,6 +15,101 @@ angular.module('fastpass.services', ['ionic'])
   return $firebase(ref);
 }])
 
+.factory('giveFastPassService', function(){
+  return {
+    rides: [
+      {name: '', value: ''},
+      {name: 'Splash Mountain', value: 'Splash Mountain'},
+      {name: 'Space Mountain', value: 'Space Mountain'},
+      {name: 'Thunder Mtn Railroad', value: 'Thunder Mtn Railroad'},
+      {name: 'Indiana Jones', value: 'Indiana Jones'},
+      {name: 'Star Tours', value: 'Star Tours'},
+      {name: 'Autopia', value: 'Autopia'},
+      {name: 'Roger Rabbit', value: 'Roger Rabbit'},
+      {name: 'California Screamin', value: 'California Screamin'},
+      {name: 'Goofy\'s Sky School', value: 'Goofy\'s Sky School'},
+      {name: 'Grizzly River Run', value: 'Grizzly River Run'},
+      {name: 'Radiator Racers', value: 'Radiator Racers'},
+      {name: 'Soarin Over CA', value: 'Soarin Over CA'},
+      {name: 'Tower Of Terror', value: 'Tower Of Terror'}
+    ],
+
+    passTimeHour: [
+      {name: 'Hour', value: ''},
+      {name: '1', value: '1'},
+      {name: '2', value: '2'},
+      {name: '3', value: '3'},
+      {name: '4', value: '4'},
+      {name: '5', value: '5'},
+      {name: '6', value: '6'},
+      {name: '7', value: '7'},
+      {name: '8', value: '8'},
+      {name: '9', value: '9'},
+      {name: '10', value: '10'},
+      {name: '11', value: '11'},
+      {name: '12', value: '12'}
+    ],
+
+    passTimeMin: [
+      {name: '', value: ''},
+      {name: '00', value: '00'},
+      {name: '05', value: '05'},
+      {name: '10', value: '10'},
+      {name: '15', value: '15'},
+      {name: '20', value: '20'},
+      {name: '25', value: '25'},
+      {name: '30', value: '30'},
+      {name: '35', value: '35'},
+      {name: '40', value: '40'},
+      {name: '45', value: '45'},
+      {name: '50', value: '50'},
+      {name: '55', value: '55'}
+    ],
+
+    passTimeAmPm: [
+      {name: '', value: ''},
+      {name: 'AM', value: 'AM'},
+      {name: 'PM', value: 'PM'}
+    ],
+
+    locations: [
+      {name: '', value: ''},
+      {name: 'AdventureLand', value: 'Adventureland'},
+      {name: 'Critter Country', value: 'Critter Country'},
+      {name: 'Fantasyland', value: 'Fantasyland'},
+      {name: 'Frontierland', value: 'Frontierland'},
+      {name: 'Main Street', value: 'Main Street'},
+      {name: 'Mickey\'s Toontown', value: 'Mickey\'s Toontown'},
+      {name: 'New Orleans Square', value: 'New Orleans Square'},
+      {name: 'Tomorrowland', value: 'Tomorrowland'},
+      {name: 'Condor Flats', value: 'Condor Flats'},
+      {name: 'Buena Vista', value: 'Buena Vista'},
+      {name: 'Hollywood', value: 'Hollywood'},
+      {name: 'Grizzy Peak', value: 'Grizzy Peak'},
+      {name: 'Bug\'s Land', value: 'Bug\'s Land'},
+      {name: 'Paradise Pier', value: 'Paradise Pier'},
+      {name: 'Pacific Wharf', value: 'Pacific Wharf'},
+      {name: 'Car\'s Land', value: 'Car\'s Land'},
+      {name: 'Downtown Disney', value: 'Downtown Disney'},
+    ],
+
+    numbers_give: [
+      {name: '', value: ''},
+      {name: '1 Fastpass', value: '1 Fastpass'},
+      {name: '2 Fastpasses', value: '2 Fastpasses'},
+      {name: '3 Fastpasses', value: '3 Fastpasses'},
+      {name: '4 Fastpasses', value: '4 Fastpasses'},
+      {name: '5 Fastpasses', value: '5 Fastpasses'},
+    ],
+
+    comments: [
+      {name: '', value: ''},
+      {name: 'Free', value: 'free'},
+      {name: 'Trade', value: 'trade'}
+    ]
+  };
+})
+
 .factory('timerService', function(){
 
   var lastOfferTime = null;
@@ -140,10 +235,6 @@ angular.module('fastpass.services', ['ionic'])
     minLat: 37,
     maxLng: -121,
     minLng: -123
-    // maxLat: 37.784115,
-    // minLat: 37.782903,
-    // maxLng: -122.408381,
-    // minLng: -122.409636
   };
 
   var userCoords = {
