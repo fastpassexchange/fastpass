@@ -24,12 +24,21 @@
  * Style chat
  */
 
-img {
-height: 300px;
-display: block;
-margin-left: auto;
-margin-right: auto;
+svg path {
+  fill: #333;
+  
 }
+
+.castleSVG {
+  margin-top: 15px;
+  height: 300px;
+  width: 300px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
 
 .chat {
   height: 70px;
