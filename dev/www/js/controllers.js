@@ -429,7 +429,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     newTime.setMinutes(time[1]);
     newTime.setSeconds(0);
     
-    return newTime;
+    return newTime.toISOString();
   }
 
   // when user submits an offer do this
