@@ -608,7 +608,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
 })
 
-.controller('chatController', function($scope, $rootScope, $ionicScrollDelegate, $timeout,$firebase, listService, authService) {
+.controller('chatController', function($scope, $rootScope, $ionicScrollDelegate, $ionicLoading, $timeout,$firebase, listService, authService) {
   // initialize object for message contents
   $scope.comment = {};
   // the name associated with the selected offer
@@ -632,6 +632,10 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   console.log('userMessages: ', $scope.userMessages);
 
   $scope.sendComment = function() {
+    // display page loading overlay while retrieving information from Firebase
+    $ionicLoading.show({
+      template: '<i class="icon ion-looping"></i>'
+    });
     $scope.comment.createdAt = new Date();
     $scope.comment.senderDisplayName = authService.getDisplayName();
 
@@ -642,7 +646,8 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     $firebase(messageRef).$update({offer: $rootScope.selected, displayName: $rootScope.selected.displayName});
     $firebase(otherMessageRef).$update({offer: $rootScope.selected, displayName: $scope.comment.senderDisplayName});
 
-    $scope.comment.content = '';          
+    $scope.comment.content = '';  
+    $ionicLoading.hide();        
   };
 
 })
