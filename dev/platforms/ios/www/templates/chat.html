@@ -10,18 +10,27 @@
 
       <div class="item item-body">
         <p>
-          <i class="icon ion-ios7-location"></i> {{ selected.location }}
+          <i class="icon ion-android-locate"></i> {{ selected.location }}
         </p>
         <p>
           <i class="icon ion-calendar"></i> {{ selected.timeString }}
         </p>
         <p>
-          <i class="icon ion-cash"></i> {{ selected.comment }}
+          <i class="icon ion-loop"></i> {{ selected.comment }}
         </p>
         <p>
-          <span class="subdued">{{ selected.number_give }} for {{ selected.ride }}</span>
+          <i class="ion-ios7-barcode"></i><span class="subdued"> {{ selected.number_give }} for {{ selected.ride }}</span>
         </p>
       </div>
+
+
+      <div class="item tabs tabs-secondary tabs-icon-left">
+        <a class="tab-item" href="{{ selected.offererId | profile }}" target="_system">
+          <i class="icon" ng-class="'ion-social-' + selected.offererId.split(':')[0]"></i>
+          View {{selected.offererId.split(':')[0]}} profile
+        </a>
+      </div>
+
     </div>
 
     <ul class="list">

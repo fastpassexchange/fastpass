@@ -116,6 +116,16 @@ angular.module('fastpass', ['ionic', 'fastpass.controllers', 'firebase', 'fastpa
       }
     })
 
+    .state('app.about', {
+      url: "/about",
+      authenticate: true,
+      views: {
+        'menuContent': {
+          templateUrl: "templates/about.html",
+        }
+      }
+    })
+
     .state('app.signout', {
       url: "/signout",
       views: {
