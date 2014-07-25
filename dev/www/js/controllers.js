@@ -458,6 +458,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     // console.log($scope.offer.fastpassTime);
 
     if (isDataValid()) {
+      console.log('submitted data is valid');
       if (timerService.isOfferAfterTimeLimit()){
         // get all offers from the database
         var offerRef = new Firebase('https://fastpass-connection.firebaseio.com/offers');
