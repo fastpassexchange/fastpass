@@ -11,6 +11,7 @@
     <!-- <access origin="*" /> -->
     <access origin="*.firebaseio.*" />
     <access origin="https://auth.firebase.com/*" />
+    <access origin="https://fastpass-connection.firebaseio.com/*" />
     <access origin='https://cdn.firebase.com/*' />
     <access origin='https://api.tiles.mapbox.com/*' />
     <access origin='https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfa1/*' />
