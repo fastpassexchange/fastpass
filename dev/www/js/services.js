@@ -10,7 +10,9 @@ angular.module('fastpass.services', ['ionic'])
   ref.on('value', function() {
     $ionicLoading.hide();
   });
-  return $firebase(ref);
+  var before  = $firebase(ref);
+  console.log('Yep Just before', before);
+  return before;
 }])
 
 .factory('timerService', function(){
@@ -190,8 +192,34 @@ angular.module('fastpass.services', ['ionic'])
     inDisneyLand: inDisneyLand,
   };
 
-});
+})
+.factory('conversationsFactory', function ($firebase) {
+  var currentUser = {};
+  var conversations = {};
+  // set currentUser
+  var setCurrentUser = function (user) {
+    currentUser = user;
+  }
 
+  var sendMessage = function (to) {
+
+  }
+
+  var addConversation = function (partner) {
+    var messageRef = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + $scope.from + '/' + partner);
+    conversations[partner] = messagesRef;    
+  }
+
+  var trackConversation = function (partner) {
+
+  }
+  return {
+    'setUser' : setCurrentUser,
+    'send'  : sendMessage,
+    'addConversation' : addConversation
+
+  };
+});
 // .factory('messageNotificationFactory', function() {
 //   var notification = {};
 //   var setNotification = function(conversationObj) {
@@ -211,27 +239,4 @@ angular.module('fastpass.services', ['ionic'])
 //     deleteNotification: deleteNotification
 //   };
 
-// });
-
-// leftover tutorial junk
-// .factory('Friends', function() {
-//   // Might use a resource here that returns a JSON array
-
-//   // Some fake testing data
-//   var friends = [
-//     { id: 0, name: 'Scruff McGruff' },
-//     { id: 1, name: 'G.I. Joe' },
-//     { id: 2, name: 'Miss Frizzle' },
-//     { id: 3, name: 'Ash Ketchum' }
-//   ];
-
-//   return {
-//     all: function() {
-//       return friends;
-//     },
-//     get: function(friendId) {
-//       // Simple index lookup
-//       return friends[friendId];
-//     }
-//   };
 // });
