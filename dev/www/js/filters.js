@@ -8,9 +8,9 @@ angular.module('fastpass.filters', [])
     input = input.split(':');
     if (input[0] === 'facebook') {
       return 'http://graph.facebook.com/' + input[1] + '/picture';
-    } else if (input[0] === 'google') {
-      return '../img/mickey.png';
-    }
+    } // else if (input[0] === 'google') {
+    //   return '../img/mickey.png';
+    // }
   };
 }])
 
