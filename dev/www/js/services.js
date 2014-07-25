@@ -4,7 +4,8 @@ angular.module('fastpass.services', ['ionic'])
 // used in listController
 .factory('listService', ['$firebase', '$ionicLoading', function($firebase, $ionicLoading) {
   $ionicLoading.show({
-    template: '<i class="icon ion-looping"></i>'
+    // template: '<i class="icon ion-looping"></i>'
+    template: '<i class="icon ion-loading-c"></i>'
   });
   var ref = new Firebase('https://fastpass-connection.firebaseio.com/offers/');
   ref.on('value', function() {
@@ -50,7 +51,7 @@ angular.module('fastpass.services', ['ionic'])
     if (type === 'facebook' || type === 'twitter' || 'google'){
       console.log("attempting auth service login");
       $ionicLoading.show({
-        template: '<i class="icon ion-looping"></i>'
+        template: '<i class="icon ion-loading-c"></i>'
       });
       auth.$login(type)
       .then(function(user) {

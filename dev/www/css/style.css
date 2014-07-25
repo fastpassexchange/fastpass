@@ -53,3 +53,11 @@ margin-right: auto;
   text-align:right;
   padding:0;
 }
+
+.errorMsg {
+  color: red;
+}
+
+/*.bar {
+  color: rgb(235,95,81);
+}*/
