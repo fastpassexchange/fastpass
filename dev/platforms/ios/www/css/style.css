@@ -19,7 +19,6 @@
   margin: 0 !important;
 }
 
-
 /**
  * chat.html
  * Style chat
@@ -33,182 +32,17 @@
   margin: 10px;
 }
 
-/* Empty. Add your own CSS if you like */
-/*.image {
-  display: block;
-  margin-left: auto;
-  margin-right: auto
-}
-
-.imagelogo {
-  margin-top: 30dppx;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 75%;
-  height: 75%;
-}
-
-.headerFont {
-  font-family: helvetica;
-}
-
-.bodyFont {
-  font-family: georgia;
-}
-
-.offerList {
-  word-wrap:break-word;
-}
-
-.chat-messages {
-  -webkit-overflow-scrolling: touch;
-  height: 60%;
-}
-
-.chat-input {
-  width:auto;
-  display: inline-block;
-}
-.chat-input-container {
-  height: 14.5%;
-  position:absolute;
-  border-top:1px solid #ddd;
-  border-bottom:1px solid #ddd;
-  top:71%;
-}
-
-.chat-details {
-  height: 20%;
-  font-size:12px;
-  border-style:solid;
-  border-width:1px;
-}
-
-.chat-button-send {
-  background-color:#ddd;
-  border:none;
-  width:10%;
-  border-radius:0.5em 0.5em 0.5em 0.5em;
-  color:white;
-}
-
-.chat-button-send {
-  background-color:#ddd;
-  border:none;
-  width:10%;
-  float:right;
-  max-width:20px;
-  min-width:10px;
-  margin-right:0.5%;
-  border-radius:0.5em 0.5em 0.5em 0.5em;
-  color:white;
-}*/
-
-/*.angular-leaflet-map {
-    width: 640px;
-    height: 480px;
-}*/
-
-/*.statusMsg {
-  text-align: center;
-  font-weight: bold;
-}
-
-.errorMsg {
-  color: red;
-  text-align: center;
-  font-weight: bold;
-}
-
-#map {
-   position:absolute;
-   /*top:0;
-
-   bottom:0;
-   width:100%;
-
-   height: 75%;
-   margin-top: 25dppx;
-   margin-bottom: 50dppx;
-}
-
-.chatView {
-  padding: 0;
-  margin: 0;
-}
-
-.bar.bar-calm {
-  background-color: #333;
-  border-color: #333;
-  color: #F8F8F8;
-  font-size: 18px;
-  background-image: linear-gradient(0deg, #333, #333 50%, transparent 50%);
-}
-
-
-.tabs-calm > .tabs,
-.tabs.tabs-calm {
-  background-color: #333;
-  border-color: #333;
-  color: #F8F8F8;
-  background-image: linear-gradient(0deg, #333, #333 50%, transparent 50%);
-}
-
-.button-assertive > .button,
-.button.button-assertive {
-  background-color: #E00000 ;
-  border-color: #E00000 ;
-  color: #F8F8F8;
-  font-size: 24px;
-  text-align: center;
-}
-
-.button-clear > .button,
-.button.button-clear {
-  overflow: hidden;
-  width: 93%;
-  background-color: #E00000 ;
-  border-color: #E00000 ;
-  color: #F8F8F8;
-  font-size: 14px;
-  text-align: center;
-}
-
-.button {
-  -moz-border-radius: 15px;
-  border-radius: 15px;
-  text-align: center;
-  color: #F8F8F8;
-}
-
-.offer {
-  text-align:center;
-  -moz-border-radius: 15px;
-  border-radius: 15px;
-  font-color: #333;
-}
-
-.image {
-  background:  no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}*/
+/**
+ * offerInput.html
+ * Style input form for new user offer.
+ */
 
 .givepass-time-fields {
   margin-right:4em;
 }
 
 .givepass-time-input {
-  float:right; 
+  float:right;
   text-align:right;
   padding:0;
 }
-
-/*
-      html { height: 100% }
-      body { height: 100%; margin: 0; padding: 0 }
-      #map-canvas { height: 100% }
-    </style>*/

@@ -458,6 +458,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     // console.log($scope.offer.fastpassTime);
 
     if (isDataValid()) {
+      console.log('submitted data is valid');
       if (timerService.isOfferAfterTimeLimit()){
         // get all offers from the database
         var offerRef = new Firebase('https://fastpass-connection.firebaseio.com/offers');
@@ -631,10 +632,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   console.log('userMessages: ', $scope.userMessages);
 
   $scope.sendComment = function() {
-    // display page loading overlay while retrieving information from Firebase
-    $ionicLoading.show({
-      template: '<i class="icon ion-looping"></i>'
-    });
+   
     $scope.comment.createdAt = new Date();
     $scope.comment.senderDisplayName = authService.getDisplayName();
 
@@ -646,8 +644,8 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     $firebase(otherMessageRef).$update({offer: $rootScope.selected, displayName: $scope.comment.senderDisplayName});
 
     $scope.comment.content = '';  
-    $ionicLoading.hide();        
   };
+
 
 })
 

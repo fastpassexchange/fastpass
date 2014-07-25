@@ -26,10 +26,10 @@
 
     <ul class="list">
       <li class="item" ng-if="!!message.content" ng-cloak ng-repeat="message in userMessages">
-          <h5>{{ message.senderDisplayName }} <small>{{ message.createdAt | ago }}</small></h5>
           <p>
             {{ message.content }}  <!-- : {{ message.createdAt }} -->
           </p>
+          <h5>{{ message.senderDisplayName }} <small>{{ message.createdAt | ago }}</small></h5>
       </li>
     </ul>
     <br>

@@ -632,10 +632,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   console.log('userMessages: ', $scope.userMessages);
 
   $scope.sendComment = function() {
-    // display page loading overlay while retrieving information from Firebase
-    $ionicLoading.show({
-      template: '<i class="icon ion-looping"></i>'
-    });
+   
     $scope.comment.createdAt = new Date();
     $scope.comment.senderDisplayName = authService.getDisplayName();
 
@@ -647,8 +644,8 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     $firebase(otherMessageRef).$update({offer: $rootScope.selected, displayName: $scope.comment.senderDisplayName});
 
     $scope.comment.content = '';  
-    $ionicLoading.hide();        
   };
+
 
 })
 
