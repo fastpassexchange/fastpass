@@ -671,13 +671,14 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   $scope.validateUser = function(type) {
     authService.login(type);
   };
+  authService.logout();
 })
 
-// log out user
-.controller('logoutController', function(authService, $state) {
-  authService.logout();
-  $state.go('app.home');
-})
+// // log out user
+// .controller('logoutController', function(authService, $state) {
+//   authService.logout();
+//   $state.go('app.home');
+// })
 
 .controller('HomeTabCtrl', function($scope) {
 });

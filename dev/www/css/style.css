@@ -24,6 +24,13 @@
  * Style chat
  */
 
+img {
+height: 300px;
+display: block;
+margin-left: auto;
+margin-right: auto;
+}
+
 .chat {
   height: 70px;
 }
