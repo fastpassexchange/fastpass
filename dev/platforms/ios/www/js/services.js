@@ -6,7 +6,7 @@ angular.module('fastpass.services', ['ionic'])
   $ionicLoading.show({
     template: '<i class="icon ion-looping"></i>'
   });
-  var ref = new Firebase('https://fastpass-connection.firebaseio.com/');
+  var ref = new Firebase('https://fastpass-connection.firebaseio.com/offers/');
   ref.on('value', function() {
     $ionicLoading.hide();
   });
