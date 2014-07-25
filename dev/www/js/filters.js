@@ -9,7 +9,7 @@ angular.module('fastpass.filters', [])
     if (input[0] === 'facebook') {
       return 'http://graph.facebook.com/' + input[1] + '/picture';
     } else if (input[0] === 'google') {
-      return false;
+      return '../img/mickey.png';
     }
   };
 }])
