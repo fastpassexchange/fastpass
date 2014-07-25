@@ -1,7 +1,4 @@
 <ion-view title="{{talkingTo}}" ng-controller="chatController" class="chatView">
-  <ion-nav-buttons side="left">
-    <button menu-toggle="left"class="button button-icon icon ion-navicon"></button>
-  </ion-nav-buttons>
   <ion-content style="text-align:center" class="chat-messages">
         <div ng-cloak ng-repeat="message in userMessages">
           <div ng-if="!!message.content">
