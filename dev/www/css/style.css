@@ -22,7 +22,7 @@
 
 /**
  * chat.html
- * Style chat.
+ * Style chat
  */
 
 .chat {
@@ -201,6 +201,11 @@
   margin-right:4em;
 }
 
+.givepass-time-input {
+  float:right; 
+  text-align:right;
+  padding:0;
+}
 
 /*
       html { height: 100% }
