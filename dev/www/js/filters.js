@@ -60,9 +60,11 @@ angular.module('fastpass.filters', [])
 .filter('uniqueRides', [function () {
   return function (offers) {
     var rides = {};
+    console.log(offers);
     angular.forEach(offers, function (offer) {
       rides[offer.ride] = true;
     });
+    console.log(rides);
     return Object.keys(rides);
   };
 }])
