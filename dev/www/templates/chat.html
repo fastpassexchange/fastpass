@@ -1,27 +1,63 @@
 <ion-view title="{{talkingTo}}" ng-controller="chatController" class="chatView">
-  <ion-content style="text-align:center" class="chat-messages">
-        <div ng-cloak ng-repeat="message in userMessages">
-          <div ng-if="!!message.content">
-            {{ message.senderDisplayName }}: {{ message.content }}  <!-- : {{ message.createdAt }} -->
-          </div>
-        </div>
-  </ion-content>
-  <ion-pane class="chat-input-container">
-      <form>
-        <label class="item item-input item-stacked-label">
-          <!-- need to set display inline because of ionic css -->
-          <input type="text" class="chat-input" placeholder="write message" ng-model="comment.content" style="display:inline-block;">
-          <button type="submit" class="icon ion-arrow-right-c chat-button-send" ng-click="sendComment()"></button>                  
-        </label>
-        <br>
-      </form>
-  </ion-pane>
 
+  <ion-content padding="true">
+    <div class="list card">
+      <div class="item item-avatar">
+        <img ng-src="{{selected.offererId | avatar}}">
+        <h2>{{ selected.displayName }}</h2>
+        <p>{{ selected.createdAt | ago }}</p>
+      </div>
+
+      <div class="item item-body">
+        <p>
+          <i class="icon ion-ios7-location"></i> {{ selected.location }}
+        </p>
+        <p>
+          <i class="icon ion-calendar"></i> {{ selected.timeString }}
+        </p>
+        <p>
+          <i class="icon ion-cash"></i> {{ selected.comment }}
+        </p>
+        <p>
+          <span class="subdued">{{ selected.number_give }} for {{ selected.ride }}</span>
+        </p>
+      </div>
+    </div>
+
+    <ul class="list">
+      <li class="item" ng-if="!!message.content" ng-cloak ng-repeat="message in userMessages">
+          <h5>{{ message.senderDisplayName }} <small>{{ message.createdAt | ago }}</small></h5>
+          <p>
+            {{ message.content }}  <!-- : {{ message.createdAt }} -->
+          </p>
+      </li>
+    </ul>
+    <br>
+
+  </ion-content>
+  <ion-footer-bar class="chat">
+    <ion-pane>
+      <form ng-submit="sendComment()">
+        <div class="list list-inset">
+          <label class="item item-input">
+            <i class="icon ion-chatbubble placeholder-icon"></i>
+            <input type="text" placeholder="Your message" ng-model="comment.content" ng-required>
+            <!-- <button class="icon ion-arrow-right-c chat-button-send" ng-click="sendComment()"></button> -->
+          </label>
+        </div>
+      </form>
+    </ion-pane>
+  </ion-footer-bar>
+
+
+  <!-- <ion-pane padding="true">
+  </ion-pane> -->
+<!--
   <ion-footer-bar class="chat-details">
     <p class="bodyFont"> You are chatting in reference to the following offer:<br>
     Ride: {{ selected.ride }}<br>
     Pass start time: {{ selected.timeString }}<br>
     {{ selected.number_give }}<br>
     free or trade: {{ selected.comment }}<br>
-  </ion-footer-bar>
+  </ion-footer-bar> -->
 </ion-view>
