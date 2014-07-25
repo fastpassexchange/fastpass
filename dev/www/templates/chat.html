@@ -22,6 +22,15 @@
           <i class="ion-ios7-barcode"></i><span class="subdued"> {{ selected.number_give }} for {{ selected.ride }}</span>
         </p>
       </div>
+
+
+      <div class="item tabs tabs-secondary tabs-icon-left">
+        <a class="tab-item" href="{{ selected.offererId | profile }}">
+          <i class="icon" ng-class="'ion-social-' + selected.offererId.split(':')[0]"></i>
+          View {{selected.offererId.split(':')[0]}} profile
+        </a>
+      </div>
+
     </div>
 
     <ul class="list">
