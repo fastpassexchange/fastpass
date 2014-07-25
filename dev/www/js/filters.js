@@ -33,8 +33,10 @@ angular.module('fastpass.filters', [])
     var available = [];
     angular.forEach(offers, function (offer) {
       // Filter out offers that are older than one hour.
-      var ageInSeconds = Math.floor(new Date().getTime()/1000) - moment(offer.time).unix();
+      var ageInSeconds = moment().utc().unix() - moment(offer.time).unix();
+      // console.log(JSON.stringify(offer), 'Age in seconds', ageInSeconds);
       var ageInHours = ageInSeconds/3600;
+      // console.log(JSON.stringify(offer), 'Age in hours', ageInHours);
       if (offer.available && ageInHours <= 1) {
         available.push(offer);
       }
