@@ -10,7 +10,11 @@
     <content src="index.html" />
     <!-- <access origin="*" /> -->
     <access origin="*.firebaseio.*" />
-    <access origin="https://auth.firebase.com" />
+    <access origin="https://auth.firebase.com/*" />
+    <access origin='https://cdn.firebase.com/*' />
+    <access origin='https://api.tiles.mapbox.com/*' />
+    <access origin='https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfa1/*' />
+    <access origin='http://graph.facebook.com/*' />
     <preference name="webviewbounce" value="false" />
     <preference name="UIWebViewBounce" value="false" />
     <preference name="DisallowOverscroll" value="true" />
