@@ -44,7 +44,6 @@ angular.module('fastpass', ['ionic', 'fastpass.controllers', 'firebase', 'fastpa
       views: {
         'menuContent': {
           templateUrl: "templates/home.html",
-          controller: 'HomeTabCtrl'
         }
       }
     })
@@ -55,7 +54,6 @@ angular.module('fastpass', ['ionic', 'fastpass.controllers', 'firebase', 'fastpa
       views: {
         'menuContent': {
           templateUrl: "templates/getDetails.html",
-          controller: 'detailController'
         }
       }
     })
