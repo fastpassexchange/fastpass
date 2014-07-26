@@ -247,11 +247,19 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   var otherMessageRef = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + $scope.to + '/' + $scope.from);
 
   messageRef.on('value', function(snapshot) {
-    $scope.userMessages = snapshot.val();
+    $scope.userMessages = $scope.userMessages || {};
+    $scope.userMessagesBefore = $scope.userMessages || {};
+
+    for (var key in snapshot.val()) {
+      if (!$scope.userMessages[key]) {
+        $scope.userMessages[key] = snapshot.val()[key];
+      }
+    }
+
     // using timeout to set scroll at end of loop.
-    $timeout(function () {
+    // $timeout(function () {
       $ionicScrollDelegate.scrollBottom();
-    }, 0);
+    // }, 0);
   });
 
   console.log('userMessages: ', $scope.userMessages);
