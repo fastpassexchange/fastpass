@@ -146,7 +146,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     $scope.offer.ride = '';
     $scope.offer.location = '';
     $scope.offer.number_give = '';
-    $scope.offer.comment = '';    
+    $scope.offer.comment = '';
     $scope.offer.time = new Date();
   };
 
@@ -185,9 +185,9 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     newTime.setHours(time[0]);
     newTime.setMinutes(time[1]);
     newTime.setSeconds(0);
-    
+
     return newTime.toISOString();
-  }
+  };
 
   // when user submits an offer do this
   $scope.addOffer = function() {
@@ -257,7 +257,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   console.log('userMessages: ', $scope.userMessages);
 
   $scope.sendComment = function() {
-   
+
     $scope.comment.createdAt = new Date();
     $scope.comment.senderDisplayName = authService.getDisplayName();
 
@@ -268,7 +268,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     $firebase(messageRef).$update({offer: $rootScope.selected, displayName: $rootScope.selected.displayName});
     $firebase(otherMessageRef).$update({offer: $rootScope.selected, displayName: $scope.comment.senderDisplayName});
 
-    $scope.comment.content = '';  
+    $scope.comment.content = '';
   };
 
 
@@ -280,4 +280,4 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     authService.login(type);
   };
   authService.logout();
-})
+});
