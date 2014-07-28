@@ -8,10 +8,10 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   });
 
   // retrieve chat partner information
-  $scope.chatPartnerArray = [];
   var chatSessions = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + authService.getUserId());
   chatSessions.on('value', function(snapshot) {
     snapshot.forEach(function(elem) {
+      $scope.chatPartnerArray = [];
       $scope.chatPartnerArray.push({
         uid: elem.name(),
         name: elem.child('displayName').val() + " (" + elem.child('offer/ride').val() + ")",
