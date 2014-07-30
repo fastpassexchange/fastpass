@@ -43,6 +43,8 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
 .controller('myOffersController', function($scope, $ionicLoading, $firebase, authService, $ionicPopup) {
 
+  // initiate default message for when no offers are shown
+  $scope.defaultMsg = "You currently have no offers submitted.  Go to \"Give Fastpass\" to submit an offer.";
   // display page loading overlay while retrieving information from Firebase
   $ionicLoading.show({
     template: '<i class="icon ion-loading-c"></i>'

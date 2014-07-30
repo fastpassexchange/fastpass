@@ -8,11 +8,13 @@
 
   <ion-content>
     <ion-list show-delete="showDelete">
-      <ion-item ng-cloak ng-repeat="offer in offers | orderByPriority | available">
+      <ion-item ng-cloak ng-repeat="offer in filteredOffers = (offers | orderByPriority | available)">
         {{ offer.number_give }} for {{ offer.ride }}
         <ion-delete-button class="ion-minus-circled" ng-click="deleteOffer(offer)">
         </ion-delete-button>
       </ion-item>
     </ion-list>
+    <br>
+    <div class='defaultMsg' ng-hide="filteredOffers.length">{{ defaultMsg }}</div>
   </ion-content>
 </ion-view>
