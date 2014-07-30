@@ -1,21 +1,25 @@
 angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
 .controller('myConvosController', function($scope, $rootScope, $ionicLoading, authService) {
-
+   
+  // default message when no conversations shown
+  $scope.defaultMsg = "You currently have no active conversations.  Initiate a conversation by selecting an offer under \"Get Fastpass\" or submit an offer under \"Give Fastpass\" and see who contacts you.";
   // display page loading overlay while retrieving information from Firebase
   $ionicLoading.show({
     template: '<i class="icon ion-loading-c"></i>'
   });
 
   // retrieve chat partner information
-  $scope.chatPartnerArray = [];
   var chatSessions = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + authService.getUserId());
   chatSessions.on('value', function(snapshot) {
+    $scope.chatPartnerArray = [];
     snapshot.forEach(function(elem) {
+      console.log('convos names', elem.name());
       $scope.chatPartnerArray.push({
         uid: elem.name(),
         name: elem.child('displayName').val() + " (" + elem.child('offer/ride').val() + ")",
       });
+      console.log('$scope.chatPartnerArray', $scope.chatPartnerArray);
     });
     $ionicLoading.hide();
   });
@@ -43,6 +47,8 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
 .controller('myOffersController', function($scope, $ionicLoading, $firebase, authService, $ionicPopup) {
 
+  // initiate default message for when no offers are shown
+  $scope.defaultMsg = "You currently have no offers submitted.  Go to \"Give Fastpass\" to submit an offer.";
   // display page loading overlay while retrieving information from Firebase
   $ionicLoading.show({
     template: '<i class="icon ion-loading-c"></i>'
@@ -150,14 +156,21 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     $scope.offer.time = new Date();
   };
 
+  var checkTime = function(time) {
+      var ageInSeconds = moment().utc().unix() - moment(time).unix();
+      var ageInHours = ageInSeconds/3600;
+      console.log('ageInHours', ageInHours);
+      return ageInHours >= 1;
+  };
+
   // form validation function
   var isDataValid = function() {
     if ($scope.offer.ride === '') {
       $scope.errorMsg = "Please select a ride.";
       return false;
     }
-    if ($scope.offer.time === '') {
-      $scope.errorMsg = "Please set a time";
+    if ($scope.offer.time === '' || checkTime($scope.offer.time)) {
+      $scope.errorMsg = "Please set a valid time";
       return false;
     }
     if ($scope.offer.location === '') {
