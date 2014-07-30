@@ -1,7 +1,9 @@
 angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
 .controller('myConvosController', function($scope, $rootScope, $ionicLoading, authService) {
-
+   
+  // default message when no conversations shown
+  $scope.defaultMsg = "You currently have no active conversations.  Initiate a conversation by selecting an offer under \"Get Fastpass\" or submit an offer under \"Give Fastpass\" and see who contacts you.";
   // display page loading overlay while retrieving information from Firebase
   $ionicLoading.show({
     template: '<i class="icon ion-loading-c"></i>'
@@ -10,12 +12,14 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   // retrieve chat partner information
   var chatSessions = new Firebase('https://fastpass-connection.firebaseio.com/messages/' + authService.getUserId());
   chatSessions.on('value', function(snapshot) {
+    $scope.chatPartnerArray = [];
     snapshot.forEach(function(elem) {
-      $scope.chatPartnerArray = [];
+      console.log('convos names', elem.name());
       $scope.chatPartnerArray.push({
         uid: elem.name(),
         name: elem.child('displayName').val() + " (" + elem.child('offer/ride').val() + ")",
       });
+      console.log('$scope.chatPartnerArray', $scope.chatPartnerArray);
     });
     $ionicLoading.hide();
   });
