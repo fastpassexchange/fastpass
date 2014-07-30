@@ -59,6 +59,6 @@ module.exports.metadata =
     "org.apache.cordova.statusbar": "0.1.6",
     "org.apache.cordova.inappbrowser": "0.5.1-dev",
     "com.bez4pieci.cookies": "0.0.1"
-}
+};
 // BOTTOM OF METADATA
 });

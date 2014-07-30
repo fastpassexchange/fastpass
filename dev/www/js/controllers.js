@@ -150,14 +150,21 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     $scope.offer.time = new Date();
   };
 
+  var checkTime = function(time) {
+      var ageInSeconds = moment().utc().unix() - moment(time).unix();
+      var ageInHours = ageInSeconds/3600;
+      console.log('ageInHours', ageInHours);
+      return ageInHours >= 1;
+  };
+
   // form validation function
   var isDataValid = function() {
     if ($scope.offer.ride === '') {
       $scope.errorMsg = "Please select a ride.";
       return false;
     }
-    if ($scope.offer.time === '') {
-      $scope.errorMsg = "Please set a time";
+    if ($scope.offer.time === '' || checkTime($scope.offer.time)) {
+      $scope.errorMsg = "Please set a valid time";
       return false;
     }
     if ($scope.offer.location === '') {
