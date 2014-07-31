@@ -143,7 +143,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
   var initVars = function() {
     // clear status and error message
-    $scope.statusMsg = '';
+    $scope.statusMsg = 'You can only submit one offer every 30 minutes.';
     $scope.errorMsg = '';
 
     // initialize offer scope and default values
@@ -210,11 +210,11 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     $scope.offer.available = true;
     $scope.statusMsg = '';
 
-    // need to format time because, angular stores the information as a string
-    // in format 'hh:mm', which is why it needs to be converted to UTC string.
-    $scope.offer.time = formatTime($scope.offer.time);
 
     if (isDataValid()) {
+      // need to format time because, angular stores the information as a string
+      // in format 'hh:mm', which is why it needs to be converted to UTC string.
+      $scope.offer.time = formatTime($scope.offer.time);
       console.log('submitted data is valid');
       if (timerService.isOfferAfterTimeLimit()){
         // get all offers from the database

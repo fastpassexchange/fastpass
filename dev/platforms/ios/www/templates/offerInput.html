@@ -11,7 +11,7 @@
           <select ng-model="offer.ride" ng-options="ride.value as ride.name for ride in rides"></select>
         </label>
         <label class="item item-input">
-          <span class="input-label">Return time:</span>
+          <span class="input-label">Fastpass Return time:</span>
           <input ng-model="offer.time" class="givepass-time-input" type="time" />
         </label>
         <label class="item item-input item-select">
@@ -31,6 +31,7 @@
           submit
         </button>
         <div class="errorMsg">{{ errorMsg }}</div>
+        <div class="defaultMsg">{{ statusMsg }}</div>
       </form>
     </div>
 
