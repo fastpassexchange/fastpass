@@ -134,9 +134,6 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 .controller('offerController', function($scope, $firebase, authService, $state, timerService, giveFastPassService) {
   // $scope properties for drop down menus
   $scope.rides = giveFastPassService.rides;
-  $scope.passTimeHour = giveFastPassService.passTimeHour;
-  $scope.passTimeMin = giveFastPassService.passTimeMin;
-  $scope.passTimeAmPm = giveFastPassService.passTimeAmPm;
   $scope.locations = giveFastPassService.locations;
   $scope.numbers_give = giveFastPassService.numbers_give;
   $scope.comments = giveFastPassService.comments;

@@ -34,44 +34,6 @@ angular.module('fastpass.services', ['ionic'])
       {name: 'Tower Of Terror', value: 'Tower Of Terror'}
     ],
 
-    passTimeHour: [
-      {name: 'Hour', value: ''},
-      {name: '1', value: '1'},
-      {name: '2', value: '2'},
-      {name: '3', value: '3'},
-      {name: '4', value: '4'},
-      {name: '5', value: '5'},
-      {name: '6', value: '6'},
-      {name: '7', value: '7'},
-      {name: '8', value: '8'},
-      {name: '9', value: '9'},
-      {name: '10', value: '10'},
-      {name: '11', value: '11'},
-      {name: '12', value: '12'}
-    ],
-
-    passTimeMin: [
-      {name: '', value: ''},
-      {name: '00', value: '00'},
-      {name: '05', value: '05'},
-      {name: '10', value: '10'},
-      {name: '15', value: '15'},
-      {name: '20', value: '20'},
-      {name: '25', value: '25'},
-      {name: '30', value: '30'},
-      {name: '35', value: '35'},
-      {name: '40', value: '40'},
-      {name: '45', value: '45'},
-      {name: '50', value: '50'},
-      {name: '55', value: '55'}
-    ],
-
-    passTimeAmPm: [
-      {name: '', value: ''},
-      {name: 'AM', value: 'AM'},
-      {name: 'PM', value: 'PM'}
-    ],
-
     locations: [
       {name: '', value: ''},
       {name: 'AdventureLand', value: 'Adventureland'},
@@ -90,7 +52,6 @@ angular.module('fastpass.services', ['ionic'])
       {name: 'Paradise Pier', value: 'Paradise Pier'},
       {name: 'Pacific Wharf', value: 'Pacific Wharf'},
       {name: 'Car\'s Land', value: 'Car\'s Land'},
-      {name: 'Downtown Disney', value: 'Downtown Disney'},
     ],
 
     numbers_give: [
@@ -104,8 +65,8 @@ angular.module('fastpass.services', ['ionic'])
 
     comments: [
       {name: '', value: ''},
-      {name: 'Free', value: 'free'},
-      {name: 'Trade', value: 'trade'}
+      {name: 'Free', value: 'Free'},
+      {name: 'Trade', value: 'Trade'}
     ]
   };
 })
