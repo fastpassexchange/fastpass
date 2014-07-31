@@ -56,7 +56,6 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
   // for display of logged in user's offers from database
   $scope.usersOffers = new Firebase('https://fastpass-connection.firebaseio.com/users/' + authService.getUserId() + '/offers');
-  console.log($scope.usersOffers);
   $scope.usersOffers.on('value', function(snapshot) {
     $scope.offers = snapshot.val();
     $ionicLoading.hide();
@@ -135,16 +134,13 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 .controller('offerController', function($scope, $firebase, authService, $state, timerService, giveFastPassService) {
   // $scope properties for drop down menus
   $scope.rides = giveFastPassService.rides;
-  $scope.passTimeHour = giveFastPassService.passTimeHour;
-  $scope.passTimeMin = giveFastPassService.passTimeMin;
-  $scope.passTimeAmPm = giveFastPassService.passTimeAmPm;
   $scope.locations = giveFastPassService.locations;
   $scope.numbers_give = giveFastPassService.numbers_give;
   $scope.comments = giveFastPassService.comments;
 
   var initVars = function() {
     // clear status and error message
-    $scope.statusMsg = '';
+    $scope.statusMsg = 'You can only submit one offer every 30 minutes.';
     $scope.errorMsg = '';
 
     // initialize offer scope and default values
@@ -211,11 +207,11 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     $scope.offer.available = true;
     $scope.statusMsg = '';
 
-    // need to format time because, angular stores the information as a string
-    // in format 'hh:mm', which is why it needs to be converted to UTC string.
-    $scope.offer.time = formatTime($scope.offer.time);
 
     if (isDataValid()) {
+      // need to format time because, angular stores the information as a string
+      // in format 'hh:mm', which is why it needs to be converted to UTC string.
+      $scope.offer.time = formatTime($scope.offer.time);
       console.log('submitted data is valid');
       if (timerService.isOfferAfterTimeLimit()){
         // get all offers from the database

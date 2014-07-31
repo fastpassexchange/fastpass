@@ -68,6 +68,13 @@ svg path {
 
 .errorMsg {
   color: red;
+  font-style: italic;
+  text-align: center;
+}
+
+.connection-link {
+  font-weight: bold;
+  color: black;
 }
 
 /*.bar {
