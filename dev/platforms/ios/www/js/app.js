@@ -116,7 +116,7 @@ angular.module('fastpass', ['ionic', 'fastpass.controllers', 'firebase', 'fastpa
 
     .state('app.about', {
       url: "/about",
-      authenticate: true,
+      // authenticate: true,
       views: {
         'menuContent': {
           templateUrl: "templates/about.html",
