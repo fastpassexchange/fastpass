@@ -26,11 +26,11 @@ angular.module('fastpass.services', ['ionic'])
       {name: 'Star Tours', value: 'Star Tours'},
       {name: 'Autopia', value: 'Autopia'},
       {name: 'Car Toon Spin', value: 'Car Toon Spin'},
-      {name: 'California Screamin', value: 'California Screamin'},
+      {name: 'Cal Screamin', value: 'Cal Screamin'},
       {name: 'Sky School', value: 'Sky School'},
       {name: 'Grizzly River Run', value: 'Grizzly River Run'},
       {name: 'Radiator Racers', value: 'Radiator Racers'},
-      {name: 'Soarin Over CA', value: 'Soarin Over CA'},
+      {name: 'Soarin Over CA', value: 'Soarin Over Cal'},
       {name: 'Tower Of Terror', value: 'Tower Of Terror'}
     ],
 

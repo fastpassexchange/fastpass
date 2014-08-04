@@ -30,8 +30,12 @@
         <button class="button button-full button-dark">
           submit
         </button>
-        <div class="errorMsg">{{ errorMsg }}</div>
-        <div class="defaultMsg">{{ statusMsg }}</div>
+        <div class="card" ng-hide="statusMsg !== ''">
+          <div class="item item-text-wrap errorMsg">{{ errorMsg }}</div>
+        </div>
+        <div class="card" ng-hide="errorMsg !==''">
+          <div class="item item-text-wrap defaultMsg">{{ statusMsg }}</div>
+        </div>
       </form>
     </div>
 
