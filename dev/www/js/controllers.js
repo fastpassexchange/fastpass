@@ -149,7 +149,7 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     $scope.offer.location = '';
     $scope.offer.number_give = '';
     $scope.offer.comment = '';
-    $scope.offer.time = '';
+    $scope.offer.time = new Date();
   };
 
   var checkTime = function(time) {

@@ -38,6 +38,12 @@
 
     </div>
 
+    <div class="card" ng-hide="userMessages.length">
+      <div class='item item-text-wrap' >
+        Enter a message to start a conversation.
+      </div>
+    </div>
+
     <ul class="list">
       <li class="item" ng-if="!!message.content" ng-cloak ng-repeat="message in userMessages">
           <p>
