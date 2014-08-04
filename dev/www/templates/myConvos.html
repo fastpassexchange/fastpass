@@ -7,6 +7,10 @@
       <ion-item ng-cloak ng-repeat="chatPartner in filteredConvos = (chatPartnerArray | orderByPriority)" ng-click="chatRetriever('{{ chatPartner.uid }}')" ui-sref="app.chat">{{ chatPartner.name }}</ion-item>
     </ion-list>
     <br>
-    <div class='defaultMsg' ng-hide="filteredConvos.length">{{ defaultMsg }}</div>
+    <div class="card" ng-hide="filteredConvos.length">
+      <div class='defaultMsg item item-text-wrap' >
+        {{ defaultMsg }}
+      </div>
+    </div>
   </ion-content>
 </ion-view>

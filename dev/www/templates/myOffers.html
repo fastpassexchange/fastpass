@@ -15,6 +15,13 @@
       </ion-item>
     </ion-list>
     <br>
-    <div class='defaultMsg' ng-hide="filteredOffers.length">{{ defaultMsg }}</div>
+    <div class='card defaultMsg' ng-hide="filteredOffers.length">
+      <div class="item item-text-wrap">{{ defaultMsg }}
+      </div>
+    </div>
+    <div class='card defaultMsg' ng-hide="!filteredOffers.length">
+      <div class="item item-text-wrap" >Please delete any offers you do not want to be contaced for or that were submitted in error.
+      <div>
+    </div>
   </ion-content>
 </ion-view>

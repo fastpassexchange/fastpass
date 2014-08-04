@@ -25,9 +25,9 @@ angular.module('fastpass.services', ['ionic'])
       {name: 'Indiana Jones', value: 'Indiana Jones'},
       {name: 'Star Tours', value: 'Star Tours'},
       {name: 'Autopia', value: 'Autopia'},
-      {name: 'Roger Rabbit', value: 'Roger Rabbit'},
+      {name: 'Car Toon Spin', value: 'Car Toon Spin'},
       {name: 'California Screamin', value: 'California Screamin'},
-      {name: 'Goofy\'s Sky School', value: 'Goofy\'s Sky School'},
+      {name: 'Sky School', value: 'Sky School'},
       {name: 'Grizzly River Run', value: 'Grizzly River Run'},
       {name: 'Radiator Racers', value: 'Radiator Racers'},
       {name: 'Soarin Over CA', value: 'Soarin Over CA'},
@@ -41,7 +41,7 @@ angular.module('fastpass.services', ['ionic'])
       {name: 'Fantasyland', value: 'Fantasyland'},
       {name: 'Frontierland', value: 'Frontierland'},
       {name: 'Main Street', value: 'Main Street'},
-      {name: 'Mickey\'s Toontown', value: 'Mickey\'s Toontown'},
+      {name: 'Toontown', value: 'Toontown'},
       {name: 'New Orleans Square', value: 'New Orleans Square'},
       {name: 'Tomorrowland', value: 'Tomorrowland'},
       {name: 'Condor Flats', value: 'Condor Flats'},
@@ -117,11 +117,13 @@ angular.module('fastpass.services', ['ionic'])
         newUser.update({displayName: user.displayName});
 
         // update user's geolocation position
-        geolocationService.updateUserGeolocation(function(){
-          console.log("updateUserCallback");
-          $ionicLoading.hide();
-          $state.go('app.getPass');
-        });
+        // geolocationService.updateUserGeolocation(function(){
+        //   console.log("updateUserCallback");
+        //   $ionicLoading.hide();
+        //   $state.go('app.getPass');
+        // });
+        $ionicLoading.hide();
+        $state.go('app.getPass');
       }, function(err) {
         console.log('Login failed: ' + err);
         $ionicLoading.hide();
@@ -146,7 +148,7 @@ angular.module('fastpass.services', ['ionic'])
 
   var isAuthenticated = function() {
     console.log("Inside isAuthenticated");
-    return isLoggedIn() && geolocationService.inDisneyLand();
+    return isLoggedIn() //&& geolocationService.inDisneyLand();
   };
 
   // verify user object exists in auth object
@@ -225,7 +227,8 @@ angular.module('fastpass.services', ['ionic'])
   var inDisneyLand = function(){
     console.log("inside inDisneyLand");
     // set boundaries
-    var boundaries = hackReactorBoundaries;
+    var boundaries = disneyLandBoundaries;
+    return true;
     if (boundaries.minLat < userCoords.lat &&
       userCoords.lat < boundaries.maxLat &&
       boundaries.minLng < userCoords.lng &&

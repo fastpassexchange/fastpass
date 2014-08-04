@@ -4,7 +4,7 @@
     <div class="list card">
 
       <div class="item item-avatar">
-        <img ng-src="{{selected.offererId | avatar}}">
+        <!-- <img ng-src="{{selected.offererId | avatar}}"> -->
         <h2>{{ selected.displayName }}</h2>
         <p>{{ selected.createdAt | ago }}</p>
       </div>
@@ -26,10 +26,10 @@
 
       <div class="item tabs tabs-secondary tabs-icon-left">
       <!--   <a class="tab-item" href="{{ selected.offererId | profile }}" target="_system"> -->
-      <a class="tab-item" href="#" ng-click="window.open('{{ selected.offererId | profile }}', '_blank', 'location=yes', 'closebuttoncaption=Return');">
+      <!-- <a class="tab-item" href="#" ng-click="window.open('{{ selected.offererId | profile }}', '_blank', 'location=yes', 'closebuttoncaption=Return');">
           <i class="icon" ng-class="'ion-social-' + selected.offererId.split(':')[0]"></i>
           View {{selected.offererId.split(':')[0]}} profile
-        </a>
+        </a> -->
         <a class="connection-link tab-item" ui-sref="app.chat">
           <i class="icon ion-ios7-chatboxes-outline"></i>
           Make connection
