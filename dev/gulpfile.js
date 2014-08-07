@@ -34,9 +34,6 @@ gulp.task('reload', function () {
 });
 
 gulp.task('watch', function() {
-  // Uncomment below line if you wish to work wit SASS
-  //gulp.watch(paths.sass, ['sass']);
-
   gulp.watch([paths.www], ['reload']);
 });
 

@@ -1,0 +1,72 @@
+<ion-view title="Chat" ng-controller="chatController" class="chatView" hide-back-button="true">
+<!-- <ion-view title="{{talkingTo}}" ng-controller="chatController" class="chatView" hide-back-button="true"> -->
+
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left"class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+
+  <ion-content padding="true">
+    <div class="list card">
+      <!--<div class="item item-avatar">
+        <img ng-src="{{selected.offererId | avatar}}">
+        <h2>{{ selected.displayName }}</h2>
+        <p>{{ selected.createdAt | ago }}</p>
+      </div> -->
+
+      <div class="item item-body">
+        <p>
+          <i class="icon ion-android-locate"></i> {{ selected.location }}
+        </p>
+        <p>
+          <i class="icon ion-calendar"></i> Starts {{ selected.time | ago }}
+        </p>
+        <p>
+          <i class="icon ion-loop"></i> {{ selected.comment }}
+        </p>
+        <p>
+          <i class="ion-ios7-barcode"></i><span class="subdued"> {{ selected.number_give }} for {{ selected.ride }}</span>
+        </p>
+      </div>
+
+
+      <!-- <div class="item tabs tabs-secondary tabs-icon-left">
+        <a class="tab-item" href="{{ selected.offererId | profile }}" target="_system">
+          <i class="icon" ng-class="'ion-social-' + selected.offererId.split(':')[0]"></i>
+          View {{selected.offererId.split(':')[0]}} profile
+        </a>
+      </div> -->
+
+    </div>
+
+
+    <ul class="list">
+      <li class="item" ng-if="!!message.content" ng-cloak ng-repeat="message in userMessages">
+          <p>
+            {{ message.content }}  <!-- : {{ message.createdAt }} -->
+          </p>
+          <h5>{{ message.senderDisplayName }} <small>{{ message.createdAt | ago }}</small></h5>
+      </li>
+    </ul>
+    <br>
+   <!--  <div class="card" ng-hide="!!message">
+      <div class='item item-text-wrap' >
+        Enter a message to start a conversation.
+      </div>
+    </div> -->
+
+  </ion-content>
+  <ion-footer-bar class="chat">
+    <ion-pane>
+      <form ng-submit="sendComment()">
+        <div class="list list-inset">
+          <label class="item item-input">
+            <i class="icon ion-chatbubble placeholder-icon"></i>
+            <input type="text" placeholder="Your message" ng-model="comment.content" ng-required>
+            <!-- <button class="icon ion-arrow-right-c chat-button-send" ng-click="sendComment()"></button> -->
+          </label>
+        </div>
+      </form>
+    </ion-pane>
+  </ion-footer-bar>
+
+</ion-view>

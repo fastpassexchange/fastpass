@@ -4,7 +4,6 @@ angular.module('fastpass.services', ['ionic'])
 // used in listController
 .factory('listService', ['$firebase', '$ionicLoading', function($firebase, $ionicLoading) {
   $ionicLoading.show({
-    // template: '<i class="icon ion-looping"></i>'
     template: '<i class="icon ion-loading-c"></i>'
   });
   var ref = new Firebase('https://fastpass-connection.firebaseio.com/offers/');
@@ -103,33 +102,22 @@ angular.module('fastpass.services', ['ionic'])
   var login = function(type) {
 
     if (type === 'facebook' || type === 'twitter' || 'google'){
-      console.log("attempting auth service login");
       $ionicLoading.show({
         template: '<i class="icon ion-loading-c"></i>'
       });
       auth.$login(type)
       .then(function(user) {
-        console.log('Logged in:' + user.displayName);
         console.dir(user);
 
         var newUser = new Firebase('https://fastpass-connection.firebaseio.com/users/' + user.uid);
 
         newUser.update({displayName: user.displayName});
-
-        // update user's geolocation position
-        // geolocationService.updateUserGeolocation(function(){
-        //   console.log("updateUserCallback");
-        //   $ionicLoading.hide();
-        //   $state.go('app.getPass');
-        // });
         $ionicLoading.hide();
         $state.go('app.getPass');
       }, function(err) {
-        console.log('Login failed: ' + err);
         $ionicLoading.hide();
       });
     }else{
-      console.log('Unrecognized login type');
       $state.go('app.home');
     }
   };
@@ -138,7 +126,6 @@ angular.module('fastpass.services', ['ionic'])
   var logout = function() {
     if(window.cookies){
       window.cookies.clear(function() {
-        console.log('Cookies cleared!');
       });
     }
     if (isLoggedIn()){
@@ -147,8 +134,7 @@ angular.module('fastpass.services', ['ionic'])
   };
 
   var isAuthenticated = function() {
-    console.log("Inside isAuthenticated");
-    return isLoggedIn() //&& geolocationService.inDisneyLand();
+    return isLoggedIn();
   };
 
   // verify user object exists in auth object
@@ -208,24 +194,18 @@ angular.module('fastpass.services', ['ionic'])
   // updates user coord with current geolocation position
   // hard coded numbers for debugging
   var updateUserGeolocation = function(callback){
-    console.log("inside updateUserGeo");
     var options = { timeout: 20000, enableHighAccuracy: true, maximumAge: 90000 };
     navigator.geolocation.getCurrentPosition(function(position){
-      console.log('inside navigator');
       userCoords.lat = /*33.812*/position.coords.latitude;
       userCoords.lng = /*-117.92*/position.coords.longitude;
-      console.log("updated Lat :" + userCoords.lat + ", updated Lng :" + userCoords.lng);
       callback(position);
     }, function(error) {
-      console.log("FAIL geolocation: " + error);
-      console.dir(error);
       $ionicLoading.hide();
     }, options);
   };
 
   // checks whether user is within Disneyland
   var inDisneyLand = function(){
-    console.log("inside inDisneyLand");
     // set boundaries
     var boundaries = disneyLandBoundaries;
     return true;
@@ -233,10 +213,8 @@ angular.module('fastpass.services', ['ionic'])
       userCoords.lat < boundaries.maxLat &&
       boundaries.minLng < userCoords.lng &&
       userCoords.lng < boundaries.maxLng){
-      console.log('insideBoundaries true');
       return true;
     } else{
-      console.log('insideBoundaries false');
       // for testing purposes
       return true;
       // return false;
@@ -258,7 +236,6 @@ angular.module('fastpass.services', ['ionic'])
   }
 
   var sendMessage = function (to) {
-
   }
 
   var addConversation = function (partner) {
