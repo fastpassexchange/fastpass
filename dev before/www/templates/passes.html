@@ -1,0 +1,33 @@
+<ion-view title="Get Fastpass" ng-controller="listController" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left"class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+
+  <ion-content class="has-header">
+    <div class="list">
+      <div class="item item-input-inset">
+        <label class="item-input-wrapper" for="search-input">
+          <input type="text" placeholder="Search" ng-model="search.$" name="search-input" for="search-input">
+        </label>
+      </div>
+
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Select Ride:
+        </div>
+        <select ng-cloak ng-model="selectedRide" ng-options="offer for offer in text | orderByPriority | available | excludeMyOffers | uniqueRides">
+          <option value="">All rides</option>
+        </select>
+      </label>
+
+      <a class="item" ng-cloak ng-repeat="offer in filteredOffers = (text | orderByPriority | filter:selectedRide | available | excludeMyOffers | filter:search)" ng-click="setMaster(offer)" ui-sref="app.getDetails">
+        <h2>{{offer.number_give}} for {{offer.ride}}</h2>
+        <p><i class="ion-android-locate"></i> {{offer.location}}</p>
+      </a>
+    </div>
+    <div class="card" ng-hide="filteredOffers.length">
+      <div class='defaultMsg item item-text-wrap' >There are no offers available.
+      </div>
+    <div>
+  </ion-content>
+</ion-view>

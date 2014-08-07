@@ -2,26 +2,16 @@ angular.module('fastpass', ['ionic', 'fastpass.controllers', 'firebase', 'fastpa
 
 .run(function($ionicPlatform, $rootScope, authService, $state) {
   $ionicPlatform.ready(function() {
-    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-    // for form inputs)
     if(window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false);
     }
     if(window.StatusBar) {
-      // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
   });
   authService.logout();
-  // if(window.cookies){
-  //   window.cookies.clear(function() {
-  //     console.log('Cookies cleared!');
-  //   });
-  // }
   $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
     if (toState.authenticate && !authService.isAuthenticated()){
-      // User not authenticated
-      console.log("User not authenticated");
       $state.go("app.home").then(function(){
         $rootScope.$broadcast('$stateChangeSuccess');
       });

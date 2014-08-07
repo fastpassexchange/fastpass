@@ -14,12 +14,10 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   chatSessions.on('value', function(snapshot) {
     $scope.chatPartnerArray = [];
     snapshot.forEach(function(elem) {
-      console.log('convos names', elem.name());
       $scope.chatPartnerArray.push({
         uid: elem.name(),
         name: elem.child('displayName').val() + " (" + elem.child('offer/ride').val() + ")",
       });
-      console.log('$scope.chatPartnerArray', $scope.chatPartnerArray);
     });
     $ionicLoading.hide();
   });
@@ -69,14 +67,12 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
     //set offer's available property to "false" in both the user's offers AND in the offers section of DB
     $scope.showConfirm = function() {
-      console.log('offer: ', offer);
       var confirmPopup = $ionicPopup.confirm({
         title: 'Delete Offer',
         template: 'Are you sure you want to delete this offer?',
       });
       confirmPopup.then(function(res) {
         if(res) {
-          console.log('You are sure');
           //set offer to false in user's offers
           //grab logged in user's offers
           $scope.yourOffers = new Firebase('https://fastpass-connection.firebaseio.com/users/' + authService.getUserId() + '/offers');
@@ -106,13 +102,11 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
           });
         });
       } else {
-        console.log('You are not sure');
       }
     });
   };
 
   $scope.showConfirm();
-
 
   };
 })
@@ -153,18 +147,13 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
   };
 
   var checkTime = function(time) {
-      console.log('moment(time): ', moment(time));
       var ageInSeconds = moment().utc().unix() - moment(time).unix();
-      console.log('time1: ', moment().utc().unix());
-      console.log('time2: ', moment(time).unix());
       var ageInHours = ageInSeconds/3600;
-      console.log('ageInHours', ageInHours);
       return ageInHours >= 1;
   };
 
   // form validation function
   var isDataValid = function() {
-    console.log("$scope.offer.time: ", $scope.offer.time);
     if ($scope.offer.ride === '') {
       $scope.errorMsg = "Please select a ride.";
       return false;
@@ -211,12 +200,10 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
     $scope.offer.available = true;
     $scope.statusMsg = '';
 
-
     if (isDataValid()) {
       // need to format time because, angular stores the information as a string
       // in format 'hh:mm', which is why it needs to be converted to UTC string.
       $scope.offer.time = formatTime($scope.offer.time);
-      console.log('submitted data is valid');
       if (timerService.isOfferAfterTimeLimit()){
         // get all offers from the database
         var offerRef = new Firebase('https://fastpass-connection.firebaseio.com/offers');
@@ -269,13 +256,8 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
       }
     }
 
-    // using timeout to set scroll at end of loop.
-    // $timeout(function () {
       $ionicScrollDelegate.scrollBottom();
-    // }, 0);
   });
-
-  console.log('userMessages: ', $scope.userMessages);
 
   $scope.sendComment = function() {
 
@@ -291,7 +273,6 @@ angular.module('fastpass.controllers', ['ionic', 'firebase'])
 
     $scope.comment.content = '';
   };
-
 
 })
 

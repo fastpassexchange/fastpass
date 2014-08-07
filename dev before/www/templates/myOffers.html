@@ -1,0 +1,27 @@
+<ion-view title="My Offers" ng-controller="myOffersController" class="padding" hide-back-button="true">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <button class="button button-icon icon ion-edit" ng-click="showDelete = !showDelete"></button>
+  </ion-nav-buttons>
+
+  <ion-content>
+    <ion-list show-delete="showDelete">
+      <ion-item ng-cloak ng-repeat="offer in filteredOffers = (offers | orderByPriority | available)">
+        {{ offer.number_give }} for {{ offer.ride }}
+        <ion-delete-button class="ion-minus-circled" ng-click="deleteOffer(offer)">
+        </ion-delete-button>
+      </ion-item>
+    </ion-list>
+    <br>
+    <div class='card defaultMsg' ng-hide="filteredOffers.length">
+      <div class="item item-text-wrap">{{ defaultMsg }}
+      </div>
+    </div>
+    <div class='card' ng-hide="!filteredOffers.length">
+      <div class="item item-text-wrap" >Please delete any offers you do not want to be contaced for or that were submitted in error.
+      <div>
+    </div>
+  </ion-content>
+</ion-view>

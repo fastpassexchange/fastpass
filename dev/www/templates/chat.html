@@ -1,5 +1,4 @@
 <ion-view title="Chat" ng-controller="chatController" class="chatView" hide-back-button="true">
-<!-- <ion-view title="{{talkingTo}}" ng-controller="chatController" class="chatView" hide-back-button="true"> -->
 
   <ion-nav-buttons side="left">
     <button menu-toggle="left"class="button button-icon icon ion-navicon"></button>
@@ -7,11 +6,6 @@
 
   <ion-content padding="true">
     <div class="list card">
-      <!--<div class="item item-avatar">
-        <img ng-src="{{selected.offererId | avatar}}">
-        <h2>{{ selected.displayName }}</h2>
-        <p>{{ selected.createdAt | ago }}</p>
-      </div> -->
 
       <div class="item item-body">
         <p>
@@ -28,20 +22,6 @@
         </p>
       </div>
 
-
-      <!-- <div class="item tabs tabs-secondary tabs-icon-left">
-        <a class="tab-item" href="{{ selected.offererId | profile }}" target="_system">
-          <i class="icon" ng-class="'ion-social-' + selected.offererId.split(':')[0]"></i>
-          View {{selected.offererId.split(':')[0]}} profile
-        </a>
-      </div> -->
-
-    </div>
-
-    <div class="card" ng-hide="userMessages.length">
-      <div class='item item-text-wrap' >
-        Enter a message to start a conversation.
-      </div>
     </div>
 
     <ul class="list">

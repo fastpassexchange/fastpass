@@ -2,7 +2,6 @@
   <ion-nav-buttons side="left">
     <button menu-toggle="left"class="button button-icon icon ion-navicon"></button>
   </ion-nav-buttons>
-
   <ion-content class="has-header">
     <div class="list">
       <div class="item item-input-inset">
@@ -10,7 +9,6 @@
           <input type="text" placeholder="Search" ng-model="search.$" name="search-input" for="search-input">
         </label>
       </div>
-
       <label class="item item-input item-select">
         <div class="input-label">
           Select Ride:
@@ -19,7 +17,6 @@
           <option value="">All rides</option>
         </select>
       </label>
-
       <a class="item" ng-cloak ng-repeat="offer in filteredOffers = (text | orderByPriority | filter:selectedRide | available | excludeMyOffers | filter:search)" ng-click="setMaster(offer)" ui-sref="app.getDetails">
         <h2>{{offer.number_give}} for {{offer.ride}}</h2>
         <p><i class="ion-android-locate"></i> {{offer.location}}</p>
