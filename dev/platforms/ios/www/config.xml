@@ -12,22 +12,20 @@
     <access origin="https://auth.firebase.com/*" />
     <access origin="https://fastpass-connection.firebaseio.com/*" />
     <access origin='https://cdn.firebase.com/*' />
-    <access origin='https://api.tiles.mapbox.com/*' />
     <access origin='https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfa1/*' />
+    <access origin='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/lang/en-ca.min.js' />
+    <access origin='http://code.ionicframework.com/1.0.0-beta.11' />
     <access origin='*facebook.*'/>
-
     <access origin='*.google.*'/>
     <access origin='*.fbstatic.*'/>
     <access origin='http://graph.facebook.com/*' />
     <preference name="webviewbounce" value="false" />
     <preference name="UIWebViewBounce" value="false" />
     <preference name="DisallowOverscroll" value="true" />
-
     <!-- Don't store local date in an iCloud backup. Turn this to "cloud" to enable storage 
          to be sent to iCloud. Note: enabling this could result in Apple rejecting your app.
     -->
     <preference name="BackupWebStorage" value="none" />
-
     <feature name="StatusBar">
       <param name="ios-package" value="CDVStatusBar" onload="true" />
     </feature>
