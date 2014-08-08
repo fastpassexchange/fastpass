@@ -1,34 +1,19 @@
-/**
- * home.html
- * Style signin.
- */
-
 .signin {
   height: 54px;
 }
-
 .signin .row {
   padding: 0;
 }
-
 .signin .col {
   padding: 0 auto;
 }
-
 .signin button {
   margin: 0 !important;
 }
-
-/**
- * chat.html
- * Style chat
- */
-
 svg path {
   fill: #333;
   
 }
-
 .castleSVG {
   /*margin-bottom: 10px;*/
   height: 250px;
@@ -37,46 +22,30 @@ svg path {
   margin-left: auto;
   margin-right: auto;
 }
-
 .defaultMsg {
   /*font-style: italic;*/
   text-align: center;
 }
-
 .chat {
   height: 70px;
 }
-
 .chat .list {
   margin: 10px;
 }
-
-/**
- * offerInput.html
- * Style input form for new user offer.
- */
-
 .givepass-time-fields {
   margin-right:4em;
 }
-
 .givepass-time-input {
   float:right;
   text-align:right;
   padding:0;
 }
-
 .errorMsg {
   color: red;
   /*font-style: italic;*/
   text-align: center;
 }
-
 .connection-link {
   /*font-weight: bold;*/
   color: blue;
 }
-
-/*.bar {
-  color: rgb(235,95,81);
-}*/
