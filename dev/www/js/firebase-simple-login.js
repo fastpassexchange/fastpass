@@ -746,7 +746,7 @@ fb.simplelogin.transports.CordovaInAppBrowser_.prototype.open = function(url, op
       onComplete.apply(null, args);
     }
   };
-  var windowRef = window["open"](url + "&transport=internal-redirect-hash", "blank", "hidden=yes,location=no");
+  var windowRef = window.open(url + "&transport=internal-redirect-hash", "blank", "hidden=yes,location=no");
   
   windowRef.addEventListener("loadstop", function(event) {
     windowRef.show();

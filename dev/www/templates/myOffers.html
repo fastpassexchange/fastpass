@@ -6,7 +6,7 @@
     <button class="button button-icon icon ion-edit" ng-click="showDelete = !showDelete"></button>
   </ion-nav-buttons>
 
-  <ion-content>
+  <ion-content padding="true">
     <ion-list show-delete="showDelete">
       <ion-item ng-cloak ng-repeat="offer in filteredOffers = (offers | orderByPriority | available)">
         {{ offer.number_give }} for {{ offer.ride }}
