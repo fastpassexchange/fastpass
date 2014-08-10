@@ -13,8 +13,8 @@
     <access origin="https://fastpass-connection.firebaseio.com/*" />
     <access origin='https://cdn.firebase.com/*' />
     <access origin='https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfa1/*' />
-    <access origin='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/lang/en-ca.min.js' />
     <access origin='http://code.ionicframework.com/1.0.0-beta.11' />
+    <access origin='http://code.ionicframework.com/1.0.0-beta.11/css/ionic.min.css' />
     <access origin='*facebook.*'/>
     <access origin='*.google.*'/>
     <access origin='*.fbstatic.*'/>
